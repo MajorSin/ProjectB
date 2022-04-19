@@ -47,17 +47,13 @@ namespace Reserveringssysteem
 		//ZOEK OP TITEL
 		public void TitelZoeken()
 		{
-			Console.WriteLine("Wilt op zoek naar een specifieke titel? Typ 1 van de volgende nummer in:\n1. Ja\n2. Nee");
-			var keuzeTitel = Console.ReadLine();
-			while (keuzeTitel != "1" && keuzeTitel != "2")
-			{
-				Console.WriteLine("Kies uit 1 of 2.");
-				keuzeTitel = Console.ReadLine();
-			}
-			if (keuzeTitel == "1")
+			Console.WriteLine("Wilt op zoek naar een specifieke titel?\n");
+			string[] JaNee = { "Ja", "Nee" };
+			int KeuzeTitel = KeuzeEen(JaNee) + 1;
+			if (KeuzeTitel == 1)
 			{
 				Console.WriteLine("\n");
-				Console.WriteLine("Welk titel wil u kiezen?");
+				Console.WriteLine("\nWelk titel wil u kiezen?");
 				var titelFilter = Console.ReadLine();
 				while (string.IsNullOrWhiteSpace(titelFilter))
 				{
@@ -88,55 +84,17 @@ namespace Reserveringssysteem
 		//ZOEK OP TAAL
 		private void TaalZoeken()
 		{
-			Console.WriteLine("Wilt u kiezen uit een taal?\n1: Ja\n2: Nee");
-			var keuzeTaal = Console.ReadLine();
-			while (keuzeTaal != "1" && keuzeTaal != "2")
-			{
-				Console.WriteLine("Kies uit 1 of 2.");
-				keuzeTaal = Console.ReadLine();
-			}
+			Console.WriteLine("Wilt u kiezen uit een taal?\n");
+			string[] JaNee = { "Ja", "Nee" };
+			int KeuzeTaal = KeuzeEen(JaNee) + 1;
 			Console.WriteLine("\n");
-			if (keuzeTaal == "1")
+			if (KeuzeTaal == 1)
 			{
 				//LIJST EN ARRAY OM TE CHECKEN
-				List<string> taalGekozen = new();
-				string[] taalKeuzeUit = { "Nederlands", "Engels", "Spaans", "Duits", "Japans" };
-				string taalOpties = "";
-				//PRINT DE OPTIES
-				for (int i = 0; i < taalKeuzeUit.Length; i++)
-				{
-					taalOpties += "- " + taalKeuzeUit[i] + "\n";
-				}
-				string keuzesofKeuzeTaal = taalKeuzeUit.Length == 1 ? "keuze is" : "keuzes zijn";
-				Console.WriteLine($"De {keuzesofKeuzeTaal}:\n{taalOpties}U kunt telkens een taal kiezen, de keuze stopt tot u een lege input geeft");
+				string[] taalKeuzeUit = { "Nederlands", "Engels", "Spaans", "Duits", "Japans", "GEKOZEN" };
+				Console.WriteLine($"\n\nU kunt telkens een taal kiezen, de keuze stopt tot u 'GEKOZEN' kiest.\n");
 				//FILTER
-				string taalKeuze = "nothing";
-				while (!string.IsNullOrWhiteSpace(taalKeuze))
-				{
-					taalKeuze = Console.ReadLine();
-					if ((taalKeuze != null) && (!string.IsNullOrWhiteSpace(taalKeuze))) { taalKeuze = char.ToUpper(taalKeuze[0]) + taalKeuze[1..].ToLower(); }
-					//STOP BIJ LEGE INPUT OF ALLES IS GEKOZEN
-					if (string.IsNullOrWhiteSpace(taalKeuze)) { break; }
-					//JUIST GEKOZEN
-					else if (taalKeuzeUit.Contains(taalKeuze))
-					{
-						if (taalGekozen != null)
-						{
-							//GENRE IS EERDER NIET GEKOZEN: VOEG TOE AAN LIST
-							if (!taalGekozen.Contains(taalKeuze))
-							{
-								taalGekozen?.Add(taalKeuze);
-								Console.WriteLine($"{taalKeuze} is toegevoegd!");
-							} else { Console.WriteLine($"{taalKeuze} heeft u al eerder gekozen!"); }
-						}
-					} else
-					{
-						Console.WriteLine("Keuze niet geldig");
-					}
-					Console.WriteLine("\n");
-					//STOP ALS ALLES IS GEKOZEN
-					if (taalKeuzeUit.Length == taalGekozen?.Count) { break; }
-				}
+				List<string> taalGekozen = keuzeFilter(taalKeuzeUit);
 				//KIES ALLE FILMS MET DE JUISTE TAAL
 				if (taalGekozen?.Count > 0)
 				{
@@ -161,54 +119,18 @@ namespace Reserveringssysteem
 		//ZOEK OP GENRE
 		private void GenreZoeken()
 		{
-			Console.WriteLine("Wilt op zoek naar een specifieke genres? Typ 1 van de volgende nummer in:\n1. Ja\n2. Nee");
-			var keuzeGenre = Console.ReadLine();
-			while (keuzeGenre != "1" && keuzeGenre != "2")
-			{
-				Console.WriteLine("Kies uit 1 of 2.");
-				keuzeGenre = Console.ReadLine();
-			}
-			Console.WriteLine("\n");
-			if (keuzeGenre == "1")
+			Console.WriteLine("Wilt op zoek naar een specifieke genres?\n");
+			string[] JaNee = { "Ja", "Nee" };
+			int KeuzeGenre = KeuzeEen(JaNee) + 1;
+			if (KeuzeGenre == 1)
 			{
 				//LIJST EN ARRAY OM TE CHECKEN
-				List<string> genresGekozen = new();
-				string[] genreKeuzeUit = { "actie", "animatie", "avontuur", "documentaire", "drama", "familie", "fantasy", "historisch", "horror", "komedie", "misdaad", "mystery", "oorlog", "romantisch", "sci-fi" };
-				string GenreOpties = "";
+				string[] genreKeuzeUit = { "actie", "animatie", "avontuur", "documentaire", "drama", "familie", "fantasy", "historisch", "horror", "komedie", "misdaad", "mystery", "oorlog", "romantisch", "sci-fi", "GEKOZEN" };
 				//PRINT DE OPTIES
-				for (int i = 0; i < genreKeuzeUit.Length; i++)
-				{
-					GenreOpties += "- " + genreKeuzeUit[i] + "\n";
-				}
-				string keuzesofKeuzeGenre = genreKeuzeUit.Length == 1 ? "keuze is" : "keuzes zijn";
-				Console.WriteLine($"De {keuzesofKeuzeGenre}:\n{GenreOpties}U kunt telkens een genre kiezen, de keuze stopt tot u een lege input geeft of alles is gekozen");
+				Console.WriteLine($"\n\n\n\nU kunt telkens een genre kiezen, de keuze stopt tot u 'GEKOZEN' kiest.\n");
 				//FILTER
-				var genreKeuze = "nothing";
-				while (!string.IsNullOrWhiteSpace(genreKeuze))
-				{
-					genreKeuze = Console.ReadLine();
-					//STOP BIJ LEGE INPUT OF ALLES IS GEKOZEN
-					if (string.IsNullOrWhiteSpace(genreKeuze)) { break; }
-					//JUIST GEKOZEN
-					else if (genreKeuzeUit.Contains(genreKeuze.ToLower()))
-					{
-						if (genresGekozen != null)
-						{
-							//GENRE IS EERDER NIET GEKOZEN: VOEG TOE AAN LIST
-							if (!genresGekozen.Contains(genreKeuze.ToLower()))
-							{
-								genresGekozen?.Add(genreKeuze.ToLower());
-								Console.WriteLine($"{genreKeuze.ToLower()} is toegevoegd!");
-							} else { Console.WriteLine($"{genreKeuze.ToLower()} heeft u al eerder gekozen!"); }
-						}
-					} else
-					{
-						Console.WriteLine("Keuze niet geldig");
-					}
-					Console.WriteLine("\n");
-					//STOP ALS ALLES IS GEKOZEN
-					if (genreKeuzeUit.Length == genresGekozen?.Count) { break; }
-				}
+				List<string> genresGekozen = keuzeFilter(genreKeuzeUit);
+				Console.WriteLine("");
 				//KIES ALLE FILMS VAN DE GENRES
 				if (genresGekozen?.Count > 0)
 				{
@@ -229,6 +151,136 @@ namespace Reserveringssysteem
 				}
 			}
 			Console.Clear();
+		}
+		//KEUZEMENU VOOR 1 KEUZE
+		private int KeuzeEen(string[] options)
+		{
+			int currentSelected = 0;
+			bool selectionMade = false;
+
+			// Loopt door de opties en houdt bij welke keuze je maakt met pijltjestoetsen.
+			while (!selectionMade)
+			{
+				for (int i = 0; i < options.Length; i++)
+				{
+					if (i == currentSelected)
+					{
+						Console.BackgroundColor = ConsoleColor.DarkYellow;
+						Console.Write(" ");
+						Console.ResetColor();
+						Console.ForegroundColor = ConsoleColor.DarkYellow;
+					} else
+					{
+						Console.ForegroundColor = ConsoleColor.White;
+						Console.Write(" ");
+					}
+					Console.WriteLine("  {0}", options[i]);
+					Console.ResetColor();
+				}
+				switch (Console.ReadKey(true).Key)
+				{
+					case ConsoleKey.UpArrow:
+						if (currentSelected == 0)
+						{
+							break;
+						} else
+						{
+							currentSelected -= 1;
+						}
+						break;
+					case ConsoleKey.DownArrow:
+						if (currentSelected == options.Length - 1)
+						{
+							break;
+						} else
+						{
+							currentSelected += 1;
+						}
+						break;
+					case ConsoleKey.Enter:
+						selectionMade = true;
+						break;
+				}
+				// Zorgt ervoor dat de keuzes niet met elkaar gaan overlappen.
+				Console.CursorTop = Console.CursorTop - options.Length;
+			}
+			return currentSelected;
+		}
+		//KEUZEMENU VOOR FILTEREN
+		private List<string> keuzeFilter(string[] options)
+		{
+			int currentSelected = 0;
+			List<int> selected = new();
+			bool selectionDone = false;
+			List<string> gekozen = new();
+			// Loopt door de opties en houdt bij welke keuze je maakt met pijltjestoetsen.
+			while (!selectionDone)
+			{
+				for (int i = 0; i < options.Length; i++)
+				{
+					if (i == currentSelected)
+					{
+						Console.BackgroundColor = ConsoleColor.DarkYellow;
+						Console.Write(" ");
+						Console.ResetColor();
+						Console.ForegroundColor = ConsoleColor.DarkYellow;
+					} else
+					{
+						Console.ForegroundColor = ConsoleColor.White;
+						Console.Write(" ");
+					}
+					if (selected.Contains(i))
+					{
+						Console.ForegroundColor = ConsoleColor.DarkCyan;
+						Console.WriteLine("  {0}", options[i] + " - TOEGEVOEGD");
+					} else if ((options.Length - 1) == i)
+					{
+						Console.ForegroundColor = ConsoleColor.Red;
+						Console.WriteLine("  {0}", options[i]);
+					} else
+					{
+						Console.WriteLine("  {0}", options[i]);
+					}
+					Console.ResetColor();
+				}
+				switch (Console.ReadKey(true).Key)
+				{
+					case ConsoleKey.UpArrow:
+						if (currentSelected == 0)
+						{
+							break;
+						} else
+						{
+							currentSelected -= 1;
+						}
+						break;
+					case ConsoleKey.DownArrow:
+						if (currentSelected == options.Length - 1)
+						{
+							break;
+						} else
+						{
+							currentSelected += 1;
+						}
+						break;
+					case ConsoleKey.Enter:
+						if (currentSelected == (options.Length-1))
+						{
+							return gekozen;
+						}
+						else {
+							if (!gekozen.Contains(options[currentSelected])) 
+							{ 
+								gekozen.Add(options[currentSelected]);
+								selected.Add(currentSelected);
+							}
+						}
+						break;
+				}
+				// Zorgt ervoor dat de keuzes niet met elkaar gaan overlappen.
+				Console.CursorTop = Console.CursorTop - options.Length;
+			}
+			return gekozen;
 		}
 	}
 }
