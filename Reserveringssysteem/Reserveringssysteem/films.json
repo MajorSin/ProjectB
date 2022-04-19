@@ -1,0 +1,2735 @@
+[
+	{
+		"id": 1,
+		"titel": "12 Angry Men",
+		"jaar": 1957,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 96,
+		"genre": [
+			"misdaad",
+			"drama"
+		],
+		"directeur": "Sidney Lumet",
+		"acteurs": "Martin Balsam, John Fiedler, Lee J. Cobb & E.G. Marshall",
+		"plot": "Een standvastige jury probeert een gerechtelijke dwaling te voorkomen door zijn collega's te dwingen het bewijsmateriaal te heroverwegen."
+	},
+	{
+		"id": 2,
+		"titel": "365 dni",
+		"jaar": 2020,
+		"taal": [
+			"Pools",
+			"Engels",
+			"Italiaans"
+		],
+		"looptijd": 114,
+		"genre": [
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Barbara Białowąs & Tomasz Mandes",
+		"acteurs": "Anna-Maria Sieklucka, Michele Morrone, Bronislaw Wrocclawski, Otar Saralidze, Magdalena Lamparska & Natasza Urbańska  ",
+		"plot": "Massimo Torricelli is een jonge Siciliaanse maffiabaas die aan het hoofd van de familie komt te staan als zijn vader wordt geliquideerd. Laura is een employé van een luxueus hotel in oorlogschau die op vakantie is in Sicilië. Op het Italiaanse eiland komen ze elkaar tegen. Voor Massimo is Laura de vrouw over wie hij altijd gedroomd heeft. Hij laat haar kidnappen, sluit haar op in een luxueus kasteel en geeft haar 365 dagen de tijd om van hem te gaan houden."
+	},
+	{
+		"id": 3,
+		"titel": "6 underground",
+		"jaar": 2019,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 128,
+		"genre": [
+			"actie",
+			"thriller"
+		],
+		"directeur": "Michael Bay",
+		"acteurs": "Ryan Reynolds, Mélanie Laurent, Corey Hawkins, Adria Arjona, Manuel Garcia-Rulfo, Ben Hardy, Lior Raz, Payman Maadi, Yuri Kolokolnikov, Kim Kold & Dave Franco",
+		"plot": "Er worden zes getalenteerde mensen geselecteerd die hun dood in scène zetten. Zij vormen een elite-eenheid rond een mysterieuze leider en hebben tot doel de toekomst te verbeteren."
+	},
+	{
+		"id": 4,
+		"titel": "A California Christmas: City Lights",
+		"jaar": 2021,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 90,
+		"genre": [
+			"komedie",
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Shaun Piccinino",
+		"acteurs": "Lauren Swickard, Josh Swickard & Amanda Detmer",
+		"plot": "Vervolg op \"A California Christmas\". Callie en Joseph zijn een jaar een stel geworden en runnen nu een melkveebedrijf en wijnmakerij. Hun romantisch wordt bedreigd wanneer zakelijke en familiale verplichtingen Joseph terugroepen naar de stad. Kan hun bruiloft waar ze zo naar uitkijken nog doorgaan?"
+	},
+	{
+		"id": 5,
+		"titel": "A Separation",
+		"jaar": 2011,
+		"taal": [
+			"Perzisch"
+		],
+		"looptijd": 123,
+		"genre": [
+			"drama",
+			"mystery"
+		],
+		"directeur": "Asghar Farhadi",
+		"acteurs": "Peyman Moaadi, Leila Hatami, Sareh Bayat & Shahab Hosseini",
+		"plot": "Een getrouwd stel staat voor een moeilijke beslissing - om het leven van hun kind te verbeteren door naar een ander land te verhuizen of in Iran te blijven en voor een verslechterende ouder met de ziekte van Alzheimer te zorgen."
+	},
+	{
+		"id": 6,
+		"titel": "Achtste-groepers huilen niet",
+		"jaar": 2012,
+		"taal": [
+			"Nederlands"
+		],
+		"looptijd": 99,
+		"genre": [
+			"drama",
+			"familie",
+			"sport"
+		],
+		"directeur": "Dennis Bots",
+		"acteurs": "Hanna Obbeek, Nils Verkooijen & Fiona Livingston",
+		"plot": "Achtste Groepers Huilen Niet' vertelt het verhaal van de levenslustige Akkie (Hanna Obbeek) die wild is van voetbal, ook al vindt klasgenoot Joep dat voetballen geen meidensport is. Akkie laat zich niet op haar kop zitten en met humor gaat ze tegen zijn pesterijen in. Wanneer ze leukemie krijgt, behoudt Akkie haar optimisme en energie. De hele klas van juf Ina leeft met haar mee en zelfs vanuit het ziekenhuis blijft Akkie zich met het schoolvoetbaltoernooi bemoeien. Als ze zo achteruit gaat dat ze onmogelijk aan het toernooi mee kan doen, bedenkt de stoere Joep een heel bijzonder plan."
+	},
+	{
+		"id": 7,
+		"titel": "Alice in Wonderland",
+		"jaar": 2010,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 108,
+		"genre": [
+			"avontuur",
+			"familie",
+			"fantasy"
+		],
+		"directeur": "Tim Burton",
+		"acteurs": "Johnny Depp, Mia Wasikowska, Helena Bonham Carter & Anne Hathaway",
+		"plot": "De negentienjarige Alice keert terug naar de magische wereld van haar jeugdavontuur, waar ze herenigd wordt met haar oude vrienden en haar oorloge bestemming leert kennen: een einde maken aan het schrikbewind van de Rode Koningin."
+	},
+	{
+		"id": 8,
+		"titel": "Alive",
+		"jaar": 1993,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 120,
+		"genre": [
+			"avontuur",
+			"biografie",
+			"drama"
+		],
+		"directeur": "Frank Marshall",
+		"acteurs": "Ethan Hawke, Vincent Spano, Josh Hamilton & Bruce Ramsay",
+		"plot": "Uruguayaans rugbyteam gestrand in de besneeuwde Andes wordt gedwongen wanhopige maatregelen te nemen om te overleven na een vliegtuigcrash."
+	},
+	{
+		"id": 9,
+		"titel": "All Quiet on the Western Front",
+		"jaar": 1930,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 136,
+		"genre": [
+			"drama",
+			"oorlog"
+		],
+		"directeur": "Lewis Milestone",
+		"acteurs": "Louis Wolheim, Lew Ayres, John Wray & Arnold Lucy",
+		"plot": "Een jonge soldaat wordt geconfronteerd met diepe desillusie in de zielvernietigende horror van de Eerste Wereldoorlog."
+	},
+	{
+		"id": 10,
+		"titel": "American Beauty",
+		"jaar": 1999,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 122,
+		"genre": [
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Sam Mendes",
+		"acteurs": "Kevin Spacey, Annette Bening, Thora Birch & Wes Bentley",
+		"plot": "Een seksueel gefrustreerde vader in een buitenwijk heeft een midlifecrisis nadat hij verliefd is geworden op de beste vriend van zijn dochter."
+	},
+	{
+		"id": 11,
+		"titel": "American Gangster",
+		"jaar": 2007,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 157,
+		"genre": [
+			"biografie",
+			"misdaad",
+			"drama"
+		],
+		"directeur": "Ridley Scott",
+		"acteurs": "Denzel Washington, Russell Crowe, Chiwetel Ejiofor & Josh Brolin",
+		"plot": "In het Amerika van de jaren 70 werkt een detective aan de ondergang van het drugsimperium van Frank Lucas, een heroïnekoningin uit Manhattan, die de drug vanuit het Verre Oosten het land in smokkelt."
+	},
+	{
+		"id": 12,
+		"titel": "American historisch X",
+		"jaar": 1998,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 119,
+		"genre": [
+			"misdaad",
+			"drama"
+		],
+		"directeur": "Tony Kaye",
+		"acteurs": "Edoorlogd Norton, Edoorlogd Furlong, Beverly D'Angelo & Jennifer Lien",
+		"plot": "Een voormalige neo-nazi skinhead probeert te voorkomen dat zijn jongere broer hetzelfde verkeerde pad bewandelt als hij."
+	},
+	{
+		"id": 13,
+		"titel": "Apocalypto",
+		"jaar": 2006,
+		"taal": [
+			"Yucateeks Maya"
+		],
+		"looptijd": 139,
+		"genre": [
+			"actie",
+			"avontuur",
+			"drama",
+			"mystery"
+		],
+		"directeur": "Mel Gibson",
+		"acteurs": "Rudy Youngblood, Dalia Hernández, Jonathan Brewer & Morris Birdyellowhead",
+		"plot": "Terwijl het Maya-koninkrijk met zijn ondergang wordt geconfronteerd, houden de heersers vol dat de sleutel tot welvaart is om meer tempels te bouwen en mensenoffers te brengen. Jaguar Paw, een jonge man die als offer wordt gevangengenomen, vlucht om zijn lot te ontlopen."
+	},
+	{
+		"id": 14,
+		"titel": "Beetlejuice",
+		"jaar": 1988,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 92,
+		"genre": [
+			"komedie",
+			"fantasy"
+		],
+		"directeur": "Tim Burton",
+		"acteurs": "Alec Baldwin, Geena Davis, Annie McEnroe & Maurice Page",
+		"plot": "Een paar onlangs overleden geesten nemen de hulp in van een \"bio-exorcist\" om de irritante nieuwe eigenaren van hun huis te verwijderen."
+	},
+	{
+		"id": 15,
+		"titel": "Before Midnight",
+		"jaar": 2013,
+		"taal": [
+			"Engels",
+			"Grieks",
+			"Frans"
+		],
+		"looptijd": 109,
+		"genre": [
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Richard Linklater",
+		"acteurs": "Ethan Hawke, Julie Delpy, Seamus Davey-Fitzpatrick & Jennifer Prior",
+		"plot": "Negen jaar later ontmoeten we Jesse en Celine in Griekenland. Er zijn bijna twee decennia verstreken sinds hun eerste ontmoeting in die trein naar Wenen."
+	},
+	{
+		"id": 16,
+		"titel": "Before Sunrise",
+		"jaar": 1995,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 105,
+		"genre": [
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Richard Linklater",
+		"acteurs": "Ethan Hawke, Julie Delpy, Andrea Eckert & Hanno Pöschl",
+		"plot": "Een jonge man en vrouw ontmoeten elkaar in een trein in Europa en brengen samen een avond door in Wenen. Helaas weten ze allebei dat dit waarschijnlijk hun enige nacht samen zal zijn."
+	},
+	{
+		"id": 17,
+		"titel": "Before Sunset",
+		"jaar": 2004,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 80,
+		"genre": [
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Richard Linklater",
+		"acteurs": "Ethan Hawke, Julie Delpy, Vernon Dobtcheff & Louise Lemoine Torrès",
+		"plot": "Negen jaar nadat Jesse en Celine elkaar voor het eerst ontmoetten, ontmoeten ze elkaar weer tijdens het Franse deel van Jesse's boekentour."
+	},
+	{
+		"id": 18,
+		"titel": "Big Nothing",
+		"jaar": 2006,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 86,
+		"genre": [
+			"komedie",
+			"misdaad",
+			"thriller"
+		],
+		"directeur": "Jean-Baptiste Andrea",
+		"acteurs": "David Schwimmer, Simon Pegg, Alice Eve & Natascha McElhone",
+		"plot": "Een gefrustreerde, werkloze leraar bundelt de krachten met een oplichter en zijn vriendin in een chantageplan."
+	},
+	{
+		"id": 19,
+		"titel": "Birdman or (The Unexpected Virtue of Ignorance)",
+		"jaar": 2014,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 119,
+		"genre": [
+			"komedie",
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Alejandro G. Iñárritu",
+		"acteurs": "Michael Keaton, Emma Stone, Kenny Chin & Jamahl Garrison-Lowe",
+		"plot": "Geïllustreerd aan de hand van de voortgang van zijn nieuwste Broadway-toneelstuk, wordt een voormalige populaire acteur getoond die worstelt om zijn huidige leven als een verspilde acteur het hoofd te bieden."
+	},
+	{
+		"id": 20,
+		"titel": "Black Swan",
+		"jaar": 2010,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 108,
+		"genre": [
+			"drama",
+			"thriller",
+			"sport"
+		],
+		"directeur": "Darren Aronofsky",
+		"acteurs": "Natalie Portman, Mila Kunis, Vincent Cassel & Barbara Hershey",
+		"plot": "Een toegewijde danseres wint de hoofdrol in een productie van Tsjaikovski's 'Zwanenmeer', maar merkt dat ze worstelt om haar verstand te behouden."
+	},
+	{
+		"id": 21,
+		"titel": "Boyhood",
+		"jaar": 2014,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 165,
+		"genre": [
+			"drama"
+		],
+		"directeur": "Richard Linklater",
+		"acteurs": "Ellar Coltrane, Patricia Arquette, Elijah Smith & Lorelei Linklater",
+		"plot": "Het leven van Mason, van zijn vroege kinderjaren tot zijn aankomst op de universiteit."
+	},
+	{
+		"id": 22,
+		"titel": "Calvary",
+		"jaar": 2014,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 102,
+		"genre": [
+			"komedie",
+			"drama"
+		],
+		"directeur": "John Michael McDonagh",
+		"acteurs": "Brendan Gleeson, Chris O'Dowd, Kelly Reilly & Aidan Gillen",
+		"plot": "Nadat hij tijdens een biecht wordt bedreigd, moet een goedaardige priester het opnemen tegen de duistere krachten die om hem heen komen."
+	},
+	{
+		"id": 23,
+		"titel": "Casablanca",
+		"jaar": 1942,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 102,
+		"genre": [
+			"drama",
+			"romantisch",
+			"oorlog"
+		],
+		"directeur": "Michael Curtiz",
+		"acteurs": "Humphrey Bogart, Ingrid Bergman, Paul Henreid & Claude Rains",
+		"plot": "In december 1941 in Casablanca, Marokko, ontmoet een cynische Amerikaanse expat een voormalige minnaar, met onvoorziene complicaties."
+	},
+	{
+		"id": 24,
+		"titel": "Casino",
+		"jaar": 1995,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 178,
+		"genre": [
+			"biografie",
+			"misdaad",
+			"drama"
+		],
+		"directeur": "Martin Scorsese",
+		"acteurs": "Robert De Niro, Sharon Stone, Joe Pesci & James Woods",
+		"plot": "Hebzucht, bedrog, geld, macht en moord vinden plaats tussen twee beste vrienden, een maffia-onderbaas en een casino-eigenaar, voor een trofeevrouw over een gokimperium."
+	},
+	{
+		"id": 25,
+		"titel": "Casino Royale",
+		"jaar": 2006,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 144,
+		"genre": [
+			"actie",
+			"avontuur",
+			"thriller"
+		],
+		"directeur": "Martin Campbell",
+		"acteurs": "Daniel Craig, Eva Green, Mads Mikkelsen & Judi Dench",
+		"plot": "Gewapend met een licentie om te doden, gaat geheim agent James Bond op zijn eerste missie als 007 en moet hij een wapenhandelaar verslaan in een pokerspel met hoge inzetten bij Casino Royale, maar de dingen zijn niet wat ze lijken."
+	},
+	{
+		"id": 26,
+		"titel": "Catch Me If You Can",
+		"jaar": 2002,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 141,
+		"genre": [
+			"biografie",
+			"misdaad",
+			"drama"
+		],
+		"directeur": "Steven Spielberg",
+		"acteurs": "Leonardo DiCaprio, Tom Hanks, Christopher Walken & Martin Sheen",
+		"plot": "Het waargebeurde verhaal van Frank Abagnale Jr. die voor zijn 19e verjaardag met succes miljoenen dollars aan cheques verduisterde als Pan Am-piloot, arts en gerechtsdeurwaarder."
+	},
+	{
+		"id": 27,
+		"titel": "Chasing Amy",
+		"jaar": 1997,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 113,
+		"genre": [
+			"komedie",
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Kevin Smith",
+		"acteurs": "Ethan Suplee, Ben Affleck, Scott Mosier & Jason Lee",
+		"plot": "Holden en Banky zijn striptekenaars. Alles gaat goed met hen totdat ze Alyssa ontmoeten, ook een striptekenaar. Holden valt voor haar, maar zijn hoop wordt verpletterd als hij ontdekt dat ze homo is."
+	},
+	{
+		"id": 28,
+		"titel": "Chernobyl 1986",
+		"jaar": 2021,
+		"taal": [
+			"Russisch"
+		],
+		"looptijd": 136,
+		"genre": [
+			"drama",
+			"historisch",
+			"romantisch"
+		],
+		"directeur": "Danila Kozlovsky",
+		"acteurs": "Danila Kozlovsky, Oksana Akinshina, Filipp Avdeyev, Ravshana Kurkova & Nikolay Kozak",
+		"plot": "Tsjernobyl, 1986. Na een mislukte veiligheidstest in een kerncentrale ontstaat er een explosie met rampzalige gevolgen. Alexey, een brandweerman, gaat op een gevaarlijke missie om water af te voeren uit een reservoir onder de brandende kernreactor. Hij doet dit samen met ingenieur Valery en de militaire duiker Boris. Er is geen tijd voor een goede planning en het water dat ze moeten trotseren wordt met het uur heter. Om een nog grotere ramp te voorkomen zijn de drie mannen bereid hun eigen leven op te offeren."
+	},
+	{
+		"id": 29,
+		"titel": "Chinatown",
+		"jaar": 1974,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 130,
+		"genre": [
+			"drama",
+			"mystery",
+			"thriller"
+		],
+		"directeur": "Roman Polanski",
+		"acteurs": "Jack Nicholson, Faye Dunaway, John Huston & Perry Lopez",
+		"plot": "Een privédetective die is ingehuurd om een overspelige te ontmaskeren, komt terecht in een web van bedrog, corruptie en moord."
+	},
+	{
+		"id": 30,
+		"titel": "Chocolat",
+		"jaar": 2000,
+		"taal": [
+			"Engels",
+			"Frans"
+		],
+		"looptijd": 121,
+		"genre": [
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Lasse Hallström",
+		"acteurs": "Alfred Molina, Carrie-Anne Moss, Aurelien Parent Koenig & Antonio Gil",
+		"plot": "Een vrouw en haar dochter openen een chocolaterie in een klein Frans dorpje dat de rigide moraal van de gemeenschap door elkaar schudt."
+	},
+	{
+		"id": 31,
+		"titel": "City of God",
+		"jaar": 2002,
+		"taal": [
+			"Portugees"
+		],
+		"looptijd": 130,
+		"genre": [
+			"misdaad",
+			"drama",
+			"historisch"
+		],
+		"directeur": "Fernando Meirelles & Kátia Lund",
+		"acteurs": "Alexandre Rodrigues, Leandro Firmino, Phellipe Haagensen & Douglas Silva",
+		"plot": "Twee jongens die opgroeien in een gewelddadige wijk van Rio de Janeiro nemen verschillende wegen: de een wordt fotograaf, de ander drugsdealer."
+	},
+	{
+		"id": 32,
+		"titel": "Cloud Atlas",
+		"jaar": 2012,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 172,
+		"genre": [
+			"drama",
+			"sciencefiction"
+		],
+		"directeur": "Tom Tykwer, Lana Wachowski & Lilly Wachowski",
+		"acteurs": "Tom Hanks, Halle Berry, Jim Broadbent & Hugo Weaving",
+		"plot": "Een verkenning van hoe de acties van individuele levens elkaar beïnvloeden in het verleden, het heden en de toekomst, terwijl een ziel wordt gevormd van een moordenaar in een held, en een daad van vriendelijkheid golft door de eeuwen heen om een revolutie te inspireren."
+	},
+	{
+		"id": 33,
+		"titel": "Corpse Bride",
+		"jaar": 2005,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 77,
+		"genre": [
+			"animatie",
+			"drama",
+			"familie",
+			"sciencefiction"
+		],
+		"directeur": "Tim Burton & Mike Johnson",
+		"acteurs": "Johnny Depp, Helena Bonham Carter, Emily Watson & Tracey Ullman",
+		"plot": "Wanneer een verlegen bruidegom zijn huwelijksgeloften praktiseert in de onopzettelijke aanwezigheid van een overleden jonge vrouw, staat ze op uit het graf in de veronderstelling dat hij met haar getrouwd is."
+	},
+	{
+		"id": 34,
+		"titel": "Crash",
+		"jaar": 2004,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 112,
+		"genre": [
+			"misdaad",
+			"drama",
+			"thriller"
+		],
+		"directeur": "Paul Haggis",
+		"acteurs": "Karina Arroyave, Dato Bakhtadze, Sandra Bullock & Don Cheadle",
+		"plot": "Los Angeles-burgers met enorm gescheiden levens komen samen in verweven verhalen over ras, verlies en verlossing."
+	},
+	{
+		"id": 35,
+		"titel": "Crocodile Dundee",
+		"jaar": 1986,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 97,
+		"genre": [
+			"avontuur",
+			"komedie",
+			"drama"
+		],
+		"directeur": "Peter Faiman",
+		"acteurs": "Paul Hogan, Linda Kozlowski, John Meillon & David Gulpilil",
+		"plot": "Een Amerikaanse verslaggever gaat naar de Australische outback om een excentrieke krokodillenstroper te ontmoeten en nodigt hem uit in New York City."
+	},
+	{
+		"id": 36,
+		"titel": "Dallas Buyers Club",
+		"jaar": 2013,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 117,
+		"genre": [
+			"biografie",
+			"drama"
+		],
+		"directeur": "Jean-Marc Vallée",
+		"acteurs": "Matthew McConaughey, Jennifer Garner, Jared Leto & Denis O'Hare",
+		"plot": "In 1985 werkt Dallas, elektricien en oplichter Ron Woodroof rond het systeem om AIDS-patiënten te helpen de medicatie te krijgen die ze nodig hebben nadat hij de diagnose van de ziekte heeft gekregen."
+	},
+	{
+		"id": 37,
+		"titel": "Das Boot",
+		"jaar": 1981,
+		"taal": [
+			"Duits"
+		],
+		"looptijd": 149,
+		"genre": [
+			"avontuur",
+			"drama",
+			"thriller"
+		],
+		"directeur": "Wolfgang Petersen",
+		"acteurs": "Jürgen Prochnow, Herbert Grönemeyer, Klaus Wennemann & Hubertus Bengsch",
+		"plot": "De claustrofobische wereld van een Duitse U-boot uit de Tweede Wereldoorlog; verveling, vuiligheid en pure angst."
+	},
+	{
+		"id": 38,
+		"titel": "De slag om schelde",
+		"jaar": 2021,
+		"taal": [
+			"Nederlands"
+		],
+		"looptijd": 124,
+		"genre": [
+			"oorlog",
+			"drama"
+		],
+		"directeur": "Matthijs van Heijningen jr.",
+		"acteurs": "Gijs Blom, Jamie Flatters & Susan Radder",
+		"plot": "Op het Zeeuwse Walcheren vechten in 1944 tienduizenden geallieerden en Duitsers tegen elkaar. De wegen van een Nederlandse jongen die voor de Duitsers vecht, een verdwaalde Engelse gliderpiloot en een tegen wil en dank in het verzet betrokken Zeeuws meisje kruisen elkaar."
+	},
+	{
+		"id": 39,
+		"titel": "Despicable Me",
+		"jaar": 2010,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 95,
+		"genre": [
+			"animatie",
+			"avontuur",
+			"komedie"
+		],
+		"directeur": "Pierre Coffin & Chris Renaud",
+		"acteurs": "Steve Carell, Jason Segel, Russell Brand & Julie Andrews",
+		"plot": "Wanneer een crimineel meesterbrein een drietal weesmeisjes als pionnen voor een groots plan gebruikt, ontdekt hij dat hun liefde hem diepgaand ten goede verandert."
+	},
+	{
+		"id": 40,
+		"titel": "Despicable Me 2",
+		"jaar": 2013,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 98,
+		"genre": [
+			"animatie",
+			"avontuur",
+			"komedie"
+		],
+		"directeur": "Pierre Coffin & Chris Renaud",
+		"acteurs": "Steve Carell, Kristen Wiig, Benjamin Bratt & Miranda Cosgrove",
+		"plot": "Wanneer Gru, 's werelds meest superslechte supervader is gerekruteerd door een team van officials om dodelijke spierballen en een groot aantal Gru's eigen te stoppen, moet hij terugvechten met nieuwe gadgets, auto's en meer minion-gekte."
+	},
+	{
+		"id": 41,
+		"titel": "Django Unchained",
+		"jaar": 2012,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 165,
+		"genre": [
+			"drama",
+			"western"
+		],
+		"directeur": "Quentin Tarantino",
+		"acteurs": "Jamie Foxx, Christoph Waltz, Leonardo DiCaprio & Kerry Washington",
+		"plot": "Met de hulp van een Duitse premiejager gaat een bevrijde slaaf op pad om zijn vrouw te redden van een meedogenloze plantage-eigenaar in Mississippi."
+	},
+	{
+		"id": 42,
+		"titel": "Downfall",
+		"jaar": 2004,
+		"taal": [
+			"Duits"
+		],
+		"looptijd": 156,
+		"genre": [
+			"biografie",
+			"drama",
+			"historisch"
+		],
+		"directeur": "Oliver Hirschbiegel",
+		"acteurs": "Bruno Ganz, Alexandra Maria Lara, Corinna Harfouch & Ulrich Matthes",
+		"plot": "Traudl Junge, de laatste secretaris van Adolf Hitler, vertelt over de laatste dagen van de nazi-dictator in zijn Berlijnse bunker aan het einde van de Tweede Wereldoorlog."
+	},
+	{
+		"id": 43,
+		"titel": "Ex Machina",
+		"jaar": 2015,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 108,
+		"genre": [
+			"drama",
+			"mystery"
+		],
+		"directeur": "Alex Garland",
+		"acteurs": "Domhnall Gleeson, Corey Johnson, Oscar Isaac & Alicia Vikander",
+		"plot": "Een jonge programmeur wordt geselecteerd om deel te nemen aan een baanbrekend experiment in synthetische intelligentie door de menselijke kwaliteiten van een adembenemende humanoïde A.I."
+	},
+	{
+		"id": 44,
+		"titel": "Flight",
+		"jaar": 2012,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 138,
+		"genre": [
+			"drama",
+			"thriller"
+		],
+		"directeur": "Robert Zemeckis",
+		"acteurs": "Nadine Velazquez, Denzel Washington, Carter Cabassa & Adam C. Edoorlogds",
+		"plot": "Een piloot van een luchtvaartmaatschappij redt bijna al zijn passagiers op zijn defecte vliegtuig dat uiteindelijk neerstortte, maar een onderzoek naar het ongeval brengt iets verontrustends aan het licht."
+	},
+	{
+		"id": 45,
+		"titel": "Forrest Gump",
+		"jaar": 1994,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 142,
+		"genre": [
+			"komedie",
+			"drama"
+		],
+		"directeur": "Robert Zemeckis",
+		"acteurs": "Tom Hanks, Rebecca Williams, Sally Field & Michael Conner Humphreys",
+		"plot": "Forrest Gump, hoewel niet intelligent, is per ongeluk aanwezig geweest op vele historische momenten, maar zijn oorloge liefde, Jenny Curran, ontgaat hem."
+	},
+	{
+		"id": 46,
+		"titel": "Frida",
+		"jaar": 2002,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 123,
+		"genre": [
+			"biografie",
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Julie Taymor",
+		"acteurs": "Salma Hayek, Mía Maestro, Alfred Molina & Antonio Banderas",
+		"plot": "Een biografie van kunstenaar Frida Kahlo, die de pijn van een verlammende verwonding en haar stormachtige huwelijk in haar werk kanaliseert."
+	},
+	{
+		"id": 47,
+		"titel": "Gandhi",
+		"jaar": 1982,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 191,
+		"genre": [
+			"biografie",
+			"drama"
+		],
+		"directeur": "Richard Attenborough",
+		"acteurs": "Ben Kingsley, Candice Bergen, Edoorlogd Fox & John Gielgud",
+		"plot": "Gandhi's karakter wordt volledig uitgelegd als een man van geweldloosheid. Door zijn geduld is hij in staat de Britten uit het subcontinent te verdrijven. En het koppige karakter van Jinnah en zijn inzet voor Pakistan wordt in beeld gebracht."
+	},
+	{
+		"id": 48,
+		"titel": "Gattaca",
+		"jaar": 1997,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 106,
+		"genre": [
+			"drama",
+			"sciencefiction",
+			"thriller"
+		],
+		"directeur": "Andrew Niccol",
+		"acteurs": "Ethan Hawke, Uma Thurman, Gore Vidal & Xander Berkeley",
+		"plot": "Een genetisch inferieure man neemt de identiteit aan van een superieure om zijn levenslange droom van ruimtereizen na te jagen."
+	},
+	{
+		"id": 49,
+		"titel": "God Bless America",
+		"jaar": 2011,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 105,
+		"genre": [
+			"komedie",
+			"misdaad"
+		],
+		"directeur": "Bobcat Goldthwait",
+		"acteurs": "Joel Murray, Tara Lynne Barr, Melinda Page Hamilton & Mackenzie Brooke Smith",
+		"plot": "Op een missie om de samenleving te ontdoen van haar meest weerzinwekkende burgers, maakt de terminaal zieke Frank een onwaarschijnlijke handlanger in de 16-jarige Roxy."
+	},
+	{
+		"id": 50,
+		"titel": "Gran Torino",
+		"jaar": 2008,
+		"taal": [
+			"Engels",
+			"Hmong"
+		],
+		"looptijd": 116,
+		"genre": [
+			"drama"
+		],
+		"directeur": "Clint Eastwood",
+		"acteurs": "Clint Eastwood, Christopher Carley, Bee Vang & Ahney Her",
+		"plot": "De ontevreden Koreaanse oorlogsveteraan Walt Kowalski wil zijn buurman hervormen, een Hmong-tiener die Kowalski's kostbare bezit probeerde te stelen: een Gran Torino uit 1972."
+	},
+	{
+		"id": 51,
+		"titel": "Hellboy II: The Golden Army",
+		"jaar": 2008,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 120,
+		"genre": [
+			"actie",
+			"avontuur",
+			"fantasy"
+		],
+		"directeur": "Guillermo del Toro",
+		"acteurs": "Ron Perlman, Selma Blair, Doug Jones & John Alexander",
+		"plot": "De mythische wereld begint een opstand tegen de mensheid om de aarde te regeren, dus Hellboy en zijn team moeten de wereld redden van de opstandige wezens."
+	},
+	{
+		"id": 52,
+		"titel": "Hotel Rwanda",
+		"jaar": 2004,
+		"taal": [
+			"Engels",
+			"Frans"
+		],
+		"looptijd": 121,
+		"genre": [
+			"drama",
+			"historisch",
+			"oorlog"
+		],
+		"directeur": "Terry George",
+		"acteurs": "Xolani Mali, Don Cheadle, Desmond Dube & Hakeem Kae-Kazim",
+		"plot": "Paul Rusesabagina was een hotelmanager die meer dan duizend Tutsi-vluchtelingen huisvestte tijdens hun strijd tegen de Hutu-milities in Rwanda."
+	},
+	{
+		"id": 53,
+		"titel": "Ice Age",
+		"jaar": 2002,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 81,
+		"genre": [
+			"animatie",
+			"avontuur",
+			"komedie"
+		],
+		"directeur": "Chris Wedge & Carlos Saldanha",
+		"acteurs": "Ray Romano, John Leguizamo, Denis Leary & Goran Visnjic",
+		"plot": "Tijdens de ijstijd vinden een sabeltandtijger, een luiaard en een wolharige mammoet een verloren mensenkind en ze proberen hem terug te brengen naar zijn stam."
+	},
+	{
+		"id": 54,
+		"titel": "Inception",
+		"jaar": 2010,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 148,
+		"genre": [
+			"actie",
+			"avontuur",
+			"sciencefiction"
+		],
+		"directeur": "Christopher Nolan",
+		"acteurs": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page & Tom Hardy",
+		"plot": "Een dief die bedrijfsgeheimen steelt door gebruik te maken van technologie voor het delen van dromen, krijgt de omgekeerde taak om een idee in de geest van een CEO te planten."
+	},
+	{
+		"id": 55,
+		"titel": "Indochine",
+		"jaar": 1992,
+		"taal": [
+			"Vietnamees",
+			"Frans"
+		],
+		"looptijd": 159,
+		"genre": [
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Régis oorloggnier",
+		"acteurs": "Catherine Deneuve, Vincent Perez, Linh Dan Pham & Jean Yanne",
+		"plot": "Indochine is een Franse film uit 1992. De film is een liefdes-dramaverhaal dat zich afspeelt in Frans-Indochina. Het speelt zich af tegen de achtergrond van Vietnamese onafhankelijkheidsstrijd, van de Yen Bai-muiterij in 1927 tot aan de onafhankelijkheid van Vietnam in 1957."
+	},
+	{
+		"id": 56,
+		"titel": "Interstellar",
+		"jaar": 2014,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 169,
+		"genre": [
+			"avontuur",
+			"drama",
+			"sciencefiction"
+		],
+		"directeur": "Christopher Nolan",
+		"acteurs": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy & John Lithgow",
+		"plot": "Een team van ontdekkingsreizigers reist door een wormgat in de ruimte in een poging het voortbestaan van de mensheid te verzekeren."
+	},
+	{
+		"id": 57,
+		"titel": "I-See-You.Com",
+		"jaar": 2006,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 92,
+		"genre": [
+			"komedie"
+		],
+		"directeur": "Eric Steven Stahl",
+		"acteurs": "Beau Bridges, Rosanna Arquette, Mathew Botuchis & Shiri Appleby",
+		"plot": "Een 17-jarige jongen koopt minicamera's en toont de beelden online op I-see-you.com. Het geld komt binnen als de site een grote hit wordt. Iedereen lijkt plezier te hebben totdat alles instort...."
+	},
+	{
+		"id": 58,
+		"titel": "It",
+		"jaar": 2017,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 136,
+		"genre": [
+			"horror"
+		],
+		"directeur": "Andy Muschietti",
+		"acteurs": "Jaeden Lieberher, Bill Skarsgård, Jeremy Ray Taylor, Sophia Lillis, Finn Wolfhard, Chosen Jacobs, Jack Dylan Grazer & Wyatt Oleff",
+		"plot": "Zomer 1989. 'It' volgt een groep kinderen, beter bekend als de 'Losers club', in het kleine stadje Derry, Maine. Op een dag wordt het stadje geterroriseerd door het bloeddorstigste monster It dat het op de kinderen voorzien heeft. Dit monster, dat de vorm van een clown genaamd Pennywise aanneemt, komt lijnrecht tegenover het groepje kinderen te staan dat er alles aan zal moeten doen om het te verdrijven."
+	},
+	{
+		"id": 59,
+		"titel": "Kiss Kiss Bang Bang",
+		"jaar": 2005,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 103,
+		"genre": [
+			"komedie",
+			"misdaad",
+			"mystery"
+		],
+		"directeur": "Shane Black",
+		"acteurs": "Robert Downey Jr., Val Kilmer, Michelle Monaghan & Corbin Bernsen",
+		"plot": "Een moordmysterie brengt een privédetective, een worstelende actrice en een dief die zich voordoet als acteur samen."
+	},
+	{
+		"id": 60,
+		"titel": "L.A. Confidential",
+		"jaar": 1997,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 138,
+		"genre": [
+			"misdaad",
+			"drama",
+			"mystery"
+		],
+		"directeur": "Curtis Hanson",
+		"acteurs": "Kevin Spacey, Russell Crowe, Guy Pearce & James Cromwell",
+		"plot": "Terwijl de corruptie in LA in de jaren vijftig toeneemt, onderzoeken drie politieagenten - de een streng, de ander brutaal en de ander slonzig - een reeks moorden met hun eigen soort gerechtigheid."
+	},
+	{
+		"id": 61,
+		"titel": "Les Misérables",
+		"jaar": 2012,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 158,
+		"genre": [
+			"drama",
+			"muziekal",
+			"romantisch"
+		],
+		"directeur": "Tom Hooper",
+		"acteurs": "Hugh Jackman, Russell Crowe, Anne Hathaway & Amanda Seyfried",
+		"plot": "In het 19e-eeuwse Frankrijk stemt Jean Valjean, die al tientallen jaren wordt achtervolgd door de meedogenloze politieman Javert na het breken van zijn voorwaardelijke vrijlating, ermee in om voor de dochter van een fabrieksarbeider te zorgen. De beslissing verandert hun leven voor altijd."
+	},
+	{
+		"id": 62,
+		"titel": "Lock, Stock and Two Smoking Barrels",
+		"jaar": 1998,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 107,
+		"genre": [
+			"komedie",
+			"misdaad"
+		],
+		"directeur": "Guy Ritchie",
+		"acteurs": "Jason Flemyng, Dexter Fletcher, Nick Moran & Jason Statham",
+		"plot": "Een mislukt kaartspel in Londen zorgt ervoor dat vier vrienden, misdadigers, onkruidkwekers, harde gangsters, woekeraars en schuldinzamelaars met elkaar in botsing komen in een reeks onverwachte gebeurtenissen, allemaal omwille van wiet, geld en twee antieke jachtgeweren."
+	},
+	{
+		"id": 63,
+		"titel": "Looper",
+		"jaar": 2012,
+		"taal": [
+			"Engels",
+			"Mandarijn"
+		],
+		"looptijd": 119,
+		"genre": [
+			"actie",
+			"misdaad",
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Rian Johnson",
+		"acteurs": "Joseph Gordon-Levitt, Bruce Willis, Emily Blunt & Paul Dano",
+		"plot": "In 2074, wanneer de menigte van iemand af wil, wordt het doelwit naar het verleden gestuurd, waar een huurmoordenaar wacht - iemand als Joe - die op een dag ontdekt dat de menigte 'de cirkel wil sluiten' door Joe's toekomstige zelf terug te sturen voor moord."
+	},
+	{
+		"id": 64,
+		"titel": "Lost in Translation",
+		"jaar": 2003,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 101,
+		"genre": [
+			"drama"
+		],
+		"directeur": "Sofia Coppola",
+		"acteurs": "Scarlett Johansson, Bill Murray, Akiko Takeshita & Kazuyoshi Minamimagoe",
+		"plot": "Een vervaagde filmster en een verwaarloosde jonge vrouw vormen een onwaarschijnlijke band na het kruisen van paden in Tokio."
+	},
+	{
+		"id": 65,
+		"titel": "Lucky Number Slevin",
+		"jaar": 2006,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 110,
+		"genre": [
+			"misdaad",
+			"drama",
+			"mystery"
+		],
+		"directeur": "Paul McGuigan",
+		"acteurs": "Josh Hartnett, Bruce Willis, Lucy Liu & Morgan Freeman",
+		"plot": "Een geval van verkeerde identiteit brengt Slevin in het midden van een oorlog die wordt beraamd door twee van de meest rivaliserende misdaadbazen van de stad: The Rabbi en The Boss. Slevin wordt constant in de gaten gehouden door meedogenloze rechercheur Brikowski en de beruchte moordenaar Goodkat en moet zijn eigen ingenieuze complot bedenken om ze te pakken te krijgen voordat ze hem te pakken krijgen."
+	},
+	{
+		"id": 66,
+		"titel": "Madagascar",
+		"jaar": 2005,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 86,
+		"genre": [
+			"animatie",
+			"avontuur",
+			"komedie"
+		],
+		"directeur": "Eric Darnell & Tom McGrath",
+		"acteurs": "Ben Stiller, Chris Rock, David Schwimmer  & Jada Pinkett Smith",
+		"plot": "Verwend door hun opvoeding zonder enig idee hoe het leven in het wild is, ontsnappen vier dieren uit de New York Central Zoo, onbewust bijgestaan door vier onderduikende pinguïns, en bevinden ze zich in Madagaskar, tussen een stel vrolijke maki's"
+	},
+	{
+		"id": 67,
+		"titel": "Madagascar 3: Europe's Most Wanted",
+		"jaar": 2012,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 93,
+		"genre": [
+			"animatie",
+			"avontuur",
+			"komedie"
+		],
+		"directeur": "Eric Darnell, Tom McGrath & Conrad Vernon",
+		"acteurs": "Ben Stiller, Chris Rock, David Schwimmer & Jada Pinkett Smith",
+		"plot": "Alex, Marty, Gloria en Melman vechten nog steeds om thuis te komen bij hun geliefde Big Apple. Hun reis voert hen door Europa waar ze de perfecte dekmantel vinden: een reizend circus, dat ze opnieuw uitvinden - in Madagaskar-stijl."
+	},
+	{
+		"id": 68,
+		"titel": "Madagascar: Escape 2 Africa",
+		"jaar": 2008,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 89,
+		"genre": [
+			"animatie",
+			"actie",
+			"avontuur"
+		],
+		"directeur": "Eric Darnell & Tom McGrath",
+		"acteurs": "Ben Stiller, Chris Rock, David Schwimmer & Jada Pinkett Smith",
+		"plot": "De dieren proberen terug te vliegen naar New York City, maar crashen op een Afrikaans natuurreservaat, waar Alex wordt herenigd met zijn ouders."
+	},
+	{
+		"id": 69,
+		"titel": "Mary and Max",
+		"jaar": 2009,
+		"taal": [
+			"Engels",
+			"Yiddish"
+		],
+		"looptijd": 92,
+		"genre": [
+			"animatie",
+			"komedie",
+			"drama"
+		],
+		"directeur": "Adam Elliot",
+		"acteurs": "Toni Collette, Philip Seymour Hoffman, Barry Humphries & Eric Bana",
+		"plot": "Een verhaal over vriendschap tussen twee onwaarschijnlijke penvrienden: Mary, een eenzaam, achtjarig meisje dat in de buitenwijken van Melbourne woont, en Max, een vierenveertigjarige, zwaarlijvige man die in New York woont."
+	},
+	{
+		"id": 70,
+		"titel": "Match Point",
+		"jaar": 2005,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 119,
+		"genre": [
+			"drama",
+			"romantisch",
+			"thriller"
+		],
+		"directeur": "Woody Allen",
+		"acteurs": "Jonathan Rhys Meyers, Alexander Armstrong, Paul Kaye & Matthew Goode",
+		"plot": "Op een keerpunt in zijn leven valt een voormalige tennisprof voor een actrice die toevallig uitgaat met zijn vriend en aanstaande zwager."
+	},
+	{
+		"id": 71,
+		"titel": "Memento",
+		"jaar": 2000,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 113,
+		"genre": [
+			"mystery",
+			"thriller"
+		],
+		"directeur": "Christopher Nolan",
+		"acteurs": "Guy Pearce, Carrie-Anne Moss, Joe Pantoliano & Mark Boone Junior",
+		"plot": "Een man jongleert op zoek naar de moordenaar van zijn vrouw en zorgt ervoor dat zijn kortetermijngeheugenverlies geen obstakel wordt."
+	},
+	{
+		"id": 72,
+		"titel": "Midnight Express",
+		"jaar": 1978,
+		"taal": [
+			"Turkish",
+			"English",
+			"French",
+			"Maltees"
+		],
+		"looptijd": 121,
+		"genre": [
+			"misdaad",
+			"drama",
+			"thriller"
+		],
+		"directeur": "Alan Parker",
+		"acteurs": "Brad Davis, Irene Miracle, Bo Hopkins & Paolo Bonacelli",
+		"plot": "Billy Hayes, een Amerikaanse student, wordt betrapt op het smokkelen van drugs uit Turkije en in de gevangenis gegooid."
+	},
+	{
+		"id": 73,
+		"titel": "Midnight in Paris",
+		"jaar": 2011,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 94,
+		"genre": [
+			"komedie",
+			"fantasy",
+			"romantisch"
+		],
+		"directeur": "Woody Allen",
+		"acteurs": "Owen Wilson, Rachel McAdams, Kurt Fuller & Mimi Kennedy",
+		"plot": "Tijdens een reis naar Parijs met de familie van zijn verloofde, merkt een nostalgische scenarioschrijver dat hij elke dag om middernacht op mysterieuze wijze teruggaat naar de jaren twintig."
+	},
+	{
+		"id": 74,
+		"titel": "Moneyball",
+		"jaar": 2011,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 133,
+		"genre": [
+			"biografie",
+			"drama",
+			"sport"
+		],
+		"directeur": "Bennett Miller",
+		"acteurs": "Brad Pitt, Jonah Hill, Philip Seymour Hoffman & Robin Wright",
+		"plot": "De succesvolle poging van Billy Beane, algemeen directeur van Oakland A, om met een klein budget een honkbalteam samen te stellen door gebruik te maken van computergegenereerde analyses om nieuwe spelers te werven."
+	},
+	{
+		"id": 75,
+		"titel": "Mosul",
+		"jaar": 2019,
+		"taal": [
+			"Arabisch"
+		],
+		"looptijd": 101,
+		"genre": [
+			"actie",
+			"drama",
+			"oorlog"
+		],
+		"directeur": "Matthew Michael Carnahan",
+		"acteurs": "Suhail Dabbach, Adam Bessa & Is'Haq Elias",
+		"plot": "Nadat hij door het Nineveh SWAT-team wordt gered, voegt de jonge politieagent Kawa zich bij de eenheid die door majoor Jasem wordt geleid. Gezamenlijk voeren ze een persoonlijke operatie uit om hun geboortestad Mosul uit handen van IS te bevrijden."
+	},
+	{
+		"id": 76,
+		"titel": "Mr. & Mrs. Smith",
+		"jaar": 2005,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 120,
+		"genre": [
+			"actie",
+			"komedie",
+			"misdaad"
+		],
+		"directeur": "Doug Liman",
+		"acteurs": "Brad Pitt, Angelina Jolie, Vince Vaughn & Adam Brody",
+		"plot": "Een verveeld getrouwd stel is verrast om te horen dat ze allebei huurmoordenaars zijn die zijn ingehuurd door concurrerende instanties om elkaar te vermoorden."
+	},
+	{
+		"id": 77,
+		"titel": "München",
+		"jaar": 2021,
+		"taal": [
+			"Duits",
+			"Engels"
+		],
+		"looptijd": 131,
+		"genre": [
+			"oorlog",
+			"drama"
+		],
+		"directeur": "Christian Schwochow",
+		"acteurs": "Jeremy Irons, George MacKay, Jessica Brown Findlay, Sandra Hüller, August Diehl, Alex Jennings, Ulrich Matthes, Robert Bathurst, Mark Lewis Jones, Jannis Niewöhner, Liv Lisa Fries, Hannes Wegener, Tina Louise Owens, Anjli Mohindra, Nicholas Shaw & Genevieve Florence",
+		"plot": "Najaar 1938. Een Britse ambtenaar en een Duitse diplomaat ontmoeten elkaar in München en proberen oorlog in Europa te voorkomen. Gebaseerd op het boek van Robert Harris."
+	},
+	{
+		"id": 78,
+		"titel": "Nebraska",
+		"jaar": 2013,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 115,
+		"genre": [
+			"avontuur",
+			"komedie",
+			"drama"
+		],
+		"directeur": "Alexander Payne",
+		"acteurs": "Bruce Dern, Will Forte, June Squibb & Bob Odenkirk",
+		"plot": "Een ouder wordende, aan de drank verslaafde vader maakt de reis van Montana naar Nebraska met zijn vervreemde zoon om een Mega Sweepstakes Marketing-prijs van een miljoen dollar te claimen."
+	},
+	{
+		"id": 79,
+		"titel": "No Country for Old Men",
+		"jaar": 2007,
+		"taal": [
+			"Engels",
+			"Spaans"
+		],
+		"looptijd": 122,
+		"genre": [
+			"misdaad",
+			"drama",
+			"thriller",
+			"actie"
+		],
+		"directeur": "Ethan Coen & Joel Coen",
+		"acteurs": "Tommy Lee Jones, Javier Bardem, Josh Brolin & Woody Harrelson",
+		"plot": "Geweld en chaos ontstaan wanneer een jager struikelt over een misgelopen drugsdeal en meer dan twee miljoen dollar in contanten in de buurt van de Rio Grande."
+	},
+	{
+		"id": 80,
+		"titel": "North by Northwest",
+		"jaar": 1959,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 136,
+		"genre": [
+			"actie",
+			"avontuur",
+			"misdaad"
+		],
+		"directeur": "Alfred Hitchcock",
+		"acteurs": "Cary Grant, Eva Marie Saint, James Mason & Jessie Royce Landis",
+		"plot": "Een ongelukkige reclameman uit New York wordt door een groep buitenlandse spionnen aangezien voor een overheidsagent en door het hele land achtervolgd terwijl hij op zoek is naar een manier om te overleven."
+	},
+	{
+		"id": 81,
+		"titel": "Oblivion",
+		"jaar": 2013,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 124,
+		"genre": [
+			"actie",
+			"avontuur",
+			"mystery"
+		],
+		"directeur": "Joseph Kosinski",
+		"acteurs": "Tom Cruise, Morgan Freeman, Olga Kurylenko & Andrea Riseborough",
+		"plot": "Een veteraan die is aangewezen om de resterende hulpbronnen van de aarde te winnen, begint zich af te vragen wat hij weet over zijn missie en over zichzelf."
+	},
+	{
+		"id": 82,
+		"titel": "Oldboy",
+		"jaar": 2003,
+		"taal": [
+			"Koreaans"
+		],
+		"looptijd": 120,
+		"genre": [
+			"drama",
+			"mystery",
+			"thriller"
+		],
+		"directeur": "Chan-wook Park",
+		"acteurs": "Min-sik Choi, Ji-tae Yu, Hye-jeong Kang & Dae-han Ji",
+		"plot": "Na te zijn ontvoerd en 15 jaar gevangen gezet, wordt Oh Dae-Su vrijgelaten, maar hij ontdekt dat hij zijn ontvoerder binnen 5 dagen moet vinden."
+	},
+	{
+		"id": 83,
+		"titel": "Once Upon a Time in America",
+		"jaar": 1984,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 229,
+		"genre": [
+			"misdaad",
+			"drama"
+		],
+		"directeur": "Sergio Leone",
+		"acteurs": "Robert De Niro, James Woods, Elizabeth McGovern & Joe Pesci",
+		"plot": "Een voormalige Joodse gangster uit het Verbodstijdperk keert meer dan dertig jaar later terug naar de Lower East Side van Manhattan, waar hij opnieuw de geesten en spijt van zijn oude leven moet confronteren."
+	},
+	{
+		"id": 84,
+		"titel": "One Flew Over the Cuckoo's Nest",
+		"jaar": 1975,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 133,
+		"genre": [
+			"drama"
+		],
+		"directeur": "Milos Forman",
+		"acteurs": "Michael Berryman, Peter Brocco, Dean R. Brooks & Alonzo Brown",
+		"plot": "Een crimineel pleit voor waanzin nadat hij weer in de problemen is gekomen en eenmaal in de psychiatrische inrichting rebelleert tegen de onderdrukkende verpleegster en verzamelt de bange patiënten."
+	},
+	{
+		"id": 85,
+		"titel": "Original Sin",
+		"jaar": 2001,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 116,
+		"genre": [
+			"drama",
+			"mystery",
+			"romantisch"
+		],
+		"directeur": "Michael Cristofer",
+		"acteurs": "Antonio Banderas, Angelina Jolie, Thomas Jane & Jack Thompson",
+		"plot": "Een vrouw en haar minnaar zijn van plan een rijke man te bedriegen door met hem te trouwen en zijn vertrouwen te winnen en er met al zijn geld vandoor te gaan. Alles gaat zoals gepland totdat ze echt verliefd op hem begint te worden."
+	},
+	{
+		"id": 86,
+		"titel": "Pacific Rim",
+		"jaar": 2013,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 131,
+		"genre": [
+			"actie",
+			"avontuur",
+			"sciencefiction"
+		],
+		"directeur": "Guillermo del Toro",
+		"acteurs": "Charlie Hunnam, Diego Klattenhoff, Idris Elba & Rinko Kikuchi",
+		"plot": "Terwijl een oorlog tussen de mensheid en monsterlijke zeedieren voortduurt, worden een voormalige piloot en een stagiair gekoppeld om een schijnbaar verouderd speciaal wapen te besturen in een wanhopige poging om de wereld te redden van de apocalyps."
+	},
+	{
+		"id": 87,
+		"titel": "Pan's Labyrinth",
+		"jaar": 2006,
+		"taal": [
+			"Spanish"
+		],
+		"looptijd": 118,
+		"genre": [
+			"drama",
+			"fantasy",
+			"oorlog"
+		],
+		"directeur": "Guillermo del Toro",
+		"acteurs": "Ivana Baquero, Sergi López, Maribel Verdú & Doug Jones",
+		"plot": "In het falangistische Spanje van 1944 ontsnapt de leergierige jonge stiefdochter van een sadistische legerofficier in een griezelige maar boeiende fantasiewereld."
+	},
+	{
+		"id": 88,
+		"titel": "Pirates of the Caribbean: At World's End",
+		"jaar": 2007,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 169,
+		"genre": [
+			"actie",
+			"avontuur",
+			"fantasy"
+		],
+		"directeur": "Gore Verbinski",
+		"acteurs": "Johnny Depp, Geoffrey Rush, Orlando Bloom & Keira Knightley",
+		"plot": "Kapitein Barbossa, Will Turner en Elizabeth Swann moeten van de rand van de kaart varen, door verraad en verraad navigeren, Jack Sparrow vinden en hun laatste allianties sluiten voor een laatste beslissende strijd."
+	},
+	{
+		"id": 89,
+		"titel": "Pirates of the Caribbean: On Stranger Tides",
+		"jaar": 2011,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 136,
+		"genre": [
+			"actie",
+			"avontuur",
+			"fantasy"
+		],
+		"directeur": "Rob Marshall",
+		"acteurs": "Johnny Depp, Penélope Cruz, Geoffrey Rush & Ian McShane",
+		"plot": "Jack Sparrow en Barbossa gaan op zoek naar de ongrijpbare fontein van de jeugd, maar ontdekken dat Blackbeard en zijn dochter er ook achteraan zitten."
+	},
+	{
+		"id": 90,
+		"titel": "Pirates of the Caribbean: The Curse of the Black Pearl",
+		"jaar": 2003,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 143,
+		"genre": [
+			"actie",
+			"avontuur",
+			"fantasy"
+		],
+		"directeur": "Gore Verbinski",
+		"acteurs": "Johnny Depp, Geoffrey Rush, Orlando Bloom & Keira Knightley",
+		"plot": "Blacksmith Will Turner werkt samen met de excentrieke piraat \"Captain\" Jack Sparrow om zijn liefde, de dochter van de gouverneur, te redden van Jacks voormalige piratenbondgenoten, die nu ondood zijn."
+	},
+	{
+		"id": 91,
+		"titel": "Planet 51",
+		"jaar": 2009,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 91,
+		"genre": [
+			"animatie",
+			"avontuur",
+			"komedie",
+			"film-noir"
+		],
+		"directeur": "Jorge Blanco, Javier Abad & Marcos Martínez",
+		"acteurs": "Jessica Biel, John Cleese, Gary Oldman & Dwayne Johnson",
+		"plot": "Een buitenaardse beschaving wordt binnengevallen door astronaut Chuck Baker, die gelooft dat de planeet bewoond was. Baker wordt gezocht door het leger en moet terug naar zijn schip voordat het zonder hem in een baan om de aarde gaat."
+	},
+	{
+		"id": 92,
+		"titel": "Psycho",
+		"jaar": 1960,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 109,
+		"genre": [
+			"horror",
+			"mystery",
+			"thriller"
+		],
+		"directeur": "Alfred Hitchcock",
+		"acteurs": "Anthony Perkins, Vera Miles, John Gavin & Janet Leigh",
+		"plot": "Een secretaresse uit Phoenix verduistert $ 40.000 van de klant van haar werkgever, gaat op de vlucht en checkt in in een afgelegen motel dat gerund wordt door een jonge man onder de heerschappij van zijn moeder."
+	},
+	{
+		"id": 93,
+		"titel": "Pulp Fiction",
+		"jaar": 1994,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 154,
+		"genre": [
+			"misdaad",
+			"drama"
+		],
+		"directeur": "Quentin Tarantino",
+		"acteurs": "Tim Roth, Amanda Plummer, Laura Lovelace & John Travolta",
+		"plot": "De levens van twee maffia huurmoordenaars, een bokser, de vrouw van een gangster en een stel bandieten uit een restaurant verstrengelen zich in vier verhalen over geweld en verlossing."
+	},
+	{
+		"id": 94,
+		"titel": "Ratatouille",
+		"jaar": 2007,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 111,
+		"genre": [
+			"animatie",
+			"komedie",
+			"familie",
+			"avontuur"
+		],
+		"directeur": "Brad Bird & Jan Pinkava",
+		"acteurs": "Patton Oswalt, Ian Holm, Lou Romano & Brian Dennehy",
+		"plot": "Een rat die kan koken sluit een ongebruikelijke alliantie met een jonge keukenmedewerker in een beroemd restaurant."
+	},
+	{
+		"id": 95,
+		"titel": "Rear Window",
+		"jaar": 1954,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 112,
+		"genre": [
+			"mystery",
+			"thriller"
+		],
+		"directeur": "Alfred Hitchcock",
+		"acteurs": "James Steoorlogt, Grace Kelly, Wendell Corey & Thelma Ritter",
+		"plot": "Een rolstoelgebonden fotograaf bespioneert zijn buren vanuit het raam van zijn appartement en raakt ervan overtuigd dat een van hen een moord heeft gepleegd."
+	},
+	{
+		"id": 96,
+		"titel": "Requiem for a Dream",
+		"jaar": 2000,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 102,
+		"genre": [
+			"drama"
+		],
+		"directeur": "Darren Aronofsky",
+		"acteurs": "Ellen Burstyn, Jared Leto, Jennifer Connelly & Marlon Wayans",
+		"plot": "De door drugs veroorzaakte utopieën van vier mensen op Coney Island vallen uiteen als hun verslaving diep raakt."
+	},
+	{
+		"id": 97,
+		"titel": "Reservoir Dogs",
+		"jaar": 1992,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 99,
+		"genre": [
+			"misdaad",
+			"drama",
+			"thriller"
+		],
+		"directeur": "Quentin Tarantino",
+		"acteurs": "Harvey Keitel, Tim Roth, Michael Madsen & Chris Penn",
+		"plot": "Nadat een eenvoudige juwelenroof vreselijk misgaat, beginnen de overlevende criminelen te vermoeden dat een van hen een politie-informant is."
+	},
+	{
+		"id": 98,
+		"titel": "Scarface",
+		"jaar": 1983,
+		"taal": [
+			"Engels",
+			"Spaans"
+		],
+		"looptijd": 170,
+		"genre": [
+			"misdaad",
+			"drama",
+			"horror"
+		],
+		"directeur": "Brian De Palma",
+		"acteurs": "Al Pacino, Steven Bauer, Michelle Pfeiffer & Mary Elizabeth Mastrantonio",
+		"plot": "In Miami in 1980 neemt een vastberaden Cubaanse immigrant een drugskartel over en bezwijkt voor hebzucht."
+	},
+	{
+		"id": 99,
+		"titel": "Shrek",
+		"jaar": 2001,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 90,
+		"genre": [
+			"animatie",
+			"avontuur",
+			"komedie"
+		],
+		"directeur": "Andrew Adamson & Vicky Jenson",
+		"acteurs": "Mike Myers, Eddie Murphy, Cameron Diaz & John Lithgow",
+		"plot": "Nadat zijn moeras is gevuld met magische wezens, stemt een boeman ermee in een prinses te redden voor een gemene heer om zijn land terug te krijgen."
+	},
+	{
+		"id": 100,
+		"titel": "Shrek 2",
+		"jaar": 2004,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 93,
+		"genre": [
+			"animatie",
+			"avontuur",
+			"komedie"
+		],
+		"directeur": "Andrew Adamson, Kelly Asbury & Conrad Vernon",
+		"acteurs": "Mike Myers, Eddie Murphy, Cameron Diaz & Julie Andrews",
+		"plot": "Prinses Fiona's ouders nodigen haar en Shrek uit voor een diner om haar huwelijk te vieren. Als ze maar wisten dat de pasgetrouwden allebei ogres oorlogen."
+	},
+	{
+		"id": 101,
+		"titel": "Shrek Forever After",
+		"jaar": 2010,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 93,
+		"genre": [
+			"animatie",
+			"avontuur",
+			"komedie"
+		],
+		"directeur": "Mike Mitchell",
+		"acteurs": "Mike Myers, Eddie Murphy, Cameron Diaz & Antonio Banderas",
+		"plot": "Repelsteeltje bedriegt een midlifecrisis die Shrek ertoe bracht zichzelf uit het bestaan te wissen en in een donkere alternatieve tijdlijn te werpen waar Rumpel de baas is."
+	},
+	{
+		"id": 102,
+		"titel": "Shutter Island",
+		"jaar": 2010,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 138,
+		"genre": [
+			"mystery",
+			"thriller"
+		],
+		"directeur": "Martin Scorsese",
+		"acteurs": "Leonardo DiCaprio, Mark Ruffalo, Ben Kingsley & Max von Sydow",
+		"plot": "In 1954 onderzoekt een Amerikaanse marshal de verdwijning van een moordenaar die uit een ziekenhuis is ontsnapt voor criminele gestoorden."
+	},
+	{
+		"id": 103,
+		"titel": "Sid and Nancy",
+		"jaar": 1986,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 112,
+		"genre": [
+			"biografie",
+			"drama",
+			"muziek",
+			"muziekal"
+		],
+		"directeur": "Alex Cox",
+		"acteurs": "Gary Oldman, Chloe Webb, David Hayman & Debby Bishop",
+		"plot": "Punkrockband Sex Pistols gaat voor het eerst op tournee in de VS. De temperamentvolle bassist Sid Vicious neemt zijn problematische vriendin Nancy mee. Hun turbulente relatie stelt het geduld van de band en manager op de proef, terwijl het koppel verder wegzakt in drugsverslaving en afhankelijkheid."
+	},
+	{
+		"id": 104,
+		"titel": "Silver Linings Playbook",
+		"jaar": 2012,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 122,
+		"genre": [
+			"komedie",
+			"drama",
+			"romantisch"
+		],
+		"directeur": "David O. Russell",
+		"acteurs": "Bradley Cooper, Jennifer Lawrence, Robert De Niro & Jacki Weaver",
+		"plot": "Na een periode in een psychiatrische inrichting trekt voormalig leraar Pat Solitano weer bij zijn ouders in en probeert hij zich te verzoenen met zijn ex-vrouw. Het wordt nog uitdagender wanneer Pat Tiffany ontmoet, een mysterieus meisje met haar eigen problemen."
+	},
+	{
+		"id": 105,
+		"titel": "Sin City",
+		"jaar": 2005,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 124,
+		"genre": [
+			"misdaad",
+			"thriller"
+		],
+		"directeur": "Frank Miller, Robert Rodriguez& Quentin Tarantino",
+		"acteurs": "Jessica Alba, Devon Aoki, Alexis Bledel & Powers Boothe",
+		"plot": "Een film die de donkere en ellendige stad Basin City verkent en het verhaal vertelt van drie verschillende mensen, allemaal verstrikt in gewelddadige corruptie."
+	},
+	{
+		"id": 106,
+		"titel": "Slumdog Millionaire",
+		"jaar": 2008,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 120,
+		"genre": [
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Danny Boyle & Loveleen Tandan",
+		"acteurs": "Dev Patel, Saurabh Shukla, Anil Kapoor & Rajendranath Zutshi",
+		"plot": "Een tiener uit Mumbai kijkt terug op zijn opvoeding in de sloppenwijken wanneer hij wordt beschuldigd van valsspelen in de Indiase versie van \"Who Wants to be a Millionaire?"
+	},
+	{
+		"id": 107,
+		"titel": "Snatch",
+		"jaar": 2000,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 102,
+		"genre": [
+			"komedie",
+			"misdaad"
+		],
+		"directeur": "Guy Ritchie",
+		"acteurs": "Benicio Del Toro, Dennis Farina, Vinnie Jones & Brad Pitt",
+		"plot": "Gewetenloze bokspromotors, gewelddadige bookmakers, een Russische gangster, incompetente amateurrovers en zogenaamd Joodse juweliers vechten om een kostbare gestolen diamant op te sporen."
+	},
+	{
+		"id": 108,
+		"titel": "Spiderman: No way home",
+		"jaar": 2021,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 148,
+		"genre": [
+			"actie",
+			"avontuur",
+			"fantasy",
+			"sciencefiction"
+		],
+		"directeur": "Jon Watts",
+		"acteurs": "Tom Holland, Tobey Maguire, Andrew Garfield, Zendaya, Jacob Batalon, Marisa Tomei, Benedict Cumberbatch, Jon Favreau, Willem Dafoe, Alfred Molina, Jamie Foxx, Benedict Wong, Tony Revolori, Angourie Rice, Arian Moayed, Paula Newsome, Martin Starr, J.B. Smoove & Hannibal Buress",
+		"plot": "Nu de oorloge identiteit van Spider-Man is prijsgegeven, kan Peter zijn normale leven niet langer meer scheiden met dat van zijn rol als superheld. Hij schakelt vervolgens de hulp van Dr. Strange in om dit alles ongedaan te maken. Dit brengt echter enorme risico's met zich mee, waarbij hij gedwongen wordt te ontdekken wat werkelijk nodig is om Spider-Man te zijn."
+	},
+	{
+		"id": 109,
+		"titel": "Spijt!",
+		"jaar": 2013,
+		"taal": [
+			"Nederlands"
+		],
+		"looptijd": 95,
+		"genre": [
+			"drama",
+			"familie"
+		],
+		"directeur": "Dave Schram",
+		"acteurs": "Robin Boissevain, Dorus Witte, Stefan Collier, Charlotte Bakker, Nils Verkooijen, Rick van Elk, Gregory Samson, Brahim Fouradi, Fabiënne Bergmans & Dave Mantel",
+		"plot": "Jochem voelt zich niet erg gelukkig in de tweede klas. Hij is het mikpunt van getreiter. David doet er niet aan mee, maar hij durft er niks van te zeggen. De klassenleraar, die gymnastiek geeft, grijpt ook niet in. Hij heeft een hekel aan dikke Jochem. Jochem lijkt zich niets aan te trekken van de pesterijen, die elke dag erger worden. Als de klas weer eens dubbel ligt, lacht hij zelf mee. Maar op een ochtend krijgen ze van de rector te horen dat Jochem na de klassenavond niet is thuisgekomen."
+	},
+	{
+		"id": 110,
+		"titel": "Spirited Away",
+		"jaar": 2001,
+		"taal": [
+			"Japans"
+		],
+		"looptijd": 125,
+		"genre": [
+			"animatie",
+			"avontuur",
+			"familie"
+		],
+		"directeur": "Hayao Miyazaki",
+		"acteurs": "Rumi Hiiragi, Miyu Irino, Mari Natsuki & Takashi Naitô",
+		"plot": "Tijdens de verhuizing van haar familie naar de buitenwijken, dwaalt een nors 10-jarig meisje een wereld binnen die wordt geregeerd door goden, heksen en geesten, en waar mensen worden veranderd in beesten."
+	},
+	{
+		"id": 111,
+		"titel": "Spotlight",
+		"jaar": 2015,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 128,
+		"genre": [
+			"biografie",
+			"misdaad",
+			"drama"
+		],
+		"directeur": "Tom McCarthy",
+		"acteurs": "Mark Ruffalo, Michael Keaton, Rachel McAdams & Liev Schreiber",
+		"plot": "Het waargebeurde verhaal van hoe de Boston Globe het enorme schandaal van kindermishandeling en doofpotaffaire binnen het plaatselijke katholieke aartsbisdom aan het licht bracht, waardoor de hele katholieke kerk tot in haar kern werd geschokt."
+	},
+	{
+		"id": 112,
+		"titel": "Stardust",
+		"jaar": 2007,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 127,
+		"genre": [
+			"avontuur",
+			"familie",
+			"fantasy"
+		],
+		"directeur": "Matthew Vaughn",
+		"acteurs": "Ian McKellen, Bimbo Hart, Alastair MacIntosh & David Kelly",
+		"plot": "In een plattelandsstadje dat grenst aan een magisch land, belooft een jonge man zijn geliefde dat hij een gevallen ster zal terughalen door zich in het magische rijk te wagen."
+	},
+	{
+		"id": 113,
+		"titel": "Sunset Boulevard",
+		"jaar": 1950,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 110,
+		"genre": [
+			"drama",
+			"film-noir",
+			"romantisch"
+		],
+		"directeur": "Billy Wilder",
+		"acteurs": "William Holden, Gloria Swanson, Erich von Stroheim & Nancy Olson",
+		"plot": "Een hackscenarioschrijver schrijft een scenario voor een voormalige stomme filmster die in de vergetelheid van Hollywood is verdwenen."
+	},
+	{
+		"id": 114,
+		"titel": "Taxi Driver",
+		"jaar": 1976,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 113,
+		"genre": [
+			"misdaad",
+			"drama",
+			"biografie"
+		],
+		"directeur": "Martin Scorsese",
+		"acteurs": "Diahnne Abbott, Frank Adu, Victor Argo & Gino Ardito",
+		"plot": "Een mentaal onstabiele veteraan uit de Vietnam-oorlog werkt als nachtelijke taxichauffeur in New York City, waar de waargenomen decadentie en sleaze zijn drang naar gewelddadige actie voeden, terwijl hij probeert een preadolescente prostituee te redden."
+	},
+	{
+		"id": 115,
+		"titel": "The Artist",
+		"jaar": 2011,
+		"taal": [
+			"Frans",
+			"Engels"
+		],
+		"looptijd": 100,
+		"genre": [
+			"komedie",
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Michel Hazanavicius",
+		"acteurs": "Jean Dujardin, Bérénice Bejo, John Goodman & James Cromwell",
+		"plot": "Een stomme filmster ontmoet een jonge danseres, maar de komst van pratende beelden stuurt hun carrière in tegengestelde richtingen."
+	},
+	{
+		"id": 116,
+		"titel": "The Beach",
+		"jaar": 2000,
+		"taal": [
+			"Engels",
+			"Frans",
+			"Thai",
+			"Zweeds"
+		],
+		"looptijd": 119,
+		"genre": [
+			"avontuur",
+			"drama",
+			"romantisch",
+			"western"
+		],
+		"directeur": "Danny Boyle",
+		"acteurs": "Leonardo DiCaprio, Daniel York, Patcharawan Patarakijjanon & Virginie Ledoyen",
+		"plot": "Richard reist als twintiger naar Thailand en komt in het bezit van een vreemde kaart. Volgens geruchten leidt het naar een eenzaam strandparadijs, een tropische gelukzaligheid - opgewonden en geïntrigeerd gaat hij op zoek naar het."
+	},
+	{
+		"id": 117,
+		"titel": "The Big Short",
+		"jaar": 2015,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 130,
+		"genre": [
+			"biografie",
+			"komedie",
+			"drama"
+		],
+		"directeur": "Adam McKay",
+		"acteurs": "Ryan Gosling, Rudy Eisenzopf, Casey Groves & Charlie Talbert",
+		"plot": "Vier bewoners in de wereld van de high-finance voorspellen de ineenstorting van de krediet- en huizenzeepbel in het midden van de jaren 2000, en besluiten het op te nemen tegen de grote banken vanwege hun hebzucht en gebrek aan vooruitziendheid."
+	},
+	{
+		"id": 118,
+		"titel": "The Cotton Club",
+		"jaar": 1984,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 127,
+		"genre": [
+			"misdaad",
+			"drama",
+			"muziek",
+			"fantasy"
+		],
+		"directeur": "Francis Ford Coppola",
+		"acteurs": "Richard Gere, Gregory Hines, Diane Lane & Lonette McKee",
+		"plot": "De Cotton Club was een beroemde nachtclub in Harlem. Het verhaal volgt de mensen die de club bezochten, degenen die het runnen, en is doorspekt met de jazzmuziek die het zo beroemd maakte."
+	},
+	{
+		"id": 119,
+		"titel": "The Deer Hunter",
+		"jaar": 1978,
+		"taal": [
+			"Engels",
+			"Russisch",
+			"Vietnamees",
+			"Frans"
+		],
+		"looptijd": 183,
+		"genre": [
+			"drama",
+			"oorlog"
+		],
+		"directeur": "Michael Cimino",
+		"acteurs": "Robert De Niro, John Cazale, John Savage & Christopher Walken",
+		"plot": "Een diepgaand onderzoek naar de manieren waarop de Amerikaanse oorlog in Vietnam de levens van mensen in een klein industriestadje in Pennsylvania beïnvloedt en ontwricht."
+	},
+	{
+		"id": 120,
+		"titel": "The dictator",
+		"jaar": 2012,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 83,
+		"genre": [
+			"komedie"
+		],
+		"directeur": "Larry Charles",
+		"acteurs": "Sacha Baron Cohen, Anna Faris & Ben Kingsley",
+		"plot": "Aladeen (Sacha Baron Cohen) is een rijke en meedogenloze dictator, die wordt gegijzeld. Hij wordt vervangen door een naïeve geitenherder, die als twee druppels water op hem lijkt. Met de hulp van Zoey, een mooie vrijgevige eigenaresse van een Zen Shop, probeert Aladeen zijn macht terug te krijgen. Hij moet koste wat het kost voorkomen dat zijn land in verkeerde handen valt."
+	},
+	{
+		"id": 121,
+		"titel": "The English Patient",
+		"jaar": 1996,
+		"taal": [
+			"Engels",
+			"Duits",
+			"Arabisch",
+			"Italiaans"
+		],
+		"looptijd": 162,
+		"genre": [
+			"drama",
+			"romantisch",
+			"oorlog"
+		],
+		"directeur": "Anthony Minghella",
+		"acteurs": "Ralph Fiennes, Juliette Binoche, Willem Dafoe & Kristin Scott Thomas",
+		"plot": "Aan het einde van de Tweede Wereldoorlog verzorgt een jonge verpleegster een zwaar verbrand slachtoffer van een vliegtuigcrash. Zijn verleden wordt getoond in flashbacks, waaruit blijkt dat hij betrokken is bij een noodlottige liefdesaffaire."
+	},
+	{
+		"id": 122,
+		"titel": "the girl next door",
+		"jaar": 2004,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 108,
+		"genre": [
+			"komedie",
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Luke Greenfield",
+		"acteurs": "Emile Hirsch, Elisha Cuthbert, Timothy Olyphant,  James Remar, Chris Marquette & Paul Dano",
+		"plot": "Matthew Kidman staat op het punt te slagen voor zijn eindexamen als hij zijn mooie nieuwe buurmeisje Danielle ontmoet. Matthew is ervan overtuigd dat hij het meisje van zijn dromen heeft gevonden, totdat zijn seksgeoriënteerde vriend Eli onthult dat Danielle eigenlijk een pornoster is. Matthew is zwaar geschrokken en weet niet hoe hij met de situatie om moet gaan."
+	},
+	{
+		"id": 123,
+		"titel": "The Grand Budapest Hotel",
+		"jaar": 2014,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 99,
+		"genre": [
+			"avontuur",
+			"komedie",
+			"misdaad"
+		],
+		"directeur": "Wes Anderson",
+		"acteurs": "Ralph Fiennes, F. Murray Abraham, Mathieu Amalric & Adrien Brody",
+		"plot": "De avonturen van Gustave H, een legendarische conciërge in een beroemd hotel uit de fictieve Republiek Zubrowka tussen de Eerste en Tweede Wereldoorlog, en Zero Moustafa, de lobbyjongen die zijn meest vertrouwde vriend wordt."
+	},
+	{
+		"id": 124,
+		"titel": "The Great Beauty",
+		"jaar": 2013,
+		"taal": [
+			"Engels",
+			"Italiaans",
+			"Spaans",
+			"Japans",
+			"Mandarijn"
+		],
+		"looptijd": 141,
+		"genre": [
+			"drama"
+		],
+		"directeur": "Paolo Sorrentino",
+		"acteurs": "Toni Servillo, Carlo Verdone, Sabrina Ferilli & Carlo Buccirosso",
+		"plot": "Jep Gambardella verleidt zich al tientallen jaren door het weelderige nachtleven van Rome, maar na zijn 65e verjaardag en een schok uit het verleden kijkt Jep langs de nachtclubs en feesten om een tijdloos landschap van absurde, exquise schoonheid te vinden."
+	},
+	{
+		"id": 125,
+		"titel": "The Great Gatsby",
+		"jaar": 2013,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 143,
+		"genre": [
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Baz Luhrmann",
+		"acteurs": "Lisa Adam, Frank Aldridge, Amitabh Bachchan & Steve Bisley",
+		"plot": "Een schrijver en Wall Street-handelaar, Nick, voelt zich aangetrokken tot het verleden en de levensstijl van zijn miljonair, Jay Gatsby."
+	},
+	{
+		"id": 126,
+		"titel": "The Hangover",
+		"jaar": 2009,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 100,
+		"genre": [
+			"komedie"
+		],
+		"directeur": "Todd Phillips",
+		"acteurs": "Bradley Cooper, Ed Helms, Zach Galifianakis & Justin Bartha",
+		"plot": "Drie maatjes worden wakker van een vrijgezellenfeest in Las Vegas, zonder herinnering aan de vorige nacht en de vermiste vrijgezel. Ze banen zich een weg door de stad om hun vriend te vinden voor zijn huwelijk."
+	},
+	{
+		"id": 127,
+		"titel": "The Hateful Eight",
+		"jaar": 2015,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 187,
+		"genre": [
+			"misdaad",
+			"drama",
+			"mystery"
+		],
+		"directeur": "Quentin Tarantino",
+		"acteurs": "Samuel L. Jackson, Kurt Russell, Jennifer Jason Leigh & Walton Goggins",
+		"plot": "In het holst van een winter in Wyoming vinden een premiejager en zijn gevangene onderdak in een hut die momenteel wordt bewoond door een verzameling snode karakters."
+	},
+	{
+		"id": 128,
+		"titel": "The Hitchhiker's Guide to the Galaxy",
+		"jaar": 2005,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 109,
+		"genre": [
+			"avontuur",
+			"komedie",
+			"sciencefiction"
+		],
+		"directeur": "Garth Jennings",
+		"acteurs": "Bill Bailey, Anna Chancellor, oorlogwick Davis & Yasiin Bey",
+		"plot": "Slechts enkele seconden voordat de aarde wordt vernietigd door een buitenaards bouwteam, wordt gezel Arthur Dent van de planeet geveegd door zijn vriend Ford Prefect, een onderzoeker die een nieuwe editie van 'The Hitchhiker's Guide to the Galaxy' schrijft."
+	},
+	{
+		"id": 129,
+		"titel": "The Hobbit: An Unexpected Journey",
+		"jaar": 2012,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 169,
+		"genre": [
+			"avontuur",
+			"fantasy"
+		],
+		"directeur": "Peter Jackson",
+		"acteurs": "Ian McKellen, Martin Freeman, Richard Armitage & Ken Stott",
+		"plot": "Een onwillige hobbit, Bilbo Baggins, vertrekt naar de Lonely Mountain met een pittige groep dwergen om hun berghuis - en het goud erin - terug te winnen van de draak Smaug."
+	},
+	{
+		"id": 130,
+		"titel": "The Hobbit: The Desolation of Smaug",
+		"jaar": 2013,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 161,
+		"genre": [
+			"avontuur",
+			"fantasy"
+		],
+		"directeur": "Peter Jackson",
+		"acteurs": "Ian McKellen, Martin Freeman, Richard Armitage & Ken Stott",
+		"plot": "De dwergen zetten, samen met Bilbo Balings en Gandalf de Grijze, hun zoektocht voort om Erebor, hun thuisland, terug te winnen van Smaug. Bilbo Baggins is in het bezit van een mysterieuze en magische ring."
+	},
+	{
+		"id": 131,
+		"titel": "The Imitation Game",
+		"jaar": 2014,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 114,
+		"genre": [
+			"biografie",
+			"drama",
+			"thriller"
+		],
+		"directeur": "Morten Tyldum",
+		"acteurs": "Benedict Cumberbatch, Keira Knightley, Matthew Goode & Rory Kinnear",
+		"plot": "Tijdens de Tweede Wereldoorlog probeert wiskundige Alan Turing de raadselcode te kraken met hulp van collega-wiskundigen."
+	},
+	{
+		"id": 132,
+		"titel": "The Impossible",
+		"jaar": 2012,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 114,
+		"genre": [
+			"drama",
+			"thriller"
+		],
+		"directeur": "J.A. Bayona",
+		"acteurs": "Naomi Watts, Ewan McGregor, Tom Holland & Samuel Joslin",
+		"plot": "Het verhaal van een toeristenfamilie in Thailand, gevangen in de verwoesting en chaotische nasleep van de tsunami in de Indische Oceaan in 2004."
+	},
+	{
+		"id": 133,
+		"titel": "The Intouchables",
+		"jaar": 2011,
+		"taal": [
+			"Frans"
+		],
+		"looptijd": 112,
+		"genre": [
+			"biografie",
+			"komedie",
+			"drama",
+			"animatie"
+		],
+		"directeur": "Olivier Nakache & Eric Toledano",
+		"acteurs": "François Cluzet, Omar Sy, Anne Le Ny & Audrey Fleurot",
+		"plot": "Nadat hij verlamd is geraakt door een paraglidingongeval, huurt een aristocraat een jongeman van de projecten in om hem te verzorgen."
+	},
+	{
+		"id": 134,
+		"titel": "the kissing booth",
+		"jaar": 2018,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 105,
+		"genre": [
+			"komedie",
+			"romantisch"
+		],
+		"directeur": "Vince Marcello",
+		"acteurs": "Joey King, Joel Courtney & Jacob Elordi",
+		"plot": "Elle Evans, een zestienjarig meisje, is populair en feest graag maar is nog nooit gekust. De zaken nemen een wending die Elle nooit had verwacht wanneer ze tijdens carnaval terechtkomt bij een attractie genaamd 'kissing booth'. Daar staat ze plots oog in oog met de jongen waar ze al lang verliefd op is - de broer van haar beste vriend, Noah. Elle wordt vervolgens meegesleept in een romantisch met de coolste jongen op school."
+	},
+	{
+		"id": 135,
+		"titel": "the kissing booth 2",
+		"jaar": 2020,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 131,
+		"genre": [
+			"komedie",
+			"romantisch"
+		],
+		"directeur": "Vince Marcello",
+		"acteurs": "Joey King, Joel Courtney & Jacob Elordi",
+		"plot": "Elle's vriendje Noah vertrekt naar Harvard om te gaan studeren. De tortelduifjes doen er alles aan om de langeafstandsrelatie te laten werken. Maar de komst van een aantrekkelijke nieuwe klasgenoot maakt het er voor Elle niet gemakkelijker op. Tot overmaat van ramp dreigt Noah ook te zwichten voor de verleidingen van het studentenleven. Zal de liefde het nieuwe schooljaar overleven?"
+	},
+	{
+		"id": 136,
+		"titel": "the kissing booth 3",
+		"jaar": 2021,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 113,
+		"genre": [
+			"komedie",
+			"romantisch"
+		],
+		"directeur": "Vince Marcello",
+		"acteurs": "Joey King, Joel Courtney & Jacob Elordi",
+		"plot": "Elle staat voor een grote beslissing. Haar middelbareschooltijd zit erop en ze moet besluiten naar welke universiteit ze gaat. Wordt het Harvard, waar ze bij Noah kan zijn? Of kiest ze voor haar eigen favoriete school, waar toevallig ook Lee naartoe gaat?"
+	},
+	{
+		"id": 137,
+		"titel": "The Last Samurai",
+		"jaar": 2003,
+		"taal": [
+			"Engels",
+			"Japans"
+		],
+		"looptijd": 154,
+		"genre": [
+			"actie",
+			"drama",
+			"historisch"
+		],
+		"directeur": "Edoorlogd Zwick",
+		"acteurs": "Ken Watanabe, Tom Cruise, William Atherton & Chad Lindberg",
+		"plot": "Een Amerikaanse militaire adviseur omarmt de samoeraicultuur die hij heeft moeten vernietigen nadat hij gevangen is genomen in de strijd."
+	},
+	{
+		"id": 138,
+		"titel": "The Lives of Others",
+		"jaar": 2006,
+		"taal": [
+			"Duits"
+		],
+		"looptijd": 137,
+		"genre": [
+			"drama",
+			"thriller"
+		],
+		"directeur": "Florian Henckel von Donnersmarck",
+		"acteurs": "Martina Gedeck, Ulrich Mühe, Sebastian Koch & Ulrich Tukur",
+		"plot": "In 1984 merkt Oost-Berlijn, een agent van de geheime politie, die toezicht houdt op een schrijver en zijn minnaar, dat hij steeds meer in beslag wordt genomen door hun leven."
+	},
+	{
+		"id": 139,
+		"titel": "The Lord of the Rings: The Fellowship of the Ring",
+		"jaar": 2001,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 178,
+		"genre": [
+			"actie",
+			"avontuur",
+			"drama"
+		],
+		"directeur": "Peter Jackson",
+		"acteurs": "Alan Hooorlogd, Noel Appleby, Sean Astin & Sala Baker",
+		"plot": "Een zachtmoedige Hobbit uit de Gouw en acht metgezellen gaan op reis om de machtige One Ring te vernietigen en Middle Earth te redden van de Dark Lord Sauron."
+	},
+	{
+		"id": 140,
+		"titel": "The Lord of the Rings: The Return of the King",
+		"jaar": 2003,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 201,
+		"genre": [
+			"actie",
+			"avontuur",
+			"drama"
+		],
+		"directeur": "Peter Jackson",
+		"acteurs": "Noel Appleby, Ali Astin, Sean Astin & David Aston",
+		"plot": "Gandalf en Aragorn leiden de World of Men tegen het leger van Sauron om zijn blik af te wenden van Frodo en Sam als ze Mount Doom naderen met de One Ring."
+	},
+	{
+		"id": 141,
+		"titel": "The Lord of the Rings: The Two Towers",
+		"jaar": 2002,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 179,
+		"genre": [
+			"actie",
+			"avontuur",
+			"drama"
+		],
+		"directeur": "Peter Jackson",
+		"acteurs": "Bruce Allpress, Sean Astin, John Bach & Sala Baker",
+		"plot": "Terwijl Frodo en Sam met de hulp van de sluwe Gollum dichter bij Mordor komen, neemt de verdeelde gemeenschap stelling tegen Saurons nieuwe bondgenoot, Saruman, en zijn hordes Isengard."
+	},
+	{
+		"id": 142,
+		"titel": "The Martian",
+		"jaar": 2015,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 144,
+		"genre": [
+			"avontuur",
+			"drama"
+		],
+		"directeur": "Ridley Scott",
+		"acteurs": "Matt Damon, Jessica Chastain, Kristen Wiig & Jeff Daniels",
+		"plot": "Een astronaut strandt op Mars nadat zijn team hem dood heeft aangenomen, en moet op zijn vindingrijkheid vertrouwen om een manier te vinden om de aarde te laten weten dat hij leeft."
+	},
+	{
+		"id": 143,
+		"titel": "The Pianist",
+		"jaar": 2002,
+		"taal": [
+			"Engels",
+			"Duits",
+			"Russisch"
+		],
+		"looptijd": 150,
+		"genre": [
+			"biografie",
+			"drama",
+			"oorlog"
+		],
+		"directeur": "Roman Polanski",
+		"acteurs": "Adrien Brody, Emilia Fox, Michal Zebrowski & Ed Stoppard",
+		"plot": "Een Pools-joodse muzikant worstelt om de verwoesting van het getto van oorlogschau tijdens de Tweede Wereldoorlog te overleven."
+	},
+	{
+		"id": 144,
+		"titel": "The Quiet American",
+		"jaar": 2002,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 101,
+		"genre": [
+			"drama",
+			"mystery",
+			"romantisch"
+		],
+		"directeur": "Phillip Noyce",
+		"acteurs": "Michael Caine, Brendan Fraser, Do Thi Hai Yen & Rade Serbedzija",
+		"plot": "Een oudere Britse verslaggever wedijvert met een jonge Amerikaanse arts om de genegenheid van een mooie Vietnamese vrouw."
+	},
+	{
+		"id": 145,
+		"titel": "The Rum Diary",
+		"jaar": 2011,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 120,
+		"genre": [
+			"komedie",
+			"drama"
+		],
+		"directeur": "Bruce Robinson",
+		"acteurs": "Johnny Depp, Aaron Eckhart, Michael Rispoli & Amber Heard",
+		"plot": "De Amerikaanse journalist Paul Kemp neemt in de jaren zestig een freelance baan aan in Puerto Rico voor een lokale krant en worstelt om een evenwicht te vinden tussen de eilandcultuur en de expats die daar wonen."
+	},
+	{
+		"id": 146,
+		"titel": "The Shawshank Redemption",
+		"jaar": 1994,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 142,
+		"genre": [
+			"misdaad",
+			"drama"
+		],
+		"directeur": "Frank Darabont",
+		"acteurs": "Tim Robbins, Morgan Freeman, Bob Gunton & William Sadler",
+		"plot": "Twee gevangengenomen mannen hechten zich gedurende een aantal jaren aan elkaar en vinden troost en uiteindelijk verlossing door daden van normaal fatsoen."
+	},
+	{
+		"id": 147,
+		"titel": "The Shining",
+		"jaar": 1980,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 146,
+		"genre": [
+			"drama",
+			"horror"
+		],
+		"directeur": "Stanley Kubrick",
+		"acteurs": "Jack Nicholson, Shelley Duvall, Danny Lloyd ,& Scatman Crothers",
+		"plot": "Een familie gaat naar een geïsoleerd hotel voor de winter waar een kwaadaardige en spirituele aanwezigheid de vader tot geweld aanzet, terwijl zijn helderziende zoon gruwelijke voorgevoelens uit het verleden en de toekomst ziet."
+	},
+	{
+		"id": 148,
+		"titel": "The siege of jadootville",
+		"jaar": 2016,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 108,
+		"genre": [
+			"oorlog",
+			"drama",
+			"actie",
+			"historisch",
+			"thriller"
+		],
+		"directeur": "Richie Smyth",
+		"acteurs": "Jamie Dornan, Mark Strong, Mikael Persbrandt, Jason O'Mara, Danny Sapani, Michael McElhatton & Guillaume Canet",
+		"plot": "De film speelt zich af in 1961 ten tijde van de Congo-crisis. Generaal Pat Quinlan en zijn 150 manschappen worden door Hammarskjold van de Verenigde Naties naar de stad gestuurd nadat Katanga zich heeft afgescheiden. Gedurende 6 dagen en nachten worden ze aangevallen door 3000 soldaten van de Katangese regering die worden gesteund door de Franse en Belgische huurlingen die zijn ingehuurd door de mijnbouwbedrijven."
+	},
+	{
+		"id": 149,
+		"titel": "The Silence of the Lambs",
+		"jaar": 1991,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 118,
+		"genre": [
+			"misdaad",
+			"drama",
+			"thriller"
+		],
+		"directeur": "Jonathan Demme",
+		"acteurs": "Jodie Foster, Lawrence A. Bonney, Kasi Lemmons & Lawrence T. Wrentz",
+		"plot": "Een jonge F.B.I. Cadet moet een opgesloten en manipulatieve moordenaar in vertrouwen nemen om zijn hulp te krijgen bij het vangen van een andere seriemoordenaar die zijn slachtoffers vilt."
+	},
+	{
+		"id": 150,
+		"titel": "The Social Network",
+		"jaar": 2010,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 120,
+		"genre": [
+			"biografie",
+			"drama"
+		],
+		"directeur": "David Fincher",
+		"acteurs": "Jesse Eisenberg, Rooney Mara, Bryan Barter & Dustin Fitzsimons",
+		"plot": "Harvard-student Mark Zuckerberg maakt de sociale netwerksite die bekend zou worden als Facebook, maar wordt later aangeklaagd door twee broers die beweerden dat hij hun idee had gestolen, en de mede-oprichter die later uit het bedrijf werd geduwd."
+	},
+	{
+		"id": 151,
+		"titel": "The Theory of Everything",
+		"jaar": 2014,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 123,
+		"genre": [
+			"biografie",
+			"drama",
+			"romantisch"
+		],
+		"directeur": "James Marsh",
+		"acteurs": "Eddie Redmayne, Felicity Jones, Tom Prior & Sophie Perry",
+		"plot": "Een blik op de relatie tussen de beroemde natuurkundige Stephen Hawking en zijn vrouw."
+	},
+	{
+		"id": 152,
+		"titel": "The Third Man",
+		"jaar": 1949,
+		"taal": [
+			"Engels",
+			"Duits"
+		],
+		"looptijd": 93,
+		"genre": [
+			"film-noir",
+			"mystery",
+			"thriller",
+			"oorlog"
+		],
+		"directeur": "Carol Reed",
+		"acteurs": "Joseph Cotten, Alida Valli, Orson Welles & Trevor Hooorlogd",
+		"plot": "Pulp-schrijver Holly Martins reist naar het schimmige, naoorlogse Wenen, waar hij de mysterieuze dood van een oude vriend, Harry Lime, onderzoekt."
+	},
+	{
+		"id": 153,
+		"titel": "The Truman Show",
+		"jaar": 1998,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 103,
+		"genre": [
+			"komedie",
+			"drama",
+			"sciencefiction"
+		],
+		"directeur": "Peter Weir",
+		"acteurs": "Jim Carrey, Laura Linney, Noah Emmerich & Natascha McElhone",
+		"plot": "Een verzekeringsverkoper/-expert ontdekt dat zijn hele leven eigenlijk een televisieshow is."
+	},
+	{
+		"id": 154,
+		"titel": "The Wolf of Wall Street",
+		"jaar": 2013,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 180,
+		"genre": [
+			"biografie",
+			"komedie",
+			"misdaad"
+		],
+		"directeur": "Martin Scorsese",
+		"acteurs": "Leonardo DiCaprio, Jonah Hill, Margot Robbie & Matthew McConaughey",
+		"plot": "Gebaseerd op het waargebeurde verhaal van Jordan Belfort, van zijn opkomst tot een rijke effectenmakelaar die een goed leven leidde tot zijn val met misdaad, corruptie en de federale overheid."
+	},
+	{
+		"id": 155,
+		"titel": "To Kill a Mockingbird",
+		"jaar": 1962,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 129,
+		"genre": [
+			"misdaad",
+			"drama"
+		],
+		"directeur": "Robert Mulligan",
+		"acteurs": "Gregory Peck, John Megna, Frank Overton & Rosemary Murphy",
+		"plot": "Atticus Finch, een advocaat in het zuiden van de depressieperiode, verdedigt een zoorlogte man tegen een onverdiende aanklacht van verkrachting en zijn kinderen tegen vooroordelen."
+	},
+	{
+		"id": 156,
+		"titel": "Troy",
+		"jaar": 2004,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 163,
+		"genre": [
+			"avontuur"
+		],
+		"directeur": "Wolfgang Petersen",
+		"acteurs": "Julian Glover, Brian Cox, Nathan Jones & Adoni Maropis",
+		"plot": "De film, een bewerking van het grote epos van Homerus, volgt de aanval op Troje door de verenigde Griekse strijdkrachten en vertelt het lot van de betrokken mannen."
+	},
+	{
+		"id": 157,
+		"titel": "V for Vendetta",
+		"jaar": 2005,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 132,
+		"genre": [
+			"actie",
+			"drama",
+			"thriller"
+		],
+		"directeur": "James McTeigue",
+		"acteurs": "Natalie Portman, Hugo Weaving, Stephen Rea & Stephen Fry",
+		"plot": "In een toekomstige Britse tirannie beraamt een schimmige vrijheidsstrijder, alleen bekend onder de alias \"V\", een plan om het omver te werpen met de hulp van een jonge vrouw."
+	},
+	{
+		"id": 158,
+		"titel": "Valkyrie",
+		"jaar": 2008,
+		"taal": [
+			"Engels",
+			"Duits"
+		],
+		"looptijd": 121,
+		"genre": [
+			"drama",
+			"historisch",
+			"thriller",
+			"muziek",
+			"oorlog"
+		],
+		"directeur": "Bryan Singer",
+		"acteurs": "Tom Cruise, Kenneth Branagh, Bill Nighy & Tom Wilkinson",
+		"plot": "Een dramatisering van de moordaanslag en de politieke coup van 20 juli door wanhopige afvallige Duitse legerofficieren tegen Hitler tijdens de Tweede Wereldoorlog."
+	},
+	{
+		"id": 159,
+		"titel": "Vertigo",
+		"jaar": 1958,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 128,
+		"genre": [
+			"mystery",
+			"romantisch",
+			"thriller"
+		],
+		"directeur": "Alfred Hitchcock",
+		"acteurs": "James Steoorlogt, Kim Novak, Barbara Bel Geddes & Tom Helmore",
+		"plot": "Een rechercheur uit San Francisco die lijdt aan hoogtevrees onderzoekt de vreemde activiteiten van de vrouw van een oude vriend, en raakt ondertussen gevaarlijk geobsedeerd door haar."
+	},
+	{
+		"id": 160,
+		"titel": "Vicky Cristina Barcelona",
+		"jaar": 2008,
+		"taal": [
+			"Engels",
+			"Spaans"
+		],
+		"looptijd": 96,
+		"genre": [
+			"drama",
+			"romantisch"
+		],
+		"directeur": "Woody Allen",
+		"acteurs": "Rebecca Hall, Scarlett Johansson, Christopher Evan Welch & Chris Messina",
+		"plot": "Twee vriendinnen op zomervakantie in Spanje raken verliefd op dezelfde schilder, niet wetende dat zijn ex-vrouw, met wie hij een stormachtige relatie heeft, op het punt staat opnieuw in beeld te komen."
+	},
+	{
+		"id": 161,
+		"titel": "WALL·E",
+		"jaar": 2008,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 98,
+		"genre": [
+			"animatie",
+			"avontuur",
+			"familie"
+		],
+		"directeur": "Andrew Stanton",
+		"acteurs": "Ben Burtt, Elissa Knight, Jeff Garlin & Fred Willard",
+		"plot": "In de verre toekomst begint een kleine afvalverzamelende robot per ongeluk aan een ruimtereis die uiteindelijk het lot van de mensheid zal bepalen."
+	},
+	{
+		"id": 162,
+		"titel": "Whiplash",
+		"jaar": 2014,
+		"taal": [
+			"Engels"
+		],
+		"looptijd": 107,
+		"genre": [
+			"drama",
+			"muziek"
+		],
+		"directeur": "Damien Chazelle",
+		"acteurs": "Miles Teller, J.K. Simmons, Paul Reiser & Melissa Benoist",
+		"plot": "Een veelbelovende jonge drummer schrijft zich in op een moordend conservatorium waar zijn dromen van grootsheid worden begeleid door een instructeur die voor niets stopt om het potentieel van een student te realiseren."
+	}
+]
