@@ -1,0 +1,15 @@
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net5.0\Reserveringssysteem.exe
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net5.0\Reserveringssysteem.deps.json
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net5.0\Reserveringssysteem.runtimeconfig.json
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net5.0\Reserveringssysteem.runtimeconfig.dev.json
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net5.0\Reserveringssysteem.dll
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net5.0\ref\Reserveringssysteem.dll
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net5.0\Reserveringssysteem.pdb
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\obj\Debug\net5.0\Reserveringssysteem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\obj\Debug\net5.0\Reserveringssysteem.AssemblyInfoInputs.cache
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\obj\Debug\net5.0\Reserveringssysteem.AssemblyInfo.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\obj\Debug\net5.0\Reserveringssysteem.csproj.CoreCompileInputs.cache
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\obj\Debug\net5.0\Reserveringssysteem.dll
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\obj\Debug\net5.0\ref\Reserveringssysteem.dll
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\obj\Debug\net5.0\Reserveringssysteem.pdb
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\obj\Debug\net5.0\Reserveringssysteem.genruntimeconfig.cache

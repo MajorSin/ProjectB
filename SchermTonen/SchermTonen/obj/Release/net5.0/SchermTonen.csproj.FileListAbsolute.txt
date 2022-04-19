@@ -1,5 +1,0 @@
-C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\SchermTonen\SchermTonen\SchermTonen\obj\Release\net5.0\SchermTonen.csproj.AssemblyReference.cache
-C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\SchermTonen\SchermTonen\SchermTonen\obj\Release\net5.0\SchermTonen.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\SchermTonen\SchermTonen\SchermTonen\obj\Release\net5.0\SchermTonen.AssemblyInfoInputs.cache
-C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\SchermTonen\SchermTonen\SchermTonen\obj\Release\net5.0\SchermTonen.AssemblyInfo.cs
-C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\SchermTonen\SchermTonen\SchermTonen\obj\Release\net5.0\SchermTonen.csproj.CoreCompileInputs.cache
