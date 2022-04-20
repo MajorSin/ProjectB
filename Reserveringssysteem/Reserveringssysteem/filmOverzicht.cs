@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Reserveringssysteem
 {
-	public class film
+	public class filmOverzicht
 	{
 		public List<FilmOverzicht> filmsZoeken;
 		//LEES JSON
