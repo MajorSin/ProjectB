@@ -387,16 +387,91 @@ namespace Reserveringssysteem
                 ";
             string underline = "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
             showHeader(color, title, underline);
-
-            Console.WriteLine("[films inhoud]\n");
-
+            //FILMS INHOUD
+            film zoeken = new film();
+            var films = zoeken.ShowList();
+            if (films != null)
+            {
+                if (films.Count > 0)
+                {
+                    Console.WriteLine("Uw zoekopdracht heeft de volgende resultat(en) opgeleverd:\n");
+                    foreach (var film in films)
+                    {
+                        //KRIJG DE TALEN
+                        int taalLength = film?.Taal?.Count ?? 0;
+                        string talen = "";
+                        for (int i = 0; i < taalLength; i++)
+                        {
+                            talen += film?.Taal?[i];
+                            //VOEG DE JUISTE TEKEN TOE
+                            if (taalLength > 1)
+                            {
+                                if ((taalLength - 2) == i)
+                                {
+                                    talen += " & ";
+                                } else if ((taalLength - 1) != i)
+                                {
+                                    talen += ", ";
+                                }
+                            }
+                        }
+                        string taalString = taalLength == 1 ? "Taal" : "Talen";
+                        //KRIJG DE GENRE(S)
+                        int genreLength = film?.Genre?.Count ?? 0;
+                        string genres = "";
+                        for (int i = 0; i < genreLength; i++)
+                        {
+                            genres += film?.Genre?[i];
+                            //VOEG DE JUISTE TEKEN TOE
+                            if (genreLength > 1)
+                            {
+                                if ((genreLength - 2) == i)
+                                {
+                                    genres += " & ";
+                                } else if ((genreLength - 1) != i)
+                                {
+                                    genres += ", ";
+                                }
+                            }
+                        }
+                        string genreString = genreLength == 1 ? "Genre" : "Genres";
+                        //LAAT ALLES BOVEN DE 1 UUR ZIEN
+                        if (film?.Looptijd > 60)
+                        {
+                            int? uur = film.Looptijd / 60;
+                            int? minuten = film.Looptijd - (uur * 60);
+                            string uurString = uur == 1 ? "uur" : "uren";
+                            string minuutString = minuten == 1 ? "minuut" : "minuten";
+                            //PRINT DE GEGEVENS
+                            Console.WriteLine($"- {film.Titel} ({film.Jaar}) \n" +
+                                $"  - {taalString} : {talen} \n" +
+                                $"  - Looptijd: {uur} {uurString} en {minuten} {minuutString}.\n" +
+                                $"  - {genreString} : {genres}\n" +
+                                $"  - Directeur(s) : {film.Directeur}\n" +
+                                $"  - Acteurs : {film.Acteurs}\n" +
+                                $"  - Plot: {film.Plot}\n");
+                        }
+                        //LAAT ALLES ONDER DE 1 UUR ZIEN
+                        else
+                        {
+                            //PRINT DE GEGEVENS
+                            Console.WriteLine($"- {film?.Titel} ({film?.Jaar}), \n" +
+                                $"  - {taalString} : {talen} \n" +
+                                $"  - Looptijd: {film?.Looptijd}.\n" +
+                                $"  - {genreString} : {genres}\n" +
+                                $"  - Directeur(s) : {film?.Directeur}\n" +
+                                $"  - Acteurs : {film?.Acteurs}\n" +
+                                $"  - Plot: {film?.Plot}\n");
+                        }
+                    }
+                } else { Console.WriteLine("Er zijn geen films gevonden"); }
+            } else { Console.WriteLine("Iets ging fout"); }
+            //GA TERUG NAAR MENU
             string[] options = new string[]
             {
                     "Terug",
             };
-
             int choice = awaitResponse(options);
-
             switch (choice)
             {
                 case 0:
