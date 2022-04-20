@@ -388,7 +388,7 @@ namespace Reserveringssysteem
             string underline = "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
             showHeader(color, title, underline);
             //FILMS INHOUD
-            film zoeken = new film();
+            filmOverzicht zoeken = new filmOverzicht();
             var films = zoeken.ShowList();
             if (films != null)
             {
