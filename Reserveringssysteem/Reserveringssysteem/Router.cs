@@ -498,23 +498,23 @@ namespace Reserveringssysteem
                 ";
             string underline = "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
             showHeader(color, title, underline);
-
-            Console.WriteLine("[eten & drinken inhoud]\n");
-
-            string[] options = new string[]
-            {
-                    "Terug",
-            };
-
+            //OVERZICHT ETEN EN DRINKEN
+            Console.WriteLine("Dit is een overzicht van het menu. U kunt op een item klikken om de voedingswaarde te zien.\n");
+            string[] options = new string[] { "Zout popcorn", "Zoet popcorn", "Nachos", "Paprika chips", "Naturel chips", "Cola", "Sprite", "Spa blauw", "Spa rood", "GA TERUG" };
             int choice = awaitResponse(options);
-
-            switch (choice)
-            {
-                case 0:
+            if (choice ==  options.Length -1){
                     CurrentScreen = "Home";
-                    break;
+            } else
+			{
+                voeding product = new voeding(options[choice]);
+                Console.Clear();
+                showHeader(color, title, underline);
+                Console.WriteLine(options[choice].ToUpper() + "\n");
+                Console.WriteLine(product.returnVoedingswaarde());
+                Console.WriteLine("\n");
+                string[] terug = { "GA TERUG" };
+				awaitResponse( terug );
             }
-
             Console.Clear();
             displayScreen();
         }
