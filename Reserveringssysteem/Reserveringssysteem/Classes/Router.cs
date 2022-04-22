@@ -38,7 +38,7 @@ namespace Reserveringssysteem
                     DisplayInformatie();
                     break;
                 default:
-                    CurrentScreen = "Authorizatie";
+                    SetCurrentScreen("Authorizatie");
                     DisplayAuthorization();
                     break;
             }
@@ -144,27 +144,27 @@ namespace Reserveringssysteem
             switch (choice)
             {
                 case "Inloggen":
-                    CurrentScreen = "Inloggen";
+                    SetCurrentScreen("Inloggen");
                     break;
                 case "Uitloggen":
                     if (IsLoggedIn)
                     {
                         IsLoggedIn = false;
-                        CurrentScreen = "Authorizatie";
+                        SetCurrentScreen("Authorizatie");
                     }
                     break;
                 case "Registreren":
-                    CurrentScreen = "Registreren";
+                    SetCurrentScreen("Registreren");
                     break;
                 case "Doorgaan als gast":
-                    CurrentScreen = "Home";
+                    SetCurrentScreen("Home");
                     IsLoggedIn = false;
                     break;
                 case "Beeïndigen":
                     Environment.Exit(0);
                     break;
                 default:
-                    CurrentScreen = "Authorizatie";
+                    SetCurrentScreen("Authorizatie");
                     break;
             }
         }
@@ -198,10 +198,10 @@ namespace Reserveringssysteem
             switch (choice)
             {
                 case "Terug":
-                    CurrentScreen = "Authorizatie";
+                    SetCurrentScreen("Authorizatie");
                     break;
                 case "Verder":
-                    CurrentScreen = "Home";
+                    SetCurrentScreen("Home");
                     IsLoggedIn = true;
                     break;
             }
@@ -236,7 +236,7 @@ namespace Reserveringssysteem
             switch (choice)
             {
                 case "Terug":
-                    CurrentScreen = "Authorizatie";
+                    SetCurrentScreen("Authorizatie");
                     break;
             }
         }
@@ -306,18 +306,18 @@ namespace Reserveringssysteem
                 case "Reserveren":
                     if (IsLoggedIn)
                     {
-                        CurrentScreen = choice;
+                        SetCurrentScreen(choice);
                     } 
                     else
                     {
-                        CurrentScreen = "Inloggen";
+                        SetCurrentScreen("Inloggen");
                     }
                     break;
                 case "Terug":
-                    CurrentScreen = "Authorizatie";
+                    SetCurrentScreen("Authorizatie");
                     break;
                 default:
-                    CurrentScreen = choice;
+                    SetCurrentScreen(choice);
                     break;
             }
         }
@@ -349,7 +349,7 @@ namespace Reserveringssysteem
             switch (choice)
             {
                 case "Terug":
-                    CurrentScreen = "Home";
+                    SetCurrentScreen("Home");
                     break;
             }
         }
@@ -430,6 +430,10 @@ namespace Reserveringssysteem
                         if (choice == "Bekijk film details")
                         {
                             controller.ShowFilm(films, showHeader);
+                            options = new string[]
+                            {
+                                "Terug",
+                            };
                         } else
                         {
                             Console.Clear();
@@ -456,7 +460,7 @@ namespace Reserveringssysteem
             } else
             {
                 Console.Clear();
-                this.CurrentScreen = "Home";
+                SetCurrentScreen("Home");
                 this.DisplayScreen();
             }
         }
@@ -483,7 +487,7 @@ namespace Reserveringssysteem
 
             if (choice == "Terug")
             {
-                CurrentScreen = "Home";
+                SetCurrentScreen("Home");
             }
             else
             {
@@ -522,7 +526,20 @@ namespace Reserveringssysteem
                 ";
             ShowHeader(color, title);
 
-            Console.WriteLine("[informatie inhoud]\n");
+            Console.WriteLine(@"   Hier vindt u de algemene informatie over de bioscoop.
+
+   Adres:    Wijnhaven 107, Rotterdam
+   Postcode: 3011 WN
+    
+   Openingstijden:
+        Maandag:      09:00 - 22:00
+        Dinsdag:      09:00 - 22:00
+        Woensdag:     09:00 - 22:00
+        Donderdag:    09:00 - 22:00
+        Vrijdag:      09:00 - 00:00
+        Zaterdag:     09:00 - 00:00
+        Zondag:       09:00 - 22:00
+            ");
 
             string[] options = new string[]
             {
@@ -531,12 +548,12 @@ namespace Reserveringssysteem
 
             string choice = AwaitResponse(options);
 
-            switch (choice)
-            {
-                case "Terug":
-                    CurrentScreen = "Home";
-                    break;
-            }
+            SetCurrentScreen("Home");
+        }
+
+        private void SetCurrentScreen(string screen)
+        {
+            this.CurrentScreen = screen;
         }
     }
 }
