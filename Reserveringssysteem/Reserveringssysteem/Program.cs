@@ -4,11 +4,20 @@ namespace Reserveringssysteem
 {
     internal class Program
     {
+        public static void Prepare()
+        {
+            FilmController.SetFilms();
+        }
+
         static void Main(string[] args)
         {
-            // Maakt een Router instantie om te gebruiken voor de schermen.
-            Router router = new Router();
-            router.displayScreen(); ;
+            Prepare();
+            Router router = new();
+            while (true)
+            {
+                router.DisplayScreen();
+                Console.Clear();
+            }
         }
     }
 }

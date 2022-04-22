@@ -5,6 +5,11 @@
       "ProjectGuid": "a0aaa3c6-58f7-490c-8ac9-608a0c12f1ac",
       "DisplayName": "Reserveringssysteem",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1

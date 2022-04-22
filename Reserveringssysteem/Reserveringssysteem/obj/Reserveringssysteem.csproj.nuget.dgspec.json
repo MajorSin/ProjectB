@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\films zien\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj": {}
+    "C:\\Users\\Omar Karimi\\Desktop\\Projecten\\Hogeschool Rotterdam\\C#\\ProjectB\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\films zien\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj": {
+    "C:\\Users\\Omar Karimi\\Desktop\\Projecten\\Hogeschool Rotterdam\\C#\\ProjectB\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\films zien\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
+        "projectUniqueName": "C:\\Users\\Omar Karimi\\Desktop\\Projecten\\Hogeschool Rotterdam\\C#\\ProjectB\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
         "projectName": "Reserveringssysteem",
-        "projectPath": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\films zien\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
-        "packagesPath": "C:\\Users\\psing\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\films zien\\Reserveringssysteem\\Reserveringssysteem\\obj\\",
+        "projectPath": "C:\\Users\\Omar Karimi\\Desktop\\Projecten\\Hogeschool Rotterdam\\C#\\ProjectB\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
+        "packagesPath": "C:\\Users\\Omar Karimi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Omar Karimi\\Desktop\\Projecten\\Hogeschool Rotterdam\\C#\\ProjectB\\Reserveringssysteem\\Reserveringssysteem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\psing\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Omar Karimi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
