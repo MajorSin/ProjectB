@@ -20,7 +20,6 @@ C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserver
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Reserveringssysteem.deps.json
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Reserveringssysteem.runtimeconfig.json
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Reserveringssysteem.dll
-C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\ref\Reserveringssysteem.dll
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Reserveringssysteem.pdb
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Json.Net.dll
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Newtonsoft.Json.dll
@@ -34,3 +33,4 @@ C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserver
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\obj\Debug\net6.0\ref\Reserveringssysteem.dll
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\obj\Debug\net6.0\Reserveringssysteem.pdb
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\obj\Debug\net6.0\Reserveringssysteem.genruntimeconfig.cache
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\obj\Debug\net6.0\refint\Reserveringssysteem.dll

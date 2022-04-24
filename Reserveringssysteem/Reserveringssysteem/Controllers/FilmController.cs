@@ -106,11 +106,11 @@ namespace Reserveringssysteem
 		//LAAT LIJST ZIEN
 		public string ShowList(Action showHeader, Router router)
 		{
-			this.FilteredFilms = new List<Film>();
+			FilteredFilms = new List<Film>();
 
 			for (int i = 0; i < Films.Count; i++)
             {
-				this.FilteredFilms.Add(Films[i]);
+				FilteredFilms.Add(Films[i]);
             }
 
 			Func<string>[] arr = new Func<string>[] {

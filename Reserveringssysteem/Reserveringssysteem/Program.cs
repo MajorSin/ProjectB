@@ -6,6 +6,7 @@ namespace Reserveringssysteem
     {
         public static void Prepare()
         {
+            MemberController.SetMembers();
             FilmController.SetFilms();
         }
 

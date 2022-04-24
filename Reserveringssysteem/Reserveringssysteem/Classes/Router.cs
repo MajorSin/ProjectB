@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using static Reserveringssysteem.UserController;
 
 namespace Reserveringssysteem
 {
     public class Router
     {
-        public bool IsLoggedIn { get; set; }
         public string CurrentScreen { get; set; }
 
         // Toont het scherm waar je nu op bent.
@@ -135,7 +135,7 @@ namespace Reserveringssysteem
             {
                     IsLoggedIn ? "Uitloggen" : "Inloggen",
                     "Registreren",
-                    "Doorgaan als gast",
+                    IsLoggedIn ? "Doorgaan naar home" : "Doorgaan als gast",
                     "Beeïndigen",
             };
 
@@ -149,16 +149,18 @@ namespace Reserveringssysteem
                 case "Uitloggen":
                     if (IsLoggedIn)
                     {
-                        IsLoggedIn = false;
+                        LogOut();
                         SetCurrentScreen("Authorizatie");
                     }
                     break;
                 case "Registreren":
                     SetCurrentScreen("Registreren");
                     break;
+                case "Doorgaan naar home":
+                    SetCurrentScreen("Home");
+                    break;
                 case "Doorgaan als gast":
                     SetCurrentScreen("Home");
-                    IsLoggedIn = false;
                     break;
                 case "Beeïndigen":
                     Environment.Exit(0);
@@ -185,26 +187,16 @@ namespace Reserveringssysteem
                 ";
             ShowHeader(color, title);
 
-            Console.WriteLine("[inloggen inhoud]\n");
+            Action showHeader = () => ShowHeader(color, title);
+            UserController controller = new();
+            controller.Login(showHeader, this);
 
             string[] options = new string[]
             {
                     "Terug",
-                    "Verder",
             };
 
             string choice = AwaitResponse(options);
-
-            switch (choice)
-            {
-                case "Terug":
-                    SetCurrentScreen("Authorizatie");
-                    break;
-                case "Verder":
-                    SetCurrentScreen("Home");
-                    IsLoggedIn = true;
-                    break;
-            }
         }
 
         // Registratie scherm.
@@ -224,7 +216,9 @@ namespace Reserveringssysteem
                 ";
             ShowHeader(color, title);
 
-            Console.WriteLine("[registreren inhoud]\n");
+            Action showHeader = () => ShowHeader(color, title);
+            MemberController controller = new();
+            controller.Register(showHeader, this);
 
             string[] options = new string[]
             {
@@ -232,13 +226,6 @@ namespace Reserveringssysteem
             };
 
             string choice = AwaitResponse(options);
-
-            switch (choice)
-            {
-                case "Terug":
-                    SetCurrentScreen("Authorizatie");
-                    break;
-            }
         }
 
         // Hoofdscherm.
@@ -264,7 +251,7 @@ namespace Reserveringssysteem
 
             if (IsLoggedIn)
             {
-                name = "gebruiker";
+                name = CurrentUser.GetFirstName();
             } else
             {
                 name = "gast";
@@ -399,7 +386,7 @@ namespace Reserveringssysteem
                 {
                     case "Terug":
                         Console.Clear();
-                        this.DisplayFilms();
+                        DisplayFilms();
                         break;
                 }
             } else if (choice == "Filter films")
@@ -437,7 +424,7 @@ namespace Reserveringssysteem
                         } else
                         {
                             Console.Clear();
-                            this.DisplayFilms();
+                            DisplayFilms();
                         }
                     }
                     else { 
@@ -450,18 +437,18 @@ namespace Reserveringssysteem
 
                     choice = AwaitResponse(options);
                     Console.Clear();
-                    this.DisplayFilms();
+                    DisplayFilms();
                 }
                 else
                 {
                     Console.Clear();
-                    this.DisplayFilms();
+                    DisplayFilms();
                 }
             } else
             {
                 Console.Clear();
                 SetCurrentScreen("Home");
-                this.DisplayScreen();
+                DisplayScreen();
             }
         }
 
@@ -491,7 +478,7 @@ namespace Reserveringssysteem
             }
             else
             {
-                Voeding product = new Voeding(choice);
+                Voeding product = new(choice);
                 Console.Clear();
                 ShowHeader(color, title);
 
@@ -551,9 +538,9 @@ namespace Reserveringssysteem
             SetCurrentScreen("Home");
         }
 
-        private void SetCurrentScreen(string screen)
+        public void SetCurrentScreen(string screen)
         {
-            this.CurrentScreen = screen;
+            CurrentScreen = screen;
         }
     }
 }
