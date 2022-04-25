@@ -131,13 +131,27 @@ namespace Reserveringssysteem
 
             Console.WriteLine("   Gebruik pijltjestoetsen ↑ en ↓ om te navigeren\n   en druk enter om een optie te kiezen.\n");
 
-            string[] options = new string[]
+            string[] options;
+
+            if (IsLoggedIn)
             {
-                    IsLoggedIn ? "Uitloggen" : "Inloggen",
-                    "Registreren",
-                    IsLoggedIn ? "Doorgaan naar home" : "Doorgaan als gast",
+                options = new string[]
+                {
+                    "Uitloggen",
+                    "Doorgaan naar home",
                     "Beeïndigen",
-            };
+                };
+            }
+            else
+            {
+                options = new string[]
+                {
+                    "Inloggen",
+                    "Registreren",
+                    "Doorgaan als gast",
+                    "Beeïndigen",
+                };
+            }
 
             string choice = AwaitResponse(options);
 

@@ -312,15 +312,6 @@ namespace Reserveringssysteem
                         && field != "username" && field != "password"):
                         error = " Geen cijfers of andere symbolen";
                         break;
-                    case string a when a.Length < 2 && field == "voornaam":
-                        error = " Minimaal 2 karakters";
-                        break;
-                    case string a when a.Length < 6 && (field == "achternaam" || field == "gebruikersnaam" || field == "wachtwoord"):
-                        error = " Minimaal 6 karakters";
-                        break;
-                    case string a when a.Length > 9 && (field == "voornaam" || field == "achternaam"):
-                        error = " Maximaal 9 karakters";
-                        break;
                     case string a when (a.ToLower() != "man" && a.ToLower() != "vrouw") && field == "geslacht":
                         error = " Geslacht niet juist";
                         break;

@@ -43,7 +43,11 @@ namespace Reserveringssysteem
             string gender = CheckErrors("geslacht", questionThree).ToLower();
             gender = char.ToUpper(gender[0]) + gender.Substring(1);
 
-            string questionFour = "\n   [4] Wat is uw geboortedatum?";
+            count++;
+            currentPosition = Console.GetCursorPosition();
+            UpdateBar(60, currentPosition, count);
+
+            string questionFour = "   [4] Wat is uw geboortedatum?";
             Console.WriteLine(questionFour);
             Console.Write("   Jaar: ");
             string year = CheckErrors("jaar", questionFour);
@@ -57,10 +61,6 @@ namespace Reserveringssysteem
 
             Tuple<int, int, int> collection = Tuple.Create(int.Parse(year), int.Parse(month), int.Parse(day));
             DateTime birthDate = new(collection.Item1, collection.Item2, collection.Item3);
-
-            count++;
-            currentPosition = Console.GetCursorPosition();
-            UpdateBar(60, currentPosition, count);
 
             count++;
 
