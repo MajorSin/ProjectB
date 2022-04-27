@@ -12,31 +12,54 @@ namespace Reserveringssysteem
 
         public void Login(Action showHeader, Router router)
         {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("   Typ 'q' als u terug wilt gaan.\n");
+            Console.ResetColor();
+
             string userCredential = "   Gebruikersnaam:";
             Console.WriteLine(userCredential);
             string username = CheckErrors("username", userCredential);
 
-            string passwordCredential = "\n   Wachtwoord:";
-            Console.WriteLine(passwordCredential);
-            string password = CheckErrors("password", passwordCredential, username);
-
-            VerifyLogin(username, password);
-
-            Console.WriteLine();
-
-            string[] options = new string[]
+            if (username != "q")
             {
-                    "Log in"
-            };
+                string passwordCredential = "\n   Wachtwoord:";
+                Console.WriteLine(passwordCredential);
+                string password = CheckErrors("password", passwordCredential, username);
 
-            string choice = router.AwaitResponse(options);
+                if (password != "q")
+                {
+                    VerifyLogin(username, password);
 
-            Console.Clear();
-            showHeader();
+                    Console.WriteLine();
 
-            Console.WriteLine("   Ingelogd!\n");
+                    string[] options = new string[]
+                    {
+                        "Log in"
+                    };
 
-            router.SetCurrentScreen("Home");
+                    string choice = router.AwaitResponse(options);
+
+                    Console.Clear();
+                    showHeader();
+
+                    Console.WriteLine("   Ingelogd!\n");
+
+                    options = new string[]
+                    {
+                            "Terug",
+                    };
+
+                    choice = router.AwaitResponse(options);
+
+                    router.SetCurrentScreen("Home");
+                } else
+                {
+                    router.SetCurrentScreen("Authorizatie");
+                }
+            } else
+            {
+                router.SetCurrentScreen("Authorizatie");
+            }
         }
 
         // Verifieert de gegeven gebruikersnaam en wachtwoord van de gebruiker.
@@ -297,6 +320,10 @@ namespace Reserveringssysteem
             bool errorsGone = false;
             string error = "";
 
+            if (value == "q")
+            {
+                errorsGone = true;
+            }
             while (!errorsGone)
             {
                 switch (value)
@@ -412,7 +439,7 @@ namespace Reserveringssysteem
                         }
                         break;
                 }
-                if (error != "")
+                if (error != "" && value != "q")
                 {
                     EmptyField(value, field);
                     ShowError(field, question, error);

@@ -204,13 +204,6 @@ namespace Reserveringssysteem
             Action showHeader = () => ShowHeader(color, title);
             UserController controller = new();
             controller.Login(showHeader, this);
-
-            string[] options = new string[]
-            {
-                    "Terug",
-            };
-
-            string choice = AwaitResponse(options);
         }
 
         // Registratie scherm.
@@ -233,13 +226,6 @@ namespace Reserveringssysteem
             Action showHeader = () => ShowHeader(color, title);
             MemberController controller = new();
             controller.Register(showHeader, this);
-
-            string[] options = new string[]
-            {
-                    "Terug",
-            };
-
-            string choice = AwaitResponse(options);
         }
 
         // Hoofdscherm.
@@ -395,14 +381,6 @@ namespace Reserveringssysteem
                 };
 
                 choice = AwaitResponse(options);
-
-                switch (choice)
-                {
-                    case "Terug":
-                        Console.Clear();
-                        DisplayFilms();
-                        break;
-                }
             } else if (choice == "Filter films")
             {
                 string result = controller.ShowList(showHeader, this);
@@ -435,34 +413,21 @@ namespace Reserveringssysteem
                             {
                                 "Terug",
                             };
-                        } else
-                        {
-                            Console.Clear();
-                            DisplayFilms();
+                            choice = AwaitResponse(options);
                         }
-                    }
-                    else { 
+                    } else
+                    {
                         Console.WriteLine("   Er zijn geen films gevonden\n");
                         options = new string[]
                         {
                             "Terug",
                         };
+                        choice = AwaitResponse(options);
                     }
-
-                    choice = AwaitResponse(options);
-                    Console.Clear();
-                    DisplayFilms();
-                }
-                else
-                {
-                    Console.Clear();
-                    DisplayFilms();
                 }
             } else
             {
-                Console.Clear();
                 SetCurrentScreen("Home");
-                DisplayScreen();
             }
         }
 

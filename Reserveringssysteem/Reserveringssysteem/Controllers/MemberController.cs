@@ -20,89 +20,129 @@ namespace Reserveringssysteem
             (int, int) currentPosition = Console.GetCursorPosition();
             UpdateBar(0, currentPosition, count);
 
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("\n   Typ 'q' als u terug wilt gaan.");
+            Console.ResetColor();
+
             string questionOne = "\n   [1] Wat is uw naam?";
             Console.WriteLine(questionOne);
             string firstname = CheckErrors("voornaam", questionOne).ToLower();
             firstname = char.ToUpper(firstname[0]) + firstname.Substring(1);
 
-            count++;
-            currentPosition = Console.GetCursorPosition();
-            UpdateBar(20, currentPosition, count);
-
-            string questionTwo = "   [2] Wat is uw achternaam?";
-            Console.WriteLine(questionTwo);
-            string surname = CheckErrors("achternaam", questionTwo).ToLower();
-            surname = char.ToUpper(surname[0]) + surname.Substring(1);
-
-            count++;
-            currentPosition = Console.GetCursorPosition();
-            UpdateBar(40, currentPosition, count);
-
-            string questionThree = "   [3] Wat is uw geslacht? Man/Vrouw";
-            Console.WriteLine(questionThree);
-            string gender = CheckErrors("geslacht", questionThree).ToLower();
-            gender = char.ToUpper(gender[0]) + gender.Substring(1);
-
-            count++;
-            currentPosition = Console.GetCursorPosition();
-            UpdateBar(60, currentPosition, count);
-
-            string questionFour = "   [4] Wat is uw geboortedatum?";
-            Console.WriteLine(questionFour);
-            Console.Write("   Jaar: ");
-            string year = CheckErrors("jaar", questionFour);
-
-            Console.Write("   Maand: ");
-            string month = CheckErrors("maand", questionFour);
-
-            Console.Write("   Dag: ");
-            string day = CheckErrors("dag", questionFour, "", int.Parse(year), int.Parse(month));
-
-
-            Tuple<int, int, int> collection = Tuple.Create(int.Parse(year), int.Parse(month), int.Parse(day));
-            DateTime birthDate = new(collection.Item1, collection.Item2, collection.Item3);
-
-            count++;
-
-            Console.Clear();
-            showHeader();
-
-            currentPosition = Console.GetCursorPosition();
-            UpdateBar(0, currentPosition, count);
-            UpdateBar(80, currentPosition, count);
-
-            string questionFive = "\n   [5] Wat is uw e-mailaddres?";
-            Console.WriteLine(questionFive);
-            string emailAddress = CheckErrors("emailAddress", questionFive);
-
-            string questionSix = "\n   [6] Welke gebruikersnaam wilt u?";
-            Console.WriteLine(questionSix);
-            string username = CheckErrors("gebruikersnaam", questionSix);
-
-            string questionSeven = "\n   [7] Wat wordt uw wachtwoord?";
-            Console.WriteLine(questionSeven);
-            string password = CheckErrors("wachtwoord", questionSeven);
-
-            count++;
-            currentPosition = Console.GetCursorPosition();
-            UpdateBar(100, currentPosition, count);
-
-            string[] options = new string[]
+            if (firstname.ToLower() != "q")
             {
-                    "Bevestigen",
-            };
+                count++;
+                currentPosition = Console.GetCursorPosition();
+                UpdateBar(20, currentPosition, count);
 
-            var members = GetMembers();
-            Member member = new Member(members.Count + 1, username, password, firstname, surname, gender, birthDate, emailAddress);
-            members.Add(member);
+                string questionTwo = "   [2] Wat is uw achternaam?";
+                Console.WriteLine(questionTwo);
+                string surname = CheckErrors("achternaam", questionTwo).ToLower();
+                surname = char.ToUpper(surname[0]) + surname.Substring(1);
 
-            UpdateMembers();
+                if (surname.ToLower() != "q")
+                {
+                    count++;
+                    currentPosition = Console.GetCursorPosition();
+                    UpdateBar(40, currentPosition, count);
 
-            Console.Clear();
-            showHeader();
+                    string questionThree = "   [3] Wat is uw geslacht? Man/Vrouw";
+                    Console.WriteLine(questionThree);
+                    string gender = CheckErrors("geslacht", questionThree).ToLower();
+                    gender = char.ToUpper(gender[0]) + gender.Substring(1);
 
-            Console.WriteLine("  Account is gemaakt!\n");
+                    if (gender.ToLower() != "q")
+                    {
+                        count++;
+                        currentPosition = Console.GetCursorPosition();
+                        UpdateBar(60, currentPosition, count);
 
+                        string questionFour = "   [4] Wat is uw geboortedatum? Bv: (1996-10-4)";
+                        Console.WriteLine(questionFour);
+                        Console.Write("   Jaar: ");
+                        string year = CheckErrors("jaar", questionFour);
+
+                        if (year != "q")
+                        {
+                            Console.Write("   Maand: ");
+                            string month = CheckErrors("maand", questionFour);
+
+                            if (month != "q")
+                            {
+                                Console.Write("   Dag: ");
+                                string day = CheckErrors("dag", questionFour, "", int.Parse(year), int.Parse(month));
+
+                                if (day != "q")
+                                {
+                                    Tuple<int, int, int> collection = Tuple.Create(int.Parse(year), int.Parse(month), int.Parse(day));
+                                    DateTime birthDate = new(collection.Item1, collection.Item2, collection.Item3);
+
+                                    count++;
+
+                                    Console.Clear();
+                                    showHeader();
+
+                                    currentPosition = Console.GetCursorPosition();
+                                    UpdateBar(0, currentPosition, count);
+                                    UpdateBar(80, currentPosition, count);
+
+                                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                                    Console.WriteLine("\n   Typ 'q' als u terug wilt gaan.");
+                                    Console.ResetColor();
+
+                                    string questionFive = "\n   [5] Wat is uw e-mailaddres?";
+                                    Console.WriteLine(questionFive);
+                                    string emailAddress = CheckErrors("emailAddress", questionFive);
+
+                                    if (emailAddress != "q")
+                                    {
+                                        string questionSix = "\n   [6] Welke gebruikersnaam wilt u?";
+                                        Console.WriteLine(questionSix);
+                                        string username = CheckErrors("gebruikersnaam", questionSix);
+
+                                        if (username != "q")
+                                        {
+                                            string questionSeven = "\n   [7] Wat wordt uw wachtwoord?";
+                                            Console.WriteLine(questionSeven);
+                                            string password = CheckErrors("wachtwoord", questionSeven);
+
+                                            if (password != "q")
+                                            {
+                                                count++;
+                                                currentPosition = Console.GetCursorPosition();
+                                                UpdateBar(100, currentPosition, count);
+
+                                                string[] options = new string[]
+                                                {
+                                                    "Bevestigen",
+                                                };
+
+                                                var members = GetMembers();
+                                                Member member = new Member(members.Count + 1, username, password, firstname, surname, gender, birthDate, emailAddress);
+                                                members.Add(member);
+
+                                                UpdateMembers();
+
+                                                Console.Clear();
+                                                showHeader();
+
+                                                Console.WriteLine("  Account is gemaakt!\n");
+
+                                                options = new string[]
+                                                {
+                                                        "Terug",
+                                                };
+
+                                                string choice = router.AwaitResponse(options);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             router.SetCurrentScreen("Authorizatie");
         }
 

@@ -155,7 +155,10 @@ namespace Reserveringssysteem
 				var titelFilter = Console.ReadLine();
 				while (string.IsNullOrWhiteSpace(titelFilter))
 				{
+					Console.Clear();
+					showHeader();
 					Console.WriteLine("   Kies uit een titel.");
+					Console.CursorLeft = 3;
 					titelFilter = Console.ReadLine();
 				}
 				//FILTER DE JSON
