@@ -18,5 +18,15 @@
     "gender": "Man",
     "emailAddress": "lisa@hotmail.com",
     "birthDate": "2001-10-23T00:00:00"
+  },
+  {
+    "id": 3,
+    "username": "majorsin",
+    "password": "test",
+    "firstName": "Prabhjot",
+    "surname": "Singh",
+    "gender": "Man",
+    "emailAddress": "test@gmail.com",
+    "birthDate": "2002-10-06T00:00:00"
   }
 ]

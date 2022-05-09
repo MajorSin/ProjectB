@@ -58,11 +58,6 @@ namespace Reserveringssysteem.Classes
                 creditCard();
             }
         }
-
-        public static void Main()
-        {
-            betaalOpties();
-        }
         public static void iDeal()
         {
             Console.WriteLine("U heeft gekozen voor iDeal.\n");
