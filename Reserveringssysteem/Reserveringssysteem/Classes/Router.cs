@@ -74,8 +74,14 @@ namespace Reserveringssysteem
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write(" ");
+                        if ((options.Length - 1) == i)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write(" ");
+                        } else { 
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write(" ");
+                        }
                     }
                     Console.WriteLine("  {0}", options[i]);
                     Console.ResetColor();
@@ -324,22 +330,28 @@ namespace Reserveringssysteem
                                                                                        
                 ";
             ShowHeader(color, title);
-            string[] options = new string[]
-            {
-                    "Terug",
-            };
-
+            string[] options;
             //LAAT ALLE FILMS ZIEN DIE BINNEKORT DRAAIEN
             draaiendeFilms draaienClass = new draaiendeFilms();
             var filmsDieBinnekortDraaien = draaienClass.laatDraaiendeFilmsZien();
-            if(filmsDieBinnekortDraaien.Count <= 0) { Console.WriteLine("Er draaien binnenkort geen films"); }
-            else { 
+            if(filmsDieBinnekortDraaien.Count <= 0) 
+            { 
+                Console.WriteLine("Er draaien binnenkort geen films\n\n"); 
+                options = new string[]
+                {
+                    "Terug",
+                };
+            } else 
+            {
+                Console.WriteLine("De volgende films kunt u reserveren:\n");
+                options = new string[filmsDieBinnekortDraaien.Count + 1];
                 for (int i = 0; i < filmsDieBinnekortDraaien.Count; i++)
                 {
-                    Console.WriteLine((i + 1) + ". " + filmsDieBinnekortDraaien[i].Name);
+                    options[i] = filmsDieBinnekortDraaien[i].Name;
                 }
+                options[options.Length - 1] = "Terug";
             }
-
+            //MAAK EEN OPTIE
             string choice = AwaitResponse(options);
             switch (choice)
             {

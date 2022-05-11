@@ -29,28 +29,32 @@ namespace Reserveringssysteem.Classes
 			//VERWIJDER ALLE DATUMS DIE AL ZIJN GEWEEST
 			for(int i = 0; i < draaienFilmsList.Count; i++)
 			{
-				int removeAt = 0;
+				int DatumremoveAt = 0;
 				int runFor = draaienFilmsList[i].Datum.Count;
 				for (int j = 0; j < runFor; j++)
 				{
-					DateTime datumdraaien = DateTime.Parse(draaienFilmsList[i].Datum[removeAt]);
+					DateTime datumdraaien = DateTime.Parse(draaienFilmsList[i].Datum[DatumremoveAt]);
 					if (datumdraaien < DateTime.Now)
 					{
-						draaienFilmsList[i].Datum.RemoveAt(removeAt);
-						draaienFilmsList[i].Zaal.RemoveAt(removeAt);
+						draaienFilmsList[i].Datum.RemoveAt(DatumremoveAt);
+						draaienFilmsList[i].Zaal.RemoveAt(DatumremoveAt);
 					} else
 					{
-						removeAt++;
+						DatumremoveAt++;
 					}
 				}
 			}
 			//ALS ER GEEN DATUMS MEER ZIJN, VERWIJDER VAN HELE LIST
-			for (int i = 0; i < draaienFilmsList.Count; i++)
-			{ 
-				if (draaienFilmsList[i].Datum.Count <= 0)
+			int ListremoveAt = 0;
+			int LengteDraaienFilmList = draaienFilmsList.Count;
+			for (int i = 0; i < LengteDraaienFilmList; i++)
+			{
+				if (draaienFilmsList[ListremoveAt].Datum.Count <= 0)
 				{
-					draaienFilmsList.RemoveAt(i);
+					draaienFilmsList.RemoveAt(ListremoveAt);
+					ListremoveAt--;
 				}
+				ListremoveAt++;
 			}
 			return draaienFilmsList;
 		}
