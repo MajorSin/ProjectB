@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reserveringssysteem.Classes;
+using System;
 using System.Collections.Generic;
 using static Reserveringssysteem.UserController;
 
@@ -323,16 +324,23 @@ namespace Reserveringssysteem
                                                                                        
                 ";
             ShowHeader(color, title);
-
-            Console.WriteLine("[reserveren inhoud]\n");
-
             string[] options = new string[]
             {
                     "Terug",
             };
 
-            string choice = AwaitResponse(options);
+            //LAAT ALLE FILMS ZIEN DIE BINNEKORT DRAAIEN
+            draaiendeFilms draaienClass = new draaiendeFilms();
+            var filmsDieBinnekortDraaien = draaienClass.laatDraaiendeFilmsZien();
+            if(filmsDieBinnekortDraaien.Count <= 0) { Console.WriteLine("Er draaien binnenkort geen films"); }
+            else { 
+                for (int i = 0; i < filmsDieBinnekortDraaien.Count; i++)
+                {
+                    Console.WriteLine((i + 1) + ". " + filmsDieBinnekortDraaien[i].Name);
+                }
+            }
 
+            string choice = AwaitResponse(options);
             switch (choice)
             {
                 case "Terug":
