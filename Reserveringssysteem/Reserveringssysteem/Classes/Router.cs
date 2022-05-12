@@ -334,14 +334,14 @@ namespace Reserveringssysteem
             //LAAT ALLE FILMS ZIEN DIE BINNEKORT DRAAIEN
             draaiendeFilms draaienClass = new draaiendeFilms();
             var filmsDieBinnekortDraaien = draaienClass.laatDraaiendeFilmsZien();
-            if(filmsDieBinnekortDraaien.Count <= 0) 
-            { 
-                Console.WriteLine("Er draaien binnenkort geen films\n\n"); 
+            if (filmsDieBinnekortDraaien.Count <= 0)
+            {
+                Console.WriteLine("Er draaien binnenkort geen films\n\n");
                 options = new string[]
                 {
                     "Terug",
                 };
-            } else 
+            } else
             {
                 Console.WriteLine("De volgende films kunt u reserveren:\n");
                 options = new string[filmsDieBinnekortDraaien.Count + 1];
@@ -353,11 +353,16 @@ namespace Reserveringssysteem
             }
             //MAAK EEN OPTIE
             string choice = AwaitResponse(options);
-            switch (choice)
+            if (choice == "Terug")
             {
-                case "Terug":
-                    SetCurrentScreen("Home");
-                    break;
+                SetCurrentScreen("Home");
+            } else
+            {
+                Console.Clear();
+                ShowHeader(color, title);
+                Console.WriteLine(draaienClass.filmDatumDetails(choice));
+                //LAAT DE DATUMS ZIEN
+                AwaitResponse(draaienClass.datumsDraaienString);
             }
         }
 
