@@ -26,6 +26,9 @@ namespace Reserveringssysteem
                 case "Home":
                     DisplayHome();
                     break;
+                case "Admin":
+                    DisplayAdmin();
+                    break;
                 case "Reserveren":
                     DisplayReserveren();
                     break;
@@ -178,7 +181,14 @@ namespace Reserveringssysteem
                     SetCurrentScreen("Registreren");
                     break;
                 case "Doorgaan naar home":
-                    SetCurrentScreen("Home");
+                    if (CurrentUser is Admin)
+                    {
+                        SetCurrentScreen("Admin");
+                    }
+                    else
+                    {
+                        SetCurrentScreen("Home");
+                    }
                     break;
                 case "Doorgaan als gast":
                     SetCurrentScreen("Home");
@@ -306,6 +316,57 @@ namespace Reserveringssysteem
                     {
                         SetCurrentScreen("Inloggen");
                     }
+                    break;
+                case "Terug":
+                    SetCurrentScreen("Authorizatie");
+                    break;
+                default:
+                    SetCurrentScreen(choice);
+                    break;
+            }
+        }
+
+        private void DisplayAdmin()
+        {
+            ConsoleColor color = ConsoleColor.White;
+            string title = @"                                                           
+                                                                 
+                  &&&&&&&&                            
+               &&&&&&&&&&&&&&                         
+               &&&&&&&&&&&&&&                         
+               &&&&&&&&&&&&&&                         
+               &&&&&&&&&&&&&&                         
+                &&&&&&&&&&&&                          
+                 &&&&&&&&&&                           
+      &&&&&&&&&&&  &&&&&& &&&&&&&&&&&&                
+     &&         &&&&&&&&&&&&         &&               
+     &&    @@@@@@@@@@@@@@@@@@@@@@    &&               
+     &&                              &&               
+     &&     @@  & & &@ @( & @& &     &&               
+     &&    &  & &@( & & ( @ & .&     &&               
+     &&                              &&               
+     &&                              &&               
+      &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&                
+   @&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&                              
+            ";
+            ShowHeader(color, title);
+
+            Console.WriteLine("   Gebruik pijltjestoetsen ↑ en ↓ om te navigeren\n   en druk enter om een optie te kiezen.\n");
+
+            string[] options = new string[] {
+                "Huidige films",
+                "Films",
+                "Eten & Drinken",
+                "Leden",
+                "Terug"
+            };
+
+            string choice = AwaitResponse(options);
+
+            switch (choice)
+            {
+                case "Huidige films":
+                    SetCurrentScreen(choice);
                     break;
                 case "Terug":
                     SetCurrentScreen("Authorizatie");

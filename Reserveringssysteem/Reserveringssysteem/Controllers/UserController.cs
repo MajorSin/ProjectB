@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using static Reserveringssysteem.MemberController;
+using static Reserveringssysteem.AdminController;
 
 namespace Reserveringssysteem
 {
@@ -51,7 +52,14 @@ namespace Reserveringssysteem
 
                     choice = router.AwaitResponse(options);
 
-                    router.SetCurrentScreen("Home");
+                    if (CurrentUser is Admin)
+                    {
+                        router.SetCurrentScreen("Admin");
+                    }
+                    else
+                    {
+                        router.SetCurrentScreen("Home");
+                    }
                 } else
                 {
                     router.SetCurrentScreen("Authorizatie");
@@ -65,16 +73,25 @@ namespace Reserveringssysteem
         // Verifieert de gegeven gebruikersnaam en wachtwoord van de gebruiker.
         protected void VerifyLogin(string username, string password)
         {
-            var users = Members;
-
-            for (int i = 0; i < users.Count; i++)
+            if (username == "admin" && password == "123")
             {
-                if (users[i].GetUsername() == username)
+                CurrentUser = makeAdmin();
+                IsLoggedIn = true;
+            }
+            else
+            {
+
+                var users = Members;
+
+                for (int i = 0; i < users.Count; i++)
                 {
-                    if (users[i].GetPassword() == password)
+                    if (users[i].GetUsername() == username)
                     {
-                        IsLoggedIn = true;
-                        CurrentUser = users[i];
+                        if (users[i].GetPassword() == password)
+                        {
+                            IsLoggedIn = true;
+                            CurrentUser = users[i];
+                        }
                     }
                 }
             }
@@ -324,6 +341,10 @@ namespace Reserveringssysteem
             {
                 errorsGone = true;
             }
+            else if ((value == "admin" && field == "username") || (value == "123" && field == "password"))
+            {
+                errorsGone = true;
+            }
             while (!errorsGone)
             {
                 switch (value)
@@ -439,7 +460,7 @@ namespace Reserveringssysteem
                         }
                         break;
                 }
-                if (error != "" && value != "q")
+                if (error != "" && value != "q" && value != "admin" && value != "123")
                 {
                     EmptyField(value, field);
                     ShowError(field, question, error);

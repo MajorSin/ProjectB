@@ -29,13 +29,13 @@ namespace Reserveringssysteem
         [JsonProperty("birthDate")]
         private DateTime BirthDate { get; set; }
 
-        public User(int id, string username, string password, string firstName, string surame, string gender, DateTime birthDate, string emailAddress)
+        public User(int id, string username, string password, string firstName, string surname, string gender, DateTime birthDate, string emailAddress)
         {
             this.Id = id;
             this.Username = username;
             this.Password = password;
             this.FirstName = firstName;
-            this.Surname = surame;
+            this.Surname = surname;
             this.Gender = gender;
             this.BirthDate = birthDate;
             this.EmailAddress = emailAddress;
