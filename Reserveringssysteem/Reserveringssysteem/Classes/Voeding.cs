@@ -24,7 +24,7 @@ namespace Reserveringssysteem
 			{
 				if (voedingswaardeList.ContainsKey(this.naam))
 				{
-					returnString = $"   Eenheid per {voedingswaardeList[naam].Eenheid}\n   - Energie: {voedingswaardeList[naam].Energie}\n   - Eiwitten: {voedingswaardeList[naam].Eiwitten}\n   - Koolhydraten: {voedingswaardeList[naam].Koolhydraten}\n     - Waarvan suikers: {voedingswaardeList[naam].waarvanSuikers}\n   - Vet: {voedingswaardeList[naam].Vet}\n     - {voedingswaardeList[naam].waarvanVerzadigd}\n   - Vezels: {voedingswaardeList[naam].Vezels}";
+					returnString = $"   Eenheid per {voedingswaardeList[naam].Eenheid}\n   - Energie: {voedingswaardeList[naam].Energie}\n   - Eiwitten: {voedingswaardeList[naam].Eiwitten}\n   - Koolhydraten: {voedingswaardeList[naam].Koolhydraten}\n     - Waarvan suikers: {voedingswaardeList[naam].waarvanSuikers}\n   - Vet: {voedingswaardeList[naam].Vet}\n     - Waarvan Verzadigd: {voedingswaardeList[naam].waarvanVerzadigd}\n   - Vezels: {voedingswaardeList[naam].Vezels}";
 				} else
 				{
 					return "Er ging iets mis.";
