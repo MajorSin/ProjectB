@@ -619,10 +619,18 @@ namespace Reserveringssysteem
             SetCurrentScreen("Home");
         }
         
-        public bool IsDateTime(string txtDate)
+        // Check of het gegeven datum geldig is.
+        private bool IsDateTime(string txtDate)
         {
             DateTime tempDate;
             return DateTime.TryParse(txtDate, out tempDate);
+        }
+
+        // Check of het gegeven tijd geldig is.
+        private bool IsTime(string txtTime)
+        {
+            TimeSpan time;
+            return TimeSpan.TryParse(txtTime, out time);
         }
 
         // Huidige films laten zien.
@@ -703,7 +711,7 @@ namespace Reserveringssysteem
                         };
 
                         //LAAT DE DATUMS ZIEN
-                        AwaitResponse(options);
+                        choice = AwaitResponse(options);
                     }
                 }
             } else if (choice == "Film draaien")
@@ -732,9 +740,18 @@ namespace Reserveringssysteem
 
                     Film film = controller.ShowFilm(films, showHeader);
 
-                    string date = "";
                     string error = "";
+
+                    string date = "";
+                    DateTime dateTime = DateTime.Now;
                     bool choseDate = false;
+
+                    string time = "";
+                    bool choseTime = false;
+
+                    string strAuditorium = "";
+                    int auditorium = 0;
+                    bool choseAuditorium = false;
 
                     while (!choseDate)
                     {
@@ -750,16 +767,14 @@ namespace Reserveringssysteem
                             Console.ResetColor();
                         }
 
-                        var currentDateAndTime = DateTime.Now;
-
-                        Console.WriteLine($"   Typ een datum voor de film: (Voorbeeld: {currentDateAndTime.ToString("dd-MM-yyyy")})");
+                        Console.WriteLine($"   Kies een datum voor de film: (Voorbeeld: {dateTime.ToString("dd-MM-yyyy")})");
                         Console.CursorLeft = 3;
 
                         date = Console.ReadLine();
 
                         if (String.IsNullOrEmpty(date))
                         {
-                            error = "   Datum kan niet leeg zijn.";
+                            error = "   Veld kan niet leeg zijn.";
                         } else if (!IsDateTime(date))
                         {
                             error = "   Datum klopt niet.";
@@ -767,12 +782,127 @@ namespace Reserveringssysteem
                         {
                             DateTime tempDate = DateTime.Parse(date);
 
-                            if (tempDate.Date < currentDateAndTime)
+                            if (tempDate < dateTime.AddDays(-1))
                             {
                                 error = "   Datum kan niet al geweest zijn.";
+                            } else
+                            {
+                                choseDate = true;
+                                dateTime = DateTime.Parse(date);
                             }
                         }
                     }
+                    while (!choseTime)
+                    {
+                        Console.Clear();
+                        ShowHeader(color, title);
+
+                        Console.WriteLine($"   Gekozen film: {film.Titel}\n" +
+                            $"   Gekozen datum: {dateTime.ToString("dd-MM-yyyy")}\n");
+
+                        Console.WriteLine($"   Kies een tijd voor de film: (Voorbeeld: 18:30)");
+                        Console.CursorLeft = 3;
+
+                        time = Console.ReadLine();
+
+                        if (String.IsNullOrEmpty(time))
+                        {
+                            error = "   Veld kan niet leeg zijn.";
+                        }
+                        else if (!IsTime(time))
+                        {
+                            error = "   Tijd klopt niet.";
+                        }
+                        else
+                        {
+                            TimeSpan tempTime = TimeSpan.Parse(time);
+                            dateTime = dateTime.Date + tempTime;
+                            choseTime = true;
+                        }
+                    }
+                    while (!choseAuditorium)
+                    {
+                        Console.Clear();
+                        ShowHeader(color, title);
+
+                        Console.WriteLine($"   Gekozen film: {film.Titel}\n" +
+                            $"   Gekozen datum: {dateTime.ToString("dd-MM-yyyy")}\n" +
+                            $"   Gekozen tijd: {dateTime.ToString("HH:mm")}\n");
+
+                        Console.WriteLine($"   Kies een zaal voor de film: 1) Zaal 1 | 2) Zaal 2 | 3) Zaal 3");
+                        Console.CursorLeft = 3;
+
+                        strAuditorium = Console.ReadLine();
+
+                        if (String.IsNullOrEmpty(strAuditorium))
+                        {
+                            error = "   Veld kan niet leeg zijn.";
+                        }
+                        else if (strAuditorium != "1" && strAuditorium != "2" && strAuditorium != "3") 
+                        {
+                            error = "   Kies uit een van de 3 zalen.";
+                        }
+                        else
+                        {
+                            auditorium = Convert.ToInt32(strAuditorium);
+                            choseAuditorium = true;
+                        }
+                    }
+
+                    Console.Clear();
+                    ShowHeader(color, title);
+
+                    Console.WriteLine($"   Gekozen film: {film.Titel}\n" +
+                    $"   Gekozen datum: {dateTime.ToString("dd-MM-yyyy")}\n" +
+                    $"   Gekozen tijd: {dateTime.ToString("HH:mm")}\n" +
+                    $"   Gekozen zaal: {auditorium}\n");
+
+                    options = new string[]{
+                        "Bevestigen",
+                    };
+
+                    choice = AwaitResponse(options);
+
+                    List<draaiendeFilms.draaienFilms> gedraaideFilms = draaienClass.GetDraaienFilms();
+
+                    bool alreadyExists = false;
+                    for (int i = 0; i < gedraaideFilms.Count; i++)
+                    {
+                        if (gedraaideFilms[i].FilmID == film.Id)
+                        {
+                            alreadyExists = true;
+                            gedraaideFilms[i].Datum.Add(dateTime.ToString("yyyy-MM-ddTHH:mm:ss"));
+                            gedraaideFilms[i].Zaal.Add(auditorium);
+                            break;
+                        }
+                    }
+
+                    if (!alreadyExists)
+                    {
+                        List<string> datums = new List<string>();
+                        datums.Add(dateTime.ToString("yyyy-MM-ddTHH:mm:ss"));
+
+                        List<int> zalen = new List<int>();
+                        zalen.Add(auditorium);
+
+                        gedraaideFilms.Add(new draaiendeFilms.draaienFilms(film.Id, film.Titel, datums, zalen));
+                    }
+
+                    draaienClass.UpdateDraaienFilms();
+
+                    Console.Clear();
+                    ShowHeader(color, title);
+
+                    Console.WriteLine("   Film is toegevoegd aan de films die worden gedraaid!\n");
+
+                    options = new string[]
+                    {
+                        "Terug"
+                    };
+
+                    choice = AwaitResponse(options);
+
+                    SetCurrentScreen("Draaiende films");
                 }
                 else if (choice == "Filter films")
                 {

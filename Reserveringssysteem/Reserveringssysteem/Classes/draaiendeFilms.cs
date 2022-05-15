@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 using System.IO;
+using System.Globalization;
 
 namespace Reserveringssysteem
 {
@@ -12,17 +13,27 @@ namespace Reserveringssysteem
 		public List<DateTime> datumsDraaien = new List<DateTime>();
 		public DateTime[] datumsDraaienArray;
 		public string[] datumsDraaienString;
+
 		public draaiendeFilms()
 		{
 			var jsonFilmsDraaien = File.ReadAllText("../../../DataFiles/gedraaideFilms.json", Encoding.GetEncoding("utf-8"));
 			this.draaienFilmsList = JsonConvert.DeserializeObject<List<draaienFilms>>(jsonFilmsDraaien);
 		}
+
 		public class draaienFilms
 		{
 			public int FilmID { get; set; }
 			public string Name { get; set; }
 			public List<string> Datum { get; set; }
 			public List<int> Zaal { get; set; }
+
+			public draaienFilms(int filmId, string name, List<string> datum, List<int> zaal)
+            {
+				this.FilmID = filmId;
+				this.Name = name;
+				this.Datum = datum;
+				this.Zaal = zaal;
+            }
 		}
 
 		//LAAT ALLE FILMS ZIEN DIE BINNEKORT DRAAIEN
@@ -36,7 +47,7 @@ namespace Reserveringssysteem
 				for (int j = 0; j < runFor; j++)
 				{
 					DateTime datumdraaien = DateTime.Parse(draaienFilmsList[i].Datum[DatumremoveAt]);
-					if (datumdraaien < DateTime.Now)
+					if (datumdraaien < DateTime.Now.AddDays(-1))
 					{
 						draaienFilmsList[i].Datum.RemoveAt(DatumremoveAt);
 						draaienFilmsList[i].Zaal.RemoveAt(DatumremoveAt);
@@ -103,7 +114,7 @@ namespace Reserveringssysteem
 					for(int j = 0; j < draaienFilmsList[i].Datum.Count; j++)
 					{
 						DateTime datumDraaien = DateTime.Parse(draaienFilmsList[i].Datum[j]);
-						if(datumDraaien > DateTime.Now)
+						if (datumDraaien > DateTime.Now.AddDays(-1))
 						{
 							this.datumsDraaien.Add(datumDraaien);
 						}
@@ -115,9 +126,13 @@ namespace Reserveringssysteem
 			datumsDraaienString = new string[datumsDraaienArray.Length + 1];
 			for(int i = 0; i < this.datumsDraaienArray.Length; i++)
 			{
-				datumsDraaienString[i] = $"{datumsDraaienArray[i].DayOfWeek}, {datumsDraaienArray[i].Day} {datumsDraaienArray[i].ToString("MMM")} {datumsDraaienArray[i].Year}, {datumsDraaienArray[i].Hour}:{datumsDraaienArray[i].Minute}";
+				CultureInfo netherlands = new CultureInfo("nl-NL");
+				string dayOfWeek = netherlands.DateTimeFormat.GetDayName(datumsDraaienArray[i].DayOfWeek);
+				dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
+				datumsDraaienString[i] = $"{dayOfWeek}, {datumsDraaienArray[i].Day} {datumsDraaienArray[i].ToString("MMM")} {datumsDraaienArray[i].Year}, {datumsDraaienArray[i].Hour}:{datumsDraaienArray[i].ToString("mm")}";
 			}
 			datumsDraaienString[datumsDraaienArray.Length] = "Ga terug";
+
 			return returnTekst;
 		}
 
