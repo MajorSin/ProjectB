@@ -1,7 +1,7 @@
 {
 	"Zout popcorn": {
 		"Eenheid": "100 gram",
-		"Calorieen": "520 kcal / 2176 kj",
+		"Energie": "520 kcal / 2176 kj",
 		"Eiwitten": "8 gram",
 		"Koolhydraten": "46 gram",
 		"waarvanSuikers": "1 gr",
@@ -11,7 +11,7 @@
 	},
 	"Zoet popcorn": {
 		"eenheid": "100 gram",
-		"Calorieen": "425 kcal / 1778 kj",
+		"Energie": "425 kcal / 1778 kj",
 		"eiwitten": "4,5 gram",
 		"Koolhydraten": "88 gram",
 		"waarvanSuikers": "50 gr",
@@ -21,7 +21,7 @@
 	},
 	"Nachos": {
 		"eenheid": "100 gram",
-		"Calorieen": "460 kcal / 1925 kj",
+		"Energie": "460 kcal / 1925 kj",
 		"eiwitten": "7 gram",
 		"Koolhydraten": "64 gram",
 		"waarvanSuikers": "1 gr",
@@ -31,7 +31,7 @@
 	},
 	"Paprika chips": {
 		"eenheid": "100 gram",
-		"Calorieen": "531 kcal / 2221 kj",
+		"Energie": "531 kcal / 2221 kj",
 		"eiwitten": "6,18 gram",
 		"Koolhydraten": "51 gram",
 		"waarvanSuikers": "2 gr",
@@ -41,7 +41,7 @@
 	},
 	"Naturel chips": {
 		"eenheid": "100 gram",
-		"Calorieen": "554 kcal / 2318 kj",
+		"Energie": "554 kcal / 2318 kj",
 		"eiwitten": "5 gram",
 		"Koolhydraten": "52 gram",
 		"waarvanSuikers": "1 gr",
@@ -51,7 +51,7 @@
 	},
 	"Cola": {
 		"eenheid": "100 gram",
-		"Calorieen": "42 kcal / 176 kj",
+		"Energie": "42 kcal / 176 kj",
 		"eiwitten": "0 gram",
 		"Koolhydraten": "11 gram",
 		"waarvanSuikers": "11 gr",
@@ -61,7 +61,7 @@
 	},
 	"Sprite": {
 		"eenheid": "100 gram",
-		"Calorieen": "28 kcal / 117 kj",
+		"Energie": "28 kcal / 117 kj",
 		"eiwitten": "0 gram",
 		"Koolhydraten": "6,6 gram",
 		"waarvanSuikers": "6,6 gr",
@@ -71,7 +71,7 @@
 	},
 	"Spa blauw": {
 		"eenheid": "100 gram",
-		"Calorieen": "0 kcal / 0 kj",
+		"Energie": "0 kcal / 0 kj",
 		"eiwitten": "0 gram",
 		"Koolhydraten": "0 gram",
 		"waarvanSuikers": "0 gr",
@@ -81,7 +81,7 @@
 	},
 	"Spa rood": {
 		"eenheid": "100 gram",
-		"Calorieen": "0 kcal / 0 kj",
+		"Energie": "0 kcal / 0 kj",
 		"eiwitten": "0 gram",
 		"Koolhydraten": "0 gram",
 		"waarvanSuikers": "0 gr",
