@@ -496,6 +496,8 @@ namespace Reserveringssysteem
 
    Adres:    Wijnhaven 107, Rotterdam
    Postcode: 3011 WN
+   E-mail: Info@Bioscoop.nl
+   Telefoon nummer klantenservice: (010) 123 45 67
     
    Openingstijden:
         Maandag:      09:00 - 22:00
