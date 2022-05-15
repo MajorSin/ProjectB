@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using static Reserveringssysteem.MemberController;
 using static Reserveringssysteem.AdminController;
 
@@ -136,14 +137,7 @@ namespace Reserveringssysteem
         private void EmptyField(string value, string field)
         {
             Console.CursorTop--;
-            if (field == "jaar" || field == "maand" || field == "dag")
-            {
-                Console.CursorLeft = field.Length + 5;
-            }
-            else
-            {
-                Console.CursorLeft = 3;
-            }
+            Console.CursorLeft = 3;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Write(value);
             Console.ResetColor();
@@ -153,82 +147,25 @@ namespace Reserveringssysteem
         // Laat de error zien aan de gebruiker.
         private void ShowError(string field, string question, string error)
         {
-            if (field == "maand" || field == "dag")
-            {
-                if (field == "maand")
-                {
-                    Console.CursorTop = Console.CursorTop - 2;
-                }
-                else
-                {
-                    Console.CursorTop = Console.CursorTop - 3;
-                }
-            }
-            else
-            {
-                Console.CursorTop--;
-            }
+
+            Console.CursorTop--;
             Console.CursorLeft = question.Length;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(error);
             Console.ResetColor();
-
-            if (field == "maand" || field == "dag")
-            {
-                if (field == "maand")
-                {
-                    Console.CursorTop = Console.CursorTop + 2;
-                }
-                else
-                {
-                    Console.CursorTop = Console.CursorTop + 3;
-                }
-            }
-            else
-            {
-                Console.CursorTop++;
-            }
+            Console.CursorTop++;
             Console.CursorLeft = 0;
         }
 
         // Verbergt de error.
         private void HideError(string field, string question, string error)
         {
-            if (field == "maand" || field == "dag")
-            {
-                if (field == "maand")
-                {
-                    Console.CursorTop = Console.CursorTop - 3;
-                }
-                else
-                {
-                    Console.CursorTop = Console.CursorTop - 4;
-                }
-            }
-            else
-            {
-                Console.CursorTop = Console.CursorTop - 2;
-            }
+            Console.CursorTop = Console.CursorTop - 2;
             Console.CursorLeft = question.Length + 1;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Write(error);
             Console.ResetColor();
-
-            if (field == "maand" || field == "dag")
-            {
-                if (field == "maand")
-                {
-                    Console.CursorTop = Console.CursorTop + 3;
-                }
-                else
-                {
-                    Console.CursorTop = Console.CursorTop + 4;
-                }
-            }
-            else
-            {
-                Console.CursorTop = Console.CursorTop + 2;
-            }
+            Console.CursorTop = Console.CursorTop + 2;
             Console.CursorLeft = 0;
         }
 
@@ -299,6 +236,12 @@ namespace Reserveringssysteem
             return false;
         }
 
+        public bool IsDateTime(string value)
+        {
+            DateTime tempDate;
+            return DateTime.TryParse(value, out tempDate);
+        }
+
         private bool CheckCredentials(string username, string password)
         {
             var members = GetMembers();
@@ -321,18 +264,10 @@ namespace Reserveringssysteem
         }
 
         // Controleert op errors in de input van de gebruiker.
-        protected string CheckErrors(string field, string question, string username = "", int year = 0, int month = 0)
+        protected string CheckErrors(string field, string question, string username = "")
         {
-            if (field == "jaar" || field == "maand" || field == "dag")
-            {
-                Console.CursorLeft = field.Length + 5;
-            }
-            else
-            {
-                Console.CursorLeft = 3;
-            }
+            Console.CursorLeft = 3;
 
-            int number = 0;
             string value = Console.ReadLine();
             bool errorsGone = false;
             string error = "";
@@ -355,13 +290,21 @@ namespace Reserveringssysteem
                     case string a when a.Contains(" "):
                         error = " Geen spaties";
                         break;
-                    case string a when a.Any(c => !char.IsLetter(c)) && (field != "emailAddress" && field != "wachtwoord"
-                        && field != "jaar" && field != "maand" && field != "dag" && field != "gebruikersnaam"
-                        && field != "username" && field != "password"):
+                    case string a when a.Any(c => !char.IsLetter(c)) && (field != "emailAddress" && field != "wachtwoord" && field != "gebruikersnaam" 
+                    && field != "username" && field != "password" && field != "birthDate" && field != "geslacht"):
                         error = " Geen cijfers of andere symbolen";
                         break;
-                    case string a when (a.ToLower() != "man" && a.ToLower() != "vrouw") && field == "geslacht":
-                        error = " Geslacht niet juist";
+                    case string a when a.Any(c => !char.IsLetter(c)) && field == "geslacht":
+                        if (value == "1")
+                        {
+                            value = "Man";
+                        } else if (value == "2")
+                        {
+                            value = "Vrouw";
+                        } else
+                        {
+                            error = " U moet kiezen uit een van de keuzes.";
+                        }
                         break;
                     case string a when !ValidEmail(a) && field == "emailAddress":
                         error = " E-mail klopt niet";
@@ -378,85 +321,32 @@ namespace Reserveringssysteem
                     case string a when !CheckCredentials(username, a) && field == "password":
                         error = " Wachtwoord is incorrect.";
                         break;
-                    case string a when a.Any(c => char.IsLetter(c)) && (field == "jaar" || field == "maand" || field == "dag"):
-                        error = " Dit veld mag geen letters bevatten";
+                    case string a when !IsDateTime(a) && field == "birthDate":
+                        error = " Geboortedatum klopt niet.";
                         break;
-                    case string a when a.Any(c => !char.IsLetter(c)) && field == "jaar":
-                        if (!int.TryParse(a, out number))
+                    case string a when IsDateTime(a) && field == "birthDate":
+                        if (Regex.Match(value, @"\d{4}$").Success)
                         {
-                            error = " Dit is geen getal";
-                        }
-                        else if (int.Parse(a) > DateTime.Now.Year)
-                        {
-                            error = " Jaar kan niet groter zijn dan het huidige jaar";
-                        }
-                        break;
-                    case string a when a.Any(c => !char.IsLetter(c)) && field == "maand":
-                        if (!int.TryParse(a, out number))
-                        {
-                            error = " Dit is geen getal";
-                        }
-                        else if (int.Parse(a) < 1 || int.Parse(a) > 12)
-                        {
-                            error = " Maand moet tussen 1 en 12 inclusief zijn";
-                        }
-                        break;
-                    case string a when a.Any(c => !char.IsLetter(c)) && field == "dag":
-                        if (!int.TryParse(a, out number))
-                        {
-                            error = " Dit is geen getal";
-                        }
-                        else if (int.Parse(a) >= 1 && int.Parse(a) <= 31)
-                        {
-                            if (month != 2)
+                            DateTime tempDate = DateTime.Parse(value);
+                            DateTime current = DateTime.Now;
+
+                            if (tempDate > current)
                             {
-                                if ((month == 4 || month == 6 || month == 9 ||
-                                    month == 11) && int.Parse(a) == 31)
-                                {
-                                    error = " Deze dag komt niet voor in uw maand";
-                                }
-                            }
-                            else
+                                error = " Datum kan niet groter zijn dan dit jaar.";
+                                break;
+                            } else if ((current.Year - tempDate.Year) > 60)
                             {
-                                bool isLeap = false;
-                                if (int.Parse(a) == 29)
-                                {
-                                    if (year % 4 == 0)
-                                    {
-                                        if (year % 100 == 0)
-                                        {
-                                            if (year % 400 == 0)
-                                            {
-                                                isLeap = true;
-                                            }
-                                            else
-                                            {
-                                                isLeap = false;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            isLeap = true;
-                                        }
-                                    }
-                                    else
-                                    {
-                                        isLeap = false;
-                                    }
-                                    if (!isLeap)
-                                    {
-                                        error = " Uw geboortejaar is geen schrikkeljaar en dus klopt het niet";
-                                    }
-                                }
-                                else if (int.Parse(a) > 28)
-                                {
-                                    error = " Deze maand heeft niet het aantal dagen.";
-                                }
+                                error = " Datum is ongeldig.";
+                                break;
+                            }  else if (!(current.Year - tempDate.Year >= 13))
+                            {
+                                error = " Minstens 13 jaar of ouder.";
+                                break;
                             }
-                        }
-                        else
+                        } else
                         {
-                            error = " Dag kan alleen tussen 1 en 31 inclusief zijn";
+                            error = " Ongeldige jaar.";
+                            break;
                         }
                         break;
                 }
@@ -464,14 +354,7 @@ namespace Reserveringssysteem
                 {
                     EmptyField(value, field);
                     ShowError(field, question, error);
-                    if (field == "jaar" || field == "maand" || field == "dag")
-                    {
-                        Console.CursorLeft = field.Length + 5;
-                    }
-                    else
-                    {
-                        Console.CursorLeft = 3;
-                    }
+                    Console.CursorLeft = 3;
                     value = Console.ReadLine();
                     HideError(field, question, error);
                     error = "";

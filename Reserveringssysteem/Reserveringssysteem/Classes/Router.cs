@@ -1,5 +1,4 @@
-﻿using Reserveringssysteem.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using static Reserveringssysteem.UserController;
 
@@ -40,6 +39,9 @@ namespace Reserveringssysteem
                     break;
                 case "Informatie":
                     DisplayInformatie();
+                    break;
+                case "Draaiende films":
+                    DisplayDraaiendeFilms();
                     break;
                 default:
                     SetCurrentScreen("Authorizatie");
@@ -354,7 +356,7 @@ namespace Reserveringssysteem
             Console.WriteLine("   Gebruik pijltjestoetsen ↑ en ↓ om te navigeren\n   en druk enter om een optie te kiezen.\n");
 
             string[] options = new string[] {
-                "Huidige films",
+                "Draaiende films",
                 "Films",
                 "Eten & Drinken",
                 "Leden",
@@ -365,7 +367,7 @@ namespace Reserveringssysteem
 
             switch (choice)
             {
-                case "Huidige films":
+                case "Draaiende films":
                     SetCurrentScreen(choice);
                     break;
                 case "Terug":
@@ -397,14 +399,14 @@ namespace Reserveringssysteem
             var filmsDieBinnekortDraaien = draaienClass.laatDraaiendeFilmsZien();
             if (filmsDieBinnekortDraaien.Count <= 0)
             {
-                Console.WriteLine("Er draaien binnenkort geen films\n\n");
+                Console.WriteLine("   Er draaien binnenkort geen films\n\n");
                 options = new string[]
                 {
                     "Terug",
                 };
             } else
             {
-                Console.WriteLine("De volgende films kunt u reserveren:\n");
+                Console.WriteLine("   De volgende films kunt u reserveren:\n");
                 options = new string[filmsDieBinnekortDraaien.Count + 1];
                 for (int i = 0; i < filmsDieBinnekortDraaien.Count; i++)
                 {
@@ -459,7 +461,13 @@ namespace Reserveringssysteem
 
             if (choice == "Bekijk film details")
             {
-                controller.ShowFilm(films, showHeader);
+                Film film = controller.ShowFilm(films, showHeader);
+
+                Console.Clear();
+                ShowHeader(color, title);
+
+                Console.WriteLine("   Hieronder staan de details van de film:\n");
+                Console.WriteLine(film);
 
                 options = new string[]
                 {
@@ -494,11 +502,19 @@ namespace Reserveringssysteem
 
                         if (choice == "Bekijk film details")
                         {
-                            controller.ShowFilm(films, showHeader);
+                            Film film = controller.ShowFilm(films, showHeader);
+
+                            Console.Clear();
+                            ShowHeader(color, title);
+
+                            Console.WriteLine("   Hieronder staan de details van de film:\n");
+                            Console.WriteLine(film);
+
                             options = new string[]
                             {
                                 "Terug",
                             };
+
                             choice = AwaitResponse(options);
                         }
                     } else
@@ -601,6 +617,204 @@ namespace Reserveringssysteem
             string choice = AwaitResponse(options);
 
             SetCurrentScreen("Home");
+        }
+        
+        public bool IsDateTime(string txtDate)
+        {
+            DateTime tempDate;
+            return DateTime.TryParse(txtDate, out tempDate);
+        }
+
+        // Huidige films laten zien.
+        private void DisplayDraaiendeFilms()
+        {
+            ConsoleColor color = ConsoleColor.DarkBlue;
+            string title = @"
+                   _               _         
+       /\         | |             (_)        
+      /  \      __| |  _ __ ___    _   _ __  
+     / /\ \    / _` | | '_ ` _ \  | | | '_ \ 
+    / ____ \  | (_| | | | | | | | | | | | | |
+   /_/    \_\  \__,_| |_| |_| |_| |_| |_| |_|
+                                           
+            ";
+
+            ShowHeader(color, title);
+            string[] options;
+
+            options = new string[] {
+                "Draaiende films bekijken",
+                "Film draaien",
+                "Terug"
+            };
+
+            draaiendeFilms draaienClass = new draaiendeFilms();
+            var filmsDieBinnekortDraaien = draaienClass.laatDraaiendeFilmsZien();
+
+            string choice = AwaitResponse(options);
+
+            Console.Clear();
+            ShowHeader(color, title);
+
+            if (choice == "Draaiende films bekijken")
+            {
+                if (filmsDieBinnekortDraaien.Count <= 0)
+                {
+                    Console.WriteLine("   Er draaien binnenkort geen films\n\n");
+                    options = new string[]
+                    {
+                        "Terug",
+                    };
+                }
+                else
+                {
+                    Console.WriteLine("   De volgende films draaien vandaag/binnenkort:\n");
+                    options = new string[filmsDieBinnekortDraaien.Count + 1];
+
+                    for (int i = 0; i < filmsDieBinnekortDraaien.Count; i++)
+                    {
+                        options[i] = filmsDieBinnekortDraaien[i].Name;
+                    }
+
+                    options[options.Length - 1] = "Terug";
+
+                    choice = AwaitResponse(options);
+
+                    if (choice == "Terug")
+                    {
+                        SetCurrentScreen("Draaiende films");
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        ShowHeader(color, title);
+                        Console.WriteLine(draaienClass.filmDatumDetails(choice));
+
+                        for (int i = 0; i < draaienClass.datumsDraaienString.Length - 1; i++)
+                        {
+                            Console.WriteLine("   " + draaienClass.datumsDraaienString[i]);
+                        }
+
+                        Console.WriteLine();
+
+                        options = new string[]
+                        {
+                            "Terug",
+                        };
+
+                        //LAAT DE DATUMS ZIEN
+                        AwaitResponse(options);
+                    }
+                }
+            } else if (choice == "Film draaien")
+            {
+                Action showHeader = () => ShowHeader(color, title);
+                FilmController controller = new();
+                List<Film> films = controller.GetFilms();
+
+                controller.ShowFilms(films);
+
+                options = new string[]
+                {
+                    "Draai een film",
+                    "Filter films",
+                    "Terug"
+                };
+
+                choice = AwaitResponse(options);
+
+                Console.Clear();
+                ShowHeader(color, title);
+
+                if (choice == "Draai een film")
+                {
+                    controller.ShowFilms(films);
+
+                    Film film = controller.ShowFilm(films, showHeader);
+
+                    string date = "";
+                    string error = "";
+                    bool choseDate = false;
+
+                    while (!choseDate)
+                    {
+                        Console.Clear();
+                        ShowHeader(color, title);
+
+                        Console.WriteLine($"   Gekozen film: {film.Titel}\n");
+
+                        if (error != "")
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine(error);
+                            Console.ResetColor();
+                        }
+
+                        var currentDateAndTime = DateTime.Now;
+
+                        Console.WriteLine($"   Typ een datum voor de film: (Voorbeeld: {currentDateAndTime.ToString("dd-MM-yyyy")})");
+                        Console.CursorLeft = 3;
+
+                        date = Console.ReadLine();
+
+                        if (String.IsNullOrEmpty(date))
+                        {
+                            error = "   Datum kan niet leeg zijn.";
+                        } else if (!IsDateTime(date))
+                        {
+                            error = "   Datum klopt niet.";
+                        } else
+                        {
+                            DateTime tempDate = DateTime.Parse(date);
+
+                            if (tempDate.Date < currentDateAndTime)
+                            {
+                                error = "   Datum kan niet al geweest zijn.";
+                            }
+                        }
+                    }
+                }
+                else if (choice == "Filter films")
+                {
+                    string result = controller.ShowList(showHeader, this);
+                    films = controller.FilteredFilms;
+
+                    if (result != "Back")
+                    {
+                        if (films.Count > 0)
+                        {
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine("   Uw zoekopdracht heeft de volgende resultaat(en) opgeleverd:\n");
+                            Console.ResetColor();
+                            controller.ShowFilms(films);
+
+                            options = new string[]
+                            {
+                                "Terug",
+                            };
+
+                            choice = AwaitResponse(options);
+                        }
+                        else
+                        {
+                            Console.WriteLine("   Er zijn geen films gevonden\n");
+                            options = new string[]
+                            {
+                                "Terug",
+                            };
+                            choice = AwaitResponse(options);
+                        }
+                    }
+                }
+                else
+                {
+                    SetCurrentScreen("Draaiende films");
+                }
+            }
+            else
+            {
+                SetCurrentScreen("Admin");
+            }         
         }
 
         public void SetCurrentScreen(string screen)

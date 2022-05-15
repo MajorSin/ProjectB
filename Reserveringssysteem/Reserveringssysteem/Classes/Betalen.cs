@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Reserveringssysteem.Classes
+namespace Reserveringssysteem
 {
-    internal class Betalen
+    public class Betalen
     {
         public static void betaalOpties()
         {
