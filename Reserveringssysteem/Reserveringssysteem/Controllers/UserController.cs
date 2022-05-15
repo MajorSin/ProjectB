@@ -369,7 +369,11 @@ namespace Reserveringssysteem
                         {
                             error = " Jaar kan niet groter zijn dan het huidige jaar";
                         }
-                        break;
+                        else if (int.Parse(a) < (DateTime.Now.Year - 125))
+                        {
+                            error = $" Het jaar moet tussen {DateTime.Now.Year - 125} en {DateTime.Now.Year} inlcusief zijn";
+                        }
+                        break; 
                     case string a when a.Any(c => !char.IsLetter(c)) && field == "maand":
                         if (!int.TryParse(a, out number))
                         {

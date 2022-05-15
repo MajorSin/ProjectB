@@ -28,5 +28,45 @@
     "gender": "Man",
     "emailAddress": "test@gmail.com",
     "birthDate": "2002-10-06T00:00:00"
+  },
+  {
+    "id": 4,
+    "username": "Binair",
+    "password": "LOL",
+    "firstName": "Ramazan",
+    "surname": "Biner",
+    "gender": "Man",
+    "emailAddress": "ramazanbiner@live.nl",
+    "birthDate": "2003-02-24T00:00:00"
+  },
+  {
+    "id": 5,
+    "username": "Test",
+    "password": "tseT",
+    "firstName": "Test",
+    "surname": "Geval",
+    "gender": "Man",
+    "emailAddress": "testgeval@hotmail.com",
+    "birthDate": "1897-02-01T00:00:00"
+  },
+  {
+    "id": 6,
+    "username": "p",
+    "password": "p",
+    "firstName": "T",
+    "surname": "R",
+    "gender": "Man",
+    "emailAddress": "p@r.l",
+    "birthDate": "1900-02-04T00:00:00"
+  },
+  {
+    "id": 7,
+    "username": "wedgfwegf",
+    "password": "tseT",
+    "firstName": "Sdg",
+    "surname": "Sdg",
+    "gender": "Man",
+    "emailAddress": "sdgvsdvs@sdfgbvsdgvbs.dsfg",
+    "birthDate": "2000-03-03T00:00:00"
   }
 ]
