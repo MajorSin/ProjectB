@@ -78,8 +78,8 @@ namespace Reserveringssysteem
 		//LAAT FILMS DETAILS ZIEN ZOALS DATUMS EN ZAAL
 		public string filmDatumDetails(string titel)
 		{
+			List<int> zaalWaarinFilmDraait = new List<int>();
 			string returnTekst = $"   {titel}\n\n";
-			//List<DateTime> datumWanneerFilmDraait;
 			//LAAD JSON DATA IN OM DETAILS TE LATEN ZIEN
 			var jsonFilms = File.ReadAllText("../../../DataFiles/films.json", Encoding.GetEncoding("utf-8"));
 			var filmsList = JsonConvert.DeserializeObject<List<Film>>(jsonFilms);
@@ -118,6 +118,7 @@ namespace Reserveringssysteem
 						{
 							this.datumsDraaien.Add(datumDraaien);
 						}
+						zaalWaarinFilmDraait.Add(draaienFilmsList[1].Zaal[j]);
 					}
 				}
 			}
@@ -129,11 +130,11 @@ namespace Reserveringssysteem
 				CultureInfo netherlands = new CultureInfo("nl-NL");
 				string dayOfWeek = netherlands.DateTimeFormat.GetDayName(datumsDraaienArray[i].DayOfWeek);
 				dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
-				datumsDraaienString[i] = $"{dayOfWeek}, {datumsDraaienArray[i].Day} {datumsDraaienArray[i].ToString("MMM")} {datumsDraaienArray[i].Year}, {datumsDraaienArray[i].Hour}:{datumsDraaienArray[i].ToString("mm")}";
+				datumsDraaienString[i] = $"{dayOfWeek}, {datumsDraaienArray[i].Day} {datumsDraaienArray[i].ToString("MMM")} {datumsDraaienArray[i].Year}, {datumsDraaienArray[i].Hour}:{datumsDraaienArray[i].ToString("mm")}. In zaal: {zaalWaarinFilmDraait[i]}";
 			}
 			datumsDraaienString[datumsDraaienArray.Length] = "Ga terug";
 
-			return returnTekst;
+			return returnTekst ;
 		}
 
 		//UPDATE LIJST MET GEDRAAIDE FILMS
