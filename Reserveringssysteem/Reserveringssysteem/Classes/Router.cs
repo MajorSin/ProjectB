@@ -122,6 +122,66 @@ namespace Reserveringssysteem
             }
             return options[currentSelected];
         }
+        public int AwaitResponseInIndex(string[] options)
+        {
+            int currentSelected = 0;
+            bool selectionMade = false;
+
+            // Loopt door de opties en houdt bij welke keuze je maakt met pijltjestoetsen.
+            while (!selectionMade)
+            {
+                for (int i = 0; i < options.Length; i++)
+                {
+                    if (i == currentSelected)
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkYellow;
+                        Console.Write(" ");
+                        Console.ResetColor();
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    } else
+                    {
+                        if ((options.Length - 1) == i)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write(" ");
+                        } else
+                        {
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write(" ");
+                        }
+                    }
+                    Console.WriteLine("  {0}", options[i]);
+                    Console.ResetColor();
+                }
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        if (currentSelected == 0)
+                        {
+                            break;
+                        } else
+                        {
+                            currentSelected -= 1;
+                        }
+                        break;
+                    case ConsoleKey.DownArrow:
+                        if (currentSelected == options.Length - 1)
+                        {
+                            break;
+                        } else
+                        {
+                            currentSelected += 1;
+                        }
+                        break;
+                    case ConsoleKey.Enter:
+                        selectionMade = true;
+                        break;
+                }
+                // Zorgt ervoor dat de keuzes niet met elkaar gaan overlappen.
+                Console.CursorTop = Console.CursorTop - options.Length;
+            }
+            return currentSelected;
+        }
 
         // Authorisatie scherm.
         private void DisplayAuthorization()
@@ -418,11 +478,25 @@ namespace Reserveringssysteem
                 SetCurrentScreen("Home");
             } else
             {
-                Console.Clear();
-                ShowHeader(color, title);
-                Console.WriteLine(draaienClass.filmDatumDetails(choice));
-                //LAAT DE DATUMS ZIEN
-                AwaitResponse(draaienClass.datumsDraaienString);
+                bool laatDatumEnZaalZien = true;
+				while (laatDatumEnZaalZien)
+				{
+                    Console.Clear();
+                    ShowHeader(color, title);
+                    Console.WriteLine(draaienClass.filmDatumDetails(choice));
+                    //LAAT DE DATUMS ZIEN
+                    int keuzeVoorDatumEnZaal = AwaitResponseInIndex(draaienClass.datumsDraaienString);
+                    if (keuzeVoorDatumEnZaal == (draaienClass.datumsDraaienString.Length -1))
+					{
+                        laatDatumEnZaalZien = false;
+					} else
+					{
+                        Console.Clear();
+                        ShowHeader(color, title);
+                        Console.WriteLine(keuzeVoorDatumEnZaal);
+                        Console.ReadLine();
+					}
+                }
             }
         }
 

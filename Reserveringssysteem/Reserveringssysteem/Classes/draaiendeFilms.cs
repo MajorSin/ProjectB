@@ -10,7 +10,7 @@ namespace Reserveringssysteem
 	public class draaiendeFilms
 	{
 		public List<draaienFilms> draaienFilmsList;
-		public List<DateTime> datumsDraaien = new List<DateTime>();
+		public List<DateTime> datumsDraaien;
 		public DateTime[] datumsDraaienArray;
 		public string[] datumsDraaienString;
 
@@ -79,6 +79,7 @@ namespace Reserveringssysteem
 		public string filmDatumDetails(string titel)
 		{
 			List<int> zaalWaarinFilmDraait = new List<int>();
+			datumsDraaien = new List<DateTime>();
 			string returnTekst = $"   {titel}\n\n";
 			//LAAD JSON DATA IN OM DETAILS TE LATEN ZIEN
 			var jsonFilms = File.ReadAllText("../../../DataFiles/films.json", Encoding.GetEncoding("utf-8"));
@@ -124,7 +125,7 @@ namespace Reserveringssysteem
 			}
 			this.datumsDraaienArray = datumsDraaien.ToArray();
 			//CONVERTEER NAAR STRING ARRAY
-			datumsDraaienString = new string[datumsDraaienArray.Length + 1];
+			datumsDraaienString = new string[datumsDraaienArray.Length +1];
 			for(int i = 0; i < this.datumsDraaienArray.Length; i++)
 			{
 				CultureInfo netherlands = new CultureInfo("nl-NL");
