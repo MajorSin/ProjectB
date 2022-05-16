@@ -367,9 +367,6 @@ namespace Reserveringssysteem
 
             switch (choice)
             {
-                case "Draaiende films":
-                    SetCurrentScreen(choice);
-                    break;
                 case "Terug":
                     SetCurrentScreen("Authorizatie");
                     break;
@@ -529,7 +526,14 @@ namespace Reserveringssysteem
                 }
             } else
             {
-                SetCurrentScreen("Home");
+                if (CurrentUser is Admin)
+                {
+                    SetCurrentScreen("Admin");
+                }
+                else
+                {
+                    SetCurrentScreen("Home");
+                }
             }
         }
 
@@ -555,7 +559,14 @@ namespace Reserveringssysteem
 
             if (choice == "Terug")
             {
-                SetCurrentScreen("Home");
+                if (CurrentUser is Admin)
+                {
+                    SetCurrentScreen("Admin");
+                }
+                else
+                {
+                    SetCurrentScreen("Home");
+                }
             }
             else
             {
@@ -616,7 +627,14 @@ namespace Reserveringssysteem
 
             string choice = AwaitResponse(options);
 
-            SetCurrentScreen("Home");
+            if (CurrentUser is Admin)
+            {
+                SetCurrentScreen("Admin");
+            }
+            else
+            {
+                SetCurrentScreen("Home");
+            }
         }
         
         // Check of het gegeven datum geldig is.
