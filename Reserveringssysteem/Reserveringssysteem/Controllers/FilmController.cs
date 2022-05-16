@@ -38,7 +38,7 @@ namespace Reserveringssysteem
 			Console.WriteLine();
 		}
 
-		public void ShowFilm(List<Film> films, Action showHeader)
+		public Film ShowFilm(List<Film> films, Action showHeader)
         {
 			int id = 0;
 			string error = "";
@@ -49,7 +49,7 @@ namespace Reserveringssysteem
 				Console.Clear();
 				showHeader();
 				ShowFilms(films);
-				Console.WriteLine("   Van welke film wilt u de details bekijken? (Typ het nummer in van de film)");
+				Console.WriteLine("   Kies een film. (Typ het nummer in van de film)");
 
 				if (error != "")
 				{
@@ -89,18 +89,17 @@ namespace Reserveringssysteem
 				}
 			}
 
-			Console.WriteLine("   Hieronder staan de details van de film:");
+			Film film = null;
 
 			for (int i = 0; i < films.Count; i++)
 			{
 				if (films[i].Id == id)
 				{
-					Console.Clear();
-					showHeader();
-					Console.WriteLine(films[i]);
-					break;
+					film = films[i];
 				}
 			}
+
+			return film;
 		}
 
 		//LAAT LIJST ZIEN
