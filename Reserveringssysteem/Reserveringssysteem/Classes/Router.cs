@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using static Reserveringssysteem.UserController;
+using System.Globalization;
+using Reserveringssysteem.Classes;
 
 namespace Reserveringssysteem
 {
@@ -473,6 +475,7 @@ namespace Reserveringssysteem
             }
             //MAAK EEN OPTIE
             string choice = AwaitResponse(options);
+            string titel = choice;
             if (choice == "Terug")
             {
                 SetCurrentScreen("Home");
@@ -493,7 +496,13 @@ namespace Reserveringssysteem
 					{
                         Console.Clear();
                         ShowHeader(color, title);
-                        Console.WriteLine(keuzeVoorDatumEnZaal);
+                        CultureInfo netherlands = new CultureInfo("nl-NL");
+                        string dayOfWeek = netherlands.DateTimeFormat.GetDayName(draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].DayOfWeek);
+                        dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
+                        int zaal = draaienClass.zaalWaarinFilmDraait[keuzeVoorDatumEnZaal];
+                        Console.WriteLine($"U heeft gekozen voor {titel} op {dayOfWeek}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Day} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("MMM")} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Year}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Hour}:{draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("mm")}. In zaal: {zaal}\nHet zaal ziet er als volgt uit:\n\n");
+                        Zaal zaalvoorkeuzeFilm = new Zaal(zaal);
+                        Console.WriteLine(zaalvoorkeuzeFilm.zaal());
                         Console.ReadLine();
 					}
                 }

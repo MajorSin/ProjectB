@@ -12,6 +12,7 @@ namespace Reserveringssysteem
 		public List<draaienFilms> draaienFilmsList;
 		public List<DateTime> datumsDraaien;
 		public DateTime[] datumsDraaienArray;
+		public List<int> zaalWaarinFilmDraait;
 		public string[] datumsDraaienString;
 
 		public draaiendeFilms()
@@ -78,7 +79,7 @@ namespace Reserveringssysteem
 		//LAAT FILMS DETAILS ZIEN ZOALS DATUMS EN ZAAL
 		public string filmDatumDetails(string titel)
 		{
-			List<int> zaalWaarinFilmDraait = new List<int>();
+			zaalWaarinFilmDraait = new List<int>();
 			datumsDraaien = new List<DateTime>();
 			string returnTekst = $"   {titel}\n\n";
 			//LAAD JSON DATA IN OM DETAILS TE LATEN ZIEN
