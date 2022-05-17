@@ -473,7 +473,7 @@ namespace Reserveringssysteem
                 }
                 options[options.Length - 1] = "Terug";
             }
-            //MAAK EEN OPTIE
+            //MAAK EEN OPTIE VOOR FILM
             string choice = AwaitResponse(options);
             string titel = choice;
             if (choice == "Terug")
@@ -481,19 +481,20 @@ namespace Reserveringssysteem
                 SetCurrentScreen("Home");
             } else
             {
-                bool laatDatumEnZaalZien = true;
+                bool laatDatumEnZaalZien = true; 
 				while (laatDatumEnZaalZien)
 				{
                     Console.Clear();
                     ShowHeader(color, title);
                     Console.WriteLine(draaienClass.filmDatumDetails(choice));
-                    //LAAT DE DATUMS ZIEN
+                    //LAAT DE DATUMS KIEZEN
                     int keuzeVoorDatumEnZaal = AwaitResponseInIndex(draaienClass.datumsDraaienString);
                     if (keuzeVoorDatumEnZaal == (draaienClass.datumsDraaienString.Length -1))
 					{
                         laatDatumEnZaalZien = false;
 					} else
-					{
+                    {
+                        //LAAT DE DETAILS VAN DE FILMS ZIEN ZOALS TIJD EN ZAAL
                         Console.Clear();
                         ShowHeader(color, title);
                         CultureInfo netherlands = new CultureInfo("nl-NL");
@@ -502,7 +503,9 @@ namespace Reserveringssysteem
                         int zaal = draaienClass.zaalWaarinFilmDraait[keuzeVoorDatumEnZaal];
                         Console.WriteLine($"U heeft gekozen voor {titel} op {dayOfWeek}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Day} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("MMM")} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Year}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Hour}:{draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("mm")}. In zaal: {zaal}\nHet zaal ziet er als volgt uit:\n\n");
                         Zaal zaalvoorkeuzeFilm = new Zaal(zaal);
-                        Console.WriteLine(zaalvoorkeuzeFilm.zaal());
+                        // LAAT DE PLATTEGROND ZIEN
+                        //Console.WriteLine(zaalvoorkeuzeFilm.zaal());
+                        zaalvoorkeuzeFilm.printZaal(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal]);
                         Console.ReadLine();
 					}
                 }
