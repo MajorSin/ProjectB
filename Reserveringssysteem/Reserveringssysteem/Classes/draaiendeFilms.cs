@@ -119,8 +119,8 @@ namespace Reserveringssysteem
 						if (datumDraaien > DateTime.Now.AddDays(-1))
 						{
 							this.datumsDraaien.Add(datumDraaien);
+							zaalWaarinFilmDraait.Add(draaienFilmsList[i].Zaal[j]);
 						}
-						zaalWaarinFilmDraait.Add(draaienFilmsList[1].Zaal[j]);
 					}
 				}
 			}

@@ -12,8 +12,8 @@ namespace Reserveringssysteem.Classes
 	{
 		public int zaalNummer;
 		public int zaalIndex;
-		public string? json;
-		public List<plattegrondJson>? plattegronden;
+		public string json;
+		public List<plattegrondJson> plattegronden;
 		public Zaal(int zaalNummer)
 		{
 			this.zaalNummer = zaalNummer;
@@ -35,7 +35,7 @@ namespace Reserveringssysteem.Classes
 			public int? Plattegrond { get; set; }
 			public int? Rijen { get; set; }
 			public int? Stoelen { get; set; }
-			public string? Scherm { get; set; }
+			public string Scherm { get; set; }
 		}
 		public void readJson()
 		{
@@ -46,10 +46,32 @@ namespace Reserveringssysteem.Classes
 		public string zaal()
 		{
 			//GEEFT DE ZAAL TERUG
-			string plattegrond = "";
+			string plattegrond = "   ";
 			readJson();
 			for (int rij = 0; rij < plattegronden?[zaalIndex].Rijen; rij++)
 			{
+				if(rij == 0)
+				{
+					for(int i = 0; i < plattegronden?[zaalIndex].Stoelen; i++)
+					{
+						int adder = i + 1;
+						if (adder > 9)
+						{
+							plattegrond += (i + 1) + " ";
+						} else 
+						{ 
+							plattegrond += " " + (i + 1) + " ";
+						}
+					}
+					plattegrond += "\n";
+				}
+				if(rij < 9) 
+				{ 
+					plattegrond += (rij+1) + "  ";
+				} else
+				{
+					plattegrond += rij + 1 + " ";
+				}
 				for (int stoel = 0; stoel < plattegronden?[zaalIndex].Stoelen; stoel++)
 				{
 					plattegrond += "[ ]";
