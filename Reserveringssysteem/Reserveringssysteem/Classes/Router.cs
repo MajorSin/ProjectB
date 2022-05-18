@@ -506,6 +506,31 @@ namespace Reserveringssysteem
                         // LAAT DE PLATTEGROND ZIEN
                         //Console.WriteLine(zaalvoorkeuzeFilm.zaal());
                         zaalvoorkeuzeFilm.printZaal(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal]);
+                        //KIJK OF DE AANTAL PERSONEN VALID IS
+                        string aantalPersonenString = "";
+                        int aantalPersonen = 0;
+                        bool aantalPersonenGekozen = false;
+                        while(!aantalPersonenGekozen)
+						{
+                            Console.Write("Voor hoeveel personen wilt u een reservering maken? Klik op q om keuze te beïndigen en terug te gaan naar de datums");
+                            aantalPersonenString = Console.ReadLine();
+                            if(Int32.TryParse(aantalPersonenString, out aantalPersonen))
+							{
+                                if(aantalPersonen > 7 && 0 <= aantalPersonen)
+								{
+                                    Console.WriteLine(aantalPersonen <= 0 ? "U kunt geen negatief getal of 0 kiezen" : "Voor meer dan 7 personen dient u contact op te nemen voor een reservering.");
+								} else 
+                                {
+                                    aantalPersonenGekozen = true;
+                                }
+							} else if(aantalPersonenString == "q" || aantalPersonenString == "Q")
+							{
+                                break;
+							} else
+							{
+                                Console.WriteLine("Vul een geldig nummer in");
+							}
+						}
                         Console.ReadLine();
 					}
                 }
