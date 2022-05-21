@@ -510,28 +510,37 @@ namespace Reserveringssysteem
                         string aantalPersonenString = "";
                         int aantalPersonen = 0;
                         bool aantalPersonenGekozen = false;
+                        Console.WriteLine("Voor hoeveel personen wilt u een reservering maken? Klik op q om keuze te beïndigen en terug te gaan naar de datums");
+                        Console.WriteLine("Reserveert u voor meer dan 7 personen? Bel dan naar ons voor een reservering");
                         while(!aantalPersonenGekozen)
 						{
-                            Console.Write("Voor hoeveel personen wilt u een reservering maken? Klik op q om keuze te beïndigen en terug te gaan naar de datums");
                             aantalPersonenString = Console.ReadLine();
                             if(Int32.TryParse(aantalPersonenString, out aantalPersonen))
 							{
-                                if(aantalPersonen > 7 && 0 <= aantalPersonen)
+                                if(aantalPersonen <= 7 && aantalPersonen > 0)
 								{
-                                    Console.WriteLine(aantalPersonen <= 0 ? "U kunt geen negatief getal of 0 kiezen" : "Voor meer dan 7 personen dient u contact op te nemen voor een reservering.");
-								} else 
-                                {
                                     aantalPersonenGekozen = true;
+								} else
+                                {
+                                    Console.WriteLine("\nVul een geldig nummer in. Voor meer dan 7 personen kunt u naar ons bellen om een reservering te maken.");
                                 }
 							} else if(aantalPersonenString == "q" || aantalPersonenString == "Q")
 							{
                                 break;
 							} else
 							{
-                                Console.WriteLine("Vul een geldig nummer in");
+                                Console.WriteLine("\nVul een geldig nummer in.");
 							}
 						}
-                        Console.ReadLine();
+                        //KIES STOEL
+                        if(aantalPersonenGekozen)
+						{
+                            Console.WriteLine($"\nU heeft gekozen voor {aantalPersonen}. U krijgt nu de keuze om stoelen te kiezen. Indien u reserveert voor meer dan 1 persoon, dient u de meest linker stoel te kiezen. De andere personen worden naast elkaar ingedeeld. Als eerst wordt gevraagd uit welk rij u de stoel wil boeken, daarna wordt gevraagd voor de stoel.");
+                            Console.Write("Kies een rij: ");
+                            Console.ReadLine();
+                            Console.Write("Kies een stoel: ");
+                            Console.ReadLine();
+                        }
 					}
                 }
             }
