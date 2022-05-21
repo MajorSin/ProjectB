@@ -583,10 +583,10 @@ namespace Reserveringssysteem
                             }
                             Console.WriteLine("");
                             //MAAK ARRAY VAN STOELEN
+                            bool stoelenGoedGekozen = false;
                             if (rijgekozen && stoelgekozen)
                             {
                                 bool checkVoorStoelen = false;
-                                bool stoelenGoedGekozen = false;
 								while (!checkVoorStoelen)
 								{
                                     string[] gekozenStoelen = new string[aantalPersonen];
@@ -612,10 +612,8 @@ namespace Reserveringssysteem
 									{
                                         if (zaalvoorkeuzeFilm.checkDubbeleStoelen(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen))
 										{
-                                            Console.WriteLine("Stoelen zijn helemaal goed gekozen");
                                             stoelenGoedGekozen = true;
                                             checkVoorStoelen = true;
-                                            Console.ReadLine();
 										} else
                                         {
                                             Console.WriteLine("Een of meerdere stoelen zijn al bezet.\n");
@@ -627,6 +625,58 @@ namespace Reserveringssysteem
 									}
 								}
                             }
+                            //VRAAG VOOR PERSOONLIJKE GEGEVENS
+                            if(stoelenGoedGekozen)
+							{
+                                string voornaam = "";
+                                string[] voornaamArr = new string[aantalPersonen];
+                                string achternaam = "";
+                                string[] achternaamArr = new string[aantalPersonen];
+                                string leeftijdInput = "";
+                                int leeftijd;
+                                int[] leeftijdArr = new int[aantalPersonen];
+                                Console.Clear();
+                                ShowHeader(color, title);
+                                Console.WriteLine("   De stoelen zijn gekozen, op dit scherm dient u de persoonlijke gegevens in te vullen.\n");
+                                for(int persoon = 0; persoon < aantalPersonen; persoon++)
+								{
+                                    Console.WriteLine($"   Persoon {persoon + 1}");
+                                    Console.Write($"   - Voer de voornaam van persoon {persoon+1} in: ");
+                                    voornaam = Console.ReadLine();
+                                    while (String.IsNullOrEmpty(voornaam))
+									{
+                                        Console.WriteLine("     Input kan niet leeg zijn!");
+                                        Console.Write("     ");
+                                        voornaam = Console.ReadLine();
+                                    }
+                                    Console.Write($"\n   - Voer de achternaam van persoon {persoon + 1} in: ");
+                                    achternaam = Console.ReadLine();
+                                    while (String.IsNullOrEmpty(achternaam))
+                                    {
+                                        Console.WriteLine("     Input kan niet leeg zijn!");
+                                        Console.Write("     ");
+                                        achternaam = Console.ReadLine();
+                                    }
+                                    Console.Write($"\n   - Voer de leeftijd van persoon {persoon + 1} in: ");
+                                    leeftijdInput = Console.ReadLine();
+                                    while (!Int32.TryParse(leeftijdInput, out leeftijd))
+									{
+                                        Console.WriteLine("     Vul een geldig nummer in!");
+                                        Console.Write("     ");
+                                        leeftijdInput = Console.ReadLine();
+                                        if(Int32.TryParse(leeftijdInput, out leeftijd))
+										{
+                                            break;
+										}
+									}
+                                    voornaamArr[persoon] = voornaam;
+                                    achternaamArr[persoon] = achternaam;
+                                    leeftijdArr[persoon] = leeftijd;
+                                    Console.Write("\n");
+                                }
+                                Console.WriteLine("   Persoonlijke gegevens ingevuld!");
+                                Console.ReadLine();
+							}
                         }
                     }
                 }
