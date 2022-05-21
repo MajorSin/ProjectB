@@ -494,6 +494,7 @@ namespace Reserveringssysteem
                         laatDatumEnZaalZien = false;
 					} else
                     {
+                        bool persoonlijkeGegevensIngevuld = false;
                         //LAAT DE DETAILS VAN DE FILMS ZIEN ZOALS TIJD EN ZAAL
                         Console.Clear();
                         ShowHeader(color, title);
@@ -632,6 +633,7 @@ namespace Reserveringssysteem
                                 string[] voornaamArr = new string[aantalPersonen];
                                 string achternaam = "";
                                 string[] achternaamArr = new string[aantalPersonen];
+                                string[] namen = new string[aantalPersonen];
                                 string leeftijdInput = "";
                                 int leeftijd;
                                 int[] leeftijdArr = new int[aantalPersonen];
@@ -671,13 +673,31 @@ namespace Reserveringssysteem
 									}
                                     voornaamArr[persoon] = voornaam;
                                     achternaamArr[persoon] = achternaam;
+                                    namen[persoon] = voornaam + " " + achternaam;
                                     leeftijdArr[persoon] = leeftijd;
                                     Console.Write("\n");
                                 }
-                                Console.WriteLine("   Persoonlijke gegevens ingevuld!");
-                                Console.ReadLine();
+                                persoonlijkeGegevensIngevuld = true;
 							}
                         }
+                        //LAAT DETAILS ZIEN EN GA DOOR NAAR BETALEN
+                        if(persoonlijkeGegevensIngevuld)
+						{
+                            Console.Clear();
+                            ShowHeader(color, title);
+                            Console.WriteLine("   Uw persoonlijke gegevens zijn ingevuld. Uw stoelkeuze(s) zijn hieronder te zien.\n");
+                            //LAAT PLATTEGROND ZIEN MET KEUZE STOELEN
+                            string[] opties = { "Ga door", "Annuleer bestelling en ga terug" };
+							var keuze = AwaitResponse( opties );
+                            if(keuze == "Ga door")
+							{
+                                //BETAALSCHERM
+                                Console.Clear();
+                                ShowHeader(color, title);
+                                Console.WriteLine("BETALEN");
+                                Console.ReadLine();
+                            }
+						}
                     }
                 }
             }
