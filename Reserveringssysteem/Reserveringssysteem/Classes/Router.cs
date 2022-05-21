@@ -505,7 +505,7 @@ namespace Reserveringssysteem
                         Zaal zaalvoorkeuzeFilm = new Zaal(zaal);
                         // LAAT DE PLATTEGROND ZIEN
                         //Console.WriteLine(zaalvoorkeuzeFilm.zaal());
-                        zaalvoorkeuzeFilm.printZaal(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal]);
+                        zaalvoorkeuzeFilm.printZaal(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal);
                         //KIJK OF DE AANTAL PERSONEN VALID IS
                         string aantalPersonenString = "";
                         int aantalPersonen = 0;
@@ -608,6 +608,23 @@ namespace Reserveringssysteem
 								    	}
                                     }
                                     //KIJK OF STOELEN AL GERESERVEERD ZIJN
+                                    if(!checkVoorStoelen)
+									{
+                                        if (zaalvoorkeuzeFilm.checkDubbeleStoelen(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen))
+										{
+                                            Console.WriteLine("Stoelen zijn helemaal goed gekozen");
+                                            stoelenGoedGekozen = true;
+                                            checkVoorStoelen = true;
+                                            Console.ReadLine();
+										} else
+                                        {
+                                            Console.WriteLine("Een of meerdere stoelen zijn al bezet.\n");
+                                            checkVoorStoelen = true;
+                                            string[] terug = { "Ga terug" };
+                                            AwaitResponse(terug);
+                                            break;
+                                        }
+									}
 								}
                             }
                         }

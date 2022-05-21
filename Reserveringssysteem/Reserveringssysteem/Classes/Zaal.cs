@@ -86,7 +86,7 @@ namespace Reserveringssysteem.Classes
 			return plattegrond;
 		}
 		//PRINT DE ZAAL UIT MET JUISTE KLEUREN
-		public void printZaal(string titel, DateTime datumVoorDraaien, string username = "unknown")
+		public void printZaal(string titel, DateTime datumVoorDraaien, int zaal)
 		{
 			readJson();
 			leesJsonReserveringen();
@@ -122,7 +122,7 @@ namespace Reserveringssysteem.Classes
 					//KIJK OF STOEL IS GERESERVEERD
 					foreach(reserveringenJson reservering in reserveringen)
 					{
-						if(reservering.Titel == titel && datumVoorDraaien == DateTime.Parse(reservering.datum))
+						if(reservering.Titel == titel && datumVoorDraaien == DateTime.Parse(reservering.datum) && zaal == reservering.zaal)
 						{
 							for(int reserveringAantal = 0; reserveringAantal < reservering.AantalPersonen; reserveringAantal++)
 							{
@@ -142,6 +142,35 @@ namespace Reserveringssysteem.Classes
 			}
 			Console.Write(plattegronden?[zaalIndex].Scherm + "\n");
 		}
+		//CHECK DE RESERVERINGEN.JSON EN KIJK OF ARRAY VOORKOMT MET ZELFDE TITEL & DATUM
+		public bool checkDubbeleStoelen(string titel, DateTime datum, int zaal, string[] reserveringsStoelen)
+		{
+			bool result = true;
+			foreach(reserveringenJson reservering in reserveringen)
+			{
+				if (reservering.Titel == titel && datum == DateTime.Parse(reservering.datum) && zaal == reservering.zaal)
+				{
+					//LOOP DOOR RESERVERINGSSTOELEN
+					for(int reserveringsStoelIndex = 0; reserveringsStoelIndex < reserveringsStoelen.Length; reserveringsStoelIndex++)
+					{
+						int stoelOpNieuweReservering = int.Parse(reserveringsStoelen[reserveringsStoelIndex].Split(':')[0]);
+						int rijOpNieuweReservering = int.Parse(reserveringsStoelen[reserveringsStoelIndex].Split(':')[1]);
+						//LOOP DOOR DE STOELEN DIE GERESERVEERD ZIJN
+						for (int reserveringAantal = 0; reserveringAantal < reservering.AantalPersonen; reserveringAantal++)
+						{
+							int stoelOpAnderReservering = int.Parse(reservering.stoelen[reserveringAantal].Split(':')[0]);
+							int rijOpAnderReservering = int.Parse(reservering.stoelen[reserveringAantal].Split(':')[1]);
+							if(stoelOpNieuweReservering == stoelOpAnderReservering && rijOpNieuweReservering == rijOpAnderReservering)
+							{
+								result = false;
+								return result;
+							}
+						}
+					}
+				}
+			}
+			return result;
+		}
 		//LEES RESERVERINGEN.JSON UIT
 		public void leesJsonReserveringen()
 		{
@@ -157,7 +186,7 @@ namespace Reserveringssysteem.Classes
 			public List<string> Namen { get; set; }
 			public string ReserveringDoor { get; set; }
 			public List<int> Leeftijden { get; set; }
-			public List<string> stoelen { get; set; }
+			public string[] stoelen { get; set; }
 		}
 	}
 }
