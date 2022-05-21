@@ -12,6 +12,8 @@ namespace Reserveringssysteem.Classes
 	{
 		public int zaalNummer;
 		public int zaalIndex;
+		public int rijen;
+		public int stoelen;
 		public List<plattegrondJson> plattegronden;
 		public List<reserveringenJson> reserveringen;
 		public Zaal(int zaalNummer)
@@ -29,12 +31,14 @@ namespace Reserveringssysteem.Classes
 				}
 			}
 			this.zaalIndex = zaalIndex;
+			this.rijen = plattegronden[zaalIndex].Rijen;
+			this.stoelen = plattegronden[zaalIndex].Stoelen;
 		}
 		public class plattegrondJson
 		{
-			public int? Plattegrond { get; set; }
-			public int? Rijen { get; set; }
-			public int? Stoelen { get; set; }
+			public int Plattegrond { get; set; }
+			public int Rijen { get; set; }
+			public int Stoelen { get; set; }
 			public string Scherm { get; set; }
 		}
 		public void readJson()

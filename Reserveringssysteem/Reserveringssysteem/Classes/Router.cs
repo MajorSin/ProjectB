@@ -536,12 +536,82 @@ namespace Reserveringssysteem
                         if(aantalPersonenGekozen)
 						{
                             Console.WriteLine($"\nU heeft gekozen voor {aantalPersonen}. U krijgt nu de keuze om stoelen te kiezen. Indien u reserveert voor meer dan 1 persoon, dient u de meest linker stoel te kiezen. De andere personen worden naast elkaar ingedeeld. Als eerst wordt gevraagd uit welk rij u de stoel wil boeken, daarna wordt gevraagd voor de stoel.");
+                            Console.WriteLine("Als u de keuze wil beïndigen, kunt u `q` invoeren.\n");
                             Console.Write("Kies een rij: ");
-                            Console.ReadLine();
-                            Console.Write("Kies een stoel: ");
-                            Console.ReadLine();
+                            var gekozenRij = Console.ReadLine();
+                            int gekozenRijInt = 0;
+                            bool rijgekozen = false;
+                            bool stoelgekozen = false;
+                            string gekozenStoel = "";
+                            while(!rijgekozen)
+							{
+                                if (Int32.TryParse(gekozenRij, out gekozenRijInt) && 0 < gekozenRijInt && gekozenRijInt <= zaalvoorkeuzeFilm.rijen)
+                                {
+                                    rijgekozen = true;
+                                    //KIJK OF RIJ VALID IS
+                                    Console.Write("Kies een stoel: ");
+                                    gekozenStoel = Console.ReadLine();
+                                } else if (gekozenRij == "q")
+                                {
+                                    aantalPersonenGekozen = false;
+                                    break;
+                                } else
+                                {
+                                    Console.Write("Vul een geldig rij in: ");
+                                    gekozenRij = Console.ReadLine();
+                                }
+							}
+							//KIJK OF STOEL VALID IS
+                            int gekozenStoelInt = 0;
+							if (rijgekozen)
+							{
+                                while(!stoelgekozen)
+                                {
+                                    if (Int32.TryParse(gekozenStoel, out gekozenStoelInt) && 0 < gekozenStoelInt && gekozenStoelInt <= zaalvoorkeuzeFilm.stoelen)
+                                    {
+                                        stoelgekozen = true;
+                                    } else if (gekozenStoel == "q")
+                                    {
+                                        aantalPersonenGekozen = false;
+                                        break;
+                                    } else
+                                    {
+                                        Console.Write("Vul een geldig stoel in: ");
+                                        gekozenStoel = Console.ReadLine();
+                                    }
+                                }
+                            }
+                            Console.WriteLine("");
+                            //MAAK ARRAY VAN STOELEN
+                            if (rijgekozen && stoelgekozen)
+                            {
+                                bool checkVoorStoelen = false;
+                                bool stoelenGoedGekozen = false;
+								while (!checkVoorStoelen)
+								{
+                                    string[] gekozenStoelen = new string[aantalPersonen];
+                                    for(int i = 0; i < aantalPersonen; i++)
+								    {
+								    	gekozenStoelen[i] = $"{gekozenStoelInt + i}:{gekozenRijInt}";
+								    }
+                                    //KIJK OF DE OVERIGE STOELEN OOK IN DE ZAAL ZITTEN
+                                    for (int i = 0; i < aantalPersonen; i++)
+                                    {
+                                        int stoelOpReservering = int.Parse(gekozenStoelen[i].Split(':')[0]);
+                                        if (stoelOpReservering > zaalvoorkeuzeFilm.stoelen)
+								    	{
+                                            Console.WriteLine("Een of meerdere stoelen bevinden zich buiten de zaal. Zorg ervoor dat iedereen een stoel naast elkaar heeft.\n");
+                                            string[] terug = { "Ga terug" };
+                                            AwaitResponse(terug);
+                                            checkVoorStoelen = true;
+                                            break;
+								    	}
+                                    }
+                                    //KIJK OF STOELEN AL GERESERVEERD ZIJN
+								}
+                            }
                         }
-					}
+                    }
                 }
             }
         }
