@@ -481,8 +481,8 @@ namespace Reserveringssysteem
                 SetCurrentScreen("Home");
             } else
             {
-                bool laatDatumEnZaalZien = true; 
-				while (laatDatumEnZaalZien)
+                bool laatDatumEnZaalZien = true;
+                while (laatDatumEnZaalZien)
 				{
                     Console.Clear();
                     ShowHeader(color, title);
@@ -494,6 +494,12 @@ namespace Reserveringssysteem
                         laatDatumEnZaalZien = false;
 					} else
                     {
+                        int aantalPersonen = 0;
+                        string[] gekozenStoelen = new string[aantalPersonen];
+                        for (int i = 0; i < gekozenStoelen.Length; i++)
+                        {
+                            gekozenStoelen[i] = "";
+                        }
                         bool persoonlijkeGegevensIngevuld = false;
                         //LAAT DE DETAILS VAN DE FILMS ZIEN ZOALS TIJD EN ZAAL
                         Console.Clear();
@@ -509,7 +515,7 @@ namespace Reserveringssysteem
                         zaalvoorkeuzeFilm.printZaal(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal);
                         //KIJK OF DE AANTAL PERSONEN VALID IS
                         string aantalPersonenString = "";
-                        int aantalPersonen = 0;
+                        aantalPersonen = 0;
                         bool aantalPersonenGekozen = false;
                         Console.WriteLine("Voor hoeveel personen wilt u een reservering maken? Klik op q om keuze te beïndigen en terug te gaan naar de datums");
                         Console.WriteLine("Reserveert u voor meer dan 7 personen? Bel dan naar ons voor een reservering");
@@ -590,7 +596,7 @@ namespace Reserveringssysteem
                                 bool checkVoorStoelen = false;
 								while (!checkVoorStoelen)
 								{
-                                    string[] gekozenStoelen = new string[aantalPersonen];
+                                    gekozenStoelen = new string[aantalPersonen];
                                     for(int i = 0; i < aantalPersonen; i++)
 								    {
 								    	gekozenStoelen[i] = $"{gekozenStoelInt + i}:{gekozenRijInt}";
@@ -687,6 +693,8 @@ namespace Reserveringssysteem
                             ShowHeader(color, title);
                             Console.WriteLine("   Uw persoonlijke gegevens zijn ingevuld. Uw stoelkeuze(s) zijn hieronder te zien.\n");
                             //LAAT PLATTEGROND ZIEN MET KEUZE STOELEN
+                            zaalvoorkeuzeFilm.printZaalMetKeuze(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen);
+                            Console.Write("\n");
                             string[] opties = { "Ga door", "Annuleer bestelling en ga terug" };
 							var keuze = AwaitResponse( opties );
                             if(keuze == "Ga door")

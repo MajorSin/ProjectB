@@ -171,6 +171,73 @@ namespace Reserveringssysteem.Classes
 			}
 			return result;
 		}
+		//PRINT ZAAL MET EEN GESELECTEERDE KEUZE
+		public void printZaalMetKeuze(string titel, DateTime datumVoorDraaien, int zaal, string[] keuzeArr)
+		{
+			readJson();
+			leesJsonReserveringen();
+			for (int rij = 0; rij < plattegronden?[zaalIndex].Rijen; rij++)
+			{
+				//PRINT DE STOELNUMMERS
+				if (rij == 0)
+				{
+					Console.Write("   ");
+					for (int i = 0; i < plattegronden?[zaalIndex].Stoelen; i++)
+					{
+						int adder = i + 1;
+						if (adder > 9)
+						{
+							Console.Write((i + 1) + " ");
+						} else
+						{
+							Console.Write(" " + (i + 1) + " ");
+						}
+					}
+					Console.Write("\n");
+				}
+				if (rij < 9)
+				{
+					Console.Write((rij + 1) + "  ");
+				} else
+				{
+					Console.Write(rij + 1 + " ");
+				}
+				//PRINT DE STOEL
+				for (int stoel = 0; stoel < plattegronden?[zaalIndex].Stoelen; stoel++)
+				{
+					//KIJK OF STOEL IS GERESERVEERD
+					foreach (reserveringenJson reservering in reserveringen)
+					{
+						if (reservering.Titel == titel && datumVoorDraaien == DateTime.Parse(reservering.datum) && zaal == reservering.zaal)
+						{
+							for (int reserveringAantal = 0; reserveringAantal < reservering.AantalPersonen; reserveringAantal++)
+							{
+								int stoelOpAnderReservering = int.Parse(reservering.stoelen[reserveringAantal].Split(':')[0]);
+								int rijOpAnderReservering = int.Parse(reservering.stoelen[reserveringAantal].Split(':')[1]);
+								if (stoelOpAnderReservering == stoel + 1 && rijOpAnderReservering == rij + 1)
+								{
+									Console.ForegroundColor = ConsoleColor.Red;
+								}
+							}
+						}
+					}
+					//KIJK OF STOEL IN KEUZE VALT
+					for(int i = 0; i < keuzeArr.Length; i++)
+					{
+						int keuzeStoel = int.Parse(keuzeArr[i].Split(':')[0]);
+						int keuzeRij = int.Parse(keuzeArr[i].Split(':')[1]);
+						if(stoel + 1 == keuzeStoel && rij + 1 == keuzeRij)
+						{
+							Console.ForegroundColor = ConsoleColor.Blue;
+						}
+					}
+					Console.Write("[ ]");
+					Console.ResetColor();
+				}
+				Console.Write("\n");
+			}
+			Console.Write(plattegronden?[zaalIndex].Scherm + "\n");
+		}
 		//LEES RESERVERINGEN.JSON UIT
 		public void leesJsonReserveringen()
 		{
