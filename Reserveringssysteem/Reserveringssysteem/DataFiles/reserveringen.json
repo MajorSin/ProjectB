@@ -5,7 +5,7 @@
 		"datum": "2022-10-20T15:00:00",
 		"zaal": 2,
 		"namen": [ "Prabhjot Singh", "HENKIEE" ],
-		"reservering door": "m",
+		"reserveringDoor": "m",
 		"leeftijden": [ 19, 81 ],
 		"stoelen": [ "5:14", "6:14" ],
 		"randomCode":  "aaaaaaa"
