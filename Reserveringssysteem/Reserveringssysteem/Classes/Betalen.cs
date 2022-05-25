@@ -211,24 +211,8 @@ namespace Reserveringssysteem
                 {
                     wachtwoordCorrect = true;
                     Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-                    Console.Write("\nU kunt op \"Q\" drukken om terug te keren naar het hoofdscherm: ");
-                    string exitInput = Console.ReadLine();
-                    bool Qpressed = false;
-                    if (Qchecker(exitInput))
-                    {
-                        Console.Clear();
-                        betaalOpties();
-                    }
-                    while (!Qpressed)
-                    {
-                        Console.Write("\nDruk op \"Q\" om terug te keren: ");
-                        exitInput = Console.ReadLine();
-                        if (Qchecker(exitInput))
-                        {
-                            Console.Clear();
-                            betaalOpties();
-                        }
-                    }
+                    Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
+                    Console.ReadLine();
                 }
 
                 // wachtwoord is ongeldig. User krijgt nog 2 pogingen om wachtwoord in te vullen
@@ -242,24 +226,8 @@ namespace Reserveringssysteem
                     {
                         wachtwoordCorrect = true;
                         Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-                        Console.Write("\nU kunt op \"Q\" drukken om terug te keren naar het hoofdscherm: ");
-                        string exitInput = Console.ReadLine();
-                        bool Qpressed = false;
-                        if (Qchecker(exitInput))
-                        {
-                            Console.Clear();
-                            betaalOpties();
-                        }
-                        while (!Qpressed)
-                        {
-                            Console.Write("\nDruk op \"Q\" om terug te keren: ");
-                            exitInput = Console.ReadLine();
-                            if (Qchecker(exitInput))
-                            {
-                                Console.Clear();
-                                betaalOpties();
-                            }
-                        }
+                        Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
+                        Console.ReadLine();
                     }
                     if (pogingen == 1)
                     {
@@ -336,26 +304,11 @@ namespace Reserveringssysteem
                 // De betaling is gelukt als het wachtwoord klopt. User wordt terug gestuurd naar het betaalmethode scherm
                 if (wachtwoordChecker(wachtwoordInput))
                 {
+
                     wachtwoordCorrect = true;
                     Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-                    Console.Write("\nU kunt op \"Q\" drukken om terug te keren naar het hoofdscherm: ");
-                    string exitInput = Console.ReadLine();
-                    bool Qpressed = false;
-                    if (Qchecker(exitInput))
-                    {
-                        Console.Clear();
-                        betaalOpties();
-                    }
-                    while (!Qpressed)
-                    {
-                        Console.Write("\nDruk op \"Q\" om terug te keren: ");
-                        exitInput = Console.ReadLine();
-                        if (Qchecker(exitInput))
-                        {
-                            Console.Clear();
-                            betaalOpties();
-                        }
-                    }
+                    Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
+                    Console.ReadLine();
                 }
                 // wachtwoord is ongeldig. User krijgt nog 2 pogingen om wachtwoord in te vullen
                 int pogingen = 2;
@@ -366,26 +319,11 @@ namespace Reserveringssysteem
 
                     if (wachtwoordChecker(wachtwoordInput))
                     {
+
                         wachtwoordCorrect = true;
                         Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-                        Console.Write("\nU kunt op \"Q\" drukken om terug te keren naar het hoofdscherm: ");
-                        string exitInput = Console.ReadLine();
-                        bool Qpressed = false;
-                        if (Qchecker(exitInput))
-                        {
-                            Console.Clear();
-                            betaalOpties();
-                        }
-                        while (!Qpressed)
-                        {
-                            Console.Write("\nDruk op \"Q\" om terug te keren: ");
-                            exitInput = Console.ReadLine();
-                            if (Qchecker(exitInput))
-                            {
-                                Console.Clear();
-                                betaalOpties();
-                            }
-                        }
+                        Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
+                        Console.ReadLine();
                     }
                     if (pogingen == 1)
                     {
@@ -497,24 +435,8 @@ namespace Reserveringssysteem
                     {
                         cvcCorrect = true;
                         Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-                        Console.Write("\nU kunt op \"Q\" drukken om terug te keren naar het hoofdscherm: ");
-                        string exitInput = Console.ReadLine();
-                        bool Qpressed = false;
-                        if (Qchecker(exitInput))
-                        {
-                            Console.Clear();
-                            betaalOpties();
-                        }
-                        while (!Qpressed)
-                        {
-                            Console.Write("\nDruk op \"Q\" om terug te keren: ");
-                            exitInput = Console.ReadLine();
-                            if (Qchecker(exitInput))
-                            {
-                                Console.Clear();
-                                betaalOpties();
-                            }
-                        }
+                        Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
+                        Console.ReadLine();
                     }
                     if (Qchecker(cvcInput))
                     {
@@ -533,24 +455,8 @@ namespace Reserveringssysteem
                         {
                             cvcCorrect = true;
                             Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-                            Console.Write("\nU kunt op \"Q\" drukken om terug te keren naar het hoofdscherm: ");
-                            string exitInput = Console.ReadLine();
-                            bool Qpressed = false;
-                            if (Qchecker(exitInput))
-                            {
-                                Console.Clear();
-                                betaalOpties();
-                            }
-                            while (!Qpressed)
-                            {
-                                Console.Write("\nDruk op \"Q\" om terug te keren: ");
-                                exitInput = Console.ReadLine();
-                                if (Qchecker(exitInput))
-                                {
-                                    Console.Clear();
-                                    betaalOpties();
-                                }
-                            }
+                            Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
+                            Console.ReadLine();
                         }
                         if (pogingen == 1)
                         {

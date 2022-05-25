@@ -715,7 +715,12 @@ namespace Reserveringssysteem
                                     ShowHeader(color, title);
                                     Console.WriteLine("BETALEN");
                                     Betalen.betaalOpties();
-                                    Console.ReadLine();
+                                    //BETALING GELUKT
+                                    Console.Clear();
+                                    ShowHeader(color, title);
+                                    Console.WriteLine("De reservering is gelukt, er is een bevestiging naar uw e-mail gestuurd waar u de ticket kunt vinden.\n");
+                                    string[] gaterug = { "Ga terug" };
+                                    AwaitResponse(gaterug);
                                 }
                             }
                         }
