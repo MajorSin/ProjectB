@@ -7,6 +7,7 @@
 		"namen": [ "Prabhjot Singh", "HENKIEE" ],
 		"reservering door": "m",
 		"leeftijden": [ 19, 81 ],
-		"stoelen": [ "5:14", "6:14"]
+		"stoelen": [ "5:14", "6:14" ],
+		"randomCode":  "aaaaaaa"
 	}
 ]
