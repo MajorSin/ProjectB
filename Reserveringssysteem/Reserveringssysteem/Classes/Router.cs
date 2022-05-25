@@ -708,12 +708,13 @@ namespace Reserveringssysteem
                                 Console.Write("\n");
                                 string[] opties = { "Betalen", "Annuleer bestelling en ga terug" };
                                 var keuze = AwaitResponse(opties);
-                                if (keuze == "Ga door")
+                                if (keuze == "Betalen")
                                 {
                                     //BETAALSCHERM
                                     Console.Clear();
                                     ShowHeader(color, title);
                                     Console.WriteLine("BETALEN");
+                                    Betalen.betaalOpties();
                                     Console.ReadLine();
                                 }
                             }
