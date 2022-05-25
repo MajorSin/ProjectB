@@ -1,20 +1,20 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json;
-using System.Text;
 using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace Reserveringssysteem
 {
-    public class FilmController
-    {
-        public static List<Film> Films { get; set; }
+	public class FilmController
+	{
+		public static List<Film> Films { get; set; }
 
 		public List<Film> FilteredFilms { get; set; }
 
 		public void ShowFilms(List<Film> films)
-        {
+		{
 			Console.ForegroundColor = ConsoleColor.White;
 			string fields = String.Format("   {0,-15} {1,-30} {2,20}", "Id", "Titel", "Jaar");
 			Console.WriteLine(fields);
@@ -39,7 +39,7 @@ namespace Reserveringssysteem
 		}
 
 		public Film ShowFilm(List<Film> films, Action showHeader)
-        {
+		{
 			int id = 0;
 			string error = "";
 			bool chosen = false;
@@ -65,12 +65,10 @@ namespace Reserveringssysteem
 				if (String.IsNullOrEmpty(givenInput))
 				{
 					error = "   Het veld kan niet leeg zijn.";
-				}
-				else if (!int.TryParse(givenInput, out id))
+				} else if (!int.TryParse(givenInput, out id))
 				{
 					error = "   Dit is geen nummer.";
-				}
-				else
+				} else
 				{
 					bool exists = false;
 					for (int i = 0; i < films.Count; i++)
@@ -108,9 +106,9 @@ namespace Reserveringssysteem
 			FilteredFilms = new List<Film>();
 
 			for (int i = 0; i < Films.Count; i++)
-            {
+			{
 				FilteredFilms.Add(Films[i]);
-            }
+			}
 
 			Func<string>[] arr = new Func<string>[] {
 				() => TitelZoeken(showHeader, router),
@@ -173,8 +171,7 @@ namespace Reserveringssysteem
 							if (!titleLower.Contains(titelFilter.ToLower()))
 							{
 								FilteredFilms.RemoveAt(i);
-							}
-							else { i++; }
+							} else { i++; }
 						}
 					}
 				}
@@ -208,8 +205,7 @@ namespace Reserveringssysteem
 						if (filmsCheckList != null)
 						{
 							//TAAL GEVONDEN
-							if (filmsCheckList.Any(x => taalGekozen.Any(y => y == x))) { i++; }
-							else
+							if (filmsCheckList.Any(x => taalGekozen.Any(y => y == x))) { i++; } else
 							//TAAL ZIT ER NIET IN
 							{
 								FilteredFilms.RemoveAt(i);
@@ -250,8 +246,7 @@ namespace Reserveringssysteem
 						if (filmsCheckList != null)
 						{
 							//GENRE GEVONDEN
-							if (filmsCheckList.Any(x => genresGekozen.Any(y => y == x))) { i++; }
-							else
+							if (filmsCheckList.Any(x => genresGekozen.Any(y => y == x))) { i++; } else
 							//GENRE ZIT ER NIET IN
 							{
 								FilteredFilms.RemoveAt(i);
@@ -282,8 +277,7 @@ namespace Reserveringssysteem
 						Console.Write(" ");
 						Console.ResetColor();
 						Console.ForegroundColor = ConsoleColor.DarkYellow;
-					}
-					else
+					} else
 					{
 						Console.ForegroundColor = ConsoleColor.White;
 						Console.Write(" ");
@@ -292,13 +286,11 @@ namespace Reserveringssysteem
 					{
 						Console.ForegroundColor = ConsoleColor.DarkCyan;
 						Console.WriteLine("  {0}", options[i] + " - TOEGEVOEGD");
-					}
-					else if ((options.Length - 1) == i)
+					} else if ((options.Length - 1) == i)
 					{
 						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine("  {0}", options[i]);
-					}
-					else
+					} else
 					{
 						Console.WriteLine("  {0}", options[i]);
 					}
@@ -310,8 +302,7 @@ namespace Reserveringssysteem
 						if (currentSelected == 0)
 						{
 							break;
-						}
-						else
+						} else
 						{
 							currentSelected -= 1;
 						}
@@ -320,8 +311,7 @@ namespace Reserveringssysteem
 						if (currentSelected == options.Length - 1)
 						{
 							break;
-						}
-						else
+						} else
 						{
 							currentSelected += 1;
 						}
@@ -330,8 +320,7 @@ namespace Reserveringssysteem
 						if (currentSelected == (options.Length - 1))
 						{
 							return gekozen;
-						}
-						else
+						} else
 						{
 							if (!gekozen.Contains(options[currentSelected]))
 							{

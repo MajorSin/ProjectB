@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using System.Text;
 using System.IO;
+using System.Text;
 
 namespace Reserveringssysteem
 {
@@ -20,7 +19,7 @@ namespace Reserveringssysteem
 		{
 			readJson();
 			string returnString = "";
-			for(int i = 0; i < voedingswaardeList.Count; i++)
+			for (int i = 0; i < voedingswaardeList.Count; i++)
 			{
 				if (voedingswaardeList.ContainsKey(this.naam))
 				{

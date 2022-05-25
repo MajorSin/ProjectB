@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-using System.IO;
 using System.Globalization;
+using System.IO;
+using System.Text;
 
 namespace Reserveringssysteem
 {
@@ -29,19 +29,19 @@ namespace Reserveringssysteem
 			public List<int> Zaal { get; set; }
 
 			public draaienFilms(int filmId, string name, List<string> datum, List<int> zaal)
-            {
+			{
 				this.FilmID = filmId;
 				this.Name = name;
 				this.Datum = datum;
 				this.Zaal = zaal;
-            }
+			}
 		}
 
 		//LAAT ALLE FILMS ZIEN DIE BINNEKORT DRAAIEN
 		public List<draaienFilms> laatDraaiendeFilmsZien()
 		{
 			//VERWIJDER ALLE DATUMS DIE AL ZIJN GEWEEST
-			for(int i = 0; i < draaienFilmsList.Count; i++)
+			for (int i = 0; i < draaienFilmsList.Count; i++)
 			{
 				int DatumremoveAt = 0;
 				int runFor = draaienFilmsList[i].Datum.Count;
@@ -86,7 +86,7 @@ namespace Reserveringssysteem
 			var jsonFilms = File.ReadAllText("../../../DataFiles/films.json", Encoding.GetEncoding("utf-8"));
 			var filmsList = JsonConvert.DeserializeObject<List<Film>>(jsonFilms);
 
-			for(int i = 0; i < filmsList.Count; i++)
+			for (int i = 0; i < filmsList.Count; i++)
 			{
 				if (filmsList[i].Titel == titel)
 				{
@@ -96,24 +96,24 @@ namespace Reserveringssysteem
 					int currentLen = 10;
 
 					for (int j = 0; j < words.Length; j++)
-                    {
+					{
 						if (j >= currentLen)
-                        {
+						{
 							words[j] = words[j] + "\n" + "  ";
 							currentLen += 10;
 						}
-                    }
+					}
 
 					returnTekst += String.Join(" ", words);
 				}
 			}
 			returnTekst += "\n\n   Beschikbare Datums:\n";
 			//LAAD DE DATUM IN
-			for(int i = 0; i < draaienFilmsList.Count; i++)
+			for (int i = 0; i < draaienFilmsList.Count; i++)
 			{
 				if (draaienFilmsList[i].Name == titel)
 				{
-					for(int j = 0; j < draaienFilmsList[i].Datum.Count; j++)
+					for (int j = 0; j < draaienFilmsList[i].Datum.Count; j++)
 					{
 						DateTime datumDraaien = DateTime.Parse(draaienFilmsList[i].Datum[j]);
 						if (datumDraaien > DateTime.Now.AddDays(-1))
@@ -126,8 +126,8 @@ namespace Reserveringssysteem
 			}
 			this.datumsDraaienArray = datumsDraaien.ToArray();
 			//CONVERTEER NAAR STRING ARRAY
-			datumsDraaienString = new string[datumsDraaienArray.Length +1];
-			for(int i = 0; i < this.datumsDraaienArray.Length; i++)
+			datumsDraaienString = new string[datumsDraaienArray.Length + 1];
+			for (int i = 0; i < this.datumsDraaienArray.Length; i++)
 			{
 				CultureInfo netherlands = new CultureInfo("nl-NL");
 				string dayOfWeek = netherlands.DateTimeFormat.GetDayName(datumsDraaienArray[i].DayOfWeek);
@@ -136,7 +136,7 @@ namespace Reserveringssysteem
 			}
 			datumsDraaienString[datumsDraaienArray.Length] = "Ga terug";
 
-			return returnTekst ;
+			return returnTekst;
 		}
 
 		//UPDATE LIJST MET GEDRAAIDE FILMS
@@ -148,8 +148,8 @@ namespace Reserveringssysteem
 		}
 
 		public List<draaienFilms> GetDraaienFilms()
-        {
+		{
 			return draaienFilmsList;
-        }
+		}
 	}
 }

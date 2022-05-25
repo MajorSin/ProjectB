@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using Newtonsoft.Json;
+using System.Text;
 
 namespace Reserveringssysteem.Classes
 {
@@ -54,24 +52,24 @@ namespace Reserveringssysteem.Classes
 			readJson();
 			for (int rij = 0; rij < plattegronden?[zaalIndex].Rijen; rij++)
 			{
-				if(rij == 0)
+				if (rij == 0)
 				{
-					for(int i = 0; i < plattegronden?[zaalIndex].Stoelen; i++)
+					for (int i = 0; i < plattegronden?[zaalIndex].Stoelen; i++)
 					{
 						int adder = i + 1;
 						if (adder > 9)
 						{
 							plattegrond += (i + 1) + " ";
-						} else 
-						{ 
+						} else
+						{
 							plattegrond += " " + (i + 1) + " ";
 						}
 					}
 					plattegrond += "\n";
 				}
-				if(rij < 9) 
-				{ 
-					plattegrond += (rij+1) + "  ";
+				if (rij < 9)
+				{
+					plattegrond += (rij + 1) + "  ";
 				} else
 				{
 					plattegrond += rij + 1 + " ";
@@ -120,15 +118,15 @@ namespace Reserveringssysteem.Classes
 				for (int stoel = 0; stoel < plattegronden?[zaalIndex].Stoelen; stoel++)
 				{
 					//KIJK OF STOEL IS GERESERVEERD
-					foreach(reserveringenJson reservering in reserveringen)
+					foreach (reserveringenJson reservering in reserveringen)
 					{
-						if(reservering.Titel == titel && datumVoorDraaien == DateTime.Parse(reservering.datum) && zaal == reservering.zaal)
+						if (reservering.Titel == titel && datumVoorDraaien == DateTime.Parse(reservering.datum) && zaal == reservering.zaal)
 						{
-							for(int reserveringAantal = 0; reserveringAantal < reservering.AantalPersonen; reserveringAantal++)
+							for (int reserveringAantal = 0; reserveringAantal < reservering.AantalPersonen; reserveringAantal++)
 							{
 								int stoelOpAnderReservering = int.Parse(reservering.stoelen[reserveringAantal].Split(':')[0]);
 								int rijOpAnderReservering = int.Parse(reservering.stoelen[reserveringAantal].Split(':')[1]);
-								if (stoelOpAnderReservering == stoel+1 && rijOpAnderReservering == rij+1)
+								if (stoelOpAnderReservering == stoel + 1 && rijOpAnderReservering == rij + 1)
 								{
 									Console.ForegroundColor = ConsoleColor.Red;
 								}
@@ -146,12 +144,12 @@ namespace Reserveringssysteem.Classes
 		public bool checkDubbeleStoelen(string titel, DateTime datum, int zaal, string[] reserveringsStoelen)
 		{
 			bool result = true;
-			foreach(reserveringenJson reservering in reserveringen)
+			foreach (reserveringenJson reservering in reserveringen)
 			{
 				if (reservering.Titel == titel && datum == DateTime.Parse(reservering.datum) && zaal == reservering.zaal)
 				{
 					//LOOP DOOR RESERVERINGSSTOELEN
-					for(int reserveringsStoelIndex = 0; reserveringsStoelIndex < reserveringsStoelen.Length; reserveringsStoelIndex++)
+					for (int reserveringsStoelIndex = 0; reserveringsStoelIndex < reserveringsStoelen.Length; reserveringsStoelIndex++)
 					{
 						int stoelOpNieuweReservering = int.Parse(reserveringsStoelen[reserveringsStoelIndex].Split(':')[0]);
 						int rijOpNieuweReservering = int.Parse(reserveringsStoelen[reserveringsStoelIndex].Split(':')[1]);
@@ -160,7 +158,7 @@ namespace Reserveringssysteem.Classes
 						{
 							int stoelOpAnderReservering = int.Parse(reservering.stoelen[reserveringAantal].Split(':')[0]);
 							int rijOpAnderReservering = int.Parse(reservering.stoelen[reserveringAantal].Split(':')[1]);
-							if(stoelOpNieuweReservering == stoelOpAnderReservering && rijOpNieuweReservering == rijOpAnderReservering)
+							if (stoelOpNieuweReservering == stoelOpAnderReservering && rijOpNieuweReservering == rijOpAnderReservering)
 							{
 								result = false;
 								return result;
@@ -222,11 +220,11 @@ namespace Reserveringssysteem.Classes
 						}
 					}
 					//KIJK OF STOEL IN KEUZE VALT
-					for(int i = 0; i < keuzeArr.Length; i++)
+					for (int i = 0; i < keuzeArr.Length; i++)
 					{
 						int keuzeStoel = int.Parse(keuzeArr[i].Split(':')[0]);
 						int keuzeRij = int.Parse(keuzeArr[i].Split(':')[1]);
-						if(stoel + 1 == keuzeStoel && rij + 1 == keuzeRij)
+						if (stoel + 1 == keuzeStoel && rij + 1 == keuzeRij)
 						{
 							Console.ForegroundColor = ConsoleColor.Blue;
 						}
@@ -250,22 +248,22 @@ namespace Reserveringssysteem.Classes
 			int stoelNummer = int.Parse(stoel.Split(':')[0]);
 			int rijNummer = int.Parse(stoel.Split(':')[1]);
 			//BEREKEN DE PRIJS PER ZAAL
-			if(zaal == 1)
+			if (zaal == 1)
 			{
-				if(rijNummer < 4 || rijNummer > 11)
+				if (rijNummer < 4 || rijNummer > 11)
 				{
 					return Prijs;
-				} else if(stoelNummer > 3 && stoelNummer < 10)
+				} else if (stoelNummer > 3 && stoelNummer < 10)
 				{
 					Prijs = 10;
 					return Prijs;
 				}
-			} else if(zaal == 2)
+			} else if (zaal == 2)
 			{
 				if (rijNummer < 4 || rijNummer > 16 || stoelNummer < 4 || stoelNummer > 15)
 				{
 					return Prijs;
-				} else if(rijNummer < 7 || rijNummer > 13 || stoelNummer < 7 || stoelNummer > 12)
+				} else if (rijNummer < 7 || rijNummer > 13 || stoelNummer < 7 || stoelNummer > 12)
 				{
 					Prijs = 10;
 					return Prijs;
@@ -274,7 +272,7 @@ namespace Reserveringssysteem.Classes
 					Prijs = 12.50;
 					return Prijs;
 				}
-			} else if(zaal == 3)
+			} else if (zaal == 3)
 			{
 				if (rijNummer < 5 || rijNummer > 16 || stoelNummer < 5 || stoelNummer > 26)
 				{

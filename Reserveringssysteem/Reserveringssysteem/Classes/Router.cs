@@ -1,195 +1,193 @@
-﻿using System;
+﻿using Reserveringssysteem.Classes;
+using System;
 using System.Collections.Generic;
-using static Reserveringssysteem.UserController;
 using System.Globalization;
-using Reserveringssysteem.Classes;
+using static Reserveringssysteem.UserController;
 
 namespace Reserveringssysteem
 {
-    public class Router
-    {
-        public string CurrentScreen { get; set; }
+	public class Router
+	{
+		public string CurrentScreen { get; set; }
 
-        // Toont het scherm waar je nu op bent.
-        public void DisplayScreen()
-        {
-            switch (CurrentScreen)
-            {
-                case "Authorizatie":
-                    DisplayAuthorization();
-                    break;
-                case "Inloggen":
-                    DisplayInloggen();
-                    break;
-                case "Registreren":
-                    DisplayRegistreren();
-                    break;
-                case "Home":
-                    DisplayHome();
-                    break;
-                case "Admin":
-                    DisplayAdmin();
-                    break;
-                case "Reserveren":
-                    DisplayReserveren();
-                    break;
-                case "Films":
-                    DisplayFilms();
-                    break;
-                case "Eten & Drinken":
-                    DisplayEtenDrinken();
-                    break;
-                case "Informatie":
-                    DisplayInformatie();
-                    break;
-                case "Draaiende films":
-                    DisplayDraaiendeFilms();
-                    break;
-                default:
-                    SetCurrentScreen("Authorizatie");
-                    DisplayAuthorization();
-                    break;
-            }
-        }
+		// Toont het scherm waar je nu op bent.
+		public void DisplayScreen()
+		{
+			switch (CurrentScreen)
+			{
+				case "Authorizatie":
+					DisplayAuthorization();
+					break;
+				case "Inloggen":
+					DisplayInloggen();
+					break;
+				case "Registreren":
+					DisplayRegistreren();
+					break;
+				case "Home":
+					DisplayHome();
+					break;
+				case "Admin":
+					DisplayAdmin();
+					break;
+				case "Reserveren":
+					DisplayReserveren();
+					break;
+				case "Films":
+					DisplayFilms();
+					break;
+				case "Eten & Drinken":
+					DisplayEtenDrinken();
+					break;
+				case "Informatie":
+					DisplayInformatie();
+					break;
+				case "Draaiende films":
+					DisplayDraaiendeFilms();
+					break;
+				default:
+					SetCurrentScreen("Authorizatie");
+					DisplayAuthorization();
+					break;
+			}
+		}
 
-        // Lay-out van de header teruggeven.
-        private void ShowHeader(ConsoleColor color, string title)
-        {
-            Console.ForegroundColor = color;
-            Console.WriteLine(@"{0}", title);
-            Console.BackgroundColor = color;
-            Console.ResetColor();
-        }
+		// Lay-out van de header teruggeven.
+		private void ShowHeader(ConsoleColor color, string title)
+		{
+			Console.ForegroundColor = color;
+			Console.WriteLine(@"{0}", title);
+			Console.BackgroundColor = color;
+			Console.ResetColor();
+		}
 
-        // Keuze van de gebruiker vaststellen.
-        public string AwaitResponse(string[] options)
-        {
-            int currentSelected = 0;
-            bool selectionMade = false;
+		// Keuze van de gebruiker vaststellen.
+		public string AwaitResponse(string[] options)
+		{
+			int currentSelected = 0;
+			bool selectionMade = false;
 
-            // Loopt door de opties en houdt bij welke keuze je maakt met pijltjestoetsen.
-            while (!selectionMade)
-            {
-                for (int i = 0; i < options.Length; i++)
-                {
-                    if (i == currentSelected)
-                    {
-                        Console.BackgroundColor = ConsoleColor.DarkYellow;
-                        Console.Write(" ");
-                        Console.ResetColor();
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    }
-                    else
-                    {
-                        if ((options.Length - 1) == i)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.Write(" ");
-                        } else { 
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.Write(" ");
-                        }
-                    }
-                    Console.WriteLine("  {0}", options[i]);
-                    Console.ResetColor();
-                }
-                switch (Console.ReadKey(true).Key)
-                {
-                    case ConsoleKey.UpArrow:
-                        if (currentSelected == 0)
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            currentSelected -= 1;
-                        }
-                        break;
-                    case ConsoleKey.DownArrow:
-                        if (currentSelected == options.Length - 1)
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            currentSelected += 1;
-                        }
-                        break;
-                    case ConsoleKey.Enter:
-                        selectionMade = true;
-                        break;
-                }
-                // Zorgt ervoor dat de keuzes niet met elkaar gaan overlappen.
-                Console.CursorTop = Console.CursorTop - options.Length;
-            }
-            return options[currentSelected];
-        }
-        public int AwaitResponseInIndex(string[] options)
-        {
-            int currentSelected = 0;
-            bool selectionMade = false;
+			// Loopt door de opties en houdt bij welke keuze je maakt met pijltjestoetsen.
+			while (!selectionMade)
+			{
+				for (int i = 0; i < options.Length; i++)
+				{
+					if (i == currentSelected)
+					{
+						Console.BackgroundColor = ConsoleColor.DarkYellow;
+						Console.Write(" ");
+						Console.ResetColor();
+						Console.ForegroundColor = ConsoleColor.DarkYellow;
+					} else
+					{
+						if ((options.Length - 1) == i)
+						{
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.Write(" ");
+						} else
+						{
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.Write(" ");
+						}
+					}
+					Console.WriteLine("  {0}", options[i]);
+					Console.ResetColor();
+				}
+				switch (Console.ReadKey(true).Key)
+				{
+					case ConsoleKey.UpArrow:
+						if (currentSelected == 0)
+						{
+							break;
+						} else
+						{
+							currentSelected -= 1;
+						}
+						break;
+					case ConsoleKey.DownArrow:
+						if (currentSelected == options.Length - 1)
+						{
+							break;
+						} else
+						{
+							currentSelected += 1;
+						}
+						break;
+					case ConsoleKey.Enter:
+						selectionMade = true;
+						break;
+				}
+				// Zorgt ervoor dat de keuzes niet met elkaar gaan overlappen.
+				Console.CursorTop = Console.CursorTop - options.Length;
+			}
+			return options[currentSelected];
+		}
+		public int AwaitResponseInIndex(string[] options)
+		{
+			int currentSelected = 0;
+			bool selectionMade = false;
 
-            // Loopt door de opties en houdt bij welke keuze je maakt met pijltjestoetsen.
-            while (!selectionMade)
-            {
-                for (int i = 0; i < options.Length; i++)
-                {
-                    if (i == currentSelected)
-                    {
-                        Console.BackgroundColor = ConsoleColor.DarkYellow;
-                        Console.Write(" ");
-                        Console.ResetColor();
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    } else
-                    {
-                        if ((options.Length - 1) == i)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.Write(" ");
-                        } else
-                        {
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.Write(" ");
-                        }
-                    }
-                    Console.WriteLine("  {0}", options[i]);
-                    Console.ResetColor();
-                }
-                switch (Console.ReadKey(true).Key)
-                {
-                    case ConsoleKey.UpArrow:
-                        if (currentSelected == 0)
-                        {
-                            break;
-                        } else
-                        {
-                            currentSelected -= 1;
-                        }
-                        break;
-                    case ConsoleKey.DownArrow:
-                        if (currentSelected == options.Length - 1)
-                        {
-                            break;
-                        } else
-                        {
-                            currentSelected += 1;
-                        }
-                        break;
-                    case ConsoleKey.Enter:
-                        selectionMade = true;
-                        break;
-                }
-                // Zorgt ervoor dat de keuzes niet met elkaar gaan overlappen.
-                Console.CursorTop = Console.CursorTop - options.Length;
-            }
-            return currentSelected;
-        }
+			// Loopt door de opties en houdt bij welke keuze je maakt met pijltjestoetsen.
+			while (!selectionMade)
+			{
+				for (int i = 0; i < options.Length; i++)
+				{
+					if (i == currentSelected)
+					{
+						Console.BackgroundColor = ConsoleColor.DarkYellow;
+						Console.Write(" ");
+						Console.ResetColor();
+						Console.ForegroundColor = ConsoleColor.DarkYellow;
+					} else
+					{
+						if ((options.Length - 1) == i)
+						{
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.Write(" ");
+						} else
+						{
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.Write(" ");
+						}
+					}
+					Console.WriteLine("  {0}", options[i]);
+					Console.ResetColor();
+				}
+				switch (Console.ReadKey(true).Key)
+				{
+					case ConsoleKey.UpArrow:
+						if (currentSelected == 0)
+						{
+							break;
+						} else
+						{
+							currentSelected -= 1;
+						}
+						break;
+					case ConsoleKey.DownArrow:
+						if (currentSelected == options.Length - 1)
+						{
+							break;
+						} else
+						{
+							currentSelected += 1;
+						}
+						break;
+					case ConsoleKey.Enter:
+						selectionMade = true;
+						break;
+				}
+				// Zorgt ervoor dat de keuzes niet met elkaar gaan overlappen.
+				Console.CursorTop = Console.CursorTop - options.Length;
+			}
+			return currentSelected;
+		}
 
-        // Authorisatie scherm.
-        private void DisplayAuthorization()
-        {
-            ConsoleColor color = ConsoleColor.White;
-            string title = @"
+		// Authorisatie scherm.
+		private void DisplayAuthorization()
+		{
+			ConsoleColor color = ConsoleColor.White;
+			string title = @"
                __________
             ///^^^^{}^^^^\\\
           //..@----------@..\\
@@ -201,76 +199,74 @@ namespace Reserveringssysteem
          ||&%&            &%&||
    ______||&%&&==========&&%&||______
                 ";
-            ShowHeader(color, title);
+			ShowHeader(color, title);
 
-            Console.WriteLine("   Gebruik pijltjestoetsen ↑ en ↓ om te navigeren\n   en druk enter om een optie te kiezen.\n");
+			Console.WriteLine("   Gebruik pijltjestoetsen ↑ en ↓ om te navigeren\n   en druk enter om een optie te kiezen.\n");
 
-            string[] options;
+			string[] options;
 
-            if (IsLoggedIn)
-            {
-                options = new string[]
-                {
-                    "Uitloggen",
-                    "Doorgaan naar home",
-                    "Beeïndigen",
-                };
-            }
-            else
-            {
-                options = new string[]
-                {
-                    "Inloggen",
-                    "Registreren",
-                    "Doorgaan als gast",
-                    "Beeïndigen",
-                };
-            }
+			if (IsLoggedIn)
+			{
+				options = new string[]
+				{
+					"Uitloggen",
+					"Doorgaan naar home",
+					"Beeïndigen",
+				};
+			} else
+			{
+				options = new string[]
+				{
+					"Inloggen",
+					"Registreren",
+					"Doorgaan als gast",
+					"Beeïndigen",
+				};
+			}
 
-            string choice = AwaitResponse(options);
+			string choice = AwaitResponse(options);
 
-            switch (choice)
-            {
-                case "Inloggen":
-                    SetCurrentScreen("Inloggen");
-                    break;
-                case "Uitloggen":
-                    if (IsLoggedIn)
-                    {
-                        LogOut();
-                        SetCurrentScreen("Authorizatie");
-                    }
-                    break;
-                case "Registreren":
-                    SetCurrentScreen("Registreren");
-                    break;
-                case "Doorgaan naar home":
-                    if (CurrentUser is Admin)
-                    {
-                        SetCurrentScreen("Admin");
-                    }
-                    else
-                    {
-                        SetCurrentScreen("Home");
-                    }
-                    break;
-                case "Doorgaan als gast":
-                    SetCurrentScreen("Home");
-                    break;
-                case "Beeïndigen":
-                    Environment.Exit(0);
-                    break;
-                default:
-                    SetCurrentScreen("Authorizatie");
-                    break;
-            }
-        }
+			switch (choice)
+			{
+				case "Inloggen":
+					SetCurrentScreen("Inloggen");
+					break;
+				case "Uitloggen":
+					if (IsLoggedIn)
+					{
+						LogOut();
+						SetCurrentScreen("Authorizatie");
+					}
+					break;
+				case "Registreren":
+					SetCurrentScreen("Registreren");
+					break;
+				case "Doorgaan naar home":
+					if (CurrentUser is Admin)
+					{
+						SetCurrentScreen("Admin");
+					} else
+					{
+						SetCurrentScreen("Home");
+					}
+					break;
+				case "Doorgaan als gast":
+					SetCurrentScreen("Home");
+					break;
+				case "Beeïndigen":
+					Environment.Exit(0);
+					break;
+				default:
+					SetCurrentScreen("Authorizatie");
+					break;
+			}
+		}
 
-        // Inlog scherm.
-        private void DisplayInloggen()
-        {
-            ConsoleColor color = ConsoleColor.Cyan;
-            string title = @"
+		// Inlog scherm.
+		private void DisplayInloggen()
+		{
+			ConsoleColor color = ConsoleColor.Cyan;
+			string title = @"
     _____           _                                        
    |_   _|         | |                                       
      | |    _ __   | |   ___     __ _    __ _    ___   _ __  
@@ -280,18 +276,18 @@ namespace Reserveringssysteem
                                __/ |   __/ |               
                               |___/   |___/
                 ";
-            ShowHeader(color, title);
+			ShowHeader(color, title);
 
-            Action showHeader = () => ShowHeader(color, title);
-            UserController controller = new();
-            controller.Login(showHeader, this);
-        }
+			Action showHeader = () => ShowHeader(color, title);
+			UserController controller = new();
+			controller.Login(showHeader, this);
+		}
 
-        // Registratie scherm.
-        private void DisplayRegistreren()
-        {
-            ConsoleColor color = ConsoleColor.Cyan;
-            string title = @"
+		// Registratie scherm.
+		private void DisplayRegistreren()
+		{
+			ConsoleColor color = ConsoleColor.Cyan;
+			string title = @"
     _____                   _         _                                       
    |  __ \                 (_)       | |                                      
    | |__) |   ___    __ _   _   ___  | |_   _ __    ___   _ __    ___   _ __  
@@ -302,43 +298,43 @@ namespace Reserveringssysteem
                     |___/    
 
                 ";
-            ShowHeader(color, title);
+			ShowHeader(color, title);
 
-            Action showHeader = () => ShowHeader(color, title);
-            MemberController controller = new();
-            controller.Register(showHeader, this);
-        }
+			Action showHeader = () => ShowHeader(color, title);
+			MemberController controller = new();
+			controller.Register(showHeader, this);
+		}
 
-        // Hoofdscherm.
-        private void DisplayHome()
-        {
-            int currentHour = DateTime.Now.Hour;
-            Func<int, string> greeting = hour =>
-            {
-                switch (hour)
-                {
-                    case < 12:
-                        return "Goedemorgen,";
-                    case >= 12 and < 18:
-                        return "Goedemiddag,";
-                    default:
-                        return "Goedenavond,";
-                }
-            };
+		// Hoofdscherm.
+		private void DisplayHome()
+		{
+			int currentHour = DateTime.Now.Hour;
+			Func<int, string> greeting = hour =>
+			{
+				switch (hour)
+				{
+					case < 12:
+						return "Goedemorgen,";
+					case >= 12 and < 18:
+						return "Goedemiddag,";
+					default:
+						return "Goedenavond,";
+				}
+			};
 
-            ConsoleColor color = ConsoleColor.White;
-            string result = greeting(currentHour);
-            string name = "";
+			ConsoleColor color = ConsoleColor.White;
+			string result = greeting(currentHour);
+			string name = "";
 
-            if (IsLoggedIn)
-            {
-                name = CurrentUser.GetFirstName();
-            } else
-            {
-                name = "gast";
-            }
+			if (IsLoggedIn)
+			{
+				name = CurrentUser.GetFirstName();
+			} else
+			{
+				name = "gast";
+			}
 
-            string title = @$"   
+			string title = @$"   
              
    {result} {name}!    
                              ___________I____________
@@ -355,45 +351,44 @@ namespace Reserveringssysteem
     /      \                 ------------------------
    /________\___________________/________________\______
                 ";
-            ShowHeader(color, title);
+			ShowHeader(color, title);
 
-            Console.WriteLine("   Gebruik pijltjestoetsen ↑ en ↓ om te navigeren\n   en druk enter om een optie te kiezen.\n");
+			Console.WriteLine("   Gebruik pijltjestoetsen ↑ en ↓ om te navigeren\n   en druk enter om een optie te kiezen.\n");
 
-            string[] options = new string[] {
-                "Reserveren",
-                "Films",
-                "Eten & Drinken",
-                "Informatie",
-                "Terug"
-            };
+			string[] options = new string[] {
+				"Reserveren",
+				"Films",
+				"Eten & Drinken",
+				"Informatie",
+				"Terug"
+			};
 
-            string choice = AwaitResponse(options);
+			string choice = AwaitResponse(options);
 
-            switch (choice)
-            {
-                case "Reserveren":
-                    if (IsLoggedIn)
-                    {
-                        SetCurrentScreen(choice);
-                    } 
-                    else
-                    {
-                        SetCurrentScreen("Inloggen");
-                    }
-                    break;
-                case "Terug":
-                    SetCurrentScreen("Authorizatie");
-                    break;
-                default:
-                    SetCurrentScreen(choice);
-                    break;
-            }
-        }
+			switch (choice)
+			{
+				case "Reserveren":
+					if (IsLoggedIn)
+					{
+						SetCurrentScreen(choice);
+					} else
+					{
+						SetCurrentScreen("Inloggen");
+					}
+					break;
+				case "Terug":
+					SetCurrentScreen("Authorizatie");
+					break;
+				default:
+					SetCurrentScreen(choice);
+					break;
+			}
+		}
 
-        private void DisplayAdmin()
-        {
-            ConsoleColor color = ConsoleColor.White;
-            string title = @"                                                           
+		private void DisplayAdmin()
+		{
+			ConsoleColor color = ConsoleColor.White;
+			string title = @"                                                           
                                                                  
                   &&&&&&&&                            
                &&&&&&&&&&&&&&                         
@@ -413,36 +408,36 @@ namespace Reserveringssysteem
       &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&                
    @&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&                              
             ";
-            ShowHeader(color, title);
+			ShowHeader(color, title);
 
-            Console.WriteLine("   Gebruik pijltjestoetsen ↑ en ↓ om te navigeren\n   en druk enter om een optie te kiezen.\n");
+			Console.WriteLine("   Gebruik pijltjestoetsen ↑ en ↓ om te navigeren\n   en druk enter om een optie te kiezen.\n");
 
-            string[] options = new string[] {
-                "Draaiende films",
-                "Films",
-                "Eten & Drinken",
-                "Leden",
-                "Terug"
-            };
+			string[] options = new string[] {
+				"Draaiende films",
+				"Films",
+				"Eten & Drinken",
+				"Leden",
+				"Terug"
+			};
 
-            string choice = AwaitResponse(options);
+			string choice = AwaitResponse(options);
 
-            switch (choice)
-            {
-                case "Terug":
-                    SetCurrentScreen("Authorizatie");
-                    break;
-                default:
-                    SetCurrentScreen(choice);
-                    break;
-            }
-        }
+			switch (choice)
+			{
+				case "Terug":
+					SetCurrentScreen("Authorizatie");
+					break;
+				default:
+					SetCurrentScreen(choice);
+					break;
+			}
+		}
 
-        // Reserveer scherm.
-        private void DisplayReserveren()
-        {
-            ConsoleColor color = ConsoleColor.Magenta;
-            string title = @"
+		// Reserveer scherm.
+		private void DisplayReserveren()
+		{
+			ConsoleColor color = ConsoleColor.Magenta;
+			string title = @"
     _____                                                                  
    |  __ \                                                                 
    | |__) |   ___   ___    ___   _ __  __   __   ___   _ __    ___   _ __  
@@ -451,289 +446,294 @@ namespace Reserveringssysteem
    |_|  \_\  \___| |___/  \___| |_|      \_/    \___| |_|     \___| |_| |_|
                                                                                        
                 ";
-            ShowHeader(color, title);
-            string[] options;
-            //LAAT ALLE FILMS ZIEN DIE BINNEKORT DRAAIEN
-            draaiendeFilms draaienClass = new draaiendeFilms();
-            var filmsDieBinnekortDraaien = draaienClass.laatDraaiendeFilmsZien();
-            if (filmsDieBinnekortDraaien.Count <= 0)
-            {
-                Console.WriteLine("   Er draaien binnenkort geen films\n\n");
-                options = new string[]
-                {
-                    "Terug",
-                };
-            } else
-            {
-                Console.WriteLine("   De volgende films kunt u reserveren:\n");
-                options = new string[filmsDieBinnekortDraaien.Count + 1];
-                for (int i = 0; i < filmsDieBinnekortDraaien.Count; i++)
-                {
-                    options[i] = filmsDieBinnekortDraaien[i].Name;
-                }
-                options[options.Length - 1] = "Terug";
-            }
-            //MAAK EEN OPTIE VOOR FILM
-            string choice = AwaitResponse(options);
-            string titel = choice;
-            if (choice == "Terug")
-            {
-                SetCurrentScreen("Home");
-            } else
-            {
-                bool laatDatumEnZaalZien = true;
-                while (laatDatumEnZaalZien)
+			ShowHeader(color, title);
+			string[] options;
+			//LAAT ALLE FILMS ZIEN DIE BINNEKORT DRAAIEN
+			draaiendeFilms draaienClass = new draaiendeFilms();
+			var filmsDieBinnekortDraaien = draaienClass.laatDraaiendeFilmsZien();
+			if (filmsDieBinnekortDraaien.Count <= 0)
+			{
+				Console.WriteLine("   Er draaien binnenkort geen films\n\n");
+				options = new string[]
 				{
-                    Console.Clear();
-                    ShowHeader(color, title);
-                    Console.WriteLine(draaienClass.filmDatumDetails(choice));
-                    //LAAT DE DATUMS KIEZEN
-                    int keuzeVoorDatumEnZaal = AwaitResponseInIndex(draaienClass.datumsDraaienString);
-                    if (keuzeVoorDatumEnZaal == (draaienClass.datumsDraaienString.Length -1))
+					"Terug",
+				};
+			} else
+			{
+				Console.WriteLine("   De volgende films kunt u reserveren:\n");
+				options = new string[filmsDieBinnekortDraaien.Count + 1];
+				for (int i = 0; i < filmsDieBinnekortDraaien.Count; i++)
+				{
+					options[i] = filmsDieBinnekortDraaien[i].Name;
+				}
+				options[options.Length - 1] = "Terug";
+			}
+			//MAAK EEN OPTIE VOOR FILM
+			string choice = AwaitResponse(options);
+			string titel = choice;
+			if (choice == "Terug")
+			{
+				SetCurrentScreen("Home");
+			} else
+			{
+				bool laatDatumEnZaalZien = true;
+				while (laatDatumEnZaalZien)
+				{
+					Console.Clear();
+					ShowHeader(color, title);
+					Console.WriteLine(draaienClass.filmDatumDetails(choice));
+					//LAAT DE DATUMS KIEZEN
+					int keuzeVoorDatumEnZaal = AwaitResponseInIndex(draaienClass.datumsDraaienString);
+					if (keuzeVoorDatumEnZaal == (draaienClass.datumsDraaienString.Length - 1))
 					{
-                        laatDatumEnZaalZien = false;
+						laatDatumEnZaalZien = false;
 					} else
-                    {
-                        int aantalPersonen = 0;
-                        string[] gekozenStoelen = new string[aantalPersonen];
-                        for (int i = 0; i < gekozenStoelen.Length; i++)
-                        {
-                            gekozenStoelen[i] = "";
-                        }
-                        bool persoonlijkeGegevensIngevuld = false;
-                        //LAAT DE DETAILS VAN DE FILMS ZIEN ZOALS TIJD EN ZAAL
-                        Console.Clear();
-                        ShowHeader(color, title);
-                        CultureInfo netherlands = new CultureInfo("nl-NL");
-                        string dayOfWeek = netherlands.DateTimeFormat.GetDayName(draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].DayOfWeek);
-                        dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
-                        int zaal = draaienClass.zaalWaarinFilmDraait[keuzeVoorDatumEnZaal];
-                        Console.WriteLine($"U heeft gekozen voor {titel} op {dayOfWeek}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Day} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("MMM")} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Year}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Hour}:{draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("mm")}. In zaal: {zaal}\nHet zaal ziet er als volgt uit:\n\n");
-                        Zaal zaalvoorkeuzeFilm = new Zaal(zaal);
-                        // LAAT DE PLATTEGROND ZIEN
-                        //Console.WriteLine(zaalvoorkeuzeFilm.zaal());
-                        zaalvoorkeuzeFilm.printZaal(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal);
-                        //KIJK OF DE AANTAL PERSONEN VALID IS
-                        string aantalPersonenString = "";
-                        aantalPersonen = 0;
-                        bool aantalPersonenGekozen = false;
-                        Console.WriteLine("Voor hoeveel personen wilt u een reservering maken? Klik op q om keuze te beïndigen en terug te gaan naar de datums");
-                        Console.WriteLine("Reserveert u voor meer dan 7 personen? Bel dan naar ons voor een reservering");
-                        while(!aantalPersonenGekozen)
+					{
+						int aantalPersonen = 0;
+						string[] gekozenStoelen = new string[aantalPersonen];
+						for (int i = 0; i < gekozenStoelen.Length; i++)
 						{
-                            aantalPersonenString = Console.ReadLine();
-                            if(Int32.TryParse(aantalPersonenString, out aantalPersonen))
+							gekozenStoelen[i] = "";
+						}
+						bool persoonlijkeGegevensIngevuld = false;
+						//LAAT DE DETAILS VAN DE FILMS ZIEN ZOALS TIJD EN ZAAL
+						Console.Clear();
+						ShowHeader(color, title);
+						CultureInfo netherlands = new CultureInfo("nl-NL");
+						string dayOfWeek = netherlands.DateTimeFormat.GetDayName(draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].DayOfWeek);
+						dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
+						int zaal = draaienClass.zaalWaarinFilmDraait[keuzeVoorDatumEnZaal];
+						Console.WriteLine($"U heeft gekozen voor {titel} op {dayOfWeek}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Day} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("MMM")} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Year}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Hour}:{draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("mm")}. In zaal: {zaal}\nHet zaal ziet er als volgt uit:\n\n");
+						Zaal zaalvoorkeuzeFilm = new Zaal(zaal);
+						// LAAT DE PLATTEGROND ZIEN
+						//Console.WriteLine(zaalvoorkeuzeFilm.zaal());
+						zaalvoorkeuzeFilm.printZaal(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal);
+						//KIJK OF DE AANTAL PERSONEN VALID IS
+						string aantalPersonenString = "";
+						aantalPersonen = 0;
+						bool aantalPersonenGekozen = false;
+						Console.WriteLine("Voor hoeveel personen wilt u een reservering maken? Klik op q om keuze te beïndigen en terug te gaan naar de datums");
+						Console.WriteLine("Reserveert u voor meer dan 7 personen? Bel dan naar ons voor een reservering");
+						while (!aantalPersonenGekozen)
+						{
+							aantalPersonenString = Console.ReadLine();
+							if (Int32.TryParse(aantalPersonenString, out aantalPersonen))
 							{
-                                if(aantalPersonen <= 7 && aantalPersonen > 0)
+								if (aantalPersonen <= 7 && aantalPersonen > 0)
 								{
-                                    aantalPersonenGekozen = true;
+									aantalPersonenGekozen = true;
 								} else
-                                {
-                                    Console.WriteLine("\nVul een geldig nummer in. Voor meer dan 7 personen kunt u naar ons bellen om een reservering te maken.");
-                                }
-							} else if(aantalPersonenString == "q" || aantalPersonenString == "Q")
+								{
+									Console.WriteLine("\nVul een geldig nummer in. Voor meer dan 7 personen kunt u naar ons bellen om een reservering te maken.");
+								}
+							} else if (aantalPersonenString == "q" || aantalPersonenString == "Q")
 							{
-                                break;
+								break;
 							} else
 							{
-                                Console.WriteLine("\nVul een geldig nummer in.");
+								Console.WriteLine("\nVul een geldig nummer in.");
 							}
 						}
-                        //KIES STOEL
-                        if (aantalPersonenGekozen)
+						//KIES STOEL
+						if (aantalPersonenGekozen)
 						{
-                            string[] namen = new string[aantalPersonen];
-                            for (int i = 0; i < namen.Length; i++)
-                            {
-                                namen[i] = "";
-                            }
-                            Console.WriteLine($"\nU heeft gekozen voor {aantalPersonen}. U krijgt nu de keuze om stoelen te kiezen. Indien u reserveert voor meer dan 1 persoon, dient u de meest linker stoel te kiezen. De andere personen worden naast elkaar ingedeeld. Als eerst wordt gevraagd uit welk rij u de stoel wil boeken, daarna wordt gevraagd voor de stoel.");
-                            Console.WriteLine("Als u de keuze wil beïndigen, kunt u `q` invoeren.\n");
-                            Console.Write("   Kies een rij: ");
-                            var gekozenRij = Console.ReadLine();
-                            int gekozenRijInt = 0;
-                            bool rijgekozen = false;
-                            bool stoelgekozen = false;
-                            string gekozenStoel = "";
-                            while(!rijgekozen)
+							string[] namen = new string[aantalPersonen];
+							for (int i = 0; i < namen.Length; i++)
 							{
-                                if (Int32.TryParse(gekozenRij, out gekozenRijInt) && 0 < gekozenRijInt && gekozenRijInt <= zaalvoorkeuzeFilm.rijen)
-                                {
-                                    rijgekozen = true;
-                                    //KIJK OF RIJ VALID IS
-                                    Console.Write("   Kies een stoel: ");
-                                    gekozenStoel = Console.ReadLine();
-                                } else if (gekozenRij == "q")
-                                {
-                                    aantalPersonenGekozen = false;
-                                    break;
-                                } else
-                                {
-                                    Console.Write("   Vul een geldig rij in: ");
-                                    gekozenRij = Console.ReadLine();
-                                }
+								namen[i] = "";
+							}
+							int[] leeftijdArr = new int[aantalPersonen];
+							Console.WriteLine($"\nU heeft gekozen voor {aantalPersonen}. U krijgt nu de keuze om stoelen te kiezen. Indien u reserveert voor meer dan 1 persoon, dient u de meest linker stoel te kiezen. De andere personen worden naast elkaar ingedeeld. Als eerst wordt gevraagd uit welk rij u de stoel wil boeken, daarna wordt gevraagd voor de stoel.");
+							Console.WriteLine("Als u de keuze wil beïndigen, kunt u `q` invoeren.\n");
+							Console.Write("   Kies een rij: ");
+							var gekozenRij = Console.ReadLine();
+							int gekozenRijInt = 0;
+							bool rijgekozen = false;
+							bool stoelgekozen = false;
+							string gekozenStoel = "";
+							while (!rijgekozen)
+							{
+								if (Int32.TryParse(gekozenRij, out gekozenRijInt) && 0 < gekozenRijInt && gekozenRijInt <= zaalvoorkeuzeFilm.rijen)
+								{
+									rijgekozen = true;
+									//KIJK OF RIJ VALID IS
+									Console.Write("   Kies een stoel: ");
+									gekozenStoel = Console.ReadLine();
+								} else if (gekozenRij == "q")
+								{
+									aantalPersonenGekozen = false;
+									break;
+								} else
+								{
+									Console.Write("   Vul een geldig rij in: ");
+									gekozenRij = Console.ReadLine();
+								}
 							}
 							//KIJK OF STOEL VALID IS
-                            int gekozenStoelInt = 0;
+							int gekozenStoelInt = 0;
 							if (rijgekozen)
 							{
-                                while(!stoelgekozen)
-                                {
-                                    if (Int32.TryParse(gekozenStoel, out gekozenStoelInt) && 0 < gekozenStoelInt && gekozenStoelInt <= zaalvoorkeuzeFilm.stoelen)
-                                    {
-                                        stoelgekozen = true;
-                                    } else if (gekozenStoel == "q")
-                                    {
-                                        aantalPersonenGekozen = false;
-                                        break;
-                                    } else
-                                    {
-                                        Console.Write("   Vul een geldig stoel in: ");
-                                        gekozenStoel = Console.ReadLine();
-                                    }
-                                }
-                            }
-                            Console.WriteLine("");
-                            //MAAK ARRAY VAN STOELEN
-                            bool stoelenGoedGekozen = false;
-                            if (rijgekozen && stoelgekozen)
-                            {
-                                bool checkVoorStoelen = false;
-								while (!checkVoorStoelen)
+								while (!stoelgekozen)
 								{
-                                    gekozenStoelen = new string[aantalPersonen];
-                                    for(int i = 0; i < aantalPersonen; i++)
-								    {
-								    	gekozenStoelen[i] = $"{gekozenStoelInt + i}:{gekozenRijInt}";
-								    }
-                                    //KIJK OF DE OVERIGE STOELEN OOK IN DE ZAAL ZITTEN
-                                    for (int i = 0; i < aantalPersonen; i++)
-                                    {
-                                        int stoelOpReservering = int.Parse(gekozenStoelen[i].Split(':')[0]);
-                                        if (stoelOpReservering > zaalvoorkeuzeFilm.stoelen)
-								    	{
-                                            Console.WriteLine("   Een of meerdere stoelen bevinden zich buiten de zaal. Zorg ervoor dat iedereen een stoel binnen de zaal heeft.\n");
-                                            string[] terug = { "Ga terug" };
-                                            AwaitResponse(terug);
-                                            checkVoorStoelen = true;
-                                            break;
-								    	}
-                                    }
-                                    //KIJK OF STOELEN AL GERESERVEERD ZIJN
-                                    if(!checkVoorStoelen)
+									if (Int32.TryParse(gekozenStoel, out gekozenStoelInt) && 0 < gekozenStoelInt && gekozenStoelInt <= zaalvoorkeuzeFilm.stoelen)
 									{
-                                        if (zaalvoorkeuzeFilm.checkDubbeleStoelen(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen))
-										{
-                                            stoelenGoedGekozen = true;
-                                            checkVoorStoelen = true;
-										} else
-                                        {
-                                            Console.WriteLine("   Een of meerdere stoelen zijn al bezet. Zorg ervoor dat iedereen een stoel naast elkaar heeft.\n");
-                                            checkVoorStoelen = true;
-                                            string[] terug = { "Ga terug" };
-                                            AwaitResponse(terug);
-                                            break;
-                                        }
+										stoelgekozen = true;
+									} else if (gekozenStoel == "q")
+									{
+										aantalPersonenGekozen = false;
+										break;
+									} else
+									{
+										Console.Write("   Vul een geldig stoel in: ");
+										gekozenStoel = Console.ReadLine();
 									}
 								}
-                            }
-                            //VRAAG VOOR PERSOONLIJKE GEGEVENS
-                            if(stoelenGoedGekozen)
+							}
+							Console.WriteLine("");
+							//MAAK ARRAY VAN STOELEN
+							bool stoelenGoedGekozen = false;
+							if (rijgekozen && stoelgekozen)
 							{
-                                string voornaam = "";
-                                string[] voornaamArr = new string[aantalPersonen];
-                                string achternaam = "";
-                                string[] achternaamArr = new string[aantalPersonen];
-                                namen = new string[aantalPersonen];
-                                string leeftijdInput = "";
-                                int leeftijd;
-                                int[] leeftijdArr = new int[aantalPersonen];
-                                Console.Clear();
-                                ShowHeader(color, title);
-                                Console.WriteLine("   De stoelen zijn gekozen, op dit scherm dient u de persoonlijke gegevens in te vullen.\n");
-                                for(int persoon = 0; persoon < aantalPersonen; persoon++)
+								bool checkVoorStoelen = false;
+								while (!checkVoorStoelen)
 								{
-                                    Console.WriteLine($"   Persoon {persoon + 1}");
-                                    Console.Write($"   - Voer de voornaam van persoon {persoon+1} in: ");
-                                    voornaam = Console.ReadLine();
-                                    while (String.IsNullOrEmpty(voornaam))
+									gekozenStoelen = new string[aantalPersonen];
+									for (int i = 0; i < aantalPersonen; i++)
 									{
-                                        Console.WriteLine("     Input kan niet leeg zijn!");
-                                        Console.Write("     ");
-                                        voornaam = Console.ReadLine();
-                                    }
-                                    Console.Write($"\n   - Voer de achternaam van persoon {persoon + 1} in: ");
-                                    achternaam = Console.ReadLine();
-                                    while (String.IsNullOrEmpty(achternaam))
-                                    {
-                                        Console.WriteLine("     Input kan niet leeg zijn!");
-                                        Console.Write("     ");
-                                        achternaam = Console.ReadLine();
-                                    }
-                                    Console.Write($"\n   - Voer de leeftijd van persoon {persoon + 1} in: ");
-                                    leeftijdInput = Console.ReadLine();
-                                    while (!Int32.TryParse(leeftijdInput, out leeftijd))
+										gekozenStoelen[i] = $"{gekozenStoelInt + i}:{gekozenRijInt}";
+									}
+									//KIJK OF DE OVERIGE STOELEN OOK IN DE ZAAL ZITTEN
+									for (int i = 0; i < aantalPersonen; i++)
 									{
-                                        Console.WriteLine("     Vul een geldig nummer in!");
-                                        Console.Write("     ");
-                                        leeftijdInput = Console.ReadLine();
-                                        if(Int32.TryParse(leeftijdInput, out leeftijd))
+										int stoelOpReservering = int.Parse(gekozenStoelen[i].Split(':')[0]);
+										if (stoelOpReservering > zaalvoorkeuzeFilm.stoelen)
 										{
-                                            break;
+											Console.WriteLine("   Een of meerdere stoelen bevinden zich buiten de zaal. Zorg ervoor dat iedereen een stoel binnen de zaal heeft.\n");
+											string[] terug = { "Ga terug" };
+											AwaitResponse(terug);
+											checkVoorStoelen = true;
+											break;
 										}
 									}
-                                    voornaamArr[persoon] = voornaam;
-                                    achternaamArr[persoon] = achternaam;
-                                    namen[persoon] = voornaam + " " + achternaam;
-                                    leeftijdArr[persoon] = leeftijd;
-                                    Console.Write("\n");
-                                }
-                                persoonlijkeGegevensIngevuld = true;
-                            }//LAAT DETAILS ZIEN EN GA DOOR NAAR BETALEN
-                            if (persoonlijkeGegevensIngevuld)
-                            {
-                                Console.Clear();
-                                ShowHeader(color, title);
-                                //LAAT PLATTEGROND ZIEN MET KEUZE STOELEN
-                                Console.WriteLine("   Uw persoonlijke gegevens zijn ingevuld. Uw stoelkeuze(s) zijn hieronder te zien.\n");
-                                zaalvoorkeuzeFilm.printZaalMetKeuze(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen);
-                                Console.WriteLine("\nEr wordt een prijsbepaling toegepast, waardoor 'optimale' stoelen duurder kunnen zijn dan niet-optimale stoelen. Hierdoor kan het zijn dat de ene ticker duurder is dan de ander.");
-                                //BEPAAL PRIJZEN
-                                double[] prijzenArr = new double[aantalPersonen];
-                                for (int i = 0; i < aantalPersonen; i++)
-                                {
-                                    prijzenArr[i] = zaalvoorkeuzeFilm.krijgPrijs(gekozenStoelen[i], zaal);
-                                    Console.WriteLine($"- {namen[i]}: \u20AC{prijzenArr[i]}");
-                                }
-                                Console.Write("\n");
-                                string[] opties = { "Betalen", "Annuleer bestelling en ga terug" };
-                                var keuze = AwaitResponse(opties);
-                                if (keuze == "Betalen")
-                                {
-                                    //BETAALSCHERM
-                                    Console.Clear();
-                                    ShowHeader(color, title);
-                                    Console.WriteLine("BETALEN");
-                                    Betalen.betaalOpties();
-                                    //BETALING GELUKT
-                                    Console.Clear();
-                                    ShowHeader(color, title);
-                                    Console.WriteLine("De reservering is gelukt, er is een bevestiging naar uw e-mail gestuurd waar u de ticket kunt vinden.\n");
-                                    string[] gaterug = { "Ga terug" };
-                                    AwaitResponse(gaterug);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+									//KIJK OF STOELEN AL GERESERVEERD ZIJN
+									if (!checkVoorStoelen)
+									{
+										if (zaalvoorkeuzeFilm.checkDubbeleStoelen(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen))
+										{
+											stoelenGoedGekozen = true;
+											checkVoorStoelen = true;
+										} else
+										{
+											Console.WriteLine("   Een of meerdere stoelen zijn al bezet. Zorg ervoor dat iedereen een stoel naast elkaar heeft.\n");
+											checkVoorStoelen = true;
+											string[] terug = { "Ga terug" };
+											AwaitResponse(terug);
+											break;
+										}
+									}
+								}
+							}
+							//VRAAG VOOR PERSOONLIJKE GEGEVENS
+							if (stoelenGoedGekozen)
+							{
+								string voornaam = "";
+								string[] voornaamArr = new string[aantalPersonen];
+								string achternaam = "";
+								string[] achternaamArr = new string[aantalPersonen];
+								namen = new string[aantalPersonen];
+								string leeftijdInput = "";
+								int leeftijd;
+								leeftijdArr = new int[aantalPersonen];
+								Console.Clear();
+								ShowHeader(color, title);
+								Console.WriteLine("   De stoelen zijn gekozen, op dit scherm dient u de persoonlijke gegevens in te vullen.\n");
+								for (int persoon = 0; persoon < aantalPersonen; persoon++)
+								{
+									Console.WriteLine($"   Persoon {persoon + 1}");
+									Console.Write($"   - Voer de voornaam van persoon {persoon + 1} in: ");
+									voornaam = Console.ReadLine();
+									while (String.IsNullOrEmpty(voornaam))
+									{
+										Console.WriteLine("     Input kan niet leeg zijn!");
+										Console.Write("     ");
+										voornaam = Console.ReadLine();
+									}
+									Console.Write($"\n   - Voer de achternaam van persoon {persoon + 1} in: ");
+									achternaam = Console.ReadLine();
+									while (String.IsNullOrEmpty(achternaam))
+									{
+										Console.WriteLine("     Input kan niet leeg zijn!");
+										Console.Write("     ");
+										achternaam = Console.ReadLine();
+									}
+									Console.Write($"\n   - Voer de leeftijd van persoon {persoon + 1} in: ");
+									leeftijdInput = Console.ReadLine();
+									while (!Int32.TryParse(leeftijdInput, out leeftijd))
+									{
+										Console.WriteLine("     Vul een geldig nummer in!");
+										Console.Write("     ");
+										leeftijdInput = Console.ReadLine();
+										if (Int32.TryParse(leeftijdInput, out leeftijd))
+										{
+											break;
+										}
+									}
+									voornaamArr[persoon] = voornaam;
+									achternaamArr[persoon] = achternaam;
+									namen[persoon] = voornaam + " " + achternaam;
+									leeftijdArr[persoon] = leeftijd;
+									Console.Write("\n");
+								}
+								persoonlijkeGegevensIngevuld = true;
+							}//LAAT DETAILS ZIEN EN GA DOOR NAAR BETALEN
+							if (persoonlijkeGegevensIngevuld)
+							{
+								Console.Clear();
+								ShowHeader(color, title);
+								//LAAT PLATTEGROND ZIEN MET KEUZE STOELEN
+								Console.WriteLine("   Uw persoonlijke gegevens zijn ingevuld. Uw stoelkeuze(s) zijn hieronder te zien.\n");
+								zaalvoorkeuzeFilm.printZaalMetKeuze(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen);
+								Console.WriteLine("\nEr wordt een prijsbepaling toegepast, waardoor 'optimale' stoelen duurder kunnen zijn dan niet-optimale stoelen. Hierdoor kan het zijn dat de ene ticker duurder is dan de ander.");
+								//BEPAAL PRIJZEN
+								double[] prijzenArr = new double[aantalPersonen];
+								for (int i = 0; i < aantalPersonen; i++)
+								{
+									prijzenArr[i] = zaalvoorkeuzeFilm.krijgPrijs(gekozenStoelen[i], zaal);
+									Console.WriteLine($"- {namen[i]}: \u20AC{prijzenArr[i]}");
+								}
+								Console.Write("\n");
+								string[] opties = { "Betalen", "Annuleer bestelling en ga terug" };
+								var keuze = AwaitResponse(opties);
+								if (keuze == "Betalen")
+								{
+									//BETAALSCHERM
+									Console.Clear();
+									ShowHeader(color, title);
+									Console.WriteLine("BETALEN");
+									Betalen.betaalOpties();
+									//BETALING GELUKT
+									Console.Clear();
+									ShowHeader(color, title);
+									Reservering reserveringDoorGebruiker = new Reservering(titel, aantalPersonen, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, namen, "onbekend", leeftijdArr, gekozenStoelen);
+									reserveringDoorGebruiker.addToJsonFile();
+									Console.WriteLine("De reservering is gelukt, er is een bevestiging naar uw e-mail gestuurd waar u de ticket kunt vinden.\n");
+									string[] gaterug = { "Ga terug" };
+									AwaitResponse(gaterug);
+									laatDatumEnZaalZien = false;
+									SetCurrentScreen("Home");
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 
-        // Films scherm.
-        private void DisplayFilms()
-        {
-            ConsoleColor color = ConsoleColor.Blue;
-            string title = @"
+		// Films scherm.
+		private void DisplayFilms()
+		{
+			ConsoleColor color = ConsoleColor.Blue;
+			string title = @"
     ______   _   _                   
    |  ____| (_) | |                  
    | |__     _  | |  _ __ ___    ___ 
@@ -742,109 +742,108 @@ namespace Reserveringssysteem
    |_|      |_| |_| |_| |_| |_| |___/   
 
                 ";
-            ShowHeader(color, title);
+			ShowHeader(color, title);
 
-            Action showHeader = () => ShowHeader(color, title);
-            FilmController controller = new();
-            List<Film> films = controller.GetFilms();
+			Action showHeader = () => ShowHeader(color, title);
+			FilmController controller = new();
+			List<Film> films = controller.GetFilms();
 
-            controller.ShowFilms(films);
+			controller.ShowFilms(films);
 
-            string[] options = new string[]
-            {
-                "Bekijk film details",
-                "Filter films",
-                "Terug"
-            };
+			string[] options = new string[]
+			{
+				"Bekijk film details",
+				"Filter films",
+				"Terug"
+			};
 
-            string choice = AwaitResponse(options);
+			string choice = AwaitResponse(options);
 
-            if (choice == "Bekijk film details")
-            {
-                Film film = controller.ShowFilm(films, showHeader);
+			if (choice == "Bekijk film details")
+			{
+				Film film = controller.ShowFilm(films, showHeader);
 
-                Console.Clear();
-                ShowHeader(color, title);
+				Console.Clear();
+				ShowHeader(color, title);
 
-                Console.WriteLine("   Hieronder staan de details van de film:\n");
-                Console.WriteLine(film);
+				Console.WriteLine("   Hieronder staan de details van de film:\n");
+				Console.WriteLine(film);
 
-                options = new string[]
-                {
-                    "Terug",
-                };
+				options = new string[]
+				{
+					"Terug",
+				};
 
-                choice = AwaitResponse(options);
-            } else if (choice == "Filter films")
-            {
-                string result = controller.ShowList(showHeader, this);
-                films = controller.FilteredFilms;
+				choice = AwaitResponse(options);
+			} else if (choice == "Filter films")
+			{
+				string result = controller.ShowList(showHeader, this);
+				films = controller.FilteredFilms;
 
-                Console.Clear();
-                ShowHeader(color, title);
+				Console.Clear();
+				ShowHeader(color, title);
 
-                if (result != "Back")
-                {
-                    if (films.Count > 0)
-                    {
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("   Uw zoekopdracht heeft de volgende resultaat(en) opgeleverd:\n");
-                        Console.ResetColor();
-                        controller.ShowFilms(films);
+				if (result != "Back")
+				{
+					if (films.Count > 0)
+					{
+						Console.ForegroundColor = ConsoleColor.White;
+						Console.WriteLine("   Uw zoekopdracht heeft de volgende resultaat(en) opgeleverd:\n");
+						Console.ResetColor();
+						controller.ShowFilms(films);
 
-                        options = new string[]
-                        {
-                            "Bekijk film details",
-                            "Terug",
-                        };
+						options = new string[]
+						{
+							"Bekijk film details",
+							"Terug",
+						};
 
-                        choice = AwaitResponse(options);
+						choice = AwaitResponse(options);
 
-                        if (choice == "Bekijk film details")
-                        {
-                            Film film = controller.ShowFilm(films, showHeader);
+						if (choice == "Bekijk film details")
+						{
+							Film film = controller.ShowFilm(films, showHeader);
 
-                            Console.Clear();
-                            ShowHeader(color, title);
+							Console.Clear();
+							ShowHeader(color, title);
 
-                            Console.WriteLine("   Hieronder staan de details van de film:\n");
-                            Console.WriteLine(film);
+							Console.WriteLine("   Hieronder staan de details van de film:\n");
+							Console.WriteLine(film);
 
-                            options = new string[]
-                            {
-                                "Terug",
-                            };
+							options = new string[]
+							{
+								"Terug",
+							};
 
-                            choice = AwaitResponse(options);
-                        }
-                    } else
-                    {
-                        Console.WriteLine("   Er zijn geen films gevonden\n");
-                        options = new string[]
-                        {
-                            "Terug",
-                        };
-                        choice = AwaitResponse(options);
-                    }
-                }
-            } else
-            {
-                if (CurrentUser is Admin)
-                {
-                    SetCurrentScreen("Admin");
-                }
-                else
-                {
-                    SetCurrentScreen("Home");
-                }
-            }
-        }
+							choice = AwaitResponse(options);
+						}
+					} else
+					{
+						Console.WriteLine("   Er zijn geen films gevonden\n");
+						options = new string[]
+						{
+							"Terug",
+						};
+						choice = AwaitResponse(options);
+					}
+				}
+			} else
+			{
+				if (CurrentUser is Admin)
+				{
+					SetCurrentScreen("Admin");
+				} else
+				{
+					SetCurrentScreen("Home");
+				}
+			}
+		}
 
-        // Eten & Drinken scherm.
-        private void DisplayEtenDrinken()
-        {
-            ConsoleColor color = ConsoleColor.Red;
-            string title = @"
+		// Eten & Drinken scherm.
+		private void DisplayEtenDrinken()
+		{
+			ConsoleColor color = ConsoleColor.Red;
+			string title = @"
     ______   _                                 _____           _           _                   
    |  ____| | |                      ___      |  __ \         (_)         | |                  
    | |__    | |_    ___   _ __      ( _ )     | |  | |  _ __   _   _ __   | | __   ___   _ __  
@@ -853,51 +852,49 @@ namespace Reserveringssysteem
    |______|  \__|  \___| |_| |_|    \___/\/   |_____/  |_|    |_| |_| |_| |_|\_\  \___| |_| |_|
                                                                                                       
                 ";
-            ShowHeader(color, title);
+			ShowHeader(color, title);
 
-            //OVERZICHT ETEN EN DRINKEN
-            Console.WriteLine("   Dit is een overzicht van het menu. U kunt op een item klikken om de voedingswaarde te zien.\n");
-            string[] options = new string[] { "Zout popcorn", "Zoet popcorn", "Nachos", "Paprika chips", "Naturel chips", "Cola", "Sprite", "Spa blauw", "Spa rood", "Terug" };
-            string choice = AwaitResponse(options);
+			//OVERZICHT ETEN EN DRINKEN
+			Console.WriteLine("   Dit is een overzicht van het menu. U kunt op een item klikken om de voedingswaarde te zien.\n");
+			string[] options = new string[] { "Zout popcorn", "Zoet popcorn", "Nachos", "Paprika chips", "Naturel chips", "Cola", "Sprite", "Spa blauw", "Spa rood", "Terug" };
+			string choice = AwaitResponse(options);
 
-            if (choice == "Terug")
-            {
-                if (CurrentUser is Admin)
-                {
-                    SetCurrentScreen("Admin");
-                }
-                else
-                {
-                    SetCurrentScreen("Home");
-                }
-            }
-            else
-            {
-                Voeding product = new(choice);
-                Console.Clear();
-                ShowHeader(color, title);
+			if (choice == "Terug")
+			{
+				if (CurrentUser is Admin)
+				{
+					SetCurrentScreen("Admin");
+				} else
+				{
+					SetCurrentScreen("Home");
+				}
+			} else
+			{
+				Voeding product = new(choice);
+				Console.Clear();
+				ShowHeader(color, title);
 
-                Console.WriteLine($"   {choice.ToUpper()}\n");
-                Console.WriteLine(product.returnVoedingswaarde());
-                Console.WriteLine("\n");
+				Console.WriteLine($"   {choice.ToUpper()}\n");
+				Console.WriteLine(product.returnVoedingswaarde());
+				Console.WriteLine("\n");
 
-                options = new string[]
-                {
-                    "Terug",
-                };
+				options = new string[]
+				{
+					"Terug",
+				};
 
-                AwaitResponse(options);
-            }
+				AwaitResponse(options);
+			}
 
-            Console.Clear();
-            DisplayScreen();
-        }
+			Console.Clear();
+			DisplayScreen();
+		}
 
-        // Informatie scherm.
-        private void DisplayInformatie()
-        {
-            ConsoleColor color = ConsoleColor.Green;
-            string title = @"
+		// Informatie scherm.
+		private void DisplayInformatie()
+		{
+			ConsoleColor color = ConsoleColor.Green;
+			string title = @"
     _____            __                                      _     _        
    |_   _|          / _|                                    | |   (_)       
      | |    _ __   | |_    ___    _ __   _ __ ___     __ _  | |_   _    ___ 
@@ -906,9 +903,9 @@ namespace Reserveringssysteem
    |_____| |_| |_| |_|    \___/  |_|    |_| |_| |_|  \__,_|  \__| |_|  \___|
                                                                                  
                 ";
-            ShowHeader(color, title);
+			ShowHeader(color, title);
 
-            Console.WriteLine(@"   Hier vindt u de algemene informatie over de bioscoop.
+			Console.WriteLine(@"   Hier vindt u de algemene informatie over de bioscoop.
 
    Adres:    Wijnhaven 107, Rotterdam
    Postcode: 3011 WN
@@ -923,42 +920,41 @@ namespace Reserveringssysteem
         Zondag:       09:00 - 22:00
             ");
 
-            string[] options = new string[]
-            {
-                    "Terug",
-            };
+			string[] options = new string[]
+			{
+					"Terug",
+			};
 
-            string choice = AwaitResponse(options);
+			string choice = AwaitResponse(options);
 
-            if (CurrentUser is Admin)
-            {
-                SetCurrentScreen("Admin");
-            }
-            else
-            {
-                SetCurrentScreen("Home");
-            }
-        }
-        
-        // Check of het gegeven datum geldig is.
-        private bool IsDateTime(string txtDate)
-        {
-            DateTime tempDate;
-            return DateTime.TryParse(txtDate, out tempDate);
-        }
+			if (CurrentUser is Admin)
+			{
+				SetCurrentScreen("Admin");
+			} else
+			{
+				SetCurrentScreen("Home");
+			}
+		}
 
-        // Check of het gegeven tijd geldig is.
-        private bool IsTime(string txtTime)
-        {
-            TimeSpan time;
-            return TimeSpan.TryParse(txtTime, out time);
-        }
+		// Check of het gegeven datum geldig is.
+		private bool IsDateTime(string txtDate)
+		{
+			DateTime tempDate;
+			return DateTime.TryParse(txtDate, out tempDate);
+		}
 
-        // Huidige films laten zien.
-        private void DisplayDraaiendeFilms()
-        {
-            ConsoleColor color = ConsoleColor.DarkBlue;
-            string title = @"
+		// Check of het gegeven tijd geldig is.
+		private bool IsTime(string txtTime)
+		{
+			TimeSpan time;
+			return TimeSpan.TryParse(txtTime, out time);
+		}
+
+		// Huidige films laten zien.
+		private void DisplayDraaiendeFilms()
+		{
+			ConsoleColor color = ConsoleColor.DarkBlue;
+			string title = @"
                    _               _         
        /\         | |             (_)        
       /  \      __| |  _ __ ___    _   _ __  
@@ -968,309 +964,299 @@ namespace Reserveringssysteem
                                            
             ";
 
-            ShowHeader(color, title);
-            string[] options;
+			ShowHeader(color, title);
+			string[] options;
 
-            options = new string[] {
-                "Draaiende films bekijken",
-                "Film draaien",
-                "Terug"
-            };
+			options = new string[] {
+				"Draaiende films bekijken",
+				"Film draaien",
+				"Terug"
+			};
 
-            draaiendeFilms draaienClass = new draaiendeFilms();
-            var filmsDieBinnekortDraaien = draaienClass.laatDraaiendeFilmsZien();
+			draaiendeFilms draaienClass = new draaiendeFilms();
+			var filmsDieBinnekortDraaien = draaienClass.laatDraaiendeFilmsZien();
 
-            string choice = AwaitResponse(options);
+			string choice = AwaitResponse(options);
 
-            Console.Clear();
-            ShowHeader(color, title);
+			Console.Clear();
+			ShowHeader(color, title);
 
-            if (choice == "Draaiende films bekijken")
-            {
-                if (filmsDieBinnekortDraaien.Count <= 0)
-                {
-                    Console.WriteLine("   Er draaien binnenkort geen films\n\n");
-                    options = new string[]
-                    {
-                        "Terug",
-                    };
-                }
-                else
-                {
-                    Console.WriteLine("   De volgende films draaien vandaag/binnenkort:\n");
-                    options = new string[filmsDieBinnekortDraaien.Count + 1];
+			if (choice == "Draaiende films bekijken")
+			{
+				if (filmsDieBinnekortDraaien.Count <= 0)
+				{
+					Console.WriteLine("   Er draaien binnenkort geen films\n\n");
+					options = new string[]
+					{
+						"Terug",
+					};
+				} else
+				{
+					Console.WriteLine("   De volgende films draaien vandaag/binnenkort:\n");
+					options = new string[filmsDieBinnekortDraaien.Count + 1];
 
-                    for (int i = 0; i < filmsDieBinnekortDraaien.Count; i++)
-                    {
-                        options[i] = filmsDieBinnekortDraaien[i].Name;
-                    }
+					for (int i = 0; i < filmsDieBinnekortDraaien.Count; i++)
+					{
+						options[i] = filmsDieBinnekortDraaien[i].Name;
+					}
 
-                    options[options.Length - 1] = "Terug";
+					options[options.Length - 1] = "Terug";
 
-                    choice = AwaitResponse(options);
+					choice = AwaitResponse(options);
 
-                    if (choice == "Terug")
-                    {
-                        SetCurrentScreen("Draaiende films");
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        ShowHeader(color, title);
-                        Console.WriteLine(draaienClass.filmDatumDetails(choice));
+					if (choice == "Terug")
+					{
+						SetCurrentScreen("Draaiende films");
+					} else
+					{
+						Console.Clear();
+						ShowHeader(color, title);
+						Console.WriteLine(draaienClass.filmDatumDetails(choice));
 
-                        for (int i = 0; i < draaienClass.datumsDraaienString.Length - 1; i++)
-                        {
-                            Console.WriteLine("   " + draaienClass.datumsDraaienString[i]);
-                        }
+						for (int i = 0; i < draaienClass.datumsDraaienString.Length - 1; i++)
+						{
+							Console.WriteLine("   " + draaienClass.datumsDraaienString[i]);
+						}
 
-                        Console.WriteLine();
+						Console.WriteLine();
 
-                        options = new string[]
-                        {
-                            "Terug",
-                        };
+						options = new string[]
+						{
+							"Terug",
+						};
 
-                        //LAAT DE DATUMS ZIEN
-                        choice = AwaitResponse(options);
-                    }
-                }
-            } else if (choice == "Film draaien")
-            {
-                Action showHeader = () => ShowHeader(color, title);
-                FilmController controller = new();
-                List<Film> films = controller.GetFilms();
+						//LAAT DE DATUMS ZIEN
+						choice = AwaitResponse(options);
+					}
+				}
+			} else if (choice == "Film draaien")
+			{
+				Action showHeader = () => ShowHeader(color, title);
+				FilmController controller = new();
+				List<Film> films = controller.GetFilms();
 
-                controller.ShowFilms(films);
+				controller.ShowFilms(films);
 
-                options = new string[]
-                {
-                    "Draai een film",
-                    "Filter films",
-                    "Terug"
-                };
+				options = new string[]
+				{
+					"Draai een film",
+					"Filter films",
+					"Terug"
+				};
 
-                choice = AwaitResponse(options);
+				choice = AwaitResponse(options);
 
-                Console.Clear();
-                ShowHeader(color, title);
+				Console.Clear();
+				ShowHeader(color, title);
 
-                if (choice == "Draai een film")
-                {
-                    controller.ShowFilms(films);
+				if (choice == "Draai een film")
+				{
+					controller.ShowFilms(films);
 
-                    Film film = controller.ShowFilm(films, showHeader);
+					Film film = controller.ShowFilm(films, showHeader);
 
-                    string error = "";
+					string error = "";
 
-                    string date = "";
-                    DateTime dateTime = DateTime.Now;
-                    bool choseDate = false;
+					string date = "";
+					DateTime dateTime = DateTime.Now;
+					bool choseDate = false;
 
-                    string time = "";
-                    bool choseTime = false;
+					string time = "";
+					bool choseTime = false;
 
-                    string strAuditorium = "";
-                    int auditorium = 0;
-                    bool choseAuditorium = false;
+					string strAuditorium = "";
+					int auditorium = 0;
+					bool choseAuditorium = false;
 
-                    while (!choseDate)
-                    {
-                        Console.Clear();
-                        ShowHeader(color, title);
+					while (!choseDate)
+					{
+						Console.Clear();
+						ShowHeader(color, title);
 
-                        Console.WriteLine($"   Gekozen film: {film.Titel}\n");
+						Console.WriteLine($"   Gekozen film: {film.Titel}\n");
 
-                        if (error != "")
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine(error);
-                            Console.ResetColor();
-                        }
+						if (error != "")
+						{
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine(error);
+							Console.ResetColor();
+						}
 
-                        Console.WriteLine($"   Kies een datum voor de film: (Voorbeeld: {dateTime.ToString("dd-MM-yyyy")})");
-                        Console.CursorLeft = 3;
+						Console.WriteLine($"   Kies een datum voor de film: (Voorbeeld: {dateTime.ToString("dd-MM-yyyy")})");
+						Console.CursorLeft = 3;
 
-                        date = Console.ReadLine();
+						date = Console.ReadLine();
 
-                        if (String.IsNullOrEmpty(date))
-                        {
-                            error = "   Veld kan niet leeg zijn.";
-                        } else if (!IsDateTime(date))
-                        {
-                            error = "   Datum klopt niet.";
-                        } else
-                        {
-                            DateTime tempDate = DateTime.Parse(date);
+						if (String.IsNullOrEmpty(date))
+						{
+							error = "   Veld kan niet leeg zijn.";
+						} else if (!IsDateTime(date))
+						{
+							error = "   Datum klopt niet.";
+						} else
+						{
+							DateTime tempDate = DateTime.Parse(date);
 
-                            if (tempDate < dateTime.AddDays(-1))
-                            {
-                                error = "   Datum kan niet al geweest zijn.";
-                            } else
-                            {
-                                choseDate = true;
-                                dateTime = DateTime.Parse(date);
-                            }
-                        }
-                    }
-                    while (!choseTime)
-                    {
-                        Console.Clear();
-                        ShowHeader(color, title);
+							if (tempDate < dateTime.AddDays(-1))
+							{
+								error = "   Datum kan niet al geweest zijn.";
+							} else
+							{
+								choseDate = true;
+								dateTime = DateTime.Parse(date);
+							}
+						}
+					}
+					while (!choseTime)
+					{
+						Console.Clear();
+						ShowHeader(color, title);
 
-                        Console.WriteLine($"   Gekozen film: {film.Titel}\n" +
-                            $"   Gekozen datum: {dateTime.ToString("dd-MM-yyyy")}\n");
+						Console.WriteLine($"   Gekozen film: {film.Titel}\n" +
+							$"   Gekozen datum: {dateTime.ToString("dd-MM-yyyy")}\n");
 
-                        Console.WriteLine($"   Kies een tijd voor de film: (Voorbeeld: 18:30)");
-                        Console.CursorLeft = 3;
+						Console.WriteLine($"   Kies een tijd voor de film: (Voorbeeld: 18:30)");
+						Console.CursorLeft = 3;
 
-                        time = Console.ReadLine();
+						time = Console.ReadLine();
 
-                        if (String.IsNullOrEmpty(time))
-                        {
-                            error = "   Veld kan niet leeg zijn.";
-                        }
-                        else if (!IsTime(time))
-                        {
-                            error = "   Tijd klopt niet.";
-                        }
-                        else
-                        {
-                            TimeSpan tempTime = TimeSpan.Parse(time);
-                            dateTime = dateTime.Date + tempTime;
-                            choseTime = true;
-                        }
-                    }
-                    while (!choseAuditorium)
-                    {
-                        Console.Clear();
-                        ShowHeader(color, title);
+						if (String.IsNullOrEmpty(time))
+						{
+							error = "   Veld kan niet leeg zijn.";
+						} else if (!IsTime(time))
+						{
+							error = "   Tijd klopt niet.";
+						} else
+						{
+							TimeSpan tempTime = TimeSpan.Parse(time);
+							dateTime = dateTime.Date + tempTime;
+							choseTime = true;
+						}
+					}
+					while (!choseAuditorium)
+					{
+						Console.Clear();
+						ShowHeader(color, title);
 
-                        Console.WriteLine($"   Gekozen film: {film.Titel}\n" +
-                            $"   Gekozen datum: {dateTime.ToString("dd-MM-yyyy")}\n" +
-                            $"   Gekozen tijd: {dateTime.ToString("HH:mm")}\n");
+						Console.WriteLine($"   Gekozen film: {film.Titel}\n" +
+							$"   Gekozen datum: {dateTime.ToString("dd-MM-yyyy")}\n" +
+							$"   Gekozen tijd: {dateTime.ToString("HH:mm")}\n");
 
-                        Console.WriteLine($"   Kies een zaal voor de film: 1) Zaal 1 | 2) Zaal 2 | 3) Zaal 3");
-                        Console.CursorLeft = 3;
+						Console.WriteLine($"   Kies een zaal voor de film: 1) Zaal 1 | 2) Zaal 2 | 3) Zaal 3");
+						Console.CursorLeft = 3;
 
-                        strAuditorium = Console.ReadLine();
+						strAuditorium = Console.ReadLine();
 
-                        if (String.IsNullOrEmpty(strAuditorium))
-                        {
-                            error = "   Veld kan niet leeg zijn.";
-                        }
-                        else if (strAuditorium != "1" && strAuditorium != "2" && strAuditorium != "3") 
-                        {
-                            error = "   Kies uit een van de 3 zalen.";
-                        }
-                        else
-                        {
-                            auditorium = Convert.ToInt32(strAuditorium);
-                            choseAuditorium = true;
-                        }
-                    }
+						if (String.IsNullOrEmpty(strAuditorium))
+						{
+							error = "   Veld kan niet leeg zijn.";
+						} else if (strAuditorium != "1" && strAuditorium != "2" && strAuditorium != "3")
+						{
+							error = "   Kies uit een van de 3 zalen.";
+						} else
+						{
+							auditorium = Convert.ToInt32(strAuditorium);
+							choseAuditorium = true;
+						}
+					}
 
-                    Console.Clear();
-                    ShowHeader(color, title);
+					Console.Clear();
+					ShowHeader(color, title);
 
-                    Console.WriteLine($"   Gekozen film: {film.Titel}\n" +
-                    $"   Gekozen datum: {dateTime.ToString("dd-MM-yyyy")}\n" +
-                    $"   Gekozen tijd: {dateTime.ToString("HH:mm")}\n" +
-                    $"   Gekozen zaal: {auditorium}\n");
+					Console.WriteLine($"   Gekozen film: {film.Titel}\n" +
+					$"   Gekozen datum: {dateTime.ToString("dd-MM-yyyy")}\n" +
+					$"   Gekozen tijd: {dateTime.ToString("HH:mm")}\n" +
+					$"   Gekozen zaal: {auditorium}\n");
 
-                    options = new string[]{
-                        "Bevestigen",
-                    };
+					options = new string[]{
+						"Bevestigen",
+					};
 
-                    choice = AwaitResponse(options);
+					choice = AwaitResponse(options);
 
-                    List<draaiendeFilms.draaienFilms> gedraaideFilms = draaienClass.GetDraaienFilms();
+					List<draaiendeFilms.draaienFilms> gedraaideFilms = draaienClass.GetDraaienFilms();
 
-                    bool alreadyExists = false;
-                    for (int i = 0; i < gedraaideFilms.Count; i++)
-                    {
-                        if (gedraaideFilms[i].FilmID == film.Id)
-                        {
-                            alreadyExists = true;
-                            gedraaideFilms[i].Datum.Add(dateTime.ToString("yyyy-MM-ddTHH:mm:ss"));
-                            gedraaideFilms[i].Zaal.Add(auditorium);
-                            break;
-                        }
-                    }
+					bool alreadyExists = false;
+					for (int i = 0; i < gedraaideFilms.Count; i++)
+					{
+						if (gedraaideFilms[i].FilmID == film.Id)
+						{
+							alreadyExists = true;
+							gedraaideFilms[i].Datum.Add(dateTime.ToString("yyyy-MM-ddTHH:mm:ss"));
+							gedraaideFilms[i].Zaal.Add(auditorium);
+							break;
+						}
+					}
 
-                    if (!alreadyExists)
-                    {
-                        List<string> datums = new List<string>();
-                        datums.Add(dateTime.ToString("yyyy-MM-ddTHH:mm:ss"));
+					if (!alreadyExists)
+					{
+						List<string> datums = new List<string>();
+						datums.Add(dateTime.ToString("yyyy-MM-ddTHH:mm:ss"));
 
-                        List<int> zalen = new List<int>();
-                        zalen.Add(auditorium);
+						List<int> zalen = new List<int>();
+						zalen.Add(auditorium);
 
-                        gedraaideFilms.Add(new draaiendeFilms.draaienFilms(film.Id, film.Titel, datums, zalen));
-                    }
+						gedraaideFilms.Add(new draaiendeFilms.draaienFilms(film.Id, film.Titel, datums, zalen));
+					}
 
-                    draaienClass.UpdateDraaienFilms();
+					draaienClass.UpdateDraaienFilms();
 
-                    Console.Clear();
-                    ShowHeader(color, title);
+					Console.Clear();
+					ShowHeader(color, title);
 
-                    Console.WriteLine("   Film is toegevoegd aan de films die worden gedraaid!\n");
+					Console.WriteLine("   Film is toegevoegd aan de films die worden gedraaid!\n");
 
-                    options = new string[]
-                    {
-                        "Terug"
-                    };
+					options = new string[]
+					{
+						"Terug"
+					};
 
-                    choice = AwaitResponse(options);
+					choice = AwaitResponse(options);
 
-                    SetCurrentScreen("Draaiende films");
-                }
-                else if (choice == "Filter films")
-                {
-                    string result = controller.ShowList(showHeader, this);
-                    films = controller.FilteredFilms;
+					SetCurrentScreen("Draaiende films");
+				} else if (choice == "Filter films")
+				{
+					string result = controller.ShowList(showHeader, this);
+					films = controller.FilteredFilms;
 
-                    if (result != "Back")
-                    {
-                        if (films.Count > 0)
-                        {
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.WriteLine("   Uw zoekopdracht heeft de volgende resultaat(en) opgeleverd:\n");
-                            Console.ResetColor();
-                            controller.ShowFilms(films);
+					if (result != "Back")
+					{
+						if (films.Count > 0)
+						{
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.WriteLine("   Uw zoekopdracht heeft de volgende resultaat(en) opgeleverd:\n");
+							Console.ResetColor();
+							controller.ShowFilms(films);
 
-                            options = new string[]
-                            {
-                                "Terug",
-                            };
+							options = new string[]
+							{
+								"Terug",
+							};
 
-                            choice = AwaitResponse(options);
-                        }
-                        else
-                        {
-                            Console.WriteLine("   Er zijn geen films gevonden\n");
-                            options = new string[]
-                            {
-                                "Terug",
-                            };
-                            choice = AwaitResponse(options);
-                        }
-                    }
-                }
-                else
-                {
-                    SetCurrentScreen("Draaiende films");
-                }
-            }
-            else
-            {
-                SetCurrentScreen("Admin");
-            }         
-        }
+							choice = AwaitResponse(options);
+						} else
+						{
+							Console.WriteLine("   Er zijn geen films gevonden\n");
+							options = new string[]
+							{
+								"Terug",
+							};
+							choice = AwaitResponse(options);
+						}
+					}
+				} else
+				{
+					SetCurrentScreen("Draaiende films");
+				}
+			} else
+			{
+				SetCurrentScreen("Admin");
+			}
+		}
 
-        public void SetCurrentScreen(string screen)
-        {
-            CurrentScreen = screen;
-        }
-    }
+		public void SetCurrentScreen(string screen)
+		{
+			CurrentScreen = screen;
+		}
+	}
 }

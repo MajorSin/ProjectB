@@ -42,8 +42,7 @@ namespace Reserveringssysteem
 					if ((taalLength - 2) == i)
 					{
 						talen += " & ";
-					}
-					else if ((taalLength - 1) != i)
+					} else if ((taalLength - 1) != i)
 					{
 						talen += ", ";
 					}
@@ -63,8 +62,7 @@ namespace Reserveringssysteem
 					if ((genreLength - 2) == i)
 					{
 						genres += " & ";
-					}
-					else if ((genreLength - 1) != i)
+					} else if ((genreLength - 1) != i)
 					{
 						genres += ", ";
 					}
@@ -86,21 +84,21 @@ namespace Reserveringssysteem
 
 			string[] acteurs = this.Acteurs.Split(',');
 			if (acteurs.Length > 4)
-            {
+			{
 				string[] acteursReduced = new string[4];
 				for (int i = 0; i < acteursReduced.Length; i++)
-                {
+				{
 					acteursReduced[i] = acteurs[i];
-                }
+				}
 				acteurs = acteursReduced;
-            }
+			}
 
 			string[] plot = this.Plot.Split(" ");
 			string[] plotReduced = new string[10];
 			for (int i = 0; i < plotReduced.Length; i++)
-            {
+			{
 				plotReduced[i] = plot[i];
-            }
+			}
 			plot = plotReduced;
 
 			string title = this.Titel;
@@ -110,16 +108,16 @@ namespace Reserveringssysteem
 				title = title.Substring(0, 25) + "...";
 			}
 
-            return String.Format(
-                "   Titel: {0} ({1})\n" +
-                "   {2}: {3}\n" +
-                "   Looptijd: {4}\n" +
-                "   {5}: {6}\n" +
-                "   Acteurs: {7}\n" +
-                "   Plot: {8}",
-                this.Titel, this.Jaar, taalString, talen, looptijdString, genreString,
-                genres, String.Join(",", acteurs) + "...", String.Join(" ", plot) + "...\n"
-            );
-        }
+			return String.Format(
+				"   Titel: {0} ({1})\n" +
+				"   {2}: {3}\n" +
+				"   Looptijd: {4}\n" +
+				"   {5}: {6}\n" +
+				"   Acteurs: {7}\n" +
+				"   Plot: {8}",
+				this.Titel, this.Jaar, taalString, talen, looptijdString, genreString,
+				genres, String.Join(",", acteurs) + "...", String.Join(" ", plot) + "...\n"
+			);
+		}
 	}
 }
