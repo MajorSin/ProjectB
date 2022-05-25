@@ -540,11 +540,16 @@ namespace Reserveringssysteem
 							}
 						}
                         //KIES STOEL
-                        if(aantalPersonenGekozen)
+                        if (aantalPersonenGekozen)
 						{
+                            string[] namen = new string[aantalPersonen];
+                            for (int i = 0; i < namen.Length; i++)
+                            {
+                                namen[i] = "";
+                            }
                             Console.WriteLine($"\nU heeft gekozen voor {aantalPersonen}. U krijgt nu de keuze om stoelen te kiezen. Indien u reserveert voor meer dan 1 persoon, dient u de meest linker stoel te kiezen. De andere personen worden naast elkaar ingedeeld. Als eerst wordt gevraagd uit welk rij u de stoel wil boeken, daarna wordt gevraagd voor de stoel.");
                             Console.WriteLine("Als u de keuze wil beïndigen, kunt u `q` invoeren.\n");
-                            Console.Write("Kies een rij: ");
+                            Console.Write("   Kies een rij: ");
                             var gekozenRij = Console.ReadLine();
                             int gekozenRijInt = 0;
                             bool rijgekozen = false;
@@ -556,7 +561,7 @@ namespace Reserveringssysteem
                                 {
                                     rijgekozen = true;
                                     //KIJK OF RIJ VALID IS
-                                    Console.Write("Kies een stoel: ");
+                                    Console.Write("   Kies een stoel: ");
                                     gekozenStoel = Console.ReadLine();
                                 } else if (gekozenRij == "q")
                                 {
@@ -564,7 +569,7 @@ namespace Reserveringssysteem
                                     break;
                                 } else
                                 {
-                                    Console.Write("Vul een geldig rij in: ");
+                                    Console.Write("   Vul een geldig rij in: ");
                                     gekozenRij = Console.ReadLine();
                                 }
 							}
@@ -583,7 +588,7 @@ namespace Reserveringssysteem
                                         break;
                                     } else
                                     {
-                                        Console.Write("Vul een geldig stoel in: ");
+                                        Console.Write("   Vul een geldig stoel in: ");
                                         gekozenStoel = Console.ReadLine();
                                     }
                                 }
@@ -607,7 +612,7 @@ namespace Reserveringssysteem
                                         int stoelOpReservering = int.Parse(gekozenStoelen[i].Split(':')[0]);
                                         if (stoelOpReservering > zaalvoorkeuzeFilm.stoelen)
 								    	{
-                                            Console.WriteLine("Een of meerdere stoelen bevinden zich buiten de zaal. Zorg ervoor dat iedereen een stoel naast elkaar heeft.\n");
+                                            Console.WriteLine("   Een of meerdere stoelen bevinden zich buiten de zaal. Zorg ervoor dat iedereen een stoel binnen de zaal heeft.\n");
                                             string[] terug = { "Ga terug" };
                                             AwaitResponse(terug);
                                             checkVoorStoelen = true;
@@ -623,7 +628,7 @@ namespace Reserveringssysteem
                                             checkVoorStoelen = true;
 										} else
                                         {
-                                            Console.WriteLine("Een of meerdere stoelen zijn al bezet.\n");
+                                            Console.WriteLine("   Een of meerdere stoelen zijn al bezet. Zorg ervoor dat iedereen een stoel naast elkaar heeft.\n");
                                             checkVoorStoelen = true;
                                             string[] terug = { "Ga terug" };
                                             AwaitResponse(terug);
@@ -639,7 +644,7 @@ namespace Reserveringssysteem
                                 string[] voornaamArr = new string[aantalPersonen];
                                 string achternaam = "";
                                 string[] achternaamArr = new string[aantalPersonen];
-                                string[] namen = new string[aantalPersonen];
+                                namen = new string[aantalPersonen];
                                 string leeftijdInput = "";
                                 int leeftijd;
                                 int[] leeftijdArr = new int[aantalPersonen];
@@ -684,28 +689,35 @@ namespace Reserveringssysteem
                                     Console.Write("\n");
                                 }
                                 persoonlijkeGegevensIngevuld = true;
-							}
-                        }
-                        //LAAT DETAILS ZIEN EN GA DOOR NAAR BETALEN
-                        if(persoonlijkeGegevensIngevuld)
-						{
-                            Console.Clear();
-                            ShowHeader(color, title);
-                            Console.WriteLine("   Uw persoonlijke gegevens zijn ingevuld. Uw stoelkeuze(s) zijn hieronder te zien.\n");
-                            //LAAT PLATTEGROND ZIEN MET KEUZE STOELEN
-                            zaalvoorkeuzeFilm.printZaalMetKeuze(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen);
-                            Console.Write("\n");
-                            string[] opties = { "Ga door", "Annuleer bestelling en ga terug" };
-							var keuze = AwaitResponse( opties );
-                            if(keuze == "Ga door")
-							{
-                                //BETAALSCHERM
+                            }//LAAT DETAILS ZIEN EN GA DOOR NAAR BETALEN
+                            if (persoonlijkeGegevensIngevuld)
+                            {
                                 Console.Clear();
                                 ShowHeader(color, title);
-                                Console.WriteLine("BETALEN");
-                                Console.ReadLine();
+                                //LAAT PLATTEGROND ZIEN MET KEUZE STOELEN
+                                Console.WriteLine("   Uw persoonlijke gegevens zijn ingevuld. Uw stoelkeuze(s) zijn hieronder te zien.\n");
+                                zaalvoorkeuzeFilm.printZaalMetKeuze(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen);
+                                Console.WriteLine("\nEr wordt een prijsbepaling toegepast, waardoor 'optimale' stoelen duurder kunnen zijn dan niet-optimale stoelen. Hierdoor kan het zijn dat de ene ticker duurder is dan de ander.");
+                                //BEPAAL PRIJZEN
+                                double[] prijzenArr = new double[aantalPersonen];
+                                for (int i = 0; i < aantalPersonen; i++)
+                                {
+                                    prijzenArr[i] = zaalvoorkeuzeFilm.krijgPrijs(gekozenStoelen[i], zaal);
+                                    Console.WriteLine($"- {namen[i]}: \u20AC{prijzenArr[i]}");
+                                }
+                                Console.Write("\n");
+                                string[] opties = { "Betalen", "Annuleer bestelling en ga terug" };
+                                var keuze = AwaitResponse(opties);
+                                if (keuze == "Ga door")
+                                {
+                                    //BETAALSCHERM
+                                    Console.Clear();
+                                    ShowHeader(color, title);
+                                    Console.WriteLine("BETALEN");
+                                    Console.ReadLine();
+                                }
                             }
-						}
+                        }
                     }
                 }
             }

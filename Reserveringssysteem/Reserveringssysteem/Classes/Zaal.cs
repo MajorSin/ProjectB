@@ -244,6 +244,53 @@ namespace Reserveringssysteem.Classes
 			string jsonReserveringen = File.ReadAllText("../../../DataFiles/reserveringen.json", Encoding.GetEncoding("utf-8"));
 			reserveringen = JsonConvert.DeserializeObject<List<reserveringenJson>>(jsonReserveringen);
 		}
+		public double krijgPrijs(string stoel, int zaal)
+		{
+			double Prijs = 7.50;
+			int stoelNummer = int.Parse(stoel.Split(':')[0]);
+			int rijNummer = int.Parse(stoel.Split(':')[1]);
+			//BEREKEN DE PRIJS PER ZAAL
+			if(zaal == 1)
+			{
+				if(rijNummer < 4 || rijNummer > 11)
+				{
+					return Prijs;
+				} else if(stoelNummer > 3 && stoelNummer < 10)
+				{
+					Prijs = 10;
+					return Prijs;
+				}
+			} else if(zaal == 2)
+			{
+				if (rijNummer < 4 || rijNummer > 16 || stoelNummer < 4 || stoelNummer > 15)
+				{
+					return Prijs;
+				} else if(rijNummer < 7 || rijNummer > 13 || stoelNummer < 7 || stoelNummer > 12)
+				{
+					Prijs = 10;
+					return Prijs;
+				} else
+				{
+					Prijs = 12.50;
+					return Prijs;
+				}
+			} else if(zaal == 3)
+			{
+				if (rijNummer < 5 || rijNummer > 16 || stoelNummer < 5 || stoelNummer > 26)
+				{
+					return Prijs;
+				} else if (rijNummer < 8 || rijNummer > 13 || stoelNummer < 9 || stoelNummer > 22)
+				{
+					Prijs = 10;
+					return Prijs;
+				} else
+				{
+					Prijs = 12.50;
+					return Prijs;
+				}
+			}
+			return Prijs;
+		}
 		public class reserveringenJson
 		{
 			public string Titel { get; set; }
