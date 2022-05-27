@@ -18,5 +18,15 @@
     "gender": "Man",
     "emailAddress": "peter@peter.nl",
     "birthDate": "1-1-1990"
+  },
+  {
+    "id": 3,
+    "username": "m",
+    "password": "t",
+    "firstName": "Prabhjot",
+    "surname": "Singh",
+    "gender": "Man",
+    "emailAddress": "email@gmail.com",
+    "birthDate": "06-10-2002"
   }
 ]

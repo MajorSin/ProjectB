@@ -1,17 +1,18 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-using System.IO;
 using System.Globalization;
+using System.IO;
+using System.Text;
 
 namespace Reserveringssysteem
 {
 	public class draaiendeFilms
 	{
 		public List<draaienFilms> draaienFilmsList;
-		public List<DateTime> datumsDraaien = new List<DateTime>();
+		public List<DateTime> datumsDraaien;
 		public DateTime[] datumsDraaienArray;
+		public List<int> zaalWaarinFilmDraait;
 		public string[] datumsDraaienString;
 
 		public draaiendeFilms()
@@ -28,19 +29,19 @@ namespace Reserveringssysteem
 			public List<int> Zaal { get; set; }
 
 			public draaienFilms(int filmId, string name, List<string> datum, List<int> zaal)
-            {
+			{
 				this.FilmID = filmId;
 				this.Name = name;
 				this.Datum = datum;
 				this.Zaal = zaal;
-            }
+			}
 		}
 
 		//LAAT ALLE FILMS ZIEN DIE BINNEKORT DRAAIEN
 		public List<draaienFilms> laatDraaiendeFilmsZien()
 		{
 			//VERWIJDER ALLE DATUMS DIE AL ZIJN GEWEEST
-			for(int i = 0; i < draaienFilmsList.Count; i++)
+			for (int i = 0; i < draaienFilmsList.Count; i++)
 			{
 				int DatumremoveAt = 0;
 				int runFor = draaienFilmsList[i].Datum.Count;
@@ -78,13 +79,14 @@ namespace Reserveringssysteem
 		//LAAT FILMS DETAILS ZIEN ZOALS DATUMS EN ZAAL
 		public string filmDatumDetails(string titel)
 		{
+			zaalWaarinFilmDraait = new List<int>();
+			datumsDraaien = new List<DateTime>();
 			string returnTekst = $"   {titel}\n\n";
-			//List<DateTime> datumWanneerFilmDraait;
 			//LAAD JSON DATA IN OM DETAILS TE LATEN ZIEN
 			var jsonFilms = File.ReadAllText("../../../DataFiles/films.json", Encoding.GetEncoding("utf-8"));
 			var filmsList = JsonConvert.DeserializeObject<List<Film>>(jsonFilms);
 
-			for(int i = 0; i < filmsList.Count; i++)
+			for (int i = 0; i < filmsList.Count; i++)
 			{
 				if (filmsList[i].Titel == titel)
 				{
@@ -94,29 +96,30 @@ namespace Reserveringssysteem
 					int currentLen = 10;
 
 					for (int j = 0; j < words.Length; j++)
-                    {
+					{
 						if (j >= currentLen)
-                        {
+						{
 							words[j] = words[j] + "\n" + "  ";
 							currentLen += 10;
 						}
-                    }
+					}
 
 					returnTekst += String.Join(" ", words);
 				}
 			}
 			returnTekst += "\n\n   Beschikbare Datums:\n";
 			//LAAD DE DATUM IN
-			for(int i = 0; i < draaienFilmsList.Count; i++)
+			for (int i = 0; i < draaienFilmsList.Count; i++)
 			{
 				if (draaienFilmsList[i].Name == titel)
 				{
-					for(int j = 0; j < draaienFilmsList[i].Datum.Count; j++)
+					for (int j = 0; j < draaienFilmsList[i].Datum.Count; j++)
 					{
 						DateTime datumDraaien = DateTime.Parse(draaienFilmsList[i].Datum[j]);
 						if (datumDraaien > DateTime.Now.AddDays(-1))
 						{
 							this.datumsDraaien.Add(datumDraaien);
+							zaalWaarinFilmDraait.Add(draaienFilmsList[i].Zaal[j]);
 						}
 					}
 				}
@@ -124,12 +127,12 @@ namespace Reserveringssysteem
 			this.datumsDraaienArray = datumsDraaien.ToArray();
 			//CONVERTEER NAAR STRING ARRAY
 			datumsDraaienString = new string[datumsDraaienArray.Length + 1];
-			for(int i = 0; i < this.datumsDraaienArray.Length; i++)
+			for (int i = 0; i < this.datumsDraaienArray.Length; i++)
 			{
 				CultureInfo netherlands = new CultureInfo("nl-NL");
 				string dayOfWeek = netherlands.DateTimeFormat.GetDayName(datumsDraaienArray[i].DayOfWeek);
 				dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
-				datumsDraaienString[i] = $"{dayOfWeek}, {datumsDraaienArray[i].Day} {datumsDraaienArray[i].ToString("MMM")} {datumsDraaienArray[i].Year}, {datumsDraaienArray[i].Hour}:{datumsDraaienArray[i].ToString("mm")}";
+				datumsDraaienString[i] = $"{dayOfWeek}, {datumsDraaienArray[i].Day} {datumsDraaienArray[i].ToString("MMM")} {datumsDraaienArray[i].Year}, {datumsDraaienArray[i].Hour}:{datumsDraaienArray[i].ToString("mm")}. In zaal: {zaalWaarinFilmDraait[i]}";
 			}
 			datumsDraaienString[datumsDraaienArray.Length] = "Ga terug";
 
@@ -145,8 +148,8 @@ namespace Reserveringssysteem
 		}
 
 		public List<draaienFilms> GetDraaienFilms()
-        {
+		{
 			return draaienFilmsList;
-        }
+		}
 	}
 }
