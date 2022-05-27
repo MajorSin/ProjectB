@@ -242,6 +242,15 @@ namespace Reserveringssysteem.Classes
 			string jsonReserveringen = File.ReadAllText("../../../DataFiles/reserveringen.json", Encoding.GetEncoding("utf-8"));
 			reserveringen = JsonConvert.DeserializeObject<List<reserveringenJson>>(jsonReserveringen);
 		}
+
+		// Update reserveringen.
+		public void UpdateReservations()
+		{
+			var reservations = reserveringen;
+			var stringifiedReservations = JsonConvert.SerializeObject(reservations, Formatting.Indented);
+			File.WriteAllText("../../../DataFiles/reserveringen.json", stringifiedReservations);
+		}
+
 		public double krijgPrijs(string stoel, int zaal)
 		{
 			double Prijs = 7.50;

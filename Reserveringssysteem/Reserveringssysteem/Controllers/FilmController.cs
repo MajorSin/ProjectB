@@ -259,12 +259,33 @@ namespace Reserveringssysteem
 		}
 
 		//KEUZEMENU VOOR FILTEREN
-		public List<string> KeuzeFilter(string[] options)
+		public List<string> KeuzeFilter(string[] options, List<string> chosen = null)
 		{
 			int currentSelected = 0;
-			List<int> selected = new();
 			bool selectionDone = false;
-			List<string> gekozen = new();
+			List<int> selected = new();
+			List<string> gekozen = null;
+
+			if (chosen == null)
+			{
+				gekozen = new();
+			}
+			else
+			{
+				gekozen = chosen;
+
+				for (int i = 0; i < gekozen.Count; i++)
+				{
+					for (int j = 0; j < options.Length; j++)
+					{
+						if (options[j] == gekozen[i])
+						{
+							selected.Add(j);
+							break;
+						}
+					}
+				}
+			}
 
 			// Loopt door de opties en houdt bij welke keuze je maakt met pijltjestoetsen.
 			while (!selectionDone)
@@ -277,7 +298,8 @@ namespace Reserveringssysteem
 						Console.Write(" ");
 						Console.ResetColor();
 						Console.ForegroundColor = ConsoleColor.DarkYellow;
-					} else
+					}
+					else
 					{
 						Console.ForegroundColor = ConsoleColor.White;
 						Console.Write(" ");
@@ -286,13 +308,17 @@ namespace Reserveringssysteem
 					{
 						Console.ForegroundColor = ConsoleColor.DarkCyan;
 						Console.WriteLine("  {0}", options[i] + " - TOEGEVOEGD");
-					} else if ((options.Length - 1) == i)
+					}
+					else if ((options.Length - 1) == i)
 					{
 						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine("  {0}", options[i]);
-					} else
+					}
+					else
 					{
-						Console.WriteLine("  {0}", options[i]);
+						Console.Write("  {0}", options[i]);
+						Console.ForegroundColor = ConsoleColor.Black;
+						Console.WriteLine(" - TOEGEVOEGD");
 					}
 					Console.ResetColor();
 				}
@@ -302,7 +328,8 @@ namespace Reserveringssysteem
 						if (currentSelected == 0)
 						{
 							break;
-						} else
+						}
+						else
 						{
 							currentSelected -= 1;
 						}
@@ -311,7 +338,8 @@ namespace Reserveringssysteem
 						if (currentSelected == options.Length - 1)
 						{
 							break;
-						} else
+						}
+						else
 						{
 							currentSelected += 1;
 						}
@@ -320,12 +348,18 @@ namespace Reserveringssysteem
 						if (currentSelected == (options.Length - 1))
 						{
 							return gekozen;
-						} else
+						}
+						else
 						{
 							if (!gekozen.Contains(options[currentSelected]))
 							{
 								gekozen.Add(options[currentSelected]);
 								selected.Add(currentSelected);
+							}
+							else if (gekozen.Contains(options[currentSelected]))
+							{
+								gekozen.Remove(options[currentSelected]);
+								selected.Remove(currentSelected);
 							}
 						}
 						break;
@@ -345,6 +379,14 @@ namespace Reserveringssysteem
 		{
 			var json = File.ReadAllText("../../../DataFiles/films.json", Encoding.GetEncoding("utf-8"));
 			Films = JsonConvert.DeserializeObject<List<Film>>(json);
+		}
+
+		// Films updaten. 
+		public void UpdateFilms()
+		{
+			var films = GetFilms();
+			var stringifiedFilms = JsonConvert.SerializeObject(films, Formatting.Indented);
+			File.WriteAllText("../../../DataFiles/films.json", stringifiedFilms);
 		}
 	}
 }

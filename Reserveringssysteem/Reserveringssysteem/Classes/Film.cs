@@ -42,7 +42,8 @@ namespace Reserveringssysteem
 					if ((taalLength - 2) == i)
 					{
 						talen += " & ";
-					} else if ((taalLength - 1) != i)
+					}
+					else if ((taalLength - 1) != i)
 					{
 						talen += ", ";
 					}
@@ -62,7 +63,8 @@ namespace Reserveringssysteem
 					if ((genreLength - 2) == i)
 					{
 						genres += " & ";
-					} else if ((genreLength - 1) != i)
+					}
+					else if ((genreLength - 1) != i)
 					{
 						genres += ", ";
 					}
@@ -93,13 +95,18 @@ namespace Reserveringssysteem
 				acteurs = acteursReduced;
 			}
 
-			string[] plot = this.Plot.Split(" ");
-			string[] plotReduced = new string[10];
-			for (int i = 0; i < plotReduced.Length; i++)
+			string filmPlot = Plot;
+
+			if (filmPlot.Length > 10)
 			{
-				plotReduced[i] = plot[i];
+				string[] plot = this.Plot.Split(" ");
+				string[] plotReduced = new string[10];
+				for (int i = 0; i < plotReduced.Length; i++)
+				{
+					plotReduced[i] = plot[i];
+				}
+				filmPlot = String.Join(" ", plotReduced) + "...";
 			}
-			plot = plotReduced;
 
 			string title = this.Titel;
 
@@ -113,10 +120,11 @@ namespace Reserveringssysteem
 				"   {2}: {3}\n" +
 				"   Looptijd: {4}\n" +
 				"   {5}: {6}\n" +
-				"   Acteurs: {7}\n" +
-				"   Plot: {8}",
+				"   Directeur: {7}\n" +
+				"   Acteurs: {8}\n" +
+				"   Plot: {9}",
 				this.Titel, this.Jaar, taalString, talen, looptijdString, genreString,
-				genres, String.Join(",", acteurs) + "...", String.Join(" ", plot) + "...\n"
+				genres, this.Directeur, String.Join(",", acteurs) + "...", filmPlot + "\n"
 			);
 		}
 	}

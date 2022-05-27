@@ -1,26 +1,6 @@
 [
   {
     "id": 1,
-    "username": "joost",
-    "password": "Jb0902020202020202020202020202002020202020202020020202",
-    "firstName": "Joost",
-    "surname": "Beekman",
-    "gender": "Man",
-    "emailAddress": "joostbeekman@gmail.nl",
-    "birthDate": "02-09-2002"
-  },
-  {
-    "id": 2,
-    "username": "peter",
-    "password": "peter",
-    "firstName": "Peter",
-    "surname": "Peter",
-    "gender": "Man",
-    "emailAddress": "peter@peter.nl",
-    "birthDate": "1-1-1990"
-  },
-  {
-    "id": 3,
     "username": "m",
     "password": "t",
     "firstName": "Prabhjot",

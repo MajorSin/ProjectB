@@ -288,7 +288,7 @@ namespace Reserveringssysteem
 					&& field != "username" && field != "password" && field != "birthDate" && field != "geslacht"):
 						error = " Geen cijfers of andere symbolen";
 						break;
-					case string a when a.Any(c => !char.IsLetter(c)) && field == "geslacht":
+					case string a when (a.Any(c => char.IsLetter(c)) || a.Any(c => !char.IsLetter(c))) && field == "geslacht":
 						if (value == "1")
 						{
 							value = "Man";
@@ -305,6 +305,24 @@ namespace Reserveringssysteem
 						break;
 					case string a when !EmailExists(a) && field == "emailAddress":
 						error = " E-mail is al in gebruik door iemand anders";
+						break;
+					case string a when (a.Any(c => !char.IsLetter(c))) && field == "gebruikersnaam":
+						bool hasLetters = false;
+                        if (!Regex.IsMatch(value, @"^[a-zA-Z0-9]+$"))
+                        {
+							error = " Symbolen kunnen niet erin.";
+                        }
+
+						if (a.Any(c => char.IsLetter(c)))
+						{
+							hasLetters = true;
+						}
+
+						if (!hasLetters)
+						{
+							error = " Symbols of alleen cijfers kan niet.";
+						}
+
 						break;
 					case string a when !UsernameExists(a) && field == "gebruikersnaam":
 						error = " Gebruikersnaam bestaat al kies iets anders";

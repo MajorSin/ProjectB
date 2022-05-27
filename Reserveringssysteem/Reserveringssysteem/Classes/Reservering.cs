@@ -48,7 +48,7 @@ namespace Reserveringssysteem.Classes
 			nieuwEntry.stoelen = Stoelen;
 			nieuwEntry.randomCode = UniekeCode;
 			reserveringen.Add(nieuwEntry);
-			var JsonData = JsonConvert.SerializeObject(reserveringen);
+			var JsonData = JsonConvert.SerializeObject(reserveringen, Formatting.Indented);
 			System.IO.File.WriteAllText("../../../DataFiles/reserveringen.json", JsonData, Encoding.UTF8);
 		}
 		public string RandomCode()
