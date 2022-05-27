@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "hVKOKTPlXOKmJxyKZrmQY/b35Ju+w7LXO/MqqA+9VbLnKePFBgIMs2e/dfCxA1qBM6TqN/SKxfIGXV6t9C8sUg==",
+  "dgSpecHash": "qvcpttUJyigaq+1vQcdBb6Ci+zpdHsi4NVewPf2HaIGCYAZ7jxSkrwqhghwNYFCFKnm2+xCol/dEnOQ0GSGwiA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Omar Karimi\\Desktop\\ProjectB\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
+  "projectFilePath": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Omar Karimi\\.nuget\\packages\\json.net\\1.0.33\\json.net.1.0.33.nupkg.sha512",
-    "C:\\Users\\Omar Karimi\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\psing\\.nuget\\packages\\json.net\\1.0.33\\json.net.1.0.33.nupkg.sha512",
+    "C:\\Users\\psing\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

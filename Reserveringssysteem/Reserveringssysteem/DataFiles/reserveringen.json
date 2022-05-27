@@ -1,53 +1,73 @@
-[
+﻿[
   {
-    "Titel": "The siege of jadootville",
-    "AantalPersonen": 2,
+    "titel": "The siege of jadootville",
+    "aantalPersonen": 2,
     "datum": "2022-10-20T15:00:00",
     "zaal": 2,
-    "Namen": [
+    "namen": [
       "Prabhjot Singh",
       "HENKIEE"
     ],
     "ReserveringDoor": "m",
-    "Leeftijden": [
+    "leeftijden": [
       19,
       81
     ],
     "stoelen": [
       "5:14",
       "6:14"
-    ]
+    ],
+    "randomCode": null
   },
   {
-    "Titel": "the kissing booth",
-    "AantalPersonen": 1,
+    "titel": "the kissing booth",
+    "aantalPersonen": 1,
     "datum": "2022-06-25T17:00:00.0000000",
     "zaal": 1,
-    "Namen": [
+    "namen": [
       "John Doe"
     ],
     "ReserveringDoor": "onbekend",
-    "Leeftijden": [
+    "leeftijden": [
       1
     ],
     "stoelen": [
       "6:7"
-    ]
+    ],
+    "randomCode": null
   },
   {
-    "Titel": "the kissing booth",
-    "AantalPersonen": 1,
+    "titel": "the kissing booth",
+    "aantalPersonen": 1,
     "datum": "2022-06-25T17:00:00.0000000",
     "zaal": 1,
-    "Namen": [
+    "namen": [
       "Ander Naam"
     ],
     "ReserveringDoor": "onbekend",
-    "Leeftijden": [
+    "leeftijden": [
       8
     ],
     "stoelen": [
       "6:4"
-    ]
+    ],
+    "randomCode": null
+  },
+  {
+    "titel": "It",
+    "aantalPersonen": 1,
+    "datum": "2022-06-03T18:15:00.0000000",
+    "zaal": 1,
+    "namen": [
+      "Prabhjot Singh"
+    ],
+    "ReserveringDoor": "m",
+    "leeftijden": [
+      19
+    ],
+    "stoelen": [
+      "6:3"
+    ],
+    "randomCode": "SrZ8Hh5"
   }
 ]

@@ -712,7 +712,8 @@ namespace Reserveringssysteem
 									//BETALING GELUKT
 									Console.Clear();
 									ShowHeader(color, title);
-									Reservering reserveringDoorGebruiker = new Reservering(titel, aantalPersonen, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, namen, "onbekend", leeftijdArr, gekozenStoelen);
+									var username = CurrentUser.GetUsername();
+									Reservering reserveringDoorGebruiker = new Reservering(titel, aantalPersonen, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, namen, username, leeftijdArr, gekozenStoelen);
 									reserveringDoorGebruiker.addToJsonFile();
 									Console.WriteLine("De reservering is gelukt, er is een bevestiging naar uw e-mail gestuurd waar u de ticket kunt vinden.\n");
 									string[] gaterug = { "Ga terug" };
