@@ -4,319 +4,524 @@ namespace Reserveringssysteem
 {
 	public class Betalen
 	{
-		public static void betaalOpties()
+		public static string betaalOpties()
 		{
-			// De user groeten en de betaal opties laten zien.
-			Console.WriteLine("Welkom op het betaalscherm.\n\n");
-			Console.WriteLine("Kies hier uw betaal methode:\n");
-			Console.WriteLine("Druk op \"1\" voor iDeal.\n");
-			Console.WriteLine("Druk op \"2\" voor PayPal.\n");
-			Console.WriteLine("Druk op \"3\" voor CreditCard.\n");
-			Console.Write("Uw keuze: ");
-
-			// aflezen welke betaalmethode de user heeft gekozen
-			string betaalMethodeInput = Console.ReadLine();
-
-			bool goedeKeuze = false;
-
-			// checken of de user een juiste input geeft
-			if (betaalMethodeInput == "1" || betaalMethodeInput == "2" || betaalMethodeInput == "3")
+			bool done = false;
+			while (!done)
 			{
-				goedeKeuze = true;
-			}
+				// De user groeten en de betaal opties laten zien.
+				Console.WriteLine("Welkom op het betaalscherm.\n\n");
+				Console.WriteLine("Kies hier uw betaal methode:\n");
+				Console.WriteLine("Druk op \"1\" voor iDeal.\n");
+				Console.WriteLine("Druk op \"2\" voor PayPal.\n");
+				Console.WriteLine("Druk op \"3\" voor CreditCard.\n");
+				Console.WriteLine("Druk op \"4\" om terug te gaan.\n");
+				Console.Write("Uw keuze: ");
 
-			while (!goedeKeuze)
-			{
-				Console.Write("Ongeldige invoer, kies A.U.B. uit het keuze menu hierboven: ");
-				betaalMethodeInput = Console.ReadLine();
+				// aflezen welke betaalmethode de user heeft gekozen
+				string betaalMethodeInput = Console.ReadLine();
 
-				// zolang de user geen goede input geeft, krijgt hij de mogelijkheid om opniew een input te geven
-				if (betaalMethodeInput == "1" || betaalMethodeInput == "2" || betaalMethodeInput == "3")
+				bool goedeKeuze = false;
+
+				// checken of de user een juiste input geeft
+				if (betaalMethodeInput == "1" || betaalMethodeInput == "2" || betaalMethodeInput == "3" || betaalMethodeInput == "4")
 				{
 					goedeKeuze = true;
 				}
-			}
 
-			// de functie die overeenkomt met de userinput wordt uitgevoerd
-			if (betaalMethodeInput == "1")
-			{
-				Console.Clear();
-				iDeal();
+				while (!goedeKeuze)
+				{
+					Console.Write("Ongeldige invoer, kies A.U.B. uit het keuze menu hierboven: ");
+					betaalMethodeInput = Console.ReadLine();
+
+					// zolang de user geen goede input geeft, krijgt hij de mogelijkheid om opniew een input te geven
+					if (betaalMethodeInput == "1" || betaalMethodeInput == "2" || betaalMethodeInput == "3" || betaalMethodeInput == "4")
+					{
+						goedeKeuze = true;
+					}
+				}
+
+				// de functie die overeenkomt met de userinput wordt uitgevoerd
+				if (betaalMethodeInput == "1")
+				{
+					Console.Clear();
+					string response = iDeal();
+					if (response == "Back")
+					{
+						continue;
+					} else
+                    {
+						done = true;
+						return "";
+                    }
+				}
+				else if (betaalMethodeInput == "2")
+				{
+					Console.Clear();
+					string response = payPal();
+					if (response == "Back")
+					{
+						continue;
+					}
+					else
+					{
+						done = true;
+						return "";
+					}
+				}
+				else if (betaalMethodeInput == "3")
+				{
+					Console.Clear();
+					string response = creditCard();
+					if (response == "Back")
+					{
+						continue;
+					}
+					else
+					{
+						done = true;
+						return "";
+					}
+				} else
+                {
+					Console.Clear();
+					done = true;
+                }
 			}
-			if (betaalMethodeInput == "2")
-			{
-				Console.Clear();
-				payPal();
-			}
-			if (betaalMethodeInput == "3")
-			{
-				Console.Clear();
-				creditCard();
-			}
+			return "Back";
 		}
-		public static void iDeal()
+		public static string iDeal()
 		{
-			Console.WriteLine("U heeft gekozen voor iDeal.\n");
-			Console.WriteLine("Druk op het bijbehorende nummer van uw bank om die bank te kiezen.\nDruk op \"Q\" om terug te keren naar het vorige scherm.\n");
-			Console.WriteLine("1:  ABN AMRO\n2:  ASN Bank\n3:  Bunq\n4:  ING\n5:  Knab\n6:  Rabobank\n7:  RegioBank\n8:  Revolut\n9:  SNS\n10: Svenska Handelsbanken\n11: Triodos Bank\n12: Van Landschot\n");
-			Console.Write("Uw keuze: ");
+			bool notFinished = false;
 
-			// user heeft gekozen voor iDeal en moet bank kiezen
-			string bankInput = Console.ReadLine();
-
-			// als de user q als input geeft gaat de user terug naar het betaalmethode scherm
-			if (Qchecker(bankInput))
+			while (!notFinished)
 			{
-				Console.Clear();
-				betaalOpties();
-			}
+				Console.WriteLine("U heeft gekozen voor iDeal.\n");
+				Console.WriteLine("Druk op het bijbehorende nummer van uw bank om die bank te kiezen.\nDruk op \"Q\" om terug te keren naar het vorige scherm.\n");
+				Console.WriteLine("1:  ABN AMRO\n2:  ASN Bank\n3:  Bunq\n4:  ING\n5:  Knab\n6:  Rabobank\n7:  RegioBank\n8:  Revolut\n9:  SNS\n10: Svenska Handelsbanken\n11: Triodos Bank\n12: Van Landschot\n");
+				Console.Write("Uw keuze: ");
 
-			bool goedeKeuze = false;
+				// user heeft gekozen voor iDeal en moet bank kiezen
+				string bankInput = Console.ReadLine();
 
-			if (bankInput == "1" || bankInput == "2" || bankInput == "3" || bankInput == "4" || bankInput == "5" || bankInput == "6" || bankInput == "7" || bankInput == "8" || bankInput == "9" || bankInput == "10" || bankInput == "11" || bankInput == "12" || Qchecker(bankInput))
-			{
-				goedeKeuze = true;
-			}
+				// als de user q als input geeft gaat de user terug naar het betaalmethode scherm
+				if (Qchecker(bankInput))
+				{
+					Console.Clear();
+					notFinished = true;
+					return "Back";
+				}
 
-			// user kiest bank. de user krijgt steeds opnieuw de keuze totdat hij een geldige input geeft
-			while (!goedeKeuze)
-			{
-				Console.Write("Ongeldige invoer, kies A.U.B. uit het keuze menu hierboven: ");
-				bankInput = Console.ReadLine();
+				bool goedeKeuze = false;
 
 				if (bankInput == "1" || bankInput == "2" || bankInput == "3" || bankInput == "4" || bankInput == "5" || bankInput == "6" || bankInput == "7" || bankInput == "8" || bankInput == "9" || bankInput == "10" || bankInput == "11" || bankInput == "12" || Qchecker(bankInput))
 				{
 					goedeKeuze = true;
 				}
-			}
 
-			// als de user q als input geeft gaat de user terug naar het betaalmethode scherm
-			if (Qchecker(bankInput))
-			{
-				Console.Clear();
-				betaalOpties();
+				// user kiest bank. de user krijgt steeds opnieuw de keuze totdat hij een geldige input geeft
+				while (!goedeKeuze)
+				{
+					Console.Write("Ongeldige invoer, kies A.U.B. uit het keuze menu hierboven: ");
+					bankInput = Console.ReadLine();
+
+					if (bankInput == "1" || bankInput == "2" || bankInput == "3" || bankInput == "4" || bankInput == "5" || bankInput == "6" || bankInput == "7" || bankInput == "8" || bankInput == "9" || bankInput == "10" || bankInput == "11" || bankInput == "12" || Qchecker(bankInput))
+					{
+						goedeKeuze = true;
+					}
+				}
+
+				// als de user q als input geeft gaat de user terug naar het betaalmethode scherm
+				if (Qchecker(bankInput))
+				{
+					Console.Clear();
+					notFinished = true;
+					return "Back";
+				}
+				// bank keuze van de user wordt gelezen. User word naar iban invoer scherm gestuurd
+				if (bankInput == "1")
+				{
+					Console.Clear();
+					string response = ibanInvoer("ABN AMRO");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
+				if (bankInput == "2")
+				{
+					Console.Clear();
+					string response = ibanInvoer("ASN Bank");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
+				if (bankInput == "3")
+				{
+					Console.Clear();
+					string response = ibanInvoer("Bunq");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
+				if (bankInput == "4")
+				{
+					Console.Clear();
+					string response = ibanInvoer("ING");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
+				if (bankInput == "5")
+				{
+					Console.Clear();
+					string response = ibanInvoer("Knab");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
+				if (bankInput == "6")
+				{
+					Console.Clear();
+					string response = ibanInvoer("Rabobank");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
+				if (bankInput == "7")
+				{
+					Console.Clear();
+					string response = ibanInvoer("RegioBank");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
+				if (bankInput == "8")
+				{
+					Console.Clear();
+					string response = ibanInvoer("Revolut");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
+				if (bankInput == "9")
+				{
+					Console.Clear();
+					string response = ibanInvoer("SNS");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
+				if (bankInput == "10")
+				{
+					Console.Clear();
+					string response = ibanInvoer("Svenska Handelsbanken");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
+				if (bankInput == "11")
+				{
+					Console.Clear();
+					string response = ibanInvoer("Triodos Bank");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
+				if (bankInput == "12")
+				{
+					Console.Clear();
+					string response = ibanInvoer("Van Landschot");
+					if (response == "Back")
+					{
+						continue;
+					}
+					else if (response == "Home")
+					{
+						notFinished = true;
+						return "Back";
+					}
+					else
+					{
+						notFinished = true;
+					}
+				}
 			}
-			// bank keuze van de user wordt gelezen. User word naar iban invoer scherm gestuurd
-			if (bankInput == "1")
-			{
-				Console.Clear();
-				ibanInvoer("ABN AMRO");
-			}
-			if (bankInput == "2")
-			{
-				Console.Clear();
-				ibanInvoer("ASN Bank");
-			}
-			if (bankInput == "3")
-			{
-				Console.Clear();
-				ibanInvoer("Bunq");
-			}
-			if (bankInput == "4")
-			{
-				Console.Clear();
-				ibanInvoer("ING");
-			}
-			if (bankInput == "5")
-			{
-				Console.Clear();
-				ibanInvoer("Knab");
-			}
-			if (bankInput == "6")
-			{
-				Console.Clear();
-				ibanInvoer("Rabobank");
-			}
-			if (bankInput == "7")
-			{
-				Console.Clear();
-				ibanInvoer("RegioBank");
-			}
-			if (bankInput == "8")
-			{
-				Console.Clear();
-				ibanInvoer("Revolut");
-			}
-			if (bankInput == "9")
-			{
-				Console.Clear();
-				ibanInvoer("SNS");
-			}
-			if (bankInput == "10")
-			{
-				Console.Clear();
-				ibanInvoer("Svenska Handelsbanken");
-			}
-			if (bankInput == "11")
-			{
-				Console.Clear();
-				ibanInvoer("Triodos Bank");
-			}
-			if (bankInput == "12")
-			{
-				Console.Clear();
-				ibanInvoer("Van Landschot");
-			}
+			return "";
 		}
-		public static void ibanInvoer(string bankKeuze)
+		public static string ibanInvoer(string bankKeuze)
 		{
-			Console.WriteLine($"U heeft gekozen voor {bankKeuze}.\n");
-			Console.WriteLine("Vul hieronder uw IBAN nummer in.\n");
-			Console.WriteLine("Wilt u naar het vorige scherm?\nDruk dan op \"Q\".\nLET OP: VUL HET IBAN NUMMER ZONDER SPATIES ER TUSSEN IN!");
-			Console.Write("Uw IBAN nummer: ");
+			bool notFinished = false;
 
-			// de user krijgt de optie op zijn IBAN nummer in te vullen
-			string ibanInput = Console.ReadLine();
-			bool ibanCorrect = false;
-
-			// als de user q als input geeft gaat de user terug naar het betaalmethode scherm
-			if (Qchecker(ibanInput))
+			while (!notFinished)
 			{
-				Console.Clear();
-				iDeal();
-			}
-
-			// het IBAN nummer wordt op geldigheid gecheckt
-			if (ibanChecker(ibanInput))
-			{
-				ibanCorrect = true;
-			}
-
-			// user krijgt de mogelijkheid om opniew IBAN in te vullen totdat deze geldig is
-			while (!ibanCorrect)
-			{
-				Console.WriteLine("\nDit is een ongeldig IBAN nummer.\nProbeer het nog een keer.\nLET OP: VUL HET IBAN NUMMER ZONDER SPATIES ER TUSSEN IN!");
+				Console.WriteLine($"U heeft gekozen voor {bankKeuze}.\n");
+				Console.WriteLine("Vul hieronder uw IBAN nummer in.\n");
+				Console.WriteLine("Wilt u naar het vorige scherm?\nDruk dan op \"Q\".\nLET OP: VUL HET IBAN NUMMER ZONDER SPATIES ER TUSSEN IN!");
 				Console.Write("Uw IBAN nummer: ");
-				ibanInput = Console.ReadLine();
+
+				// de user krijgt de optie op zijn IBAN nummer in te vullen
+				string ibanInput = Console.ReadLine();
+				bool ibanCorrect = false;
+
+				// als de user q als input geeft gaat de user terug naar het betaalmethode scherm
 				if (Qchecker(ibanInput))
 				{
 					Console.Clear();
-					iDeal();
+					notFinished = true;
+					return "Back";
 				}
+
+				// het IBAN nummer wordt op geldigheid gecheckt
 				if (ibanChecker(ibanInput))
 				{
 					ibanCorrect = true;
 				}
-			}
 
-			// User moet wachtwoord invullen na dat hij een geldige IBAN heeft ingevult
-			if (ibanCorrect)
-			{
-				Console.Write("\nVul hier uw wachtwoord van uw bank account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN,1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nUw wachtwoord: ");
-				string wachtwoordInput = Console.ReadLine();
-				bool wachtwoordCorrect = false;
-
-				// De betaling is gelukt als het wachtwoord klopt. User wordt terug gestuurd naar het betaalmethode scherm
-				if (wachtwoordChecker(wachtwoordInput))
+				// user krijgt de mogelijkheid om opniew IBAN in te vullen totdat deze geldig is
+				while (!ibanCorrect)
 				{
-					wachtwoordCorrect = true;
-					Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-					Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
-					Console.ReadLine();
+					Console.WriteLine("\nDit is een ongeldig IBAN nummer.\nProbeer het nog een keer.\nLET OP: VUL HET IBAN NUMMER ZONDER SPATIES ER TUSSEN IN!");
+					Console.Write("Uw IBAN nummer: ");
+					ibanInput = Console.ReadLine();
+
+					if (Qchecker(ibanInput))
+					{
+						Console.Clear();
+						notFinished = true;
+						return "Back";
+					}
+					if (ibanChecker(ibanInput))
+					{
+						ibanCorrect = true;
+					}
 				}
 
-				// wachtwoord is ongeldig. User krijgt nog 2 pogingen om wachtwoord in te vullen
-				int pogingen = 2;
-				while (!wachtwoordCorrect)
+				// User moet wachtwoord invullen na dat hij een geldige IBAN heeft ingevult
+				if (ibanCorrect)
 				{
-					Console.Write($"\nVul hier uw wachtwoord van uw bank account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER\n\nu heeft nog {pogingen--} pogingen\nUw wachtwoord: ");
-					wachtwoordInput = Console.ReadLine();
+					Console.Write("\nVul hier uw wachtwoord van uw bank account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN,1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nUw wachtwoord: ");
+					string wachtwoordInput = Console.ReadLine();
+					bool wachtwoordCorrect = false;
 
+					// De betaling is gelukt als het wachtwoord klopt. User wordt terug gestuurd naar het betaalmethode scherm
 					if (wachtwoordChecker(wachtwoordInput))
 					{
 						wachtwoordCorrect = true;
 						Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
 						Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
 						Console.ReadLine();
-					}
-					if (pogingen == 1)
-					{
-						Console.Write($"\nVul hier uw wachtwoord van uw bank account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nu heeft nog {pogingen--} poging\nUw wachtwoord: ");
-						wachtwoordInput = Console.ReadLine();
+						notFinished = true;
 					}
 
-					// user heeft te vaak geprobeert om wachtwoord in te vullen en word terug gestuurd naar het betaalmethode scherm
-					if (pogingen <= 0)
+					// wachtwoord is ongeldig. User krijgt nog 2 pogingen om wachtwoord in te vullen
+					int pogingen = 2;
+					while (!wachtwoordCorrect)
 					{
-						Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-						string Qinput = Console.ReadLine();
-						bool isItQ = false;
-						if (Qchecker(Qinput))
+						Console.Write($"\nVul hier uw wachtwoord van uw bank account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER\n\nu heeft nog {pogingen--} pogingen\nUw wachtwoord: ");
+						wachtwoordInput = Console.ReadLine();
+
+						if (wachtwoordChecker(wachtwoordInput))
 						{
-							Console.Clear();
-							betaalOpties();
+							wachtwoordCorrect = true;
+							Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
+							Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
+							Console.ReadLine();
+							notFinished = true;
 						}
-						while (!isItQ)
+						if (pogingen == 1)
+						{
+							Console.Write($"\nVul hier uw wachtwoord van uw bank account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nu heeft nog {pogingen--} poging\nUw wachtwoord: ");
+							wachtwoordInput = Console.ReadLine();
+						}
+
+						// user heeft te vaak geprobeert om wachtwoord in te vullen en word terug gestuurd naar het betaalmethode scherm
+						if (pogingen <= 0)
 						{
 							Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-							Qinput = Console.ReadLine();
+							string Qinput = Console.ReadLine();
+							bool isItQ = false;
 							if (Qchecker(Qinput))
 							{
 								Console.Clear();
-								betaalOpties();
+								notFinished = true;
+								return "Home";
+							}
+							while (!isItQ)
+							{
+								Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
+								Qinput = Console.ReadLine();
+								if (Qchecker(Qinput))
+								{
+									Console.Clear();
+									notFinished = true;
+									return "Home";
+								}
 							}
 						}
 					}
 				}
 			}
+			return "";
 		}
-		public static void payPal()
+		public static string payPal()
 		{
-			Console.WriteLine("U heeft gekozen voor PayPal.\n");
-			Console.WriteLine("Vul hieronder uw Email adres en wachtwoord in.\n");
-			Console.WriteLine("Wilt u naar het vorige scherm?\nDruk dan op \"Q\".\n");
-			Console.Write("Uw Email adres: ");
+			bool notFinished = false;
 
-			// de user krijgt de optie op zijn email adres in te vullen
-			string eMailInput = Console.ReadLine();
-			bool eMailCorrect = false;
-			if (Qchecker(eMailInput))
+			while (!notFinished)
 			{
-				Console.Clear();
-				betaalOpties();
-			}
-			// email word gecheckt op geldigheid
-			if (eMailChecker(eMailInput))
-			{
-				eMailCorrect = true;
-			}
-			// user krijgt de mogelijkheid om opniew email in te vullen totdat deze geldig is
-			while (!eMailCorrect)
-			{
-				Console.WriteLine("\nHet ingevoerde Email adres is ongeldig, probeert u het nog eens: ");
-				eMailInput = Console.ReadLine();
+				Console.WriteLine("U heeft gekozen voor PayPal.\n");
+				Console.WriteLine("Vul hieronder uw Email adres en wachtwoord in.\n");
+				Console.WriteLine("Wilt u naar het vorige scherm?\nDruk dan op \"Q\".\n");
+				Console.Write("Uw Email adres: ");
+
+				// de user krijgt de optie op zijn email adres in te vullen
+				string eMailInput = Console.ReadLine();
+				bool eMailCorrect = false;
+
+				if (Qchecker(eMailInput))
+				{
+					Console.Clear();
+					notFinished = true;
+					return "Back";
+				}
+				// email word gecheckt op geldigheid
 				if (eMailChecker(eMailInput))
 				{
 					eMailCorrect = true;
 				}
-				if (Qchecker(eMailInput))
+				// user krijgt de mogelijkheid om opniew email in te vullen totdat deze geldig is
+				while (!eMailCorrect)
 				{
-					Console.Clear();
-					betaalOpties();
+					Console.WriteLine("\nHet ingevoerde Email adres is ongeldig, probeert u het nog eens: ");
+					eMailInput = Console.ReadLine();
+					if (eMailChecker(eMailInput))
+					{
+						eMailCorrect = true;
+					}
+					if (Qchecker(eMailInput))
+					{
+						Console.Clear();
+						notFinished = true;
+						return "Back";
+					}
 				}
-			}
-			// User moet wachtwoord invullen na dat hij een geldige email heeft ingevult
-			if (eMailCorrect)
-			{
-				Console.Write("\nVul hier uw wachtwoord van uw PayPal account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN,1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nUw wachtwoord: ");
-				string wachtwoordInput = Console.ReadLine();
-				bool wachtwoordCorrect = false;
-				// De betaling is gelukt als het wachtwoord klopt. User wordt terug gestuurd naar het betaalmethode scherm
-				if (wachtwoordChecker(wachtwoordInput))
+				// User moet wachtwoord invullen na dat hij een geldige email heeft ingevult
+				if (eMailCorrect)
 				{
-
-					wachtwoordCorrect = true;
-					Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-					Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
-					Console.ReadLine();
-				}
-				// wachtwoord is ongeldig. User krijgt nog 2 pogingen om wachtwoord in te vullen
-				int pogingen = 2;
-				while (!wachtwoordCorrect)
-				{
-					Console.Write($"\nVul hier uw wachtwoord van uw PayPal account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER\n\nu heeft nog {pogingen--} pogingen\nUw wachtwoord: ");
-					wachtwoordInput = Console.ReadLine();
-
+					Console.Write("\nVul hier uw wachtwoord van uw PayPal account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN,1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nUw wachtwoord: ");
+					string wachtwoordInput = Console.ReadLine();
+					bool wachtwoordCorrect = false;
+					// De betaling is gelukt als het wachtwoord klopt. User wordt terug gestuurd naar het betaalmethode scherm
 					if (wachtwoordChecker(wachtwoordInput))
 					{
 
@@ -324,95 +529,108 @@ namespace Reserveringssysteem
 						Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
 						Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
 						Console.ReadLine();
+						notFinished = true;
 					}
-					if (pogingen == 1)
+					// wachtwoord is ongeldig. User krijgt nog 2 pogingen om wachtwoord in te vullen
+					int pogingen = 2;
+					while (!wachtwoordCorrect)
 					{
-						Console.Write($"\nVul hier uw wachtwoord van uw PayPal account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nu heeft nog {pogingen--} poging\nUw wachtwoord: ");
+						Console.Write($"\nVul hier uw wachtwoord van uw PayPal account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER\n\nu heeft nog {pogingen--} pogingen\nUw wachtwoord: ");
 						wachtwoordInput = Console.ReadLine();
-					}
-					// user heeft te vaak geprobeert om wachtwoord in te vullen en word terug gestuurd naar het betaalmethode scherm
-					if (pogingen <= 0)
-					{
-						Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-						string Qinput = Console.ReadLine();
-						bool isItQ = false;
-						if (Qchecker(Qinput))
+
+						if (wachtwoordChecker(wachtwoordInput))
 						{
-							Console.Clear();
-							betaalOpties();
+
+							wachtwoordCorrect = true;
+							Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
+							Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
+							Console.ReadLine();
+							notFinished = true;
 						}
-						while (!isItQ)
+						if (pogingen == 1)
+						{
+							Console.Write($"\nVul hier uw wachtwoord van uw PayPal account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nu heeft nog {pogingen--} poging\nUw wachtwoord: ");
+							wachtwoordInput = Console.ReadLine();
+						}
+						// user heeft te vaak geprobeert om wachtwoord in te vullen en word terug gestuurd naar het betaalmethode scherm
+						if (pogingen <= 0)
 						{
 							Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-							Qinput = Console.ReadLine();
+							string Qinput = Console.ReadLine();
+							bool isItQ = false;
 							if (Qchecker(Qinput))
 							{
 								Console.Clear();
-								betaalOpties();
+								notFinished = true;
+								return "Back";
+							}
+							while (!isItQ)
+							{
+								Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
+								Qinput = Console.ReadLine();
+								if (Qchecker(Qinput))
+								{
+									Console.Clear();
+									notFinished = true;
+									return "Back";
+								}
 							}
 						}
 					}
 				}
 			}
+			return "";
 		}
-		public static void creditCard()
+		public static string creditCard()
 		{
-			Console.WriteLine("U heeft gekozen voor CreditCard.\n");
-			Console.WriteLine("Vul hieronder het CreditCardnummer in van uw CreditCard:\n");
-			Console.WriteLine("Wilt u naar het vorige scherm?\nDruk dan op \"Q\".\n");
-			Console.Write("Uw CreditCardnummer: ");
+			bool notFinished = false;
 
-			// de user krijgt de optie op zijn creditcard nummer in te vullen
-			string creditCardNummerInput = Console.ReadLine();
-			bool creditCardNummerCorrect = false;
-			if (Qchecker(creditCardNummerInput))
+			while (!notFinished)
 			{
-				Console.Clear();
-				betaalOpties();
-			}
+				Console.WriteLine("U heeft gekozen voor CreditCard.\n");
+				Console.WriteLine("Vul hieronder het CreditCardnummer in van uw CreditCard:\n");
+				Console.WriteLine("Wilt u naar het vorige scherm?\nDruk dan op \"Q\".\n");
+				Console.Write("Uw CreditCardnummer: ");
 
-			// creditcard nummer word gecheckt op geldigheid
-			if (creditCardNummerChecker(creditCardNummerInput))
-			{
-				creditCardNummerCorrect = true;
-			}
+				// de user krijgt de optie op zijn creditcard nummer in te vullen
+				string creditCardNummerInput = Console.ReadLine();
+				bool creditCardNummerCorrect = false;
+				if (Qchecker(creditCardNummerInput))
+				{
+					Console.Clear();
+					notFinished = true;
+					return "Back";
+				}
 
-			// user krijgt de mogelijkheid om opniew creditcard nummer in te vullen totdat deze geldig is
-			while (!creditCardNummerCorrect)
-			{
-				Console.Write("\nHet ingevoerde CreditCardNummer is ongeldig, probeert u het nog eens\nUw CreditCardnummer: ");
-				creditCardNummerInput = Console.ReadLine();
+				// creditcard nummer word gecheckt op geldigheid
 				if (creditCardNummerChecker(creditCardNummerInput))
 				{
 					creditCardNummerCorrect = true;
 				}
-				if (Qchecker(creditCardNummerInput))
-				{
-					Console.Clear();
-					betaalOpties();
-				}
-			}
 
-			// na een geldig creditcard nummer te hebben ingevult, moet de user de vervaldatum van de creditcard invullen.
-			if (creditCardNummerCorrect)
-			{
-				Console.Write("\nVul hier de vervaldatum van uw CreditCard in (MM/JJ of MM-JJ)\n\nDe vervaldatum: ");
-				string vervaldatumInput = Console.ReadLine();
-				bool vervaldatumCorrect = false;
-				if (vervaldatumChecker(vervaldatumInput))
+				// user krijgt de mogelijkheid om opniew creditcard nummer in te vullen totdat deze geldig is
+				while (!creditCardNummerCorrect)
 				{
-					vervaldatumCorrect = true;
+					Console.Write("\nHet ingevoerde CreditCardNummer is ongeldig, probeert u het nog eens\nUw CreditCardnummer: ");
+					creditCardNummerInput = Console.ReadLine();
+					if (creditCardNummerChecker(creditCardNummerInput))
+					{
+						creditCardNummerCorrect = true;
+					}
+					if (Qchecker(creditCardNummerInput))
+					{
+						Console.Clear();
+						notFinished = true;
+						return "Back";
+					}
 				}
-				if (Qchecker(vervaldatumInput))
+
+				// na een geldig creditcard nummer te hebben ingevult, moet de user de vervaldatum van de creditcard invullen.
+				if (creditCardNummerCorrect)
 				{
-					Console.Clear();
-					betaalOpties();
-				}
-				// user krijgt de mogelijkheid om steeds opniew een vervaldatum in te vullen totdat deze geldig is
-				while (!vervaldatumCorrect)
-				{
-					Console.Write("\nDe ingevoerde vervaldatum is ongeldig of uw creditcard is verlopen, probeert u het nog eens.\nLET ER OP DAT U HET FORMAAT MM/JJ OF MM-JJ GEBRUIKT (INCLUSIEF HET STREEPJE OF DE SLASH)\nDe vervaldatum van uw creditcard: ");
-					vervaldatumInput = Console.ReadLine();
+					Console.Write("\nVul hier de vervaldatum van uw CreditCard in (MM/JJ of MM-JJ)\n\nDe vervaldatum: ");
+					string vervaldatumInput = Console.ReadLine();
+					bool vervaldatumCorrect = false;
 					if (vervaldatumChecker(vervaldatumInput))
 					{
 						vervaldatumCorrect = true;
@@ -420,75 +638,98 @@ namespace Reserveringssysteem
 					if (Qchecker(vervaldatumInput))
 					{
 						Console.Clear();
-						betaalOpties();
+						notFinished = true;
+						return "Back";
 					}
-				}
-				// user moet na een geldige vervaldatum ingevult te hebben, een CVC code invullen.
-				if (vervaldatumCorrect)
-				{
-					Console.Write("\nVul hier de CVC code van uw creditcard in.\n\nDe CVC code: ");
-					string cvcInput = Console.ReadLine();
-					bool cvcCorrect = false;
-
-					// De CVC code is geldig en de betaling is gelukt. User wordt terug getsuurd naar het betaalmethode schrem
-					if (cvcChecker(cvcInput))
+					// user krijgt de mogelijkheid om steeds opniew een vervaldatum in te vullen totdat deze geldig is
+					while (!vervaldatumCorrect)
 					{
-						cvcCorrect = true;
-						Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-						Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
-						Console.ReadLine();
+						Console.Write("\nDe ingevoerde vervaldatum is ongeldig of uw creditcard is verlopen, probeert u het nog eens.\nLET ER OP DAT U HET FORMAAT MM/JJ OF MM-JJ GEBRUIKT (INCLUSIEF HET STREEPJE OF DE SLASH)\nDe vervaldatum van uw creditcard: ");
+						vervaldatumInput = Console.ReadLine();
+						if (vervaldatumChecker(vervaldatumInput))
+						{
+							vervaldatumCorrect = true;
+						}
+						if (Qchecker(vervaldatumInput))
+						{
+							Console.Clear();
+							notFinished = true;
+							return "Back";
+						}
 					}
-					if (Qchecker(cvcInput))
+					// user moet na een geldige vervaldatum ingevult te hebben, een CVC code invullen.
+					if (vervaldatumCorrect)
 					{
-						Console.Clear();
-						betaalOpties();
-					}
+						Console.Write("\nVul hier de CVC code van uw creditcard in.\n\nDe CVC code: ");
+						string cvcInput = Console.ReadLine();
+						bool cvcCorrect = false;
 
-					// CVC code is niet geldig. User krijgt nog 2 pogingen om een gelidge CVC code in te vullen
-					int pogingen = 2;
-					while (!cvcCorrect)
-					{
-						Console.Write($"\nVul hier de CVC code (3 cijfers achter de kaart) van uw creditcard in\n\nU heeft nog {pogingen--} pogingen.\nDe CVC code: ");
-						cvcInput = Console.ReadLine();
-
+						// De CVC code is geldig en de betaling is gelukt. User wordt terug getsuurd naar het betaalmethode schrem
 						if (cvcChecker(cvcInput))
 						{
 							cvcCorrect = true;
 							Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
 							Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
 							Console.ReadLine();
+							notFinished = true;
 						}
-						if (pogingen == 1)
+						if (Qchecker(cvcInput))
 						{
-							Console.Write($"\nVul hier de CVC code (3 cijfers achter de kaart) van uw creditcard in\n\nU heeft nog {pogingen--} poging.\nDe CVC code: ");
-							cvcInput = Console.ReadLine();
+							Console.Clear();
+							notFinished = true;
+							return "Back";
 						}
 
-						// User heeft te vaak geprobeert om een CVC code in te vullen. User wordt terug gestuurd naar het betaalmethode scherm
-						if (pogingen <= 0)
+						// CVC code is niet geldig. User krijgt nog 2 pogingen om een gelidge CVC code in te vullen
+						int pogingen = 2;
+						while (!cvcCorrect)
 						{
-							Console.Write("\nU heeft te vaak geprobeert uw CVC code in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-							string Qinput = Console.ReadLine();
-							bool isItQ = false;
-							if (Qchecker(Qinput))
+							Console.Write($"\nVul hier de CVC code (3 cijfers achter de kaart) van uw creditcard in\n\nU heeft nog {pogingen--} pogingen.\nDe CVC code: ");
+							cvcInput = Console.ReadLine();
+
+							if (cvcChecker(cvcInput))
 							{
-								Console.Clear();
-								betaalOpties();
+								cvcCorrect = true;
+								Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
+								Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
+								Console.ReadLine();
+								notFinished = true;
 							}
-							while (!isItQ)
+							if (pogingen == 1)
+							{
+								Console.Write($"\nVul hier de CVC code (3 cijfers achter de kaart) van uw creditcard in\n\nU heeft nog {pogingen--} poging.\nDe CVC code: ");
+								cvcInput = Console.ReadLine();
+							}
+
+							// User heeft te vaak geprobeert om een CVC code in te vullen. User wordt terug gestuurd naar het betaalmethode scherm
+							if (pogingen <= 0)
 							{
 								Console.Write("\nU heeft te vaak geprobeert uw CVC code in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-								Qinput = Console.ReadLine();
+								string Qinput = Console.ReadLine();
+								bool isItQ = false;
 								if (Qchecker(Qinput))
 								{
 									Console.Clear();
-									betaalOpties();
+									notFinished = true;
+									return "Home";
+								}
+								while (!isItQ)
+								{
+									Console.Write("\nU heeft te vaak geprobeert uw CVC code in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
+									Qinput = Console.ReadLine();
+									if (Qchecker(Qinput))
+									{
+										Console.Clear();
+										notFinished = true;
+										return "Home";
+									}
 								}
 							}
 						}
 					}
 				}
 			}
+			return "";
 		}
 		// checkt of userinput "q" of "Q" is
 		public static bool Qchecker(string s)

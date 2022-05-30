@@ -686,41 +686,58 @@ namespace Reserveringssysteem
 							}//LAAT DETAILS ZIEN EN GA DOOR NAAR BETALEN
 							if (persoonlijkeGegevensIngevuld)
 							{
-								Console.Clear();
-								ShowHeader(color, title);
-								//LAAT PLATTEGROND ZIEN MET KEUZE STOELEN
-								Console.WriteLine("   Uw persoonlijke gegevens zijn ingevuld. Uw stoelkeuze(s) zijn hieronder te zien.\n");
-								zaalvoorkeuzeFilm.printZaalMetKeuze(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen);
-								Console.WriteLine("\nEr wordt een prijsbepaling toegepast, waardoor 'optimale' stoelen duurder kunnen zijn dan niet-optimale stoelen. Hierdoor kan het zijn dat de ene ticker duurder is dan de ander.");
-								//BEPAAL PRIJZEN
-								double[] prijzenArr = new double[aantalPersonen];
-								for (int i = 0; i < aantalPersonen; i++)
-								{
-									prijzenArr[i] = zaalvoorkeuzeFilm.krijgPrijs(gekozenStoelen[i], zaal);
-									Console.WriteLine($"- {namen[i]}: \u20AC{prijzenArr[i]}");
-								}
-								Console.Write("\n");
 								string[] opties = { "Betalen", "Annuleer bestelling en ga terug" };
-								var keuze = AwaitResponse(opties);
-								if (keuze == "Betalen")
+								bool notPaid = false;
+
+								while (!notPaid)
 								{
-									//BETAALSCHERM
 									Console.Clear();
 									ShowHeader(color, title);
-									Console.WriteLine("BETALEN");
-									Betalen.betaalOpties();
-									//BETALING GELUKT
-									Console.Clear();
-									ShowHeader(color, title);
-									var username = CurrentUser.GetUsername();
-									Reservering reserveringDoorGebruiker = new Reservering(titel, aantalPersonen, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, namen, username, leeftijdArr, gekozenStoelen);
-									reserveringDoorGebruiker.addToJsonFile();
-									Console.WriteLine("De reservering is gelukt, er is een bevestiging naar uw e-mail gestuurd waar u de ticket kunt vinden.\n");
-									string[] gaterug = { "Ga terug" };
-									AwaitResponse(gaterug);
-									laatDatumEnZaalZien = false;
-									SetCurrentScreen("Home");
+
+									//LAAT PLATTEGROND ZIEN MET KEUZE STOELEN
+									Console.WriteLine("   Uw persoonlijke gegevens zijn ingevuld. Uw stoelkeuze(s) zijn hieronder te zien.\n");
+									zaalvoorkeuzeFilm.printZaalMetKeuze(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen);
+									Console.WriteLine("\nEr wordt een prijsbepaling toegepast, waardoor 'optimale' stoelen duurder kunnen zijn dan niet-optimale stoelen. Hierdoor kan het zijn dat de ene ticker duurder is dan de ander.");
+									//BEPAAL PRIJZEN
+									double[] prijzenArr = new double[aantalPersonen];
+									for (int i = 0; i < aantalPersonen; i++)
+									{
+										prijzenArr[i] = zaalvoorkeuzeFilm.krijgPrijs(gekozenStoelen[i], zaal);
+										Console.WriteLine($"- {namen[i]}: \u20AC{prijzenArr[i]}");
+									}
+									Console.Write("\n");
+
+									// --------
+
+									var keuze = AwaitResponse(opties);
+									if (keuze == "Betalen")
+									{
+										//BETAALSCHERM
+										Console.WriteLine("BETALEN");
+
+										Console.Clear();
+										ShowHeader(color, title);
+										string result = Betalen.betaalOpties();
+										if (result != "Back")
+										{
+											//BETALING GELUKT
+											Console.Clear();
+											ShowHeader(color, title);
+											var username = CurrentUser.GetUsername();
+											Reservering reserveringDoorGebruiker = new Reservering(titel, aantalPersonen, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, namen, username, leeftijdArr, gekozenStoelen);
+											reserveringDoorGebruiker.addToJsonFile();
+											Console.WriteLine("De reservering is gelukt, er is een bevestiging naar uw e-mail gestuurd waar u de ticket kunt vinden.\n");
+											string[] gaterug = { "Ga terug" };
+											AwaitResponse(gaterug);
+											laatDatumEnZaalZien = false;
+											notPaid = true;
+										}
+									} else
+                                    {
+										notPaid = true;
+									}
 								}
+								SetCurrentScreen("Home");
 							}
 						}
 					}
@@ -1026,8 +1043,11 @@ namespace Reserveringssysteem
 
 			Console.WriteLine(@"   Hier vindt u de algemene informatie over de bioscoop.
 
-   Adres:    Wijnhaven 107, Rotterdam
-   Postcode: 3011 WN
+   Adres:                           Wijnhaven 107, Rotterdam
+   Postcode:                        3011 WN
+   E-mail:                          Info@Bioscoop.nl
+   Telefoon nummer klantenservice:  (010) 123 45 67
+   Aantal zalen:					3
     
    Openingstijden:
         Maandag:      09:00 - 22:00
