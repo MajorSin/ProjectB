@@ -70,19 +70,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Omar Karimi\\.nuget\\packages\\": {}
+    "C:\\Users\\psing\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Omar Karimi\\Desktop\\Projecten\\Hogeschool Rotterdam\\C#\\ProjectB\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
+      "projectUniqueName": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
       "projectName": "Reserveringssysteem",
-      "projectPath": "C:\\Users\\Omar Karimi\\Desktop\\Projecten\\Hogeschool Rotterdam\\C#\\ProjectB\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
-      "packagesPath": "C:\\Users\\Omar Karimi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Omar Karimi\\Desktop\\Projecten\\Hogeschool Rotterdam\\C#\\ProjectB\\Reserveringssysteem\\Reserveringssysteem\\obj\\",
+      "projectPath": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
+      "packagesPath": "C:\\Users\\psing\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Omar Karimi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\psing\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -132,7 +132,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

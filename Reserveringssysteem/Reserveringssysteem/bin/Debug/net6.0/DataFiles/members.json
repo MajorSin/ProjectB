@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "username": "m",
+    "password": "t",
+    "firstName": "Prabhjot",
+    "surname": "Singh",
+    "gender": "Man",
+    "emailAddress": "email@gmail.com",
+    "birthDate": "06-10-2002"
+  }
+]
