@@ -487,6 +487,8 @@ namespace Reserveringssysteem
 						laatDatumEnZaalZien = false;
 					} else
 					{
+						//CHECK OF ER EEN RESERVERING IS DIE OVERLOOPT
+						bool dubbel = draaienClass.checkDubbeleReservering(titel, CurrentUser.GetUsername(), draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal]);
 						int aantalPersonen = 0;
 						string[] gekozenStoelen = new string[aantalPersonen];
 						for (int i = 0; i < gekozenStoelen.Length; i++)
@@ -497,247 +499,256 @@ namespace Reserveringssysteem
 						//LAAT DE DETAILS VAN DE FILMS ZIEN ZOALS TIJD EN ZAAL
 						Console.Clear();
 						ShowHeader(color, title);
-						CultureInfo netherlands = new CultureInfo("nl-NL");
-						string dayOfWeek = netherlands.DateTimeFormat.GetDayName(draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].DayOfWeek);
-						dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
-						int zaal = draaienClass.zaalWaarinFilmDraait[keuzeVoorDatumEnZaal];
-						Console.WriteLine($"U heeft gekozen voor {titel} op {dayOfWeek}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Day} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("MMM")} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Year}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Hour}:{draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("mm")}. In zaal: {zaal}\nHet zaal ziet er als volgt uit:\n\n");
-						Zaal zaalvoorkeuzeFilm = new Zaal(zaal);
-						// LAAT DE PLATTEGROND ZIEN
-						//Console.WriteLine(zaalvoorkeuzeFilm.zaal());
-						zaalvoorkeuzeFilm.printZaal(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal);
-						//KIJK OF DE AANTAL PERSONEN VALID IS
-						string aantalPersonenString = "";
-						aantalPersonen = 0;
-						bool aantalPersonenGekozen = false;
-						Console.WriteLine("Voor hoeveel personen wilt u een reservering maken? Klik op q om keuze te beïndigen en terug te gaan naar de datums");
-						Console.WriteLine("Reserveert u voor meer dan 7 personen? Bel dan naar ons voor een reservering");
-						while (!aantalPersonenGekozen)
+						if (dubbel)
 						{
-							aantalPersonenString = Console.ReadLine();
-							if (Int32.TryParse(aantalPersonenString, out aantalPersonen))
-							{
-								if (aantalPersonen <= 7 && aantalPersonen > 0)
-								{
-									aantalPersonenGekozen = true;
-								} else
-								{
-									Console.WriteLine("\nVul een geldig nummer in. Voor meer dan 7 personen kunt u naar ons bellen om een reservering te maken.");
-								}
-							} else if (aantalPersonenString == "q" || aantalPersonenString == "Q")
-							{
-								break;
-							} else
-							{
-								Console.WriteLine("\nVul een geldig nummer in.");
-							}
-						}
-						//KIES STOEL
-						if (aantalPersonenGekozen)
+							Console.WriteLine("   U heeft al een reservering dat overlapt met deze datum!\n");
+							string[] GaTerug = { "Ga terug" };
+							AwaitResponse(GaTerug);
+							laatDatumEnZaalZien = true;
+						} else
 						{
-							string[] namen = new string[aantalPersonen];
-							for (int i = 0; i < namen.Length; i++)
+							CultureInfo netherlands = new CultureInfo("nl-NL");
+							string dayOfWeek = netherlands.DateTimeFormat.GetDayName(draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].DayOfWeek);
+							dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
+							int zaal = draaienClass.zaalWaarinFilmDraait[keuzeVoorDatumEnZaal];
+							Console.WriteLine($"U heeft gekozen voor {titel} op {dayOfWeek}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Day} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("MMM")} {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Year}, {draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].Hour}:{draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal].ToString("mm")}. In zaal: {zaal}\nHet zaal ziet er als volgt uit:\n\n");
+							Zaal zaalvoorkeuzeFilm = new Zaal(zaal);
+							// LAAT DE PLATTEGROND ZIEN
+							//Console.WriteLine(zaalvoorkeuzeFilm.zaal());
+							zaalvoorkeuzeFilm.printZaal(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal);
+							//KIJK OF DE AANTAL PERSONEN VALID IS
+							string aantalPersonenString = "";
+							aantalPersonen = 0;
+							bool aantalPersonenGekozen = false;
+							Console.WriteLine("Voor hoeveel personen wilt u een reservering maken? Klik op q om keuze te beïndigen en terug te gaan naar de datums");
+							Console.WriteLine("Reserveert u voor meer dan 7 personen? Bel dan naar ons voor een reservering");
+							while (!aantalPersonenGekozen)
 							{
-								namen[i] = "";
-							}
-							int[] leeftijdArr = new int[aantalPersonen];
-							Console.WriteLine($"\nU heeft gekozen voor {aantalPersonen}. U krijgt nu de keuze om stoelen te kiezen. Indien u reserveert voor meer dan 1 persoon, dient u de meest linker stoel te kiezen. De andere personen worden naast elkaar ingedeeld. Als eerst wordt gevraagd uit welk rij u de stoel wil boeken, daarna wordt gevraagd voor de stoel.");
-							Console.WriteLine("Als u de keuze wil beïndigen, kunt u `q` invoeren.\n");
-							Console.Write("   Kies een rij: ");
-							var gekozenRij = Console.ReadLine();
-							int gekozenRijInt = 0;
-							bool rijgekozen = false;
-							bool stoelgekozen = false;
-							string gekozenStoel = "";
-							while (!rijgekozen)
-							{
-								if (Int32.TryParse(gekozenRij, out gekozenRijInt) && 0 < gekozenRijInt && gekozenRijInt <= zaalvoorkeuzeFilm.rijen)
+								aantalPersonenString = Console.ReadLine();
+								if (Int32.TryParse(aantalPersonenString, out aantalPersonen))
 								{
-									rijgekozen = true;
-									//KIJK OF RIJ VALID IS
-									Console.Write("   Kies een stoel: ");
-									gekozenStoel = Console.ReadLine();
-								} else if (gekozenRij == "q")
+									if (aantalPersonen <= 7 && aantalPersonen > 0)
+									{
+										aantalPersonenGekozen = true;
+									} else
+									{
+										Console.WriteLine("\nVul een geldig nummer in. Voor meer dan 7 personen kunt u naar ons bellen om een reservering te maken.");
+									}
+								} else if (aantalPersonenString == "q" || aantalPersonenString == "Q")
 								{
-									aantalPersonenGekozen = false;
 									break;
 								} else
 								{
-									Console.Write("   Vul een geldig rij in: ");
-									gekozenRij = Console.ReadLine();
+									Console.WriteLine("\nVul een geldig nummer in.");
 								}
 							}
-							//KIJK OF STOEL VALID IS
-							int gekozenStoelInt = 0;
-							if (rijgekozen)
+							//KIES STOEL
+							if (aantalPersonenGekozen)
 							{
-								while (!stoelgekozen)
+								string[] namen = new string[aantalPersonen];
+								for (int i = 0; i < namen.Length; i++)
 								{
-									if (Int32.TryParse(gekozenStoel, out gekozenStoelInt) && 0 < gekozenStoelInt && gekozenStoelInt <= zaalvoorkeuzeFilm.stoelen)
+									namen[i] = "";
+								}
+								int[] leeftijdArr = new int[aantalPersonen];
+								Console.WriteLine($"\nU heeft gekozen voor {aantalPersonen}. U krijgt nu de keuze om stoelen te kiezen. Indien u reserveert voor meer dan 1 persoon, dient u de meest linker stoel te kiezen. De andere personen worden naast elkaar ingedeeld. Als eerst wordt gevraagd uit welk rij u de stoel wil boeken, daarna wordt gevraagd voor de stoel.");
+								Console.WriteLine("Als u de keuze wil beïndigen, kunt u `q` invoeren.\n");
+								Console.Write("   Kies een rij: ");
+								var gekozenRij = Console.ReadLine();
+								int gekozenRijInt = 0;
+								bool rijgekozen = false;
+								bool stoelgekozen = false;
+								string gekozenStoel = "";
+								while (!rijgekozen)
+								{
+									if (Int32.TryParse(gekozenRij, out gekozenRijInt) && 0 < gekozenRijInt && gekozenRijInt <= zaalvoorkeuzeFilm.rijen)
 									{
-										stoelgekozen = true;
-									} else if (gekozenStoel == "q")
+										rijgekozen = true;
+										//KIJK OF RIJ VALID IS
+										Console.Write("   Kies een stoel: ");
+										gekozenStoel = Console.ReadLine();
+									} else if (gekozenRij == "q")
 									{
 										aantalPersonenGekozen = false;
 										break;
 									} else
 									{
-										Console.Write("   Vul een geldig stoel in: ");
-										gekozenStoel = Console.ReadLine();
+										Console.Write("   Vul een geldig rij in: ");
+										gekozenRij = Console.ReadLine();
 									}
 								}
-							}
-							Console.WriteLine("");
-							//MAAK ARRAY VAN STOELEN
-							bool stoelenGoedGekozen = false;
-							if (rijgekozen && stoelgekozen)
-							{
-								bool checkVoorStoelen = false;
-								while (!checkVoorStoelen)
+								//KIJK OF STOEL VALID IS
+								int gekozenStoelInt = 0;
+								if (rijgekozen)
 								{
-									gekozenStoelen = new string[aantalPersonen];
-									for (int i = 0; i < aantalPersonen; i++)
+									while (!stoelgekozen)
 									{
-										gekozenStoelen[i] = $"{gekozenStoelInt + i}:{gekozenRijInt}";
-									}
-									//KIJK OF DE OVERIGE STOELEN OOK IN DE ZAAL ZITTEN
-									for (int i = 0; i < aantalPersonen; i++)
-									{
-										int stoelOpReservering = int.Parse(gekozenStoelen[i].Split(':')[0]);
-										if (stoelOpReservering > zaalvoorkeuzeFilm.stoelen)
+										if (Int32.TryParse(gekozenStoel, out gekozenStoelInt) && 0 < gekozenStoelInt && gekozenStoelInt <= zaalvoorkeuzeFilm.stoelen)
 										{
-											Console.WriteLine("   Een of meerdere stoelen bevinden zich buiten de zaal. Zorg ervoor dat iedereen een stoel binnen de zaal heeft.\n");
-											string[] terug = { "Ga terug" };
-											AwaitResponse(terug);
-											checkVoorStoelen = true;
+											stoelgekozen = true;
+										} else if (gekozenStoel == "q")
+										{
+											aantalPersonenGekozen = false;
 											break;
-										}
-									}
-									//KIJK OF STOELEN AL GERESERVEERD ZIJN
-									if (!checkVoorStoelen)
-									{
-										if (zaalvoorkeuzeFilm.checkDubbeleStoelen(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen))
-										{
-											stoelenGoedGekozen = true;
-											checkVoorStoelen = true;
 										} else
 										{
-											Console.WriteLine("   Een of meerdere stoelen zijn al bezet. Zorg ervoor dat iedereen een stoel naast elkaar heeft.\n");
-											checkVoorStoelen = true;
-											string[] terug = { "Ga terug" };
-											AwaitResponse(terug);
-											break;
+											Console.Write("   Vul een geldig stoel in: ");
+											gekozenStoel = Console.ReadLine();
 										}
 									}
 								}
-							}
-							//VRAAG VOOR PERSOONLIJKE GEGEVENS
-							if (stoelenGoedGekozen)
-							{
-								string voornaam = "";
-								string[] voornaamArr = new string[aantalPersonen];
-								string achternaam = "";
-								string[] achternaamArr = new string[aantalPersonen];
-								namen = new string[aantalPersonen];
-								string leeftijdInput = "";
-								int leeftijd;
-								leeftijdArr = new int[aantalPersonen];
-								Console.Clear();
-								ShowHeader(color, title);
-								Console.WriteLine("   De stoelen zijn gekozen, op dit scherm dient u de persoonlijke gegevens in te vullen.\n");
-								for (int persoon = 0; persoon < aantalPersonen; persoon++)
+								Console.WriteLine("");
+								//MAAK ARRAY VAN STOELEN
+								bool stoelenGoedGekozen = false;
+								if (rijgekozen && stoelgekozen)
 								{
-									Console.WriteLine($"   Persoon {persoon + 1}");
-									Console.Write($"   - Voer de voornaam van persoon {persoon + 1} in: ");
-									voornaam = Console.ReadLine();
-									while (String.IsNullOrEmpty(voornaam))
+									bool checkVoorStoelen = false;
+									while (!checkVoorStoelen)
 									{
-										Console.WriteLine("     Input kan niet leeg zijn!");
-										Console.Write("     ");
-										voornaam = Console.ReadLine();
-									}
-									Console.Write($"\n   - Voer de achternaam van persoon {persoon + 1} in: ");
-									achternaam = Console.ReadLine();
-									while (String.IsNullOrEmpty(achternaam))
-									{
-										Console.WriteLine("     Input kan niet leeg zijn!");
-										Console.Write("     ");
-										achternaam = Console.ReadLine();
-									}
-									Console.Write($"\n   - Voer de leeftijd van persoon {persoon + 1} in: ");
-									leeftijdInput = Console.ReadLine();
-									while (!Int32.TryParse(leeftijdInput, out leeftijd))
-									{
-										Console.WriteLine("     Vul een geldig nummer in!");
-										Console.Write("     ");
-										leeftijdInput = Console.ReadLine();
-										if (Int32.TryParse(leeftijdInput, out leeftijd))
+										gekozenStoelen = new string[aantalPersonen];
+										for (int i = 0; i < aantalPersonen; i++)
 										{
-											break;
+											gekozenStoelen[i] = $"{gekozenStoelInt + i}:{gekozenRijInt}";
+										}
+										//KIJK OF DE OVERIGE STOELEN OOK IN DE ZAAL ZITTEN
+										for (int i = 0; i < aantalPersonen; i++)
+										{
+											int stoelOpReservering = int.Parse(gekozenStoelen[i].Split(':')[0]);
+											if (stoelOpReservering > zaalvoorkeuzeFilm.stoelen)
+											{
+												Console.WriteLine("   Een of meerdere stoelen bevinden zich buiten de zaal. Zorg ervoor dat iedereen een stoel binnen de zaal heeft.\n");
+												string[] terug = { "Ga terug" };
+												AwaitResponse(terug);
+												checkVoorStoelen = true;
+												break;
+											}
+										}
+										//KIJK OF STOELEN AL GERESERVEERD ZIJN
+										if (!checkVoorStoelen)
+										{
+											if (zaalvoorkeuzeFilm.checkDubbeleStoelen(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen))
+											{
+												stoelenGoedGekozen = true;
+												checkVoorStoelen = true;
+											} else
+											{
+												Console.WriteLine("   Een of meerdere stoelen zijn al bezet. Zorg ervoor dat iedereen een stoel naast elkaar heeft.\n");
+												checkVoorStoelen = true;
+												string[] terug = { "Ga terug" };
+												AwaitResponse(terug);
+												break;
+											}
 										}
 									}
-									voornaamArr[persoon] = voornaam;
-									achternaamArr[persoon] = achternaam;
-									namen[persoon] = voornaam + " " + achternaam;
-									leeftijdArr[persoon] = leeftijd;
-									Console.Write("\n");
 								}
-								persoonlijkeGegevensIngevuld = true;
-							}//LAAT DETAILS ZIEN EN GA DOOR NAAR BETALEN
-							if (persoonlijkeGegevensIngevuld)
-							{
-								string[] opties = { "Betalen", "Annuleer bestelling en ga terug" };
-								bool notPaid = false;
-
-								while (!notPaid)
+								//VRAAG VOOR PERSOONLIJKE GEGEVENS
+								if (stoelenGoedGekozen)
 								{
+									string voornaam = "";
+									string[] voornaamArr = new string[aantalPersonen];
+									string achternaam = "";
+									string[] achternaamArr = new string[aantalPersonen];
+									namen = new string[aantalPersonen];
+									string leeftijdInput = "";
+									int leeftijd;
+									leeftijdArr = new int[aantalPersonen];
 									Console.Clear();
 									ShowHeader(color, title);
-
-									//LAAT PLATTEGROND ZIEN MET KEUZE STOELEN
-									Console.WriteLine("   Uw persoonlijke gegevens zijn ingevuld. Uw stoelkeuze(s) zijn hieronder te zien.\n");
-									zaalvoorkeuzeFilm.printZaalMetKeuze(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen);
-									Console.WriteLine("\nEr wordt een prijsbepaling toegepast, waardoor 'optimale' stoelen duurder kunnen zijn dan niet-optimale stoelen. Hierdoor kan het zijn dat de ene ticker duurder is dan de ander.");
-									//BEPAAL PRIJZEN
-									double[] prijzenArr = new double[aantalPersonen];
-									for (int i = 0; i < aantalPersonen; i++)
+									Console.WriteLine("   De stoelen zijn gekozen, op dit scherm dient u de persoonlijke gegevens in te vullen.\n");
+									for (int persoon = 0; persoon < aantalPersonen; persoon++)
 									{
-										prijzenArr[i] = zaalvoorkeuzeFilm.krijgPrijs(gekozenStoelen[i], zaal);
-										Console.WriteLine($"- {namen[i]}: \u20AC{prijzenArr[i]}");
+										Console.WriteLine($"   Persoon {persoon + 1}");
+										Console.Write($"   - Voer de voornaam van persoon {persoon + 1} in: ");
+										voornaam = Console.ReadLine();
+										while (String.IsNullOrEmpty(voornaam))
+										{
+											Console.WriteLine("     Input kan niet leeg zijn!");
+											Console.Write("     ");
+											voornaam = Console.ReadLine();
+										}
+										Console.Write($"\n   - Voer de achternaam van persoon {persoon + 1} in: ");
+										achternaam = Console.ReadLine();
+										while (String.IsNullOrEmpty(achternaam))
+										{
+											Console.WriteLine("     Input kan niet leeg zijn!");
+											Console.Write("     ");
+											achternaam = Console.ReadLine();
+										}
+										Console.Write($"\n   - Voer de leeftijd van persoon {persoon + 1} in: ");
+										leeftijdInput = Console.ReadLine();
+										while (!Int32.TryParse(leeftijdInput, out leeftijd))
+										{
+											Console.WriteLine("     Vul een geldig nummer in!");
+											Console.Write("     ");
+											leeftijdInput = Console.ReadLine();
+											if (Int32.TryParse(leeftijdInput, out leeftijd))
+											{
+												break;
+											}
+										}
+										voornaamArr[persoon] = voornaam;
+										achternaamArr[persoon] = achternaam;
+										namen[persoon] = voornaam + " " + achternaam;
+										leeftijdArr[persoon] = leeftijd;
+										Console.Write("\n");
 									}
-									Console.Write("\n");
+									persoonlijkeGegevensIngevuld = true;
+								}//LAAT DETAILS ZIEN EN GA DOOR NAAR BETALEN
+								if (persoonlijkeGegevensIngevuld)
+								{
+									string[] opties = { "Betalen", "Annuleer bestelling en ga terug" };
+									bool notPaid = false;
 
-									// --------
-
-									var keuze = AwaitResponse(opties);
-									if (keuze == "Betalen")
+									while (!notPaid)
 									{
-										//BETAALSCHERM
-										Console.WriteLine("BETALEN");
-
 										Console.Clear();
 										ShowHeader(color, title);
-										string result = Betalen.betaalOpties();
-										if (result != "Back")
+
+										//LAAT PLATTEGROND ZIEN MET KEUZE STOELEN
+										Console.WriteLine("   Uw persoonlijke gegevens zijn ingevuld. Uw stoelkeuze(s) zijn hieronder te zien.\n");
+										zaalvoorkeuzeFilm.printZaalMetKeuze(titel, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, gekozenStoelen);
+										Console.WriteLine("\nEr wordt een prijsbepaling toegepast, waardoor 'optimale' stoelen duurder kunnen zijn dan niet-optimale stoelen. Hierdoor kan het zijn dat de ene ticker duurder is dan de ander.");
+										//BEPAAL PRIJZEN
+										double[] prijzenArr = new double[aantalPersonen];
+										for (int i = 0; i < aantalPersonen; i++)
 										{
-											//BETALING GELUKT
+											prijzenArr[i] = zaalvoorkeuzeFilm.krijgPrijs(gekozenStoelen[i], zaal);
+											Console.WriteLine($"- {namen[i]}: \u20AC{prijzenArr[i]}");
+										}
+										Console.Write("\n");
+
+										// --------
+
+										var keuze = AwaitResponse(opties);
+										if (keuze == "Betalen")
+										{
+											//BETAALSCHERM
+											Console.WriteLine("BETALEN");
+
 											Console.Clear();
 											ShowHeader(color, title);
-											var username = CurrentUser.GetUsername();
-											Reservering reserveringDoorGebruiker = new Reservering(titel, aantalPersonen, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, namen, username, leeftijdArr, gekozenStoelen);
-											reserveringDoorGebruiker.addToJsonFile();
-											Console.WriteLine("De reservering is gelukt, er is een bevestiging naar uw e-mail gestuurd waar u de ticket kunt vinden.\n");
-											string[] gaterug = { "Ga terug" };
-											AwaitResponse(gaterug);
-											laatDatumEnZaalZien = false;
+											string result = Betalen.betaalOpties();
+											if (result != "Back")
+											{
+												//BETALING GELUKT
+												Console.Clear();
+												ShowHeader(color, title);
+												var username = CurrentUser.GetUsername();
+												Reservering reserveringDoorGebruiker = new Reservering(titel, aantalPersonen, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, namen, username, leeftijdArr, gekozenStoelen);
+												reserveringDoorGebruiker.addToJsonFile();
+												Console.WriteLine("De reservering is gelukt, er is een bevestiging naar uw e-mail gestuurd waar u de ticket kunt vinden.\n");
+												string[] gaterug = { "Ga terug" };
+												AwaitResponse(gaterug);
+												laatDatumEnZaalZien = false;
+												notPaid = true;
+											}
+										} else
+										{
 											notPaid = true;
 										}
-									} else
-                                    {
-										notPaid = true;
 									}
+									SetCurrentScreen("Home");
 								}
-								SetCurrentScreen("Home");
 							}
 						}
 					}

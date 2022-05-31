@@ -151,5 +151,64 @@ namespace Reserveringssysteem
 		{
 			return draaienFilmsList;
 		}
+		//KIJKT OF RESERVERING OVERLOOPT MET EEN ANDER RESERVERING
+		public bool checkDubbeleReservering(string titel, string username, DateTime datumwanneerFilmDraait)
+		{
+			int? looptijd = 0;
+			//KRIJG LOOPTIJD
+			FilmController filmClass = new FilmController();
+			FilmController.SetFilms();
+			var films = filmClass.GetFilms();
+			foreach(Film film in films)
+			{
+				if(film.Titel == titel)
+				{
+					looptijd = film.Looptijd;
+					break;
+				}
+			}
+			looptijd = looptijd!=null ? looptijd : 0;
+			DateTime datumwanneerfilmeindigt = datumwanneerFilmDraait.AddMinutes((double)looptijd);
+			//KIJK OF DATUM OVERLAPT
+			string jsonReserveringen = File.ReadAllText("DataFiles/reserveringen.json", Encoding.GetEncoding("utf-8"));
+			var reserveringen = JsonConvert.DeserializeObject<List<reserveringenJson>>(jsonReserveringen);
+			foreach(reserveringenJson reservering in reserveringen)
+			{
+				if(reservering.ReserveringDoor == username)
+				{
+					DateTime datumOpReservering = DateTime.Parse(reservering.datum);
+					//LOOP DOOR DE FILM TITEL VAN RESERVERING OM DIT OOK TE CHECKEN
+					int? loopTijdOpReservering = 0;
+					foreach (Film film in films)
+					{
+						if (film.Titel == reservering.titel)
+						{
+							loopTijdOpReservering = film.Looptijd;
+							break;
+						}
+					}
+					DateTime datumEindeOpReservering = datumOpReservering.AddMinutes((double)loopTijdOpReservering);
+					//CHECK CONDITIES
+					if ((datumwanneerFilmDraait <= datumOpReservering && datumOpReservering <= datumwanneerfilmeindigt) || (datumOpReservering <= datumwanneerFilmDraait && datumwanneerFilmDraait <=datumEindeOpReservering))
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+		
+		public class reserveringenJson
+		{
+			public string titel { get; set; }
+			public int aantalPersonen { get; set; }
+			public string datum { get; set; }
+			public int zaal { get; set; }
+			public List<string> namen { get; set; }
+			public string ReserveringDoor { get; set; }
+			public List<int> leeftijden { get; set; }
+			public string[] stoelen { get; set; }
+			public string randomCode { get; set; }
+		}
 	}
 }
