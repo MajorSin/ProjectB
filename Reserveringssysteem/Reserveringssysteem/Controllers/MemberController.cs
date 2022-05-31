@@ -22,7 +22,8 @@ namespace Reserveringssysteem
 
 			Console.ForegroundColor = ConsoleColor.DarkYellow;
 			Console.WriteLine("\n   Typ 'q' als u terug wilt gaan.");
-			Console.ResetColor();
+        	Console.BackgroundColor = ConsoleColor.White;
+        	Console.ForegroundColor = ConsoleColor.Black;
 
 			string questionOne = "\n   [1] Wat is uw naam?";
 			Console.WriteLine(questionOne);
@@ -73,7 +74,9 @@ namespace Reserveringssysteem
 
 							Console.ForegroundColor = ConsoleColor.DarkYellow;
 							Console.WriteLine("\n   Typ 'q' als u terug wilt gaan.");
-							Console.ResetColor();
+							
+        					Console.BackgroundColor = ConsoleColor.White;
+        					Console.ForegroundColor = ConsoleColor.Black;
 
 							string questionFive = "\n   [5] Wat is uw e-mailaddres?";
 							Console.WriteLine(questionFive);

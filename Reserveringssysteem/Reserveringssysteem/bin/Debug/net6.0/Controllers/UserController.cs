@@ -16,7 +16,8 @@ namespace Reserveringssysteem
 		{
 			Console.ForegroundColor = ConsoleColor.DarkYellow;
 			Console.WriteLine("   Typ 'q' als u terug wilt gaan.\n");
-			Console.ResetColor();
+        	Console.BackgroundColor = ConsoleColor.White;
+        	Console.ForegroundColor = ConsoleColor.Black;
 
 			string userCredential = "   Gebruikersnaam:";
 			Console.WriteLine(userCredential);
@@ -113,9 +114,11 @@ namespace Reserveringssysteem
 
 			if (value == 0)
 			{
-				Console.BackgroundColor = ConsoleColor.White;
+				Console.BackgroundColor = ConsoleColor.Black;
 				Console.WriteLine("                                                                 \n");
-				Console.ResetColor();
+				
+        		Console.BackgroundColor = ConsoleColor.White;
+        		Console.ForegroundColor = ConsoleColor.Black;
 			} else
 			{
 				Console.CursorLeft = bar.Length;
@@ -124,7 +127,9 @@ namespace Reserveringssysteem
 				{
 					Console.Write("             ");
 				}
-				Console.ResetColor();
+				
+        		Console.BackgroundColor = ConsoleColor.White;
+        		Console.ForegroundColor = ConsoleColor.Black;
 			}
 
 			Console.SetCursorPosition(cursorPosition.Item1, cursorPosition.Item2 + 1);
@@ -135,9 +140,10 @@ namespace Reserveringssysteem
 		{
 			Console.CursorTop--;
 			Console.CursorLeft = 3;
-			Console.ForegroundColor = ConsoleColor.Black;
+			Console.ForegroundColor = ConsoleColor.White;
 			Console.Write(value);
-			Console.ResetColor();
+        	Console.BackgroundColor = ConsoleColor.White;
+        	Console.ForegroundColor = ConsoleColor.Black;
 			Console.CursorLeft = 0;
 		}
 
@@ -149,7 +155,8 @@ namespace Reserveringssysteem
 			Console.CursorLeft = question.Length;
 			Console.ForegroundColor = ConsoleColor.Red;
 			Console.Write(error);
-			Console.ResetColor();
+        	Console.BackgroundColor = ConsoleColor.White;
+        	Console.ForegroundColor = ConsoleColor.Black;
 			Console.CursorTop++;
 			Console.CursorLeft = 0;
 		}
@@ -159,9 +166,10 @@ namespace Reserveringssysteem
 		{
 			Console.CursorTop = Console.CursorTop - 2;
 			Console.CursorLeft = question.Length + 1;
-			Console.ForegroundColor = ConsoleColor.Black;
+			Console.ForegroundColor = ConsoleColor.White;
 			Console.Write(error);
-			Console.ResetColor();
+        	Console.BackgroundColor = ConsoleColor.White;
+        	Console.ForegroundColor = ConsoleColor.Black;
 			Console.CursorTop = Console.CursorTop + 2;
 			Console.CursorLeft = 0;
 		}

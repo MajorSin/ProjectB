@@ -15,11 +15,12 @@ namespace Reserveringssysteem
 
 		public void ShowFilms(List<Film> films)
 		{
-			Console.ForegroundColor = ConsoleColor.White;
+			Console.ForegroundColor = ConsoleColor.Black;
 			string fields = String.Format("   {0,-15} {1,-30} {2,20}", "Id", "Titel", "Jaar");
 			Console.WriteLine(fields);
 			Console.WriteLine("   ----------------------------------------------------------------------");
-			Console.ResetColor();
+        	Console.BackgroundColor = ConsoleColor.White;
+        	Console.ForegroundColor = ConsoleColor.Black;
 
 			for (int i = 0; i < films.Count; i++)
 			{
@@ -55,7 +56,8 @@ namespace Reserveringssysteem
 				{
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine(error);
-					Console.ResetColor();
+        			Console.BackgroundColor = ConsoleColor.White;
+        			Console.ForegroundColor = ConsoleColor.Black;
 					error = "";
 				}
 
@@ -296,12 +298,13 @@ namespace Reserveringssysteem
 					{
 						Console.BackgroundColor = ConsoleColor.DarkYellow;
 						Console.Write(" ");
-						Console.ResetColor();
+        				Console.BackgroundColor = ConsoleColor.White;
+        				Console.ForegroundColor = ConsoleColor.Black;
 						Console.ForegroundColor = ConsoleColor.DarkYellow;
 					}
 					else
 					{
-						Console.ForegroundColor = ConsoleColor.White;
+						Console.ForegroundColor = ConsoleColor.Black;
 						Console.Write(" ");
 					}
 					if (selected.Contains(i))
@@ -317,10 +320,11 @@ namespace Reserveringssysteem
 					else
 					{
 						Console.Write("  {0}", options[i]);
-						Console.ForegroundColor = ConsoleColor.Black;
+						Console.ForegroundColor = ConsoleColor.White;
 						Console.WriteLine(" - TOEGEVOEGD");
 					}
-					Console.ResetColor();
+        			Console.BackgroundColor = ConsoleColor.White;
+        			Console.ForegroundColor = ConsoleColor.Black;
 				}
 				switch (Console.ReadKey(true).Key)
 				{

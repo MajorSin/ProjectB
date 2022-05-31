@@ -60,7 +60,8 @@ namespace Reserveringssysteem
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine(error);
-                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
                     }
 
                     Console.WriteLine($"   Kies een datum voor de film: (Voorbeeld: {dateTime.ToString("dd-MM-yyyy")})");
@@ -104,7 +105,8 @@ namespace Reserveringssysteem
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine(error);
-                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
                     }
 
                     Console.WriteLine($"   Kies een zaal voor de film: 1) Zaal 1 | 2) Zaal 2 | 3) Zaal 3");
@@ -140,7 +142,8 @@ namespace Reserveringssysteem
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine(error);
-                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
                     }
 
                     Console.WriteLine($"   Kies een tijd voor de film: (Voorbeeld: 18:30)");
@@ -290,7 +293,8 @@ namespace Reserveringssysteem
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(error);
-                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
                     error = "";
                 }
 

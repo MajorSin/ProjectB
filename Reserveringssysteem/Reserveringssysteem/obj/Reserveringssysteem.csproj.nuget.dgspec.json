@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj": {}
+    "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Light mode\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj": {
+    "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Light mode\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
+        "projectUniqueName": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Light mode\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
         "projectName": "Reserveringssysteem",
-        "projectPath": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
+        "projectPath": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Light mode\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem.csproj",
         "packagesPath": "C:\\Users\\psing\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Reserveringssysteem\\Reserveringssysteem\\Reserveringssysteem\\obj\\",
+        "outputPath": "C:\\Users\\psing\\OneDrive\\Documenten\\HR\\Projects\\Project B\\Code\\Light mode\\Reserveringssysteem\\Reserveringssysteem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\psing\\AppData\\Roaming\\NuGet\\NuGet.Config",

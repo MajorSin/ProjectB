@@ -58,7 +58,8 @@ namespace Reserveringssysteem
 			Console.ForegroundColor = color;
 			Console.WriteLine(@"{0}", title);
 			Console.BackgroundColor = color;
-			Console.ResetColor();
+        	Console.BackgroundColor = ConsoleColor.White;
+        	Console.ForegroundColor = ConsoleColor.Black;
 		}
 
 		// Keuze van de gebruiker vaststellen.
@@ -76,7 +77,8 @@ namespace Reserveringssysteem
 					{
 						Console.BackgroundColor = ConsoleColor.DarkYellow;
 						Console.Write(" ");
-						Console.ResetColor();
+        				Console.BackgroundColor = ConsoleColor.White;
+        				Console.ForegroundColor = ConsoleColor.Black;
 						Console.ForegroundColor = ConsoleColor.DarkYellow;
 					} else
 					{
@@ -86,12 +88,13 @@ namespace Reserveringssysteem
 							Console.Write(" ");
 						} else
 						{
-							Console.ForegroundColor = ConsoleColor.White;
+							Console.ForegroundColor = ConsoleColor.Black;
 							Console.Write(" ");
 						}
 					}
 					Console.WriteLine("  {0}", options[i]);
-					Console.ResetColor();
+        			Console.BackgroundColor = ConsoleColor.White;
+        			Console.ForegroundColor = ConsoleColor.Black;
 				}
 				switch (Console.ReadKey(true).Key)
 				{
@@ -136,7 +139,8 @@ namespace Reserveringssysteem
 					{
 						Console.BackgroundColor = ConsoleColor.DarkYellow;
 						Console.Write(" ");
-						Console.ResetColor();
+        				Console.BackgroundColor = ConsoleColor.White;
+        				Console.ForegroundColor = ConsoleColor.Black;
 						Console.ForegroundColor = ConsoleColor.DarkYellow;
 					} else
 					{
@@ -146,12 +150,13 @@ namespace Reserveringssysteem
 							Console.Write(" ");
 						} else
 						{
-							Console.ForegroundColor = ConsoleColor.White;
+							Console.ForegroundColor = ConsoleColor.Black;
 							Console.Write(" ");
 						}
 					}
 					Console.WriteLine("  {0}", options[i]);
-					Console.ResetColor();
+        			Console.BackgroundColor = ConsoleColor.White;
+        			Console.ForegroundColor = ConsoleColor.Black;
 				}
 				switch (Console.ReadKey(true).Key)
 				{
@@ -186,7 +191,7 @@ namespace Reserveringssysteem
 		// Authorisatie scherm.
 		private void DisplayAuthorization()
 		{
-			ConsoleColor color = ConsoleColor.White;
+			ConsoleColor color = ConsoleColor.Black;
 			string title = @"
                __________
             ///^^^^{}^^^^\\\
@@ -835,9 +840,10 @@ namespace Reserveringssysteem
 				{
 					if (films.Count > 0)
 					{
-						Console.ForegroundColor = ConsoleColor.White;
+						Console.ForegroundColor = ConsoleColor.Black;
 						Console.WriteLine("   Uw zoekopdracht heeft de volgende resultaat(en) opgeleverd:\n");
-						Console.ResetColor();
+        				Console.BackgroundColor = ConsoleColor.White;
+        				Console.ForegroundColor = ConsoleColor.Black;
 						filmController.ShowFilms(films);
 
 						if (CurrentUser is Admin)
@@ -1223,9 +1229,10 @@ namespace Reserveringssysteem
 							Console.Clear();
 							ShowHeader(color, title);
 
-							Console.ForegroundColor = ConsoleColor.White;
+							Console.ForegroundColor = ConsoleColor.Black;
 							Console.WriteLine("   Uw zoekopdracht heeft de volgende resultaat(en) opgeleverd:\n");
-							Console.ResetColor();
+        					Console.BackgroundColor = ConsoleColor.White;
+        					Console.ForegroundColor = ConsoleColor.Black;
 							filmController.ShowFilms(films);
 
 							options = new string[]
