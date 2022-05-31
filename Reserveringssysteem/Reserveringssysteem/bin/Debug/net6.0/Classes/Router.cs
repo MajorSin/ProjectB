@@ -551,7 +551,7 @@ namespace Reserveringssysteem
 									namen[i] = "";
 								}
 								int[] leeftijdArr = new int[aantalPersonen];
-								Console.WriteLine($"\nU heeft gekozen voor {aantalPersonen}. U krijgt nu de keuze om stoelen te kiezen. Indien u reserveert voor meer dan 1 persoon, dient u de meest linker stoel te kiezen. De andere personen worden naast elkaar ingedeeld. Als eerst wordt gevraagd uit welk rij u de stoel wil boeken, daarna wordt gevraagd voor de stoel.");
+								Console.WriteLine($"\nU heeft gekozen voor {aantalPersonen}. U krijgt nu de keuze om stoelen te kiezen. Indien u reserveert voor meer dan 1 persoon, dient u de meest linker stoel te kiezen. De andere personen worden naast elkaar ingedeeld. Als eerst wordt gevraagd uit welk rij u de stoel wil boeken, daarna wordt gevraagd voor de stoel. Een rij loopt van boven naar beneden, een stoel is van links naar rechts.");
 								Console.WriteLine("Als u de keuze wil beïndigen, kunt u `q` invoeren.\n");
 								Console.Write("   Kies een rij: ");
 								var gekozenRij = Console.ReadLine();

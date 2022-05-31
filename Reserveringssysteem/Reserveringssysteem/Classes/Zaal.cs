@@ -105,7 +105,7 @@ namespace Reserveringssysteem.Classes
 							Console.Write(" " + (i + 1) + " ");
 						}
 					}
-					Console.Write("\n");
+					Console.Write("  → STOEL\n");
 				}
 				if (rij < 9)
 				{
@@ -117,6 +117,7 @@ namespace Reserveringssysteem.Classes
 				//PRINT DE STOEL
 				for (int stoel = 0; stoel < plattegronden?[zaalIndex].Stoelen; stoel++)
 				{
+					string stoelDesign = "[ ]";
 					//KIJK OF STOEL IS GERESERVEERD
 					foreach (reserveringenJson reservering in reserveringen)
 					{
@@ -128,17 +129,19 @@ namespace Reserveringssysteem.Classes
 								int rijOpAnderReservering = int.Parse(reservering.stoelen[reserveringAantal].Split(':')[1]);
 								if (stoelOpAnderReservering == stoel + 1 && rijOpAnderReservering == rij + 1)
 								{
+									stoelDesign = "[X]";
 									Console.ForegroundColor = ConsoleColor.Red;
 								}
 							}
 						}
 					}
-					Console.Write("[ ]");
+					Console.Write(stoelDesign);
 					Console.ResetColor();
 				}
 				Console.Write("\n");
 			}
-			Console.Write(plattegronden?[zaalIndex].Scherm + "\n");
+			Console.WriteLine(" ↑\nRIJ");
+			Console.WriteLine(plattegronden?[zaalIndex].Scherm + "\n");
 		}
 		//CHECK DE RESERVERINGEN.JSON EN KIJK OF ARRAY VOORKOMT MET ZELFDE TITEL & DATUM
 		public bool checkDubbeleStoelen(string titel, DateTime datum, int zaal, string[] reserveringsStoelen)
@@ -203,6 +206,7 @@ namespace Reserveringssysteem.Classes
 				//PRINT DE STOEL
 				for (int stoel = 0; stoel < plattegronden?[zaalIndex].Stoelen; stoel++)
 				{
+					string stoelDesign = "[ ]";
 					//KIJK OF STOEL IS GERESERVEERD
 					foreach (reserveringenJson reservering in reserveringen)
 					{
@@ -215,6 +219,7 @@ namespace Reserveringssysteem.Classes
 								if (stoelOpAnderReservering == stoel + 1 && rijOpAnderReservering == rij + 1)
 								{
 									Console.ForegroundColor = ConsoleColor.Red;
+									stoelDesign = "[X]";
 								}
 							}
 						}
@@ -227,9 +232,10 @@ namespace Reserveringssysteem.Classes
 						if (stoel + 1 == keuzeStoel && rij + 1 == keuzeRij)
 						{
 							Console.ForegroundColor = ConsoleColor.Blue;
+							stoelDesign = "[*]";
 						}
 					}
-					Console.Write("[ ]");
+					Console.Write(stoelDesign);
 					Console.ResetColor();
 				}
 				Console.Write("\n");
