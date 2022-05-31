@@ -13,6 +13,7 @@ namespace Reserveringssysteem
 		static void Main(string[] args)
 		{
 			Console.OutputEncoding = System.Text.Encoding.UTF8;
+			//LIGHT MODE
 			Prepare();
 			Router router = new();
 			while (true)
