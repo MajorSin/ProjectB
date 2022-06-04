@@ -1058,7 +1058,7 @@ namespace Reserveringssysteem
    Postcode:                        3011 WN
    E-mail:                          Info@Bioscoop.nl
    Telefoon nummer klantenservice:  (010) 123 45 67
-   Aantal zalen:					3
+   Aantal zalen:		    3
     
    Openingstijden:
         Maandag:      09:00 - 22:00
