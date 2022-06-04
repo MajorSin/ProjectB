@@ -417,9 +417,6 @@ namespace Reserveringssysteem
 					if (wachtwoordChecker(wachtwoordInput))
 					{
 						wachtwoordCorrect = true;
-						Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-						Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
-						Console.ReadLine();
 						notFinished = true;
 					}
 
@@ -427,44 +424,54 @@ namespace Reserveringssysteem
 					int pogingen = 2;
 					while (!wachtwoordCorrect)
 					{
-						Console.Write($"\nVul hier uw wachtwoord van uw bank account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER\n\nu heeft nog {pogingen--} pogingen\nUw wachtwoord: ");
+						Console.Write($"\n\nWACHTWOORD INCORRECT\n\nVul hier uw wachtwoord van uw bank account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER\n\nu heeft nog {pogingen} pogingen\nUw wachtwoord: ");
 						wachtwoordInput = Console.ReadLine();
 
 						if (wachtwoordChecker(wachtwoordInput))
 						{
 							wachtwoordCorrect = true;
-							Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-							Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
-							Console.ReadLine();
 							notFinished = true;
 						}
-						if (pogingen == 1)
+						else
 						{
-							Console.Write($"\nVul hier uw wachtwoord van uw bank account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nu heeft nog {pogingen--} poging\nUw wachtwoord: ");
-							wachtwoordInput = Console.ReadLine();
-						}
-
-						// user heeft te vaak geprobeert om wachtwoord in te vullen en word terug gestuurd naar het betaalmethode scherm
-						if (pogingen <= 0)
-						{
-							Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-							string Qinput = Console.ReadLine();
-							bool isItQ = false;
-							if (Qchecker(Qinput))
+							pogingen--;
+							if (pogingen == 1)
 							{
-								Console.Clear();
-								notFinished = true;
-								return "Home";
+								Console.Write($"\n\nWACHTWOORD INCORRECT\n\nVul hier uw wachtwoord van uw bank account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nu heeft nog {pogingen} poging\nUw wachtwoord: ");
+								wachtwoordInput = Console.ReadLine();
+								if (wachtwoordChecker(wachtwoordInput))
+                                {
+									wachtwoordCorrect = true;
+									notFinished = true;
+								}
+                                else
+                                {
+									pogingen--;
+                                }
 							}
-							while (!isItQ)
+
+							// user heeft te vaak geprobeert om wachtwoord in te vullen en word terug gestuurd naar het betaalmethode scherm
+							if (pogingen <= 0)
 							{
 								Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-								Qinput = Console.ReadLine();
+								string Qinput = Console.ReadLine();
+								bool isItQ = false;
 								if (Qchecker(Qinput))
 								{
 									Console.Clear();
 									notFinished = true;
 									return "Home";
+								}
+								while (!isItQ)
+								{
+									Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
+									Qinput = Console.ReadLine();
+									if (Qchecker(Qinput))
+									{
+										Console.Clear();
+										notFinished = true;
+										return "Home";
+									}
 								}
 							}
 						}
@@ -524,55 +531,61 @@ namespace Reserveringssysteem
 					// De betaling is gelukt als het wachtwoord klopt. User wordt terug gestuurd naar het betaalmethode scherm
 					if (wachtwoordChecker(wachtwoordInput))
 					{
-
 						wachtwoordCorrect = true;
-						Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-						Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
-						Console.ReadLine();
 						notFinished = true;
 					}
 					// wachtwoord is ongeldig. User krijgt nog 2 pogingen om wachtwoord in te vullen
 					int pogingen = 2;
 					while (!wachtwoordCorrect)
 					{
-						Console.Write($"\nVul hier uw wachtwoord van uw PayPal account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER\n\nu heeft nog {pogingen--} pogingen\nUw wachtwoord: ");
+						Console.Write($"\n\nWACHTWOORD INCORRECT\n\nVul hier uw wachtwoord van uw PayPal account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER\n\nu heeft nog {pogingen} pogingen\nUw wachtwoord: ");
 						wachtwoordInput = Console.ReadLine();
 
 						if (wachtwoordChecker(wachtwoordInput))
 						{
-
 							wachtwoordCorrect = true;
-							Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-							Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
-							Console.ReadLine();
 							notFinished = true;
 						}
-						if (pogingen == 1)
+						else
 						{
-							Console.Write($"\nVul hier uw wachtwoord van uw PayPal account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nu heeft nog {pogingen--} poging\nUw wachtwoord: ");
-							wachtwoordInput = Console.ReadLine();
-						}
-						// user heeft te vaak geprobeert om wachtwoord in te vullen en word terug gestuurd naar het betaalmethode scherm
-						if (pogingen <= 0)
-						{
-							Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-							string Qinput = Console.ReadLine();
-							bool isItQ = false;
-							if (Qchecker(Qinput))
+							pogingen--;
+							if (pogingen == 1)
 							{
-								Console.Clear();
-								notFinished = true;
-								return "Back";
+								Console.Write($"\n\nWACHTWOORD INCORRECT\n\nVul hier uw wachtwoord van uw PayPal account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nu heeft nog {pogingen} poging\nUw wachtwoord: ");
+								wachtwoordInput = Console.ReadLine();
+								if (wachtwoordChecker(wachtwoordInput))
+								{
+									wachtwoordCorrect = true;
+									notFinished = true;
+								}
+								else
+								{
+									pogingen--;
+								}
 							}
-							while (!isItQ)
+
+							// user heeft te vaak geprobeert om wachtwoord in te vullen en word terug gestuurd naar het betaalmethode scherm
+							if (pogingen <= 0)
 							{
 								Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-								Qinput = Console.ReadLine();
+								string Qinput = Console.ReadLine();
+								bool isItQ = false;
 								if (Qchecker(Qinput))
 								{
 									Console.Clear();
 									notFinished = true;
 									return "Back";
+								}
+								while (!isItQ)
+								{
+									Console.Write("\nU heeft te vaak geprobeert uw wachtwoord in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
+									Qinput = Console.ReadLine();
+									if (Qchecker(Qinput))
+									{
+										Console.Clear();
+										notFinished = true;
+										return "Back";
+									}
 								}
 							}
 						}
@@ -668,9 +681,6 @@ namespace Reserveringssysteem
 						if (cvcChecker(cvcInput))
 						{
 							cvcCorrect = true;
-							Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-							Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
-							Console.ReadLine();
 							notFinished = true;
 						}
 						if (Qchecker(cvcInput))
@@ -684,44 +694,54 @@ namespace Reserveringssysteem
 						int pogingen = 2;
 						while (!cvcCorrect)
 						{
-							Console.Write($"\nVul hier de CVC code (3 cijfers achter de kaart) van uw creditcard in\n\nU heeft nog {pogingen--} pogingen.\nDe CVC code: ");
+							Console.Write($"\n\nCVC CODE INCORRECT\n\nVul hier uw CVC code van uew creditcard in\n\nu heeft nog {pogingen} pogingen\nDe CVC code: ");
 							cvcInput = Console.ReadLine();
 
 							if (cvcChecker(cvcInput))
 							{
 								cvcCorrect = true;
-								Console.WriteLine("\nDe betaling is gelukt!\nDank u wel en geniet van uw film!");
-								Console.Write("\nU kunt op 'ENTER' drukken om terug te keren naar het hoofdscherm: ");
-								Console.ReadLine();
 								notFinished = true;
 							}
-							if (pogingen == 1)
+							else
 							{
-								Console.Write($"\nVul hier de CVC code (3 cijfers achter de kaart) van uw creditcard in\n\nU heeft nog {pogingen--} poging.\nDe CVC code: ");
-								cvcInput = Console.ReadLine();
-							}
-
-							// User heeft te vaak geprobeert om een CVC code in te vullen. User wordt terug gestuurd naar het betaalmethode scherm
-							if (pogingen <= 0)
-							{
-								Console.Write("\nU heeft te vaak geprobeert uw CVC code in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-								string Qinput = Console.ReadLine();
-								bool isItQ = false;
-								if (Qchecker(Qinput))
+								pogingen--;
+								if (pogingen == 1)
 								{
-									Console.Clear();
-									notFinished = true;
-									return "Home";
+									Console.Write($"\n\nCVC CODE INCORRECT\n\nVul hier uw CVC code van uew creditcard in\n\nu heeft nog {pogingen} pogingen\nDe CVC code: ");
+									cvcInput = Console.ReadLine();
+									if (cvcChecker(cvcInput))
+									{
+										cvcCorrect = true;
+										notFinished = true;
+									}
+									else
+									{
+										pogingen--;
+									}
 								}
-								while (!isItQ)
+
+								// user heeft te vaak geprobeert om CVC code in te vullen en word terug gestuurd naar het betaalmethode scherm
+								if (pogingen <= 0)
 								{
 									Console.Write("\nU heeft te vaak geprobeert uw CVC code in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
-									Qinput = Console.ReadLine();
+									string Qinput = Console.ReadLine();
+									bool isItQ = false;
 									if (Qchecker(Qinput))
 									{
 										Console.Clear();
 										notFinished = true;
-										return "Home";
+										return "Back";
+									}
+									while (!isItQ)
+									{
+										Console.Write("\nU heeft te vaak geprobeert uw CVC code in te vullen.\nVoor veiligheidsredenen moeten wij u terug sturen naar het hoofdmenu.\nDruk op \"Q\" om terug te keren: ");
+										Qinput = Console.ReadLine();
+										if (Qchecker(Qinput))
+										{
+											Console.Clear();
+											notFinished = true;
+											return "Back";
+										}
 									}
 								}
 							}
