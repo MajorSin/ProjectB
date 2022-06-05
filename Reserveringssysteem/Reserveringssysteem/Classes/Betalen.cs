@@ -442,16 +442,14 @@ namespace Reserveringssysteem
 								Console.Write($"\n\nWACHTWOORD INCORRECT\n\nVul hier uw wachtwoord van uw bank account in\nLET OP: HET WACHTWOORD MOET MINSTENS 12 KARAKTERS LANG ZIJN, 1 SPECIAAL KARAKTER(!@#$%^&*), 1 HOOFDLETTER\nEN 1 CIJFER BEVATTEN\n\nu heeft nog {pogingen} poging\nUw wachtwoord: ");
 								wachtwoordInput = Console.ReadLine();
 								if (wachtwoordChecker(wachtwoordInput))
-								{
-									wachtwoordCorrect = true;
+                {
+                  wachtwoordCorrect = true;
 									notFinished = true;
-								}
-								else
-								{
-									pogingen--;
-								}
-							}
-
+								} else
+                {
+                  pogingen--;
+                }
+              }
 							// user heeft te vaak geprobeert om wachtwoord in te vullen en word terug gestuurd naar het betaalmethode scherm
 							if (pogingen <= 0)
 							{
