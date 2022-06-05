@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using static Reserveringssysteem.UserController;
+using static Reserveringssysteem.Reservering;
 
 namespace Reserveringssysteem
 {
@@ -44,6 +45,9 @@ namespace Reserveringssysteem
 					break;
 				case "Draaiende films":
 					DisplayDraaiendeFilms();
+					break;
+				case "Geschiedenis Bekijken":
+					DisplayGeschiedenis();
 					break;
 				default:
 					SetCurrentScreen("Authorizatie");
@@ -355,13 +359,27 @@ namespace Reserveringssysteem
 
 			Console.WriteLine("   Gebruik pijltjestoetsen ↑ en ↓ om te navigeren\n   en druk enter om een optie te kiezen.\n");
 
-			string[] options = new string[] {
-				"Reserveren",
-				"Films",
-				"Eten & Drinken",
-				"Informatie",
-				"Terug"
-			};
+			string[] options = new string[0];
+
+			if (CurrentUser is Member)
+			{
+				options = new string[] {
+					"Reserveren",
+					"Films",
+					"Eten & Drinken",
+					"Informatie",
+					"Geschiedenis Bekijken",
+					"Terug"
+				};
+			} else {
+				options = new string[] {
+					"Reserveren",
+					"Films",
+					"Eten & Drinken",
+					"Informatie",
+					"Terug"
+				};
+			}
 
 			string choice = AwaitResponse(options);
 
@@ -734,9 +752,10 @@ namespace Reserveringssysteem
 												Console.Clear();
 												ShowHeader(color, title);
 												var username = CurrentUser.GetUsername();
-												Reservering reserveringDoorGebruiker = new Reservering(titel, aantalPersonen, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, namen, username, leeftijdArr, gekozenStoelen);
+												List<Reservering.reserveringenJson> reserveringen = Reservering.GetReserveringen();
+												Reservering reserveringDoorGebruiker = new Reservering(reserveringen.Count + 1, titel, aantalPersonen, draaienClass.datumsDraaienArray[keuzeVoorDatumEnZaal], zaal, namen, username, leeftijdArr, gekozenStoelen);
 												reserveringDoorGebruiker.addToJsonFile();
-												Console.WriteLine("De reservering is gelukt, er is een bevestiging naar uw e-mail gestuurd waar u de ticket kunt vinden.\n");
+												Console.WriteLine("   De reservering is gelukt, er is een bevestiging naar uw e-mail gestuurd waar u de ticket kunt vinden.\n");
 												string[] gaterug = { "Ga terug" };
 												AwaitResponse(gaterug);
 												laatDatumEnZaalZien = false;
@@ -1285,6 +1304,81 @@ namespace Reserveringssysteem
 			else
 			{
 				SetCurrentScreen("Admin");
+			}
+		}
+
+		// Laat de geschiedenis van de gebruiker zien.
+		public void DisplayGeschiedenis()
+        {
+			ConsoleColor color = ConsoleColor.DarkCyan;
+			string title = @"
+     _____                       _       _              _                  _       
+    / ____|                     | |     (_)            | |                (_)      
+   | |  __    ___   ___    ___  | |__    _    ___    __| |   ___   _ __    _   ___ 
+   | | |_ |  / _ \ / __|  / __| | '_ \  | |  / _ \  / _` |  / _ \ | '_ \  | | / __|
+   | |__| | |  __/ \__ \ | (__  | | | | | | |  __/ | (_| | |  __/ | | | | | | \__ \
+    \_____|  \___| |___/  \___| |_| |_| |_|  \___|  \__,_|  \___| |_| |_| |_| |___/
+                                                                                                                                                   
+			";
+			ShowHeader(color, title);
+
+			Member user = (Member)CurrentUser;
+			List<reserveringenJson> reservations = GetReserveringen();
+
+			bool noHistory = false;
+			List<string> movieNames = new List<string>();
+			List<reserveringenJson> mijnReserveringen = new List<reserveringenJson>();
+
+			for (int i = 0; i < reservations.Count; i++)
+            {
+				if (reservations[i].ReserveringDoor == user.GetUsername())
+                {
+					mijnReserveringen.Add(reservations[i]);
+					movieNames.Add(reservations[i].titel);
+				}
+            }
+
+			if (movieNames.Count == 0)
+            {
+				noHistory = true;
+            }
+
+			if (noHistory)
+            {
+                Console.WriteLine("   U heeft nog geen films gereserveerd.\n");
+			}
+
+			movieNames.Add("Terug");
+
+			string[] options = movieNames.ToArray();
+
+			int choice = AwaitResponseInIndex(options);
+
+			if (options[choice] != "Terug")
+			{
+				Console.Clear();
+				ShowHeader(color, title);
+
+                Console.WriteLine(mijnReserveringen[choice]);
+
+				options = new string[]
+				{
+					"Terug"
+				};
+
+				string choiceMade = AwaitResponse(options);
+			}
+			else
+			{
+
+				if (CurrentUser is Admin)
+				{
+					SetCurrentScreen("Admin");
+				}
+				else
+				{
+					SetCurrentScreen("Home");
+				}
 			}
 		}
 

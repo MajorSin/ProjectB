@@ -306,6 +306,7 @@ namespace Reserveringssysteem.Classes
 		}
 		public class reserveringenJson
 		{
+			public int Id { get; set; }
 			public string Titel { get; set; }
 			public int AantalPersonen { get; set; }
 			public string datum { get; set; }

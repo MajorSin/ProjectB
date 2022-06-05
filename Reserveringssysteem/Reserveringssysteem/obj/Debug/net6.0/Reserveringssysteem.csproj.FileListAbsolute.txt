@@ -109,3 +109,18 @@ C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssystee
 C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\DataFiles\plattegrond.json
 C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\DataFiles\reserveringen.json
 C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\DataFiles\voeding.json
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\Admin.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\Betalen.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\draaiendeFilms.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\Film.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\Member.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\Reservering.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\Router.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\User.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\Voeding.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\Zaal.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Controllers\AdminController.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Controllers\FilmController.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Controllers\MemberController.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Controllers\UserController.cs
+C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Program.cs

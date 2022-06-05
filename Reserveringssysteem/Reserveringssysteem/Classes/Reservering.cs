@@ -5,10 +5,11 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 
-namespace Reserveringssysteem.Classes
+namespace Reserveringssysteem
 {
 	public class Reservering
 	{
+		public int Id { get; set; }
 		public string Titel { get; set; }
 		public int AantalPersonen { get; set; }
 		public string Datum { get; set; }
@@ -18,10 +19,12 @@ namespace Reserveringssysteem.Classes
 		public int[] Leeftijden { get; set; }
 		public string[] Stoelen { get; set; }
 		public string UniekeCode { get; set; }
+
 		public List<reserveringenJson> reserveringen;
 
-		public Reservering(string titel, int aantalPersonen, DateTime datum, int zaal, string[] namen, string username, int[] leeftijden, string[] stoelen)
+		public Reservering(int id, string titel, int aantalPersonen, DateTime datum, int zaal, string[] namen, string username, int[] leeftijden, string[] stoelen)
 		{
+			Id = id;
 			Titel = titel;
 			AantalPersonen = aantalPersonen;
 			CultureInfo netherlands = CultureInfo.GetCultureInfo("nl-NL");
@@ -38,6 +41,7 @@ namespace Reserveringssysteem.Classes
 		{
 			readJson();
 			reserveringenJson nieuwEntry = new reserveringenJson();
+			nieuwEntry.id = Id;
 			nieuwEntry.titel = Titel;
 			nieuwEntry.aantalPersonen = AantalPersonen;
 			nieuwEntry.datum = Datum;
@@ -49,7 +53,7 @@ namespace Reserveringssysteem.Classes
 			nieuwEntry.randomCode = UniekeCode;
 			reserveringen.Add(nieuwEntry);
 			var JsonData = JsonConvert.SerializeObject(reserveringen, Formatting.Indented);
-			System.IO.File.WriteAllText("DataFiles/reserveringen.json", JsonData, Encoding.UTF8);
+			File.WriteAllText("DataFiles/reserveringen.json", JsonData, Encoding.UTF8);
 		}
 		public string RandomCode()
 		{
@@ -81,8 +85,16 @@ namespace Reserveringssysteem.Classes
 			string jsonReserveringen = File.ReadAllText("DataFiles/reserveringen.json", Encoding.GetEncoding("utf-8"));
 			this.reserveringen = JsonConvert.DeserializeObject<List<reserveringenJson>>(jsonReserveringen);
 		}
+
+		public static List<reserveringenJson> GetReserveringen()
+        {
+			string jsonReserveringen = File.ReadAllText("DataFiles/reserveringen.json", Encoding.GetEncoding("utf-8"));
+			return JsonConvert.DeserializeObject<List<reserveringenJson>>(jsonReserveringen);
+		}
+
 		public class reserveringenJson
 		{
+			public int id { get; set; }
 			public string titel { get; set; }
 			public int aantalPersonen { get; set; }
 			public string datum { get; set; }
@@ -92,6 +104,58 @@ namespace Reserveringssysteem.Classes
 			public List<int> leeftijden { get; set; }
 			public string[] stoelen { get; set; }
 			public string randomCode { get; set; }
+
+			public override string ToString()
+			{
+				DateTime datumFilm = DateTime.Parse(datum);
+				string volledigeDatum = "";
+				CultureInfo netherlands = new CultureInfo("nl-NL");
+				string dayOfWeek = netherlands.DateTimeFormat.GetDayName(datumFilm.DayOfWeek);
+				dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
+				volledigeDatum = $"{dayOfWeek}, {datumFilm.Day} {datumFilm.ToString("MMM")} {datumFilm.Year}, {datumFilm.Hour}:{datumFilm.ToString("mm")}.";
+
+				string[] stoelenArr = stoelen;
+				Tuple<string, string>[] plaatsen = new Tuple<string, string>[stoelenArr.Length];
+
+				for (int i = 0; i < stoelenArr.Length; i++)
+				{
+					string[] plaats = stoelenArr[i].Split(':');
+					plaatsen[i] = Tuple.Create(plaats[0], plaats[1]);
+				}
+
+				string rij = plaatsen[0].Item2;
+				string stoelenStr = "";
+
+				for (int i = 0; i < plaatsen.Length; i++)
+				{
+					if (plaatsen.Length > 1)
+					{
+						if (i == plaatsen.Length - 1)
+						{
+							stoelenStr += $"en {plaatsen[i].Item1}";
+						}
+						else
+						{
+							stoelenStr += plaatsen[i].Item1 + ", ";
+						}
+					}
+					else
+					{
+						stoelenStr += plaatsen[i].Item1;
+					}
+				}
+
+				return String.Format(
+					"   Titel: {0} \n" +
+					"   Aantal personen: {1}\n" +
+					"   Datum: {2}\n" +
+					"   Zaal: {3}\n" +
+					"   Rij nummer: {4}\n" +
+					"   Stoel nummer: {5}\n" +
+					"   Code: {6}",
+					titel, aantalPersonen, volledigeDatum, zaal, rij, stoelenStr, randomCode, "\n\n"
+				);
+			}
 		}
 	}
 }
