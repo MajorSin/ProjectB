@@ -103,12 +103,6 @@ C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssystee
 C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Controllers\MemberController.cs
 C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Controllers\UserController.cs
 C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Program.cs
-C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\DataFiles\films.json
-C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\DataFiles\gedraaideFilms.json
-C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\DataFiles\members.json
-C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\DataFiles\plattegrond.json
-C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\DataFiles\reserveringen.json
-C:\Users\psing\OneDrive\Documenten\HR\Projects\Project B\Code\Reserveringssysteem\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\DataFiles\voeding.json
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\Admin.cs
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\Betalen.cs
 C:\Users\Omar Karimi\Desktop\Projecten\Hogeschool Rotterdam\C#\ProjectB\Reserveringssysteem\Reserveringssysteem\bin\Debug\net6.0\Classes\draaiendeFilms.cs
